@@ -1,10 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Palette, Copy, Check, Eye, ExternalLink, Sliders, X, Maximize2, Play, Upload, Film, Link as LinkIcon } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Sparkles, Palette, Check, ChevronLeft, ChevronRight, BookOpen, Layers, ExternalLink } from 'lucide-react';
 import { AtelierPalette } from '../data/colorPalettes';
 import antiqueBrassAtelierImage from '../assets/images/antique_brass_atelier_palette_1790242759642.jpg';
 import redThreadHandsImage from '../assets/images/red_thread_hands_1790503180613.jpg';
-import peoniesTwineImage from '../assets/images/hands_peonies_twine_1790503422624.jpg';
+import pinterestThumbnailImage from '../assets/images/pinterest_thumbnail_180144053839629127.jpg';
+import coutureConceptSketchImage from '../assets/images/couture_concept_sketch_1790592803430.jpg';
+
+interface LookbookPage {
+  id: string;
+  category: string;
+  pageNumber: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  badge: string;
+}
+
+const LOOKBOOK_PAGES: LookbookPage[] = [
+  {
+    id: 'inspiration',
+    category: 'INSPIRAÇÃO',
+    pageNumber: '01 / 04',
+    badge: 'INSPIRAÇÃO TÊXTIL',
+    title: 'Draperia Carmesim & Seda Zari',
+    subtitle: 'Texturas nobres de veludo, reflexos e drapeado clássico',
+    description: 'Estudo sensorial das dobras profundas da seda carmesim e do brilho sutil do fio dourado zari, servindo de ponto de partida escultórico para a coleção Fading Spark.',
+    image: pinterestThumbnailImage
+  },
+  {
+    id: 'concept',
+    category: 'CONCEITO',
+    pageNumber: '02 / 04',
+    badge: 'CONCEITO & NARRATIVA',
+    title: 'O Fio do Destino (Akai Ito)',
+    subtitle: 'Conexão poética entre a visão do ateliê e o corte manual',
+    description: 'Metáfora do fio escarlate que guia cada agulha e ponto artesanal, simbolizando a união perene entre a mulher, a matéria-prima e a criação atemporal.',
+    image: redThreadHandsImage
+  },
+  {
+    id: 'illustration',
+    category: 'ILUSTRAÇÃO',
+    pageNumber: '03 / 04',
+    badge: 'ILUSTRAÇÃO DE ALTA COSTURA',
+    title: 'Croquis de Alta Costura: Vestido Fading Spark',
+    subtitle: 'Estudo de silhueta, caimento e corte em papel pergaminho',
+    description: 'Ilustração editorial desenhada à mão em nanquim e aquarela carmesim, detalhando a cauda esvoaçante, a estrutura do corpete e os bordados em relevo.',
+    image: coutureConceptSketchImage
+  },
+  {
+    id: 'materiality',
+    category: 'MATERIALIDADE',
+    pageNumber: '04 / 04',
+    badge: 'MATERIALIDADE & PÁTINA',
+    title: 'Pátina de Bronze Antigo & Fios DMC',
+    subtitle: 'Alquimia de pigmentos minerais e meadas de bordado botânico',
+    description: 'Composição de aviamentos nobres, ferragens históricas de ateliê e meadas de seda francesa tingidas em tons de vinho tinto, ocre e dourado envelhecido.',
+    image: antiqueBrassAtelierImage
+  }
+];
 
 interface AtelierPhotoMoodboardPageProps {
   activePalette: AtelierPalette;
@@ -18,114 +72,36 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
   onOpenInquiry
 }) => {
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
-  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const [activeModalImage, setActiveModalImage] = useState<'peonies' | 'gramophone' | 'portrait'>('peonies');
-  const [videoUrl, setVideoUrl] = useState<string>(() => {
-    try {
-      return localStorage.getItem('atelier_arch_video_url') || '/videos/peonies_hands_cinematic.mp4';
-    } catch {
-      return '/videos/peonies_hands_cinematic.mp4';
-    }
-  });
-  const [isDriveInputOpen, setIsDriveInputOpen] = useState(false);
-  const [driveUrlInput, setDriveUrlInput] = useState('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
+  const [imageLoaded, setImageLoaded] = useState<boolean>(true);
   const archContainerRef = useRef<HTMLDivElement>(null);
-  const archVideoRef = useRef<HTMLVideoElement>(null);
-  const [isPlayingOnScroll, setIsPlayingOnScroll] = useState(false);
 
-  // Play video automatically when scrolled to section and pause when scrolled away
-  useEffect(() => {
-    const container = archContainerRef.current;
-    if (!container) return;
+  const currentPage = LOOKBOOK_PAGES[currentPageIndex];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (archVideoRef.current) {
-              archVideoRef.current
-                .play()
-                .then(() => setIsPlayingOnScroll(true))
-                .catch(() => {
-                  // Autoplay policy fallback: muted video is permitted in all modern browsers
-                });
-            }
-          } else {
-            if (archVideoRef.current) {
-              archVideoRef.current.pause();
-              setIsPlayingOnScroll(false);
-            }
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(container);
-    return () => {
-      observer.disconnect();
-    };
-  }, [videoUrl]);
-
-  // Helper to parse Google Drive URLs into embeddable preview links or identify direct video
-  const parsedVideo = React.useMemo(() => {
-    if (!videoUrl) return null;
-    const driveMatch = videoUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || videoUrl.match(/id=([a-zA-Z0-9_-]+)/);
-    if (driveMatch && driveMatch[1]) {
-      return {
-        type: 'gdrive' as const,
-        embedUrl: `https://drive.google.com/file/d/${driveMatch[1]}/preview`,
-        rawId: driveMatch[1]
-      };
-    }
-    return {
-      type: 'direct' as const,
-      embedUrl: videoUrl
-    };
-  }, [videoUrl]);
-
-  const handleSaveDriveUrl = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (driveUrlInput.trim()) {
-      const trimmed = driveUrlInput.trim();
-      setVideoUrl(trimmed);
-      try {
-        localStorage.setItem('atelier_arch_video_url', trimmed);
-      } catch (err) {
-        console.error(err);
-      }
-      setIsDriveInputOpen(false);
-      setDriveUrlInput('');
-    }
+  const handleNextPage = () => {
+    setImageLoaded(false);
+    setTimeout(() => {
+      setCurrentPageIndex((prev) => (prev + 1) % LOOKBOOK_PAGES.length);
+      setImageLoaded(true);
+    }, 120);
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const objUrl = URL.createObjectURL(file);
-      setVideoUrl(objUrl);
-      try {
-        localStorage.setItem('atelier_arch_video_url', objUrl);
-      } catch (err) {
-        console.error(err);
-      }
-      setIsDriveInputOpen(false);
-    }
+  const handlePrevPage = () => {
+    setImageLoaded(false);
+    setTimeout(() => {
+      setCurrentPageIndex((prev) => (prev - 1 + LOOKBOOK_PAGES.length) % LOOKBOOK_PAGES.length);
+      setImageLoaded(true);
+    }, 120);
   };
 
-  // Close modal with Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsImageModalOpen(false);
-      }
-    };
-    if (isImageModalOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isImageModalOpen]);
+  const handleSelectPage = (index: number) => {
+    if (index === currentPageIndex) return;
+    setImageLoaded(false);
+    setTimeout(() => {
+      setCurrentPageIndex(index);
+      setImageLoaded(true);
+    }, 120);
+  };
 
   const handleCopy = (hex: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -144,196 +120,173 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
       {/* Background Volumetric Radiant Aura Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[var(--color-accent,#540D21)]/22 via-[var(--color-gold,#851737)]/12 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        {/* Left Column: Architectural Arch Portrait Window & Golden Title Plaque */}
-        <div className="lg:col-span-5 flex flex-col items-center sm:items-start">
-          <div ref={archContainerRef} className="relative group w-full max-w-sm">
-            {/* Hidden Video File Input */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              accept="video/*"
-              className="hidden"
-              onChange={handleFileUpload}
-            />
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        {/* Centered Editorial Header Plaque */}
+        <div className="text-center mb-8 space-y-3 max-w-xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-gradient-to-r from-[var(--color-accent,#540D21)] via-[var(--color-gold,#851737)] to-[var(--color-bronze,#A63856)] border border-[var(--color-accent,#540D21)] shadow-md text-[var(--color-base,#FAF6EE)] text-[10px] font-mono uppercase tracking-[0.25em] font-black">
+            <Sparkles className="w-3 h-3" />
+            <span>ALQUIMIA CROMÁTICA</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-wide text-[#540D21] leading-none py-2 select-none flex items-center justify-center flex-wrap gap-x-4">
+            <span className="inline-flex items-baseline">
+              <span className="font-['Monsieur_La_Doulaise','Mea_Culpa','Pinyon_Script',cursive] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal leading-none text-[#540D21] inline-block pr-1 transform -translate-y-1 select-none">
+                F
+              </span>
+              <span className="font-['Great_Vibes','Pinyon_Script','Alex_Brush',cursive] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-wide">
+                ading
+              </span>
+            </span>
+            <span className="inline-flex items-baseline">
+              <span className="font-['Monsieur_La_Doulaise','Mea_Culpa','Pinyon_Script',cursive] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal leading-none text-[#540D21] inline-block pr-0.5 transform -translate-y-1 select-none">
+                S
+              </span>
+              <span className="font-['Great_Vibes','Pinyon_Script','Alex_Brush',cursive] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-wide">
+                park
+              </span>
+            </span>
+          </h2>
+          <div className="text-xs font-mono uppercase tracking-[0.2em] text-[var(--color-accent,#540D21)] font-bold">
+            {activePalette.tagline}
+          </div>
+        </div>
 
-            {/* Arched Window with Antique Brass Rim - Peonies Video Reel Presentation */}
+        {/* Center Arched Window - Clickable Interactive Lookbook Showcase */}
+        <div className="w-full flex flex-col items-center mb-14">
+          <div ref={archContainerRef} className="relative group/arch w-full max-w-md mx-auto">
+            {/* Clickable Arch Frame */}
             <div
               role="button"
               tabIndex={0}
-              onClick={() => {
-                setActiveModalImage('peonies');
-                setIsImageModalOpen(true);
-              }}
+              onClick={handleNextPage}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  setActiveModalImage('peonies');
-                  setIsImageModalOpen(true);
+                  handleNextPage();
+                } else if (e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  handleNextPage();
+                } else if (e.key === 'ArrowLeft') {
+                  e.preventDefault();
+                  handlePrevPage();
                 }
               }}
-              aria-label="Reproduzir vídeo editorial de peônias magentas e mãos atadas"
-              data-cursor="pointer"
-              data-cursor-text={isPlayingOnScroll ? "EXPANDIR" : "PLAY"}
-              className="aspect-[3/4.2] w-full rounded-t-full border-2 border-[var(--color-accent,#540D21)] p-2 bg-[var(--color-panel,#EFE6D5)] shadow-[0_20px_40px_rgba(84,13,33,0.18)] overflow-hidden relative cursor-pointer group/arch"
+              title="Clique para avançar para a próxima página do dossiê (ou use as setas)"
+              aria-label={`Página atual: ${currentPage.category} - ${currentPage.title}. Clique para avançar.`}
+              className="aspect-[3/4.2] w-full rounded-t-full border-2 border-[var(--color-accent,#540D21)] p-2 bg-[var(--color-panel,#EFE6D5)] shadow-[0_25px_60px_rgba(84,13,33,0.25)] overflow-hidden relative cursor-pointer select-none transition-transform duration-300 hover:shadow-[0_30px_70px_rgba(84,13,33,0.35)]"
             >
-              <div className="w-full h-full rounded-t-full overflow-hidden relative bg-black">
-                {parsedVideo?.type === 'gdrive' ? (
-                  <iframe
-                    src={`${parsedVideo.embedUrl}?autoplay=1`}
-                    title="Peônias & Mãos Atadas - Google Drive Reel"
-                    className="w-full h-full rounded-t-full border-0 object-cover pointer-events-auto"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : parsedVideo?.type === 'direct' ? (
-                  <video
-                    ref={archVideoRef}
-                    src={parsedVideo.embedUrl}
-                    loop
-                    muted
-                    playsInline
-                    poster={peoniesTwineImage}
-                    className="w-full h-full object-cover group-hover/arch:scale-105 transition-transform duration-700 select-none"
-                  />
-                ) : (
-                  <>
-                    {/* Base monochrome layer: hands, twine & background in high-contrast B&W */}
-                    <img
-                      src={peoniesTwineImage}
-                      alt="Peônias & Mãos Atadas - Base P&B"
-                      className="w-full h-full object-cover group-hover/arch:scale-108 transition-transform duration-700 select-none grayscale contrast-110"
-                      referrerPolicy="no-referrer"
-                    />
+              <div className="w-full h-full rounded-t-full overflow-hidden relative bg-black flex items-center justify-center">
+                {/* Pure unobstructed photograph / illustration without text overlays on image */}
+                <img
+                  src={currentPage.image}
+                  alt={`${currentPage.title} - ${currentPage.category}`}
+                  className={`w-full h-full object-cover transition-all duration-500 select-none group-hover/arch:scale-105 ${
+                    imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  }`}
+                  referrerPolicy="no-referrer"
+                />
 
-                    {/* Selective vibrant pink flower layer */}
-                    <img
-                      src={peoniesTwineImage}
-                      alt="Peônias com Flores Rosa Vibrante"
-                      className="absolute inset-0 w-full h-full object-cover group-hover/arch:scale-108 transition-transform duration-700 select-none pointer-events-none"
-                      style={{
-                        maskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)',
-                        WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)'
-                      }}
-                      referrerPolicy="no-referrer"
-                    />
-                  </>
-                )}
+                {/* Subtle side navigation arrows that reveal smoothly on hover */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevPage();
+                  }}
+                  aria-label="Página anterior"
+                  title="Página anterior"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-[#540D21] text-white border border-white/30 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/arch:opacity-100 transition-all duration-200 cursor-pointer shadow-lg hover:scale-110"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30 pointer-events-none" />
-
-                {/* Top Live Reel Tag */}
-                <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-black/65 backdrop-blur-md rounded-full border border-white/20 text-[9px] font-mono tracking-widest uppercase text-white/95 shadow-md pointer-events-none">
-                  <span className={`w-2 h-2 rounded-full ${isPlayingOnScroll ? 'bg-emerald-400' : 'bg-rose-500'} animate-pulse`} />
-                  <span>{isPlayingOnScroll ? 'VÍDEO EM REPRODUÇÃO' : 'VÍDEO · REEL'}</span>
-                </div>
-
-                {/* Center Cinematic Play / Expand Button */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 pointer-events-none transition-opacity duration-300 ${isPlayingOnScroll ? 'opacity-0 group-hover/arch:opacity-100' : 'opacity-100'}`}>
-                  <div className="w-14 h-14 rounded-full bg-white/25 backdrop-blur-md border border-white/60 flex items-center justify-center shadow-2xl group-hover/arch:scale-110 group-hover/arch:bg-white/40 transition-all duration-300">
-                    <Play className="w-6 h-6 text-white fill-white ml-1 drop-shadow" />
-                  </div>
-                  <span className="mt-3 px-3 py-1 bg-black/80 backdrop-blur-sm border border-white/20 rounded-xs text-[10px] font-mono uppercase tracking-widest text-[#FAF6EE] shadow-xl">
-                    Expandir Vídeo · 9:16
-                  </span>
-                </div>
-
-                {/* Bottom Title Plaque on Video */}
-                <div className="absolute bottom-3 inset-x-3 text-center pointer-events-none">
-                  <div className="text-[11px] font-serif tracking-wider text-white/95 drop-shadow font-medium">
-                    Peônias Magentas & Mãos Atadas
-                  </div>
-                </div>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNextPage();
+                  }}
+                  aria-label="Próxima página"
+                  title="Próxima página"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-[#540D21] text-white border border-white/30 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/arch:opacity-100 transition-all duration-200 cursor-pointer shadow-lg hover:scale-110"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
 
-            {/* Quick Video Configuration Bar (Google Drive / Upload) */}
-            <div className="mt-2.5 flex items-center justify-between gap-2 px-1">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsDriveInputOpen(!isDriveInputOpen);
-                }}
-                className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:text-[#851737] bg-[#EFE6D5]/80 hover:bg-[#EFE6D5] px-2.5 py-1 border border-[#DECFC0] transition-colors cursor-pointer rounded-xs"
-                title="Configurar Link do Google Drive ou URL de vídeo"
-              >
-                <LinkIcon className="w-3 h-3" />
-                <span>{parsedVideo ? 'Trocar Link Drive' : 'Link Google Drive'}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  fileInputRef.current?.click();
-                }}
-                className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:text-[#851737] bg-[#EFE6D5]/80 hover:bg-[#EFE6D5] px-2.5 py-1 border border-[#DECFC0] transition-colors cursor-pointer rounded-xs"
-                title="Selecionar arquivo de vídeo do computador"
-              >
-                <Upload className="w-3 h-3" />
-                <span>Subir Vídeo</span>
-              </button>
+            {/* Interactive Page Switcher Pills */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
+              {LOOKBOOK_PAGES.map((page, idx) => (
+                <button
+                  key={page.id}
+                  onClick={() => handleSelectPage(idx)}
+                  className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider border rounded-xs transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                    currentPageIndex === idx
+                      ? 'bg-[#540D21] text-[#FAF6EE] border-[#540D21] font-bold shadow-md'
+                      : 'bg-[#EFE6D5]/90 text-[#540D21] border-[#DECFC0] hover:border-[#540D21] hover:bg-[#EFE6D5]'
+                  }`}
+                  aria-label={`Ver página ${idx + 1}: ${page.category}`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
+                  <span>{`${idx + 1}. ${page.category}`}</span>
+                </button>
+              ))}
             </div>
 
-            {/* Inline Google Drive Link Form */}
-            {isDriveInputOpen && (
-              <form onSubmit={handleSaveDriveUrl} className="mt-2 p-3 bg-[#FAF6EE] border border-[#540D21]/40 rounded-xs shadow-lg space-y-2 text-left">
-                <label className="block text-[10px] font-mono uppercase tracking-wider text-[#540D21] font-bold">
-                  URL do Google Drive ou Vídeo (.mp4):
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    type="url"
-                    placeholder="https://drive.google.com/file/d/.../view"
-                    value={driveUrlInput}
-                    onChange={(e) => setDriveUrlInput(e.target.value)}
-                    className="flex-1 text-xs px-2.5 py-1.5 bg-white border border-[#DECFC0] text-[#241217] rounded-xs font-mono focus:outline-none focus:border-[#540D21]"
-                  />
+            {/* Editorial Caption Plaque for Current Lookbook Page */}
+            <div className="mt-4 p-4 sm:p-5 bg-[var(--color-panel,#EFE6D5)] border border-[var(--color-mocha,#DECFC0)] shadow-md text-left transition-all duration-300">
+              <div className="flex items-center justify-between border-b border-[var(--color-mocha,#DECFC0)]/80 pb-2.5 mb-2.5">
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-3.5 h-3.5 text-[#540D21]" />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
+                    {currentPage.badge}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
+                    {currentPage.pageNumber}
+                  </span>
+                </div>
+              </div>
+
+              <h3 className="font-avonia text-xl sm:text-2xl text-[var(--color-text,#241217)] leading-tight mb-1">
+                {currentPage.title}
+              </h3>
+              <p className="text-xs text-[var(--color-accent,#540D21)] font-mono uppercase tracking-wider mb-2 font-medium">
+                {currentPage.subtitle}
+              </p>
+              <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-editorial">
+                {currentPage.description}
+              </p>
+
+              {/* Page turn quick prompt */}
+              <div className="mt-3 pt-2.5 border-t border-[var(--color-mocha,#DECFC0)]/50 flex items-center justify-between text-[9px] font-mono text-[#540D21]/80">
+                <span className="flex items-center gap-1">
+                  <Layers className="w-3 h-3" />
+                  <span>Clique na imagem para folhear o dossiê</span>
+                </span>
+                <div className="flex items-center gap-2">
                   <button
-                    type="submit"
-                    className="px-3 py-1.5 text-xs font-mono uppercase font-bold bg-[#540D21] text-white rounded-xs hover:bg-[#6E112B] transition-colors cursor-pointer"
+                    onClick={handlePrevPage}
+                    className="hover:text-[#540D21] hover:underline cursor-pointer uppercase font-bold"
                   >
-                    Salvar
+                    &larr; Anterior
+                  </button>
+                  <span>/</span>
+                  <button
+                    onClick={handleNextPage}
+                    className="hover:text-[#540D21] hover:underline cursor-pointer uppercase font-bold"
+                  >
+                    Próxima &rarr;
                   </button>
                 </div>
-                <div className="flex items-center justify-between text-[9px] text-[#241217]/70 font-mono">
-                  <span>Dica: no Google Drive, configure o arquivo como &ldquo;Qualquer pessoa com o link&rdquo;.</span>
-                  {videoUrl && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setVideoUrl('');
-                        localStorage.removeItem('atelier_arch_video_url');
-                      }}
-                      className="text-red-700 hover:underline cursor-pointer"
-                    >
-                      Remover
-                    </button>
-                  )}
-                </div>
-              </form>
-            )}
-          </div>
-
-          {/* Golden Plaque Heading under Arch */}
-          <div className="mt-8 space-y-2 p-5 bg-gradient-to-br from-[var(--color-accent,#540D21)] via-[var(--color-gold,#851737)] to-[var(--color-bronze,#A63856)] border-2 border-[var(--color-accent,#540D21)] shadow-xl text-[var(--color-base,#FAF6EE)] relative overflow-hidden w-full max-w-sm">
-            <div className="absolute inset-1 border border-black/15 pointer-events-none" />
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[var(--color-base,#FAF6EE)] font-black flex items-center gap-1.5">
-              <Sparkles className="w-3 h-3" />
-              <span>ALQUIMIA CROMÁTICA</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-avonia tracking-normal font-normal text-[var(--color-base,#FAF6EE)] leading-tight">
-              Fading Spark
-            </h2>
-            <div className="text-xs font-mono uppercase tracking-[0.15em] text-[var(--color-base,#FAF6EE)]/90 font-bold pt-1">
-              {activePalette.tagline}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: High-Fashion Moodboard, Swatch Strip & Materiality Grid */}
-        <div className="lg:col-span-7 flex flex-col gap-6">
+        {/* High-Fashion Moodboard, Swatch Strip & Materiality Grid */}
+        <div className="w-full flex flex-col gap-8">
           {/* Active Swatches Live Inspection Ribbon */}
           <div className="p-4 sm:p-5 bg-[var(--color-panel,#EFE6D5)] border border-[var(--color-mocha,#DECFC0)] relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-[var(--color-mocha,#DECFC0)] pb-3 mb-4">
@@ -462,252 +415,6 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
           </div>
         </div>
       </div>
-
-      {/* Lightbox / High-Resolution Editorial Image Modal */}
-      <AnimatePresence>
-        {isImageModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-            {/* Dark Haute-Couture Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsImageModalOpen(false)}
-              className="fixed inset-0 bg-black/85 backdrop-blur-md"
-            />
-
-            {/* Modal Dialog Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-5xl bg-[#FAF6EE] border-2 border-[var(--color-accent,#540D21)] shadow-[0_25px_80px_rgba(0,0,0,0.8)] z-10 max-h-[92vh] flex flex-col overflow-hidden text-[#241217]"
-            >
-              {/* Header Bar */}
-              <div className="px-5 py-3.5 bg-[#EFE6D5] border-b border-[#DECFC0] flex items-center justify-between">
-                <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-[#540D21]">
-                  <span className="w-2 h-2 rounded-full bg-[#540D21] animate-pulse" />
-                  <span className="font-bold">PAGE 03 · ARQUIVO FOTOGRÁFICO DE ALTA COSTURA</span>
-                  <span className="text-[#851737] hidden sm:inline">/</span>
-                  <span className="hidden sm:inline text-neutral-600 font-semibold">{activePalette.name}</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setIsImageModalOpen(false)}
-                    className="p-1.5 bg-[#FAF6EE] hover:bg-[#540D21] hover:text-[#FAF6EE] text-[#241217] border border-[#DECFC0] hover:border-[#540D21] transition-colors cursor-pointer"
-                    title="Fechar (Esc)"
-                    aria-label="Fechar modal"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Main Content Area */}
-              <div className="flex-1 overflow-y-auto p-4 sm:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  {/* Left Column: Enlarged Display */}
-                  <div className="lg:col-span-7 flex flex-col items-center justify-center">
-                    <div className="relative w-full max-w-md bg-[#EFE6D5] p-3 border-2 border-[#540D21] shadow-2xl">
-                      {activeModalImage === 'portrait' ? (
-                        <div className="aspect-[3/4.2] w-full rounded-t-full border border-[#540D21] overflow-hidden bg-black relative">
-                          <img
-                            src={redThreadHandsImage}
-                            alt="Red Thread of Fate Editorial - Two hands connected by crimson string"
-                            className="w-full h-full object-cover contrast-110 select-none"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                        </div>
-                      ) : activeModalImage === 'peonies' ? (
-                        <div className="aspect-[9/16] max-h-[62vh] mx-auto border-2 border-[#540D21] overflow-hidden bg-black relative shadow-2xl rounded-xs">
-                          {parsedVideo?.type === 'gdrive' ? (
-                            <iframe
-                              src={`${parsedVideo.embedUrl}?autoplay=1`}
-                              title="Peônias Magentas & Mãos Atadas - Google Drive Player"
-                              className="w-full h-full border-0 object-cover"
-                              allow="autoplay; fullscreen; picture-in-picture"
-                              allowFullScreen
-                            />
-                          ) : parsedVideo?.type === 'direct' ? (
-                            <video
-                              src={parsedVideo.embedUrl}
-                              controls
-                              autoPlay
-                              loop
-                              playsInline
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <>
-                              {/* Monochrome background layer */}
-                              <img
-                                src={peoniesTwineImage}
-                                alt="Peônias Magentas & Mãos Atadas com Corda Rústica - Video Reel"
-                                className="w-full h-full object-cover select-none grayscale contrast-110"
-                                referrerPolicy="no-referrer"
-                              />
-                              {/* Selective vibrant pink peony layer */}
-                              <img
-                                src={peoniesTwineImage}
-                                alt="Peônias Magentas em Rosa Vibrante"
-                                className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                                style={{
-                                  maskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)',
-                                  WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)'
-                                }}
-                                referrerPolicy="no-referrer"
-                              />
-                            </>
-                          )}
-                          <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/75 backdrop-blur-sm border border-white/20 rounded-full text-[9px] font-mono text-white flex items-center gap-1.5 shadow-md pointer-events-none">
-                            <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                            <span>{parsedVideo ? 'VÍDEO REEL ATIVO' : 'VÍDEO REEL · 9:16'}</span>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="aspect-[4/3] w-full border border-[#540D21] overflow-hidden bg-black relative">
-                          <img
-                            src={antiqueBrassAtelierImage}
-                            alt="Antique Brass Gramophone & Silk Embroidery Threads"
-                            className="w-full h-full object-cover contrast-115 select-none"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-                      )}
-
-                      {/* Photo Caption Plaque */}
-                      <div className="mt-3 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-[#540D21]">
-                        <span className="font-bold">
-                          {activeModalImage === 'portrait'
-                            ? "FIO DO DESTINO · RED THREAD EDITORIAL"
-                            : activeModalImage === 'peonies'
-                            ? "PEÔNIAS & MÃOS ATADAS · CINEMATIC REEL"
-                            : 'PATINA DE GRAMOFONE ANTIGO & FIOS DMC'}
-                        </span>
-                        <span className="text-[10px] text-neutral-500 font-mono">
-                          {activeModalImage === 'peonies' ? '9:16 VÍDEO EDITORIAL' : '1600 × 2240px'}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Switcher tabs beneath image */}
-                    <div className="flex items-center gap-2 mt-4 flex-wrap justify-center">
-                      <button
-                        onClick={() => setActiveModalImage('peonies')}
-                        className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider border transition-all cursor-pointer flex items-center gap-1.5 ${
-                          activeModalImage === 'peonies'
-                            ? 'bg-[#540D21] text-[#FAF6EE] border-[#540D21] font-bold shadow'
-                            : 'bg-[#FAF6EE] text-[#540D21] border-[#DECFC0] hover:border-[#540D21]'
-                        }`}
-                      >
-                        <Play className="w-3 h-3 fill-current" />
-                        1. Vídeo Peônias (Reel)
-                      </button>
-                      <button
-                        onClick={() => setActiveModalImage('gramophone')}
-                        className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider border transition-all cursor-pointer ${
-                          activeModalImage === 'gramophone'
-                            ? 'bg-[#540D21] text-[#FAF6EE] border-[#540D21] font-bold shadow'
-                            : 'bg-[#FAF6EE] text-[#540D21] border-[#DECFC0] hover:border-[#540D21]'
-                        }`}
-                      >
-                        2. Gramofone &amp; Fios
-                      </button>
-                      <button
-                        onClick={() => setActiveModalImage('portrait')}
-                        className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider border transition-all cursor-pointer ${
-                          activeModalImage === 'portrait'
-                            ? 'bg-[#540D21] text-[#FAF6EE] border-[#540D21] font-bold shadow'
-                            : 'bg-[#FAF6EE] text-[#540D21] border-[#DECFC0] hover:border-[#540D21]'
-                        }`}
-                      >
-                        3. Fio do Destino
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Editorial Dossier & Controls */}
-                  <div className="lg:col-span-5 space-y-6">
-                    <div className="space-y-2">
-                      <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#851737] font-bold flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-[#540D21]" />
-                        <span>ESTUDO DE ILUMINAÇÃO &amp; FORMA</span>
-                      </div>
-                      <h3 className="font-avonia text-3xl sm:text-4xl text-[#241217] leading-tight">
-                        {activeModalImage === 'portrait'
-                          ? 'Silhueta de Alta Costura & Expressão'
-                          : activeModalImage === 'peonies'
-                          ? 'Laços Botânicos & Peônias Magentas'
-                          : 'Pátina de Bronze Antigo & Seda Zardozi'}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-editorial">
-                        {activeModalImage === 'portrait'
-                          ? 'Fotografia editorial explorando a harmonia entre o corte estruturado, a modéstia escultural e a postura marcante. Inspirado nas proporções clássicas dos ateliês parisienses cruzadas com a dramaticidade têxtil indiana.'
-                          : activeModalImage === 'peonies'
-                          ? 'Enquadramento cinemático em vídeo destacando o simbolismo tátil da corda rústica de cânhamo entrelaçada a peônias vivas em tons magenta vibrante, unindo a crueza têxtil à delicadeza orgânica.'
-                          : 'Estudo microscópico de reflexos metálicos em latão envelhecido e o contraste com meadas de seda crua tingidas artesanalmente com extratos botânicos.'}
-                      </p>
-                    </div>
-
-                    {/* Active Palette Swatches Preview */}
-                    <div className="p-3 bg-[#EFE6D5] border border-[#DECFC0] space-y-2">
-                      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
-                        <span>PALETA DO ATELIER: {activePalette.name}</span>
-                        <span>5 TONALIDADES</span>
-                      </div>
-                      <div className="grid grid-cols-5 gap-1.5">
-                        {activePalette.swatches.slice(0, 5).map((sw, i) => (
-                          <div key={i} className="space-y-1">
-                            <div
-                              className="h-8 w-full border border-black/20 shadow-xs"
-                              style={{ backgroundColor: sw.hex }}
-                              title={`${sw.name} (${sw.hex})`}
-                            />
-                            <div className="text-[8px] font-mono text-[#241217] truncate font-semibold">
-                              {sw.hex}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action buttons */}
-                    <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                      {onOpenInquiry && (
-                        <button
-                          onClick={() => {
-                            setIsImageModalOpen(false);
-                            onOpenInquiry();
-                          }}
-                          className="px-5 py-2.5 bg-[#540D21] hover:bg-[#851737] text-[#FAF6EE] text-xs font-mono uppercase tracking-widest font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                          <span>Solicitar Peça sob Medida</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </button>
-                      )}
-                      {onOpenColorModal && (
-                        <button
-                          onClick={() => {
-                            setIsImageModalOpen(false);
-                            onOpenColorModal();
-                          }}
-                          className="px-4 py-2.5 bg-[#FAF6EE] hover:bg-[#EFE6D5] text-[#540D21] border border-[#540D21] text-xs font-mono uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                          <Palette className="w-3.5 h-3.5" />
-                          <span>Mudar Paleta</span>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
