@@ -1,27 +1,17 @@
 import React, { useState, useRef } from 'react';
-import { Sparkles, Palette, Check, ChevronLeft, ChevronRight, BookOpen, Layers, ExternalLink } from 'lucide-react';
+import { Sparkles, Palette, Check, ChevronLeft, ChevronRight, ExternalLink, Plus, PenTool, Layers, Eye } from 'lucide-react';
 import { AtelierPalette } from '../data/colorPalettes';
 import antiqueBrassAtelierImage from '../assets/images/antique_brass_atelier_palette_1790242759642.jpg';
 import redThreadHandsImage from '../assets/images/red_thread_hands_1790503180613.jpg';
 import pinterestThumbnailImage from '../assets/images/pinterest_thumbnail_180144053839629127.jpg';
 import coutureConceptSketchImage from '../assets/images/couture_concept_sketch_1790592803430.jpg';
+import { ConceptInspirationStudioModal, ConceptItem } from './ConceptInspirationStudioModal';
+import { FadingSparkProjectDetailPage } from './FadingSparkProjectDetailPage';
 
-interface LookbookPage {
-  id: string;
-  category: string;
-  pageNumber: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  badge: string;
-}
-
-const LOOKBOOK_PAGES: LookbookPage[] = [
+const DEFAULT_LOOKBOOK_PAGES: ConceptItem[] = [
   {
-    id: 'inspiration',
+    id: 'inspiration-1',
     category: 'INSPIRAÇÃO',
-    pageNumber: '01 / 04',
     badge: 'INSPIRAÇÃO TÊXTIL',
     title: 'Draperia Carmesim & Seda Zari',
     subtitle: 'Texturas nobres de veludo, reflexos e drapeado clássico',
@@ -29,9 +19,8 @@ const LOOKBOOK_PAGES: LookbookPage[] = [
     image: pinterestThumbnailImage
   },
   {
-    id: 'concept',
+    id: 'concept-1',
     category: 'CONCEITO',
-    pageNumber: '02 / 04',
     badge: 'CONCEITO & NARRATIVA',
     title: 'O Fio do Destino (Akai Ito)',
     subtitle: 'Conexão poética entre a visão do ateliê e o corte manual',
@@ -39,9 +28,8 @@ const LOOKBOOK_PAGES: LookbookPage[] = [
     image: redThreadHandsImage
   },
   {
-    id: 'illustration',
+    id: 'illustration-1',
     category: 'ILUSTRAÇÃO',
-    pageNumber: '03 / 04',
     badge: 'ILUSTRAÇÃO DE ALTA COSTURA',
     title: 'Croquis de Alta Costura: Vestido Fading Spark',
     subtitle: 'Estudo de silhueta, caimento e corte em papel pergaminho',
@@ -49,9 +37,8 @@ const LOOKBOOK_PAGES: LookbookPage[] = [
     image: coutureConceptSketchImage
   },
   {
-    id: 'materiality',
+    id: 'materiality-1',
     category: 'MATERIALIDADE',
-    pageNumber: '04 / 04',
     badge: 'MATERIALIDADE & PÁTINA',
     title: 'Pátina de Bronze Antigo & Fios DMC',
     subtitle: 'Alquimia de pigmentos minerais e meadas de bordado botânico',
@@ -74,14 +61,30 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const [imageLoaded, setImageLoaded] = useState<boolean>(true);
+  const [isStudioOpen, setIsStudioOpen] = useState(false);
+  const [isProjectDetailOpen, setIsProjectDetailOpen] = useState(false);
+  const [lookbookItems, setLookbookItems] = useState<ConceptItem[]>(() => {
+    try {
+      const cached = localStorage.getItem('shatma_lookbook_items');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {
+      console.error('Failed to load cached lookbook items', e);
+    }
+    return DEFAULT_LOOKBOOK_PAGES;
+  });
+
   const archContainerRef = useRef<HTMLDivElement>(null);
 
-  const currentPage = LOOKBOOK_PAGES[currentPageIndex];
+  const safeIndex = currentPageIndex >= lookbookItems.length ? 0 : currentPageIndex;
+  const currentPage = lookbookItems[safeIndex] || DEFAULT_LOOKBOOK_PAGES[0];
 
   const handleNextPage = () => {
     setImageLoaded(false);
     setTimeout(() => {
-      setCurrentPageIndex((prev) => (prev + 1) % LOOKBOOK_PAGES.length);
+      setCurrentPageIndex((prev) => (prev + 1) % lookbookItems.length);
       setImageLoaded(true);
     }, 120);
   };
@@ -89,18 +92,35 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
   const handlePrevPage = () => {
     setImageLoaded(false);
     setTimeout(() => {
-      setCurrentPageIndex((prev) => (prev - 1 + LOOKBOOK_PAGES.length) % LOOKBOOK_PAGES.length);
+      setCurrentPageIndex((prev) => (prev - 1 + lookbookItems.length) % lookbookItems.length);
       setImageLoaded(true);
     }, 120);
   };
 
-  const handleSelectPage = (index: number) => {
-    if (index === currentPageIndex) return;
-    setImageLoaded(false);
-    setTimeout(() => {
-      setCurrentPageIndex(index);
-      setImageLoaded(true);
-    }, 120);
+  const handleAddLookbookItem = (newItem: ConceptItem) => {
+    setLookbookItems((prev) => {
+      const updated = [newItem, ...prev];
+      try {
+        localStorage.setItem('shatma_lookbook_items', JSON.stringify(updated));
+      } catch (e) {
+        console.error('Failed to save lookbook items', e);
+      }
+      return updated;
+    });
+    setCurrentPageIndex(0);
+  };
+
+  const handleDeleteLookbookItem = (id: string) => {
+    setLookbookItems((prev) => {
+      const updated = prev.filter((item) => item.id !== id);
+      try {
+        localStorage.setItem('shatma_lookbook_items', JSON.stringify(updated));
+      } catch (e) {
+        console.error('Failed to save lookbook items', e);
+      }
+      return updated;
+    });
+    setCurrentPageIndex(0);
   };
 
   const handleCopy = (hex: string, e: React.MouseEvent) => {
@@ -153,15 +173,41 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
         {/* Center Arched Window - Clickable Interactive Lookbook Showcase */}
         <div className="w-full flex flex-col items-center mb-14">
           <div ref={archContainerRef} className="relative group/arch w-full max-w-md mx-auto">
-            {/* Clickable Arch Frame */}
+            {/* Action Bar Above Arch: Dossier Counter + Add Concept / Illustration Button */}
+            <div className="flex items-center justify-between gap-2 mb-2.5 px-1">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
+                  {String(safeIndex + 1).padStart(2, '0')} / {String(lookbookItems.length).padStart(2, '0')}
+                </span>
+                <span className="text-[9px] font-mono px-2 py-0.5 bg-[#540D21]/10 text-[#540D21] rounded-xs border border-[#540D21]/20 font-bold uppercase">
+                  {currentPage.category}
+                </span>
+              </div>
+
+              {/* Clickable Icon Button to Open New Page for Concept Note, Inspiration, Illustration */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsStudioOpen(true);
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#540D21] hover:bg-[#6E112B] text-white text-[10px] sm:text-xs font-mono uppercase tracking-wider font-bold rounded-xs shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
+                title="Abrir página para adicionar novo conceito, inspiração ou ilustração"
+              >
+                <Plus className="w-3.5 h-3.5 text-amber-200" />
+                <span>+ Novo Conceito / Ilustração</span>
+              </button>
+            </div>
+
+            {/* Clickable Arch Frame - Opens Project Details Page */}
             <div
               role="button"
               tabIndex={0}
-              onClick={handleNextPage}
+              onClick={() => setIsProjectDetailOpen(true)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  handleNextPage();
+                  setIsProjectDetailOpen(true);
                 } else if (e.key === 'ArrowRight') {
                   e.preventDefault();
                   handleNextPage();
@@ -170,20 +216,30 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                   handlePrevPage();
                 }
               }}
-              title="Clique para avançar para a próxima página do dossiê (ou use as setas)"
-              aria-label={`Página atual: ${currentPage.category} - ${currentPage.title}. Clique para avançar.`}
-              className="aspect-[3/4.2] w-full rounded-t-full border-2 border-[var(--color-accent,#540D21)] p-2 bg-[var(--color-panel,#EFE6D5)] shadow-[0_25px_60px_rgba(84,13,33,0.25)] overflow-hidden relative cursor-pointer select-none transition-transform duration-300 hover:shadow-[0_30px_70px_rgba(84,13,33,0.35)]"
+              title="Clique para abrir a página de detalhes deste projeto (Fading Spark)"
+              aria-label={`Ver detalhes do projeto: ${currentPage.title}. Clique para abrir página completa.`}
+              className="aspect-[3/4.2] w-full rounded-t-full border-2 border-[var(--color-accent,#540D21)] p-2 bg-[var(--color-panel,#EFE6D5)] shadow-[0_25px_60px_rgba(84,13,33,0.25)] overflow-hidden relative cursor-pointer select-none transition-transform duration-300 hover:shadow-[0_30px_70px_rgba(84,13,33,0.35)] hover:scale-[1.01]"
             >
               <div className="w-full h-full rounded-t-full overflow-hidden relative bg-black flex items-center justify-center">
                 {/* Pure unobstructed photograph / illustration without text overlays on image */}
                 <img
                   src={currentPage.image}
                   alt={`${currentPage.title} - ${currentPage.category}`}
-                  className={`w-full h-full object-cover transition-all duration-500 select-none group-hover/arch:scale-105 ${
+                  className={`w-full h-full object-cover transition-all duration-500 select-none group-hover/arch:scale-105 cursor-pointer ${
                     imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                   referrerPolicy="no-referrer"
                 />
+
+                {/* Elegant Hover Overlay: Prompt to View Full Project Details */}
+                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/arch:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
+                  <div className="px-4 py-2 bg-[#540D21]/95 text-[#FAF6EE] border border-amber-200/50 rounded-xs shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover/arch:translate-y-0 transition-transform duration-300">
+                    <Eye className="w-4 h-4 text-amber-300" />
+                    <span className="text-[11px] font-mono uppercase tracking-widest font-bold">
+                      Ver Detalhes do Projeto
+                    </span>
+                  </div>
+                </div>
 
                 {/* Subtle side navigation arrows that reveal smoothly on hover */}
                 <button
@@ -211,75 +267,23 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
-              </div>
-            </div>
 
-            {/* Interactive Page Switcher Pills */}
-            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
-              {LOOKBOOK_PAGES.map((page, idx) => (
+                {/* Floating Creative Studio Action Icon directly on the Arch */}
                 <button
-                  key={page.id}
-                  onClick={() => handleSelectPage(idx)}
-                  className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider border rounded-xs transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                    currentPageIndex === idx
-                      ? 'bg-[#540D21] text-[#FAF6EE] border-[#540D21] font-bold shadow-md'
-                      : 'bg-[#EFE6D5]/90 text-[#540D21] border-[#DECFC0] hover:border-[#540D21] hover:bg-[#EFE6D5]'
-                  }`}
-                  aria-label={`Ver página ${idx + 1}: ${page.category}`}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsStudioOpen(true);
+                  }}
+                  className="absolute bottom-3 right-3 p-2 rounded-full bg-black/75 hover:bg-[#540D21] text-amber-200 hover:text-white border border-white/30 backdrop-blur-md shadow-xl transition-all duration-200 cursor-pointer hover:scale-110 flex items-center gap-1.5 z-20"
+                  title="Abrir página para adicionar novo conceito, inspiração ou ilustração"
+                  aria-label="Abrir estúdio para adicionar conceito"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
-                  <span>{`${idx + 1}. ${page.category}`}</span>
+                  <PenTool className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white pr-1">
+                    + Novo
+                  </span>
                 </button>
-              ))}
-            </div>
-
-            {/* Editorial Caption Plaque for Current Lookbook Page */}
-            <div className="mt-4 p-4 sm:p-5 bg-[var(--color-panel,#EFE6D5)] border border-[var(--color-mocha,#DECFC0)] shadow-md text-left transition-all duration-300">
-              <div className="flex items-center justify-between border-b border-[var(--color-mocha,#DECFC0)]/80 pb-2.5 mb-2.5">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-3.5 h-3.5 text-[#540D21]" />
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
-                    {currentPage.badge}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
-                    {currentPage.pageNumber}
-                  </span>
-                </div>
-              </div>
-
-              <h3 className="font-avonia text-xl sm:text-2xl text-[var(--color-text,#241217)] leading-tight mb-1">
-                {currentPage.title}
-              </h3>
-              <p className="text-xs text-[var(--color-accent,#540D21)] font-mono uppercase tracking-wider mb-2 font-medium">
-                {currentPage.subtitle}
-              </p>
-              <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-editorial">
-                {currentPage.description}
-              </p>
-
-              {/* Page turn quick prompt */}
-              <div className="mt-3 pt-2.5 border-t border-[var(--color-mocha,#DECFC0)]/50 flex items-center justify-between text-[9px] font-mono text-[#540D21]/80">
-                <span className="flex items-center gap-1">
-                  <Layers className="w-3 h-3" />
-                  <span>Clique na imagem para folhear o dossiê</span>
-                </span>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handlePrevPage}
-                    className="hover:text-[#540D21] hover:underline cursor-pointer uppercase font-bold"
-                  >
-                    &larr; Anterior
-                  </button>
-                  <span>/</span>
-                  <button
-                    onClick={handleNextPage}
-                    className="hover:text-[#540D21] hover:underline cursor-pointer uppercase font-bold"
-                  >
-                    Próxima &rarr;
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -415,6 +419,26 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
           </div>
         </div>
       </div>
+
+      {/* Atelier Concept, Inspiration & Illustration Studio Modal */}
+      <ConceptInspirationStudioModal
+        isOpen={isStudioOpen}
+        onClose={() => setIsStudioOpen(false)}
+        items={lookbookItems}
+        onAddItem={handleAddLookbookItem}
+        onDeleteItem={handleDeleteLookbookItem}
+        onSelectActiveItem={(item, index) => setCurrentPageIndex(index)}
+        activePalette={activePalette}
+      />
+
+      {/* Dedicated Project Details Page for Fading Spark */}
+      <FadingSparkProjectDetailPage
+        isOpen={isProjectDetailOpen}
+        onClose={() => setIsProjectDetailOpen(false)}
+        onOpenInquiry={onOpenInquiry}
+        activePalette={activePalette}
+        additionalConceptItems={lookbookItems}
+      />
     </section>
   );
 };

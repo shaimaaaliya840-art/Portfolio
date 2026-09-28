@@ -23,10 +23,10 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
   const [isDisrupted, setIsDisrupted] = useState(false);
   const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null);
 
-  // Scroll tracking across a generous, slow-paced pinned section (160vh)
+  // Scroll tracking across section
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end']
+    offset: ['start end', 'end start']
   });
 
   // Slow, silky physics spring for graceful, gentle editorial movement
@@ -41,20 +41,8 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
   const textTranslateX = useTransform(
     smoothProgress,
     [0, 1],
-    ['2vw', '-22vw']
+    ['4vw', '-22vw']
   );
-
-  // Guillaume Zhu signature container exit effect
-  const containerScale = useTransform(smoothProgress, [0.88, 1], [1, 0.985]);
-  const containerBorderRadius = useTransform(
-    smoothProgress,
-    [0.88, 1],
-    ['0px 0px 0px 0px', '0px 0px 40px 40px']
-  );
-  const containerOpacity = useTransform(smoothProgress, [0.94, 1], [1, 0.94]);
-
-  // Background subtle tint shift
-  const bgGlowOpacity = useTransform(smoothProgress, [0, 0.5, 1], [0.2, 0.35, 0.2]);
 
   // Words breakdown of the user's requested manifesto
   const sentence = "I tell stories through design, where garments meet imagination.";
@@ -72,34 +60,25 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
     <section
       ref={containerRef}
       id="kinetic-manifesto"
-      className="relative h-[160vh] bg-black select-none"
+      className="relative bg-black select-none overflow-hidden border-b border-white/20 py-10 sm:py-14 md:py-16 shadow-2xl"
     >
-      {/* Sticky Fullscreen Pinned Stage */}
-      <motion.div
-        style={{
-          scale: containerScale,
-          borderRadius: containerBorderRadius,
-          opacity: containerOpacity,
-        }}
-        className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden bg-black text-white border-b border-white/20 transition-shadow duration-500 shadow-2xl"
-      >
-        {/* Subtle Ambient Grain & Hairline Matrix */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* Subtle Ambient Grain & Hairline Matrix */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px]" />
 
-        {/* Center Arena: Massive Kinetic Typography Runway */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center items-start overflow-hidden px-4 sm:px-10 pt-16 sm:pt-20">
-          {/* Poetic Sub-narrative Ribbon (Exchanged to Top) */}
-          <div className="px-6 mb-8 max-w-4xl flex items-center justify-between">
-            <p className="relative -top-[1.5cm] text-xs sm:text-sm text-[var(--color-text-muted,#D2BDCF)] font-editorial leading-relaxed border-l-2 border-[var(--color-accent,#E9D5E6)] pl-4 max-w-3xl text-justify">
-              <span className="font-['Pinyon_Script','Great_Vibes','Allura',cursive] text-3xl sm:text-4xl text-[var(--color-accent,#E9D5E6)] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none drop-shadow-[0_2px_12px_rgba(233,213,230,0.45)]">
-                I
-              </span>
-              {aboutMeText.startsWith("I") ? aboutMeText.slice(1) : aboutMeText}
-            </p>
-          </div>
+      {/* Center Arena: Massive Kinetic Typography Runway */}
+      <div className="relative z-10 w-full flex flex-col justify-center items-start overflow-hidden px-4 sm:px-10">
+        {/* Poetic Sub-narrative Ribbon (Exchanged to Top) */}
+        <div className="px-6 mb-6 max-w-4xl flex items-center justify-between">
+          <p className="text-xs sm:text-sm text-[var(--color-text-muted,#D2BDCF)] font-editorial leading-relaxed border-l-2 border-[var(--color-accent,#E9D5E6)] pl-4 max-w-3xl text-justify">
+            <span className="font-['Pinyon_Script','Great_Vibes','Allura',cursive] text-3xl sm:text-4xl text-[var(--color-accent,#E9D5E6)] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none drop-shadow-[0_2px_12px_rgba(233,213,230,0.45)]">
+              I
+            </span>
+            {aboutMeText.startsWith("I") ? aboutMeText.slice(1) : aboutMeText}
+          </p>
+        </div>
 
-          {/* Horizontal Scrolling Typography Container - Slow, smooth transitions (Exchanged to Bottom) */}
-          <div className="w-full overflow-visible py-4 sm:py-6 transition-all duration-1000 ease-out">
+        {/* Horizontal Scrolling Typography Container - Slow, smooth transitions */}
+        <div className="w-full overflow-visible py-2 sm:py-3 transition-all duration-1000 ease-out">
             <motion.div
               ref={textTrackRef}
               style={{ x: textTranslateX }}
@@ -150,7 +129,6 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
             </motion.div>
           </div>
         </div>
-      </motion.div>
     </section>
   );
 };
