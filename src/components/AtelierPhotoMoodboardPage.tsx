@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Palette, Copy, Check, Eye, ExternalLink, Sliders, X, Maximize2, Play } from 'lucide-react';
+import { Sparkles, Palette, Copy, Check, Eye, ExternalLink, Sliders, X, Maximize2, Play, Upload, Film, Link as LinkIcon } from 'lucide-react';
 import { AtelierPalette } from '../data/colorPalettes';
 import antiqueBrassAtelierImage from '../assets/images/antique_brass_atelier_palette_1790242759642.jpg';
 import redThreadHandsImage from '../assets/images/red_thread_hands_1790503180613.jpg';
@@ -20,6 +20,99 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [activeModalImage, setActiveModalImage] = useState<'peonies' | 'gramophone' | 'portrait'>('peonies');
+  const [videoUrl, setVideoUrl] = useState<string>(() => {
+    try {
+      return localStorage.getItem('atelier_arch_video_url') || '/videos/peonies_hands_cinematic.mp4';
+    } catch {
+      return '/videos/peonies_hands_cinematic.mp4';
+    }
+  });
+  const [isDriveInputOpen, setIsDriveInputOpen] = useState(false);
+  const [driveUrlInput, setDriveUrlInput] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const archContainerRef = useRef<HTMLDivElement>(null);
+  const archVideoRef = useRef<HTMLVideoElement>(null);
+  const [isPlayingOnScroll, setIsPlayingOnScroll] = useState(false);
+
+  // Play video automatically when scrolled to section and pause when scrolled away
+  useEffect(() => {
+    const container = archContainerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (archVideoRef.current) {
+              archVideoRef.current
+                .play()
+                .then(() => setIsPlayingOnScroll(true))
+                .catch(() => {
+                  // Autoplay policy fallback: muted video is permitted in all modern browsers
+                });
+            }
+          } else {
+            if (archVideoRef.current) {
+              archVideoRef.current.pause();
+              setIsPlayingOnScroll(false);
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(container);
+    return () => {
+      observer.disconnect();
+    };
+  }, [videoUrl]);
+
+  // Helper to parse Google Drive URLs into embeddable preview links or identify direct video
+  const parsedVideo = React.useMemo(() => {
+    if (!videoUrl) return null;
+    const driveMatch = videoUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || videoUrl.match(/id=([a-zA-Z0-9_-]+)/);
+    if (driveMatch && driveMatch[1]) {
+      return {
+        type: 'gdrive' as const,
+        embedUrl: `https://drive.google.com/file/d/${driveMatch[1]}/preview`,
+        rawId: driveMatch[1]
+      };
+    }
+    return {
+      type: 'direct' as const,
+      embedUrl: videoUrl
+    };
+  }, [videoUrl]);
+
+  const handleSaveDriveUrl = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (driveUrlInput.trim()) {
+      const trimmed = driveUrlInput.trim();
+      setVideoUrl(trimmed);
+      try {
+        localStorage.setItem('atelier_arch_video_url', trimmed);
+      } catch (err) {
+        console.error(err);
+      }
+      setIsDriveInputOpen(false);
+      setDriveUrlInput('');
+    }
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const objUrl = URL.createObjectURL(file);
+      setVideoUrl(objUrl);
+      try {
+        localStorage.setItem('atelier_arch_video_url', objUrl);
+      } catch (err) {
+        console.error(err);
+      }
+      setIsDriveInputOpen(false);
+    }
+  };
 
   // Close modal with Escape key
   useEffect(() => {
@@ -54,7 +147,16 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         {/* Left Column: Architectural Arch Portrait Window & Golden Title Plaque */}
         <div className="lg:col-span-5 flex flex-col items-center sm:items-start">
-          <div className="relative group w-full max-w-sm">
+          <div ref={archContainerRef} className="relative group w-full max-w-sm">
+            {/* Hidden Video File Input */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept="video/*"
+              className="hidden"
+              onChange={handleFileUpload}
+            />
+
             {/* Arched Window with Antique Brass Rim - Peonies Video Reel Presentation */}
             <div
               role="button"
@@ -72,30 +174,66 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
               }}
               aria-label="Reproduzir vídeo editorial de peônias magentas e mãos atadas"
               data-cursor="pointer"
-              data-cursor-text="PLAY"
+              data-cursor-text={isPlayingOnScroll ? "EXPANDIR" : "PLAY"}
               className="aspect-[3/4.2] w-full rounded-t-full border-2 border-[var(--color-accent,#540D21)] p-2 bg-[var(--color-panel,#EFE6D5)] shadow-[0_20px_40px_rgba(84,13,33,0.18)] overflow-hidden relative cursor-pointer group/arch"
             >
               <div className="w-full h-full rounded-t-full overflow-hidden relative bg-black">
-                <img
-                  src={peoniesTwineImage}
-                  alt="Peônias Magentas & Mãos Atadas com Corda Rústica - Editorial Video Reel"
-                  className="w-full h-full object-cover group-hover/arch:scale-108 transition-transform duration-700 select-none grayscale contrast-110"
-                  referrerPolicy="no-referrer"
-                />
+                {parsedVideo?.type === 'gdrive' ? (
+                  <iframe
+                    src={`${parsedVideo.embedUrl}?autoplay=1`}
+                    title="Peônias & Mãos Atadas - Google Drive Reel"
+                    className="w-full h-full rounded-t-full border-0 object-cover pointer-events-auto"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : parsedVideo?.type === 'direct' ? (
+                  <video
+                    ref={archVideoRef}
+                    src={parsedVideo.embedUrl}
+                    loop
+                    muted
+                    playsInline
+                    poster={peoniesTwineImage}
+                    className="w-full h-full object-cover group-hover/arch:scale-105 transition-transform duration-700 select-none"
+                  />
+                ) : (
+                  <>
+                    {/* Base monochrome layer: hands, twine & background in high-contrast B&W */}
+                    <img
+                      src={peoniesTwineImage}
+                      alt="Peônias & Mãos Atadas - Base P&B"
+                      className="w-full h-full object-cover group-hover/arch:scale-108 transition-transform duration-700 select-none grayscale contrast-110"
+                      referrerPolicy="no-referrer"
+                    />
+
+                    {/* Selective vibrant pink flower layer */}
+                    <img
+                      src={peoniesTwineImage}
+                      alt="Peônias com Flores Rosa Vibrante"
+                      className="absolute inset-0 w-full h-full object-cover group-hover/arch:scale-108 transition-transform duration-700 select-none pointer-events-none"
+                      style={{
+                        maskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)',
+                        WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)'
+                      }}
+                      referrerPolicy="no-referrer"
+                    />
+                  </>
+                )}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30 pointer-events-none" />
 
                 {/* Top Live Reel Tag */}
-                <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-black/65 backdrop-blur-md rounded-full border border-white/20 text-[9px] font-mono tracking-widest uppercase text-white/95 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                  <span>VÍDEO · REEL</span>
+                <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-black/65 backdrop-blur-md rounded-full border border-white/20 text-[9px] font-mono tracking-widest uppercase text-white/95 shadow-md pointer-events-none">
+                  <span className={`w-2 h-2 rounded-full ${isPlayingOnScroll ? 'bg-emerald-400' : 'bg-rose-500'} animate-pulse`} />
+                  <span>{isPlayingOnScroll ? 'VÍDEO EM REPRODUÇÃO' : 'VÍDEO · REEL'}</span>
                 </div>
 
-                {/* Center Cinematic Play Button */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                {/* Center Cinematic Play / Expand Button */}
+                <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 pointer-events-none transition-opacity duration-300 ${isPlayingOnScroll ? 'opacity-0 group-hover/arch:opacity-100' : 'opacity-100'}`}>
                   <div className="w-14 h-14 rounded-full bg-white/25 backdrop-blur-md border border-white/60 flex items-center justify-center shadow-2xl group-hover/arch:scale-110 group-hover/arch:bg-white/40 transition-all duration-300">
                     <Play className="w-6 h-6 text-white fill-white ml-1 drop-shadow" />
                   </div>
-                  <span className="mt-3 px-3 py-1 bg-black/80 backdrop-blur-sm border border-white/20 rounded-xs text-[10px] font-mono uppercase tracking-widest text-[#FAF6EE] opacity-0 group-hover/arch:opacity-100 transition-opacity duration-300 shadow-xl">
+                  <span className="mt-3 px-3 py-1 bg-black/80 backdrop-blur-sm border border-white/20 rounded-xs text-[10px] font-mono uppercase tracking-widest text-[#FAF6EE] shadow-xl">
                     Expandir Vídeo · 9:16
                   </span>
                 </div>
@@ -108,6 +246,74 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                 </div>
               </div>
             </div>
+
+            {/* Quick Video Configuration Bar (Google Drive / Upload) */}
+            <div className="mt-2.5 flex items-center justify-between gap-2 px-1">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsDriveInputOpen(!isDriveInputOpen);
+                }}
+                className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:text-[#851737] bg-[#EFE6D5]/80 hover:bg-[#EFE6D5] px-2.5 py-1 border border-[#DECFC0] transition-colors cursor-pointer rounded-xs"
+                title="Configurar Link do Google Drive ou URL de vídeo"
+              >
+                <LinkIcon className="w-3 h-3" />
+                <span>{parsedVideo ? 'Trocar Link Drive' : 'Link Google Drive'}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  fileInputRef.current?.click();
+                }}
+                className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:text-[#851737] bg-[#EFE6D5]/80 hover:bg-[#EFE6D5] px-2.5 py-1 border border-[#DECFC0] transition-colors cursor-pointer rounded-xs"
+                title="Selecionar arquivo de vídeo do computador"
+              >
+                <Upload className="w-3 h-3" />
+                <span>Subir Vídeo</span>
+              </button>
+            </div>
+
+            {/* Inline Google Drive Link Form */}
+            {isDriveInputOpen && (
+              <form onSubmit={handleSaveDriveUrl} className="mt-2 p-3 bg-[#FAF6EE] border border-[#540D21]/40 rounded-xs shadow-lg space-y-2 text-left">
+                <label className="block text-[10px] font-mono uppercase tracking-wider text-[#540D21] font-bold">
+                  URL do Google Drive ou Vídeo (.mp4):
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="url"
+                    placeholder="https://drive.google.com/file/d/.../view"
+                    value={driveUrlInput}
+                    onChange={(e) => setDriveUrlInput(e.target.value)}
+                    className="flex-1 text-xs px-2.5 py-1.5 bg-white border border-[#DECFC0] text-[#241217] rounded-xs font-mono focus:outline-none focus:border-[#540D21]"
+                  />
+                  <button
+                    type="submit"
+                    className="px-3 py-1.5 text-xs font-mono uppercase font-bold bg-[#540D21] text-white rounded-xs hover:bg-[#6E112B] transition-colors cursor-pointer"
+                  >
+                    Salvar
+                  </button>
+                </div>
+                <div className="flex items-center justify-between text-[9px] text-[#241217]/70 font-mono">
+                  <span>Dica: no Google Drive, configure o arquivo como &ldquo;Qualquer pessoa com o link&rdquo;.</span>
+                  {videoUrl && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setVideoUrl('');
+                        localStorage.removeItem('atelier_arch_video_url');
+                      }}
+                      className="text-red-700 hover:underline cursor-pointer"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+              </form>
+            )}
           </div>
 
           {/* Golden Plaque Heading under Arch */}
@@ -317,15 +523,48 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                         </div>
                       ) : activeModalImage === 'peonies' ? (
                         <div className="aspect-[9/16] max-h-[62vh] mx-auto border-2 border-[#540D21] overflow-hidden bg-black relative shadow-2xl rounded-xs">
-                          <img
-                            src={peoniesTwineImage}
-                            alt="Peônias Magentas & Mãos Atadas com Corda Rústica - Video Reel"
-                            className="w-full h-full object-cover select-none grayscale contrast-110"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/75 backdrop-blur-sm border border-white/20 rounded-full text-[9px] font-mono text-white flex items-center gap-1.5 shadow-md">
+                          {parsedVideo?.type === 'gdrive' ? (
+                            <iframe
+                              src={`${parsedVideo.embedUrl}?autoplay=1`}
+                              title="Peônias Magentas & Mãos Atadas - Google Drive Player"
+                              className="w-full h-full border-0 object-cover"
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowFullScreen
+                            />
+                          ) : parsedVideo?.type === 'direct' ? (
+                            <video
+                              src={parsedVideo.embedUrl}
+                              controls
+                              autoPlay
+                              loop
+                              playsInline
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <>
+                              {/* Monochrome background layer */}
+                              <img
+                                src={peoniesTwineImage}
+                                alt="Peônias Magentas & Mãos Atadas com Corda Rústica - Video Reel"
+                                className="w-full h-full object-cover select-none grayscale contrast-110"
+                                referrerPolicy="no-referrer"
+                              />
+                              {/* Selective vibrant pink peony layer */}
+                              <img
+                                src={peoniesTwineImage}
+                                alt="Peônias Magentas em Rosa Vibrante"
+                                className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+                                style={{
+                                  maskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)',
+                                  WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 48%, black 45%, transparent 72%)'
+                                }}
+                                referrerPolicy="no-referrer"
+                              />
+                            </>
+                          )}
+                          <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/75 backdrop-blur-sm border border-white/20 rounded-full text-[9px] font-mono text-white flex items-center gap-1.5 shadow-md pointer-events-none">
                             <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                            <span>VÍDEO REEL · 9:16</span>
+                            <span>{parsedVideo ? 'VÍDEO REEL ATIVO' : 'VÍDEO REEL · 9:16'}</span>
                           </div>
                         </div>
                       ) : (
