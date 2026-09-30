@@ -38,9 +38,6 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   const [dossierTab, setDossierTab] = useState<'all' | 'internships' | 'skills' | 'dyeing' | 'workshops' | 'personal'>('all');
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
-  const aboutMeText = portfolioData.aboutMe || 
-    "I'm a creatively driven individual with a strong foundation in cultural aesthetics and design thinking. My work is deeply rooted in exploring heritage while translating it into contemporary, functional garments. I have a keen interest in material experimentation, focusing on textures, structure, and innovative fabric use. I aim to create clothing that balances modesty, elegance, and bold expression. With an eye for detail and storytelling, I strive to design pieces that are both meaningful and wearable. My approach blends tradition with modern sensibilities to craft unique, statement-driven fashion.";
-
   const personalSkills = portfolioData.personalSkills || [
     { skill: "Storyteller & Visionary", rating: 5 },
     { skill: "Research & Development", rating: 5 },
@@ -134,10 +131,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
         </h2>
       </div>
 
-      {/* 3-Column Grid: Left (Interactive Dossier), Center (Poised Silhouette & Manifesto), Right (Portrait) */}
+      {/* 2-Column Grid: Left (Interactive Dossier) & Right (High Fashion Editorial Portal) */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Column 1 (Left): EXPERIENCES & SKILLS DOSSIER - Glowing Golden Plaque */}
-        <div className="lg:col-span-4 flex flex-col justify-between space-y-4 text-left p-6 sm:p-7 bg-[#EAE0CD] border-2 border-[#540D21] shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden backdrop-blur-md">
+        <div className="lg:col-span-6 flex flex-col justify-between space-y-4 text-left p-6 sm:p-7 bg-[#EAE0CD] border-2 border-[#540D21] shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden backdrop-blur-md">
           {/* Subtle Hairline Frame */}
           <div className="absolute inset-1.5 border border-[#540D21]/20 pointer-events-none" />
 
@@ -387,39 +384,8 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
           </div>
         </div>
 
-        {/* Column 2 (Center): Poised Silhouette Figure & Drop Cap Editorial Article */}
-        <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
-          <div className="space-y-3">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#540D21] font-bold border-b border-[#DECFC0] pb-1">
-              THE DESIGNER MONOGRAPH
-            </div>
-            
-            <p className="font-serif text-sm sm:text-base leading-relaxed text-[#241217]/90 drop-cap text-justify">
-              {aboutMeText}
-            </p>
-          </div>
-
-          {/* Standing Model Cutout Silhouette with Golden Backing */}
-          <div className="flex items-center justify-center py-4 bg-[#EAE0CD] border border-[#DECFC0] relative">
-            <div className="absolute inset-0 bg-gradient-radial from-[#540D21]/10 to-transparent pointer-events-none" />
-            <svg viewBox="0 0 120 280" className="w-24 h-56 text-[#540D21]" fill="currentColor">
-              <circle cx="60" cy="28" r="10" />
-              <rect x="56" y="38" width="8" height="10" />
-              <path d="M48 48 C48 48, 52 48, 60 48 C68 48, 72 48, 72 48 C76 72, 70 100, 68 120 C64 120, 56 120, 52 120 C50 100, 44 72, 48 48 Z" />
-              <path d="M48 48 C42 65, 40 85, 45 100 L50 96 C46 82, 48 65, 52 52 Z" />
-              <path d="M72 48 C78 65, 80 85, 75 100 L70 96 C74 82, 72 65, 68 52 Z" />
-              <path d="M52 120 L50 200 L48 255 L42 258 L46 262 L54 262 L56 200 L58 120 Z" />
-              <path d="M68 120 L66 200 L64 255 L58 258 L62 262 L70 262 L72 200 L74 120 Z" />
-            </svg>
-          </div>
-
-          <div className="text-[10px] font-mono text-[#851737] uppercase tracking-wider text-center border-t border-[#DECFC0] pt-2">
-            ATELIER TAILORING // 2024—2027
-          </div>
-        </div>
-
-        {/* Column 3 (Right): Arched Portal with Golden Border & Lookbook Access */}
-        <div className="lg:col-span-4 flex flex-col items-center">
+        {/* Column 2 (Right): Arched Portal with Golden Border & Lookbook Access */}
+        <div className="lg:col-span-6 flex flex-col items-center">
           <div
             onClick={() => onOpenDetail?.(0)}
             role="button"
