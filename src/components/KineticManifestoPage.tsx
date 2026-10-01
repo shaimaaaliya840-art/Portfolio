@@ -70,7 +70,7 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
         {/* Poetic Sub-narrative Ribbon (Exchanged to Top) */}
         <div className="px-6 mb-6 max-w-4xl flex items-center justify-between">
           <p className="text-xs sm:text-sm text-[var(--color-text-muted,#D2BDCF)] font-editorial leading-relaxed border-l-2 border-[var(--color-accent,#E9D5E6)] pl-4 max-w-3xl text-justify">
-            <span className="font-['Pinyon_Script','Great_Vibes','Allura',cursive] text-3xl sm:text-4xl text-[var(--color-accent,#E9D5E6)] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none drop-shadow-[0_2px_12px_rgba(233,213,230,0.45)]">
+            <span className="font-avonia text-3xl sm:text-4xl text-[var(--color-accent,#E9D5E6)] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none drop-shadow-[0_2px_12px_rgba(233,213,230,0.45)]">
               I
             </span>
             {aboutMeText.startsWith("I") ? aboutMeText.slice(1) : aboutMeText}
@@ -98,7 +98,7 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
                     key={`${word}-${wordIdx}`}
                     onMouseEnter={() => setActiveWordIndex(wordIdx)}
                     onMouseLeave={() => setActiveWordIndex(null)}
-                    className="inline-flex items-baseline font-avonia leading-none tracking-normal transition-all duration-200"
+                    className="inline-flex items-baseline font-avonia text-[clamp(30px,4.4vw,70px)] leading-none tracking-normal transition-all duration-200"
                   >
                     {word.split('').map((char, charIdx) => {
                       const globalIdx = wordIdx * 10 + charIdx;
@@ -117,6 +117,7 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
                           isSpecialWord={isSpecial}
                           activePalette={activePalette}
                           onDisrupt={triggerKineticDisruption}
+                          isInitial={wordIdx === 0 && charIdx === 0}
                         />
                       );
                     })}
@@ -141,6 +142,8 @@ interface KineticLetterProps {
   isSpecialWord: boolean;
   activePalette?: AtelierPalette;
   onDisrupt?: () => void;
+  /** First letter of the ribbon headline, set in the script face (see .headline-initial) */
+  isInitial?: boolean;
 }
 
 const KineticLetter: React.FC<KineticLetterProps> = ({
@@ -150,7 +153,8 @@ const KineticLetter: React.FC<KineticLetterProps> = ({
   isDisrupted,
   isSpecialWord,
   activePalette,
-  onDisrupt
+  onDisrupt,
+  isInitial
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const accentColor = activePalette?.accent || 'var(--color-accent, #E9D5E6)';
@@ -194,11 +198,11 @@ const KineticLetter: React.FC<KineticLetterProps> = ({
       onClick={onDisrupt}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`inline-block transition-colors duration-200 text-[clamp(30px,4.4vw,70px)] font-normal select-none cursor-pointer tracking-normal will-change-transform ${
+      className={`inline-block transition-colors duration-200 font-normal select-none cursor-pointer tracking-normal will-change-transform ${
         isSpecialWord
           ? 'text-[var(--color-accent,#E9D5E6)] underline decoration-[var(--color-gold,#C98CB5)]/70 underline-offset-8 drop-shadow-[0_0_24px_rgba(233,213,230,0.35)]'
           : 'text-[var(--color-text-muted,#D2BDCF)] hover:text-[var(--color-accent,#E9D5E6)]'
-      }`}
+      } ${isInitial ? 'headline-initial' : ''}`}
     >
       {char}
     </motion.span>

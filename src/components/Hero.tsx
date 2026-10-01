@@ -15,10 +15,12 @@ const KINETIC_WORDS = ['drapes', 'tailors', 'storytells', 'sculpts'];
 interface LetterProps {
   char: string;
   isWineAccent?: boolean;
+  /** Headline's first letter, set in the script face (see .headline-initial) */
+  isInitial?: boolean;
 }
 
 // Interactive letter with 3D tilt & lift physics on hover
-const InteractiveLetter: React.FC<LetterProps> = ({ char, isWineAccent }) => {
+const InteractiveLetter: React.FC<LetterProps> = ({ char, isWineAccent, isInitial }) => {
   if (char === ' ') {
     return <span className="inline-block w-2 sm:w-3">&nbsp;</span>;
   }
@@ -27,7 +29,7 @@ const InteractiveLetter: React.FC<LetterProps> = ({ char, isWineAccent }) => {
     <span
       className={`inline-block transition-transform duration-300 hover:-translate-y-1 hover:rotate-[-4deg] select-none cursor-default ${
         isWineAccent ? 'text-[#540D21] font-semibold' : 'text-[#241217]'
-      }`}
+      } ${isInitial ? 'headline-initial' : ''}`}
     >
       {char}
     </span>
@@ -64,19 +66,29 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
           {/* Monumental Kinetic Headline in Avonia Modern Luxury Script */}
           <div className="w-full max-w-6xl flex flex-col items-center justify-center select-none">
             {/* Line 1: "Designer who" in Avonia modern luxury script */}
-            <h1 className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
-              {'Designer who'.split('').map((c, i) => (
-                <InteractiveLetter key={`dw-${i}`} char={c} />
+            <h1 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
+              {/* Letters are separate spans (for the hover wobble), so keep each word in a
+                  nowrap group or narrow screens break the line mid-word ("wh / o") */}
+              {'Designer who'.split(' ').map((word, w) => (
+                <React.Fragment key={`dw-${w}`}>
+                  {w > 0 && <InteractiveLetter char=" " />}
+                  <span className="inline-block whitespace-nowrap">
+                    {word.split('').map((c, i) => (
+                      <InteractiveLetter key={`dw-${w}-${i}`} char={c} isInitial={w === 0 && i === 0} />
+                    ))}
+                  </span>
+                </React.Fragment>
               ))}
             </h1>
 
             {/* Line 2: Giant Kinetic Tumbler for the active moving word in Avonia luxury script */}
             <div className="flex flex-col items-center justify-center relative">
-              {/* Font size lives on the container so h-[1.4em] matches the word; Allura's tall
-                  ascenders/descenders need the extra line height or the clip cuts them off */}
+              {/* Font size lives on the container so h-[2em] matches the word. The Amoresa
+                  initial rises ~1.35em and drops ~0.45em, so the window needs ~2em (and the
+                  word is nudged down 0.3em) or the clip cuts its swashes off */}
               <span
                 id="scramble"
-                className="relative inline-flex items-center justify-center roll-container h-[1.4em] overflow-hidden px-6 sm:px-12 font-avonia font-normal text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px]"
+                className="relative inline-flex items-center justify-center roll-container h-[2em] overflow-hidden px-2 sm:px-12 font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px]"
               >
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
@@ -88,13 +100,14 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
                       duration: 0.6,
                       ease: [0.22, 1.15, 0.36, 1],
                     }}
-                    className="inline-flex items-center text-[#540D21] leading-[1.4] drop-shadow-[0_4px_24px_rgba(84,13,33,0.2)]"
+                    className="relative top-[0.3em] inline-flex items-baseline text-[#540D21] leading-[1.4] drop-shadow-[0_4px_24px_rgba(84,13,33,0.2)]"
                   >
                     {activeWord.split('').map((char, i) => (
                       <InteractiveLetter
                         key={`word-${activeWord}-${i}-${char}`}
                         char={char}
                         isWineAccent={true}
+                        isInitial={i === 0}
                       />
                     ))}
                   </motion.span>

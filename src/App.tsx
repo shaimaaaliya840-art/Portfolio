@@ -12,15 +12,8 @@ import { CustomCursor } from './components/CustomCursor';
 import { OrbitalBackground } from './components/OrbitalBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AtelierPhotoMoodboardPage } from './components/AtelierPhotoMoodboardPage';
 import { KineticManifestoPage } from './components/KineticManifestoPage';
 import { ManifestoDualArchPage } from './components/ManifestoDualArchPage';
-import { BenefitsStatsPage } from './components/BenefitsStatsPage';
-import { ServicePackagesPage } from './components/ServicePackagesPage';
-import { ProcessHowItWorksPage } from './components/ProcessHowItWorksPage';
-import { MyWorkReelsPage } from './components/MyWorkReelsPage';
-import { CvPage } from './components/CvPage';
-import { ObjectionStatsPage } from './components/ObjectionStatsPage';
 import { ContactIvoryPage } from './components/ContactIvoryPage';
 import { FloatingContactDock } from './components/FloatingContactDock';
 import { ProjectModal } from './components/ProjectModal';
@@ -30,17 +23,11 @@ import { EditorialLookbookDeckModal } from './components/EditorialLookbookDeckMo
 import { ConceptLookbookModal } from './components/ConceptLookbookModal';
 import { ColorInspirationModal } from './components/ColorInspirationModal';
 import { FloatingBackButton } from './components/FloatingBackButton';
-import { AbhisarikaProjectDetailPage } from './components/AbhisarikaProjectDetailPage';
-import { FadingSparkProjectDetailPage, FadingSparkProjectPage } from './components/FadingSparkProjectDetailPage';
 
 export default function App() {
   // Color inspiration & theme state
   const [activePalette, setActivePalette] = useState<AtelierPalette>(getInitialTheme);
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
-  const [isFadingSparkOpen, setIsFadingSparkOpen] = useState(false);
-  const [isFadingSparkWorkOpen, setIsFadingSparkWorkOpen] = useState(false);
-  const [isAbhisarikaOpen, setIsAbhisarikaOpen] = useState(false);
-  const [abhisarikaReturnTarget, setAbhisarikaReturnTarget] = useState<'work' | 'atelier'>('atelier');
 
   useEffect(() => {
     applyThemeToDocument(activePalette);
@@ -98,45 +85,8 @@ export default function App() {
     setIsConceptLookbookOpen(true);
   };
 
-  const closeAbhisarika = () => {
-    setIsAbhisarikaOpen(false);
-    const targetId = abhisarikaReturnTarget === 'work' ? 'abhisarika-work-card' : 'abhisarai-ka-trigger';
-    window.setTimeout(() => {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 0);
-  };
-
-  const openAbhisarikaFromWork = () => {
-    setAbhisarikaReturnTarget('work');
-    setIsAbhisarikaOpen(true);
-  };
-
-  const openAbhisarikaFromAtelier = () => {
-    setAbhisarikaReturnTarget('atelier');
-    setIsAbhisarikaOpen(true);
-  };
-
-  const closeFadingSparkFromWork = () => {
-    setIsFadingSparkWorkOpen(false);
-    window.setTimeout(() => {
-      document.getElementById('fading-spark-work-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 0);
-  };
-
   const handleGlobalBack = () => {
     // 1. If any modal is open, close it
-    if (isAbhisarikaOpen) {
-      closeAbhisarika();
-      return;
-    }
-    if (isFadingSparkWorkOpen) {
-      closeFadingSparkFromWork();
-      return;
-    }
-    if (isFadingSparkOpen) {
-      setIsFadingSparkOpen(false);
-      return;
-    }
     if (isDeckOpen) {
       setIsDeckOpen(false);
       return;
@@ -165,20 +115,7 @@ export default function App() {
     // 2. Otherwise step back to the previous section. This deliberately never calls
     // history.back(): visitors arriving from another site (or via a shared #anchor link)
     // would be sent off the portfolio entirely.
-    const sectionIds = [
-      'hero-section',
-      'kinetic-manifesto',
-      'fading-spark-page',
-      'my-work-reels',
-      'color-inspiration-page',
-      'manifesto-arch',
-      'benefits-stats',
-      'packages-page',
-      'how-it-works',
-      'objection-stats',
-      'curriculum-vitae',
-      'contact-ivory'
-    ];
+    const sectionIds = ['hero-section', 'kinetic-manifesto', 'manifesto-arch', 'contact-ivory'];
 
     const currentY = window.scrollY;
     if (currentY <= 80) return; // Already at the cover; nothing earlier to go back to
@@ -199,15 +136,12 @@ export default function App() {
   // Support hardware/browser Back button to close modals
   useEffect(() => {
     const handlePopState = () => {
-      setIsAbhisarikaOpen(false);
       setIsDeckOpen(false);
       setIsConceptLookbookOpen(false);
       setIsColorModalOpen(false);
       setSelectedProject(null);
       setIsInquiryOpen(false);
       setIsCustomizerOpen(false);
-      setIsFadingSparkOpen(false);
-      setIsFadingSparkWorkOpen(false);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -260,66 +194,13 @@ export default function App() {
           onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 03: Fading Spark */}
-        <FadingSparkProjectPage />
-
-        {/* SLIDE 04: My Work & Runway Video Reels */}
-        <MyWorkReelsPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-          onOpenAbhisarika={openAbhisarikaFromWork}
-          onOpenFadingSpark={() => setIsFadingSparkWorkOpen(true)}
-        />
-
-        {/* SLIDE 05: Inspiração de Cores & Materialidade do Atelier */}
-        <AtelierPhotoMoodboardPage
-          activePalette={activePalette}
-          isProjectDetailOpen={isFadingSparkOpen}
-          onProjectDetailOpenChange={setIsFadingSparkOpen}
-          onOpenAbhisarika={openAbhisarikaFromAtelier}
-          onOpenColorModal={() => setIsColorModalOpen(true)}
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-        <AbhisarikaProjectDetailPage
-          isOpen={isAbhisarikaOpen}
-          onClose={closeAbhisarika}
-          highlight={portfolioData.neelgarHighlight}
-          returnLabel={abhisarikaReturnTarget === 'work' ? 'Back to My Work' : 'Back to Atelier'}
-        />
-        <FadingSparkProjectDetailPage
-          isOpen={isFadingSparkWorkOpen}
-          onClose={closeFadingSparkFromWork}
-        />
-
-        {/* SLIDE 06: Dual Arch Quem Sou Eu & Atelier Profile Dossier */}
+        {/* SLIDE 03: Who Am I? — Dual Arch & Atelier Profile Dossier */}
         <ManifestoDualArchPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 07: Benefícios do Atelier & 93% Stat */}
-        <BenefitsStatsPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 08: Pacotes de Serviços & Commission Tiers */}
-        <ServicePackagesPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 09: Como Funciona Methodology */}
-        <ProcessHowItWorksPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 10: Validação & Diagnóstico */}
-        <ObjectionStatsPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 11: Curriculum Vitae dossier */}
-        <CvPage portfolioData={portfolioData} />
-
-        {/* SLIDE 12: Vamos Trabalhar Juntos & Contato */}
+        {/* SLIDE 04: Let's Work Together & Contact */}
         <ContactIvoryPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}

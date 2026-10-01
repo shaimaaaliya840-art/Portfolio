@@ -29,16 +29,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { label: 'Cover', href: '#hero-section' },
-    { label: 'Manifesto', href: '#kinetic-manifesto' },
-    { label: 'Fading Spark', href: '#fading-spark-page' },
-    { label: 'My Work', href: '#my-work-reels' },
-    { label: 'Colors', href: '#color-inspiration-page' },
+    { label: 'Introduction', href: '#kinetic-manifesto' },
     { label: 'About Me', href: '#manifesto-arch' },
-    { label: 'Benefits', href: '#benefits-stats' },
-    { label: 'Packages', href: '#packages-page' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Consultation', href: '#objection-stats' },
-    { label: 'Curriculum Vitae', href: '#curriculum-vitae' },
     { label: 'Contact', href: '#contact-ivory' }
   ];
 

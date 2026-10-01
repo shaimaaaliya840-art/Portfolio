@@ -1,10 +1,28 @@
 @import "tailwindcss";
 
+/* Headline fonts from the "all portfolio work" deck (taken from the fonts embedded in the
+   .pptx). Both are commercial typefaces — keep a web licence for them on file. */
+@font-face {
+  font-family: 'Amoresa';
+  src: url('./assets/fonts/amoresa.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Perandory Condensed';
+  src: url('./assets/fonts/perandory-condensed.ttf') format('truetype');
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --font-script: 'Allura', 'Parisienne', 'Alex Brush', cursive;
-    --font-avonia: 'Allura', 'Parisienne', 'Alex Brush', cursive;
-    --font-display: 'Allura', 'Parisienne', 'Alex Brush', cursive;
+    /* Deck headline style ("WORKSHOP"): an Amoresa script first letter followed by
+       Perandory Condensed capitals. */
+    --font-readable-display: 'Perandory Condensed', 'Bodoni Moda', Georgia, serif;
+    --font-headline-initial: 'Amoresa', 'Great Vibes', cursive;
+    --font-script: var(--font-readable-display);
+    --font-avonia: var(--font-readable-display);
+    --font-display: var(--font-readable-display);
     --font-serif: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
     --font-body: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -49,28 +67,48 @@
   font-family: var(--font-script);
 }
 
-.font-avonia {
-  font-family: 'Allura', 'Parisienne', 'Alex Brush', cursive;
-}
-
-.font-luxury-script {
-  font-family: 'Allura', 'Parisienne', 'Alex Brush', cursive;
-}
-
-.font-display {
-  font-family: 'Allura', 'Parisienne', 'Alex Brush', cursive;
-}
-
-.font-calligraphy {
-  font-family: 'Monsieur La Doulaise', 'Mea Culpa', 'Pinyon Script', 'Alex Brush', cursive;
-}
-
-.font-spencerian {
-  font-family: 'Pinyon Script', 'Italianno', 'Alex Brush', cursive;
-}
-
+.font-avonia,
+.font-luxury-script,
+.font-display,
+.font-calligraphy,
+.font-spencerian,
 .font-flourish {
-  font-family: 'Mea Culpa', 'Monsieur La Doulaise', cursive;
+  font-family: var(--font-readable-display);
+  text-transform: uppercase;
+}
+
+/* First letter of every headline in the script face. ::first-letter covers plain
+   headings; headlines built from per-letter inline-block spans (hero, kinetic ribbon)
+   can't be reached by it, so their first span gets .headline-initial instead. */
+.font-avonia::first-letter,
+.font-luxury-script::first-letter,
+.font-display::first-letter,
+.font-calligraphy::first-letter,
+.font-spencerian::first-letter,
+.font-flourish::first-letter,
+.headline-initial {
+  font-family: var(--font-headline-initial);
+  /* Amoresa capitals rise ~1.05em and drop ~0.35em per em, so at 1.3em the initial
+     stands ~1.9x the height of Perandory's capitals — the deck's look, without
+     colliding with the line above. */
+  font-size: 1.3em;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: 0.03em;
+}
+
+/* Keep the oversized initial from stretching the heading's line box */
+.font-avonia::first-letter,
+.font-luxury-script::first-letter,
+.font-display::first-letter,
+.font-calligraphy::first-letter,
+.font-spencerian::first-letter,
+.font-flourish::first-letter {
+  line-height: 0;
+}
+
+.headline-initial {
+  line-height: 1;
 }
 
 .font-serif {
@@ -86,7 +124,8 @@
 }
 
 .font-headline {
-  font-family: 'Allura', 'Parisienne', 'Bodoni Moda', cursive, serif;
+  font-family: var(--font-readable-display);
+  text-transform: uppercase;
 }
 
 .font-editorial {
