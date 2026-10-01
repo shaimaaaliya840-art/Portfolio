@@ -12,7 +12,8 @@ import {
   Sparkles,
   ExternalLink,
   Palette,
-  X
+  X,
+  ArrowUp
 } from 'lucide-react';
 import { PortfolioData } from '../types';
 
@@ -59,13 +60,17 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
     }, 2000);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const cleanWa = whatsappNo.replace(/\D/g, '');
   const cleanCall = callingNo.replace(/\D/g, '');
 
   return (
     <>
       {/* 1. Persistent Sleek Bottom Bar */}
-      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#FAF6EE]/95 backdrop-blur-md border-t border-[#DECFC0] text-[#241217] select-none shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
+      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#FAF6EE]/95 border-t border-[#DECFC0] text-[#241217] select-none shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2.5 flex items-center justify-between text-xs">
           {/* Quick Identity & Indicator */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -139,15 +144,25 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
 
           {/* Expand / Detailed Card Trigger + Palette Trigger */}
           <div className="flex items-center gap-2 pl-3 shrink-0">
+            {scrollProgress > 5 && (
+              <button
+                onClick={scrollToTop}
+                className="flex items-center justify-center p-1.5 bg-[#EFE6D5] border border-[#DECFC0] hover:border-[#540D21] text-[#540D21] hover:text-[#241217] transition-all cursor-pointer rounded-sm mr-1"
+                title="Back to Top"
+              >
+                <ArrowUp className="w-3.5 h-3.5" />
+              </button>
+            )}
+
             {onOpenColorModal && (
               <button
                 onClick={onOpenColorModal}
                 className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider bg-[#EFE6D5] border border-[#540D21] text-[#540D21] hover:bg-[#540D21] hover:text-[#FAF6EE] transition-all cursor-pointer shadow-sm"
                 data-cursor="pointer"
-                title="Abrir Inspiração de Cores & Paletas de Atelier"
+                title="Open Color Inspiration & Atelier Palettes"
               >
                 <Palette className="w-3 h-3" />
-                <span className="hidden sm:inline">Cores</span>
+                <span className="hidden sm:inline">Colors</span>
               </button>
             )}
 
@@ -180,7 +195,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-14 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] bg-[#FAF6EE] border-2 border-[#DECFC0] shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-5 sm:p-6 backdrop-blur-xl"
+            className="fixed bottom-14 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] bg-[#FAF6EE] border-2 border-[#DECFC0] shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-5 sm:p-6"
           >
             {/* Header */}
             <div className="flex items-start justify-between border-b border-[#DECFC0]/70 pb-4 mb-4">
@@ -272,7 +287,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
                 }}
                 className="flex-1 py-3 bg-gradient-to-r from-[#540D21] to-[#851737] hover:from-[#F3E2F0] hover:to-[#540D21] text-[#FAF6EE] font-mono text-xs uppercase tracking-widest font-black transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Solicitar Proposta</span>
+                <span>Request a Proposal</span>
                 <Sparkles className="w-3.5 h-3.5 text-[#FAF6EE]" />
               </button>
             </div>

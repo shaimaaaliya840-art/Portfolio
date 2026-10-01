@@ -33,11 +33,11 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
       {/* Volumetric Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 11 // VAMOS TRABALHAR JUNTOS) */}
+      {/* Top Slide Page Meta (PAGE 12 // VAMOS TRABALHAR JUNTOS) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-bold">PAGE 11 · VAMOS TRABALHAR JUNTOS // ATELIER COMMISSIONS</span>
+          <span className="text-[#241217] font-bold">PAGE 12 · LET’S WORK TOGETHER // ATELIER COMMISSIONS</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[#851737]">AHMEDABAD &amp; MUMBAI</span>
@@ -69,7 +69,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
 
           <div className="space-y-2">
             <h2 className="text-4xl sm:text-6xl font-avonia font-normal capitalize tracking-normal text-[#FAF6EE] leading-tight">
-              Vamos Trabalhar Juntos
+              Let’s Work Together
             </h2>
             <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#FAF6EE]/85 font-bold">
               Let's Create Architectural Couture Together
@@ -93,7 +93,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
             <a
               href={`mailto:${email}?subject=${encodeURIComponent('Couture Commission Inquiry')}`}
               className="w-12 h-12 rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] hover:bg-[#EFE6D5] transition-all flex items-center justify-center shadow-md group cursor-pointer"
-              title={`Enviar Email: ${email}`}
+              title={`Send Email: ${email}`}
               data-cursor="pointer"
             >
               <Mail className="w-5 h-5" />
@@ -102,7 +102,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
             <button
               onClick={onOpenInquiry}
               className="w-12 h-12 rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] hover:bg-[#EFE6D5] transition-all flex items-center justify-center shadow-md group cursor-pointer"
-              title="Solicitar Proposta Formal"
+              title="Request a Formal Proposal"
               data-cursor="pointer"
             >
               <Globe className="w-5 h-5" />
@@ -113,7 +113,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
               target="_blank"
               rel="noreferrer"
               className="w-12 h-12 rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] hover:bg-[#EFE6D5] transition-all flex items-center justify-center shadow-md group cursor-pointer"
-              title="Instagram Oficial"
+              title="Official Instagram"
               data-cursor="pointer"
             >
               <Instagram className="w-5 h-5" />

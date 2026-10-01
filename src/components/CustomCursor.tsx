@@ -1,28 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'motion/react';
 
 /**
  * Custom Haute Couture Cursor in Decadent Black Cherry (#540D21) and Cream Vanilla (#FAF6EE).
  * Strictly scoped to cursor, hover states, logo, and highlight moments.
  * Automatically disabled on touch devices.
+ *
+ * Performance: pointer position lives in motion values written straight from the
+ * event handler, so moving the mouse never triggers a React re-render. The dot
+ * tracks the pointer 1:1; only the ring trails, on a tight spring.
  */
 export const CustomCursor: React.FC = () => {
-  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
+  const [enabled, setEnabled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [cursorText, setCursorText] = useState('');
-  const [isVisible, setIsVisible] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
+  const visibleRef = useRef(false);
+
+  const x = useMotionValue(-100);
+  const y = useMotionValue(-100);
+  const ringSpring = { stiffness: 1200, damping: 40, mass: 0.3 };
+  const ringX = useSpring(x, ringSpring);
+  const ringY = useSpring(y, ringSpring);
 
   useEffect(() => {
-    // Disable on touch devices
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      setIsTouch(true);
-      return;
-    }
+    // Match the CSS rule that hides the native cursor, so we never end up with no cursor at all
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    setEnabled(true);
+
+    const show = (visible: boolean) => {
+      if (visibleRef.current === visible) return;
+      visibleRef.current = visible;
+      setIsVisible(visible);
+    };
 
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      x.set(e.clientX);
+      y.set(e.clientY);
+      if (!visibleRef.current) {
+        // Re-entering the window: snap the ring instead of flying it across the screen
+        ringX.jump(e.clientX);
+        ringY.jump(e.clientY);
+        show(true);
+      }
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -30,82 +50,59 @@ export const CustomCursor: React.FC = () => {
       if (!target) return;
 
       const interactive = target.closest('a, button, [role="button"], input, textarea, select, [data-cursor]');
-      if (interactive) {
-        setIsHovered(true);
-        const customText = interactive.getAttribute('data-cursor-text');
-        setCursorText(customText || '');
-      } else {
-        setIsHovered(false);
-        setCursorText('');
-      }
+      setIsHovered(!!interactive);
+      setCursorText(interactive?.getAttribute('data-cursor-text') || '');
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const handleMouseLeave = () => show(false);
 
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
-
+    const root = document.documentElement;
     window.addEventListener('mousemove', updateMousePosition, { passive: true });
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    root.addEventListener('mouseleave', handleMouseLeave);
 
-    document.documentElement.classList.add('custom-cursor-active');
+    root.classList.add('custom-cursor-active');
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.documentElement.classList.remove('custom-cursor-active');
+      root.removeEventListener('mouseleave', handleMouseLeave);
+      root.classList.remove('custom-cursor-active');
     };
-  }, [isVisible]);
+  }, [x, y, ringX, ringY]);
 
-  if (isTouch || !isVisible) return null;
+  if (!enabled) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
+    <div
+      className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden transition-opacity duration-200"
+      style={{ opacity: isVisible ? 1 : 0 }}
+      aria-hidden="true"
+    >
       {/* Center Precision Minimalist Porcelain Rose Dot */}
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_var(--color-accent,#540D21)]"
-        style={{ backgroundColor: 'var(--color-accent, #540D21)' }}
-        animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
-          scale: isHovered ? 0 : 1,
-          opacity: isVisible ? 1 : 0
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 1300,
-          damping: 50,
-          mass: 0.1
-        }}
+        style={{ x, y, backgroundColor: 'var(--color-accent, #540D21)', willChange: 'transform' }}
+        animate={{ scale: isHovered ? 0 : 1 }}
+        transition={{ type: 'spring', stiffness: 1300, damping: 50, mass: 0.1 }}
       />
 
       {/* Trailing Porcelain Rose Ring with dynamic text */}
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none flex items-center justify-center -translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(84,13,33,0.25)]"
         style={{
+          x: ringX,
+          y: ringY,
           border: '1.5px solid var(--color-accent, #540D21)',
+          willChange: 'transform',
         }}
+        initial={false}
         animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
           width: isHovered ? (cursorText ? 88 : 52) : 32,
           height: isHovered ? (cursorText ? 88 : 52) : 32,
           backgroundColor: isHovered ? 'rgba(84, 13, 33, 0.95)' : 'rgba(84, 13, 33, 0.12)',
-          borderColor: 'var(--color-accent, #540D21)',
         }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 30,
-          mass: 0.35
-        }}
+        transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.35 }}
       >
         {cursorText && (
           <span className="text-[9px] tracking-[0.2em] uppercase font-mono font-bold text-[#FAF6EE] select-none text-center px-1">

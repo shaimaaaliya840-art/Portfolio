@@ -111,7 +111,7 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
               className="px-6 py-2.5 bg-[#2E2213] hover:bg-[#423218] border border-[#F5D061] text-xs font-mono uppercase tracking-[0.2em] text-[#FBF7EE] hover:text-[#F5D061] transition-all flex items-center gap-2 shadow-lg"
               data-cursor="pointer"
             >
-              <span>Trabalhe Comigo</span>
+              <span>Work With Me</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#F5D061]" />
             </button>
 
@@ -122,7 +122,7 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
                 data-cursor="pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#F5D061]" />
-                <span>Ver Lookbook (11 Pgs)</span>
+                <span>View Lookbook (11 Pgs)</span>
               </button>
             )}
           </div>
@@ -132,12 +132,12 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
       {/* Slide Navigation Prompter */}
       <div className="relative z-10 flex items-center justify-between pt-4 border-t border-[#3E2F16]/60 text-xs font-mono uppercase tracking-[0.2em] text-[#8A631E]">
         <div className="flex items-center gap-3">
-          <span className="text-[#F5D061]">DESLIZAR / SCROLL DOWN</span>
+          <span className="text-[#F5D061]">SCROLL DOWN</span>
           <ArrowDown className="w-3.5 h-3.5 text-[#F5D061] animate-bounce" />
         </div>
 
         <div className="text-[11px] text-[#D4A02A]">
-          FOTOGRAFIA · MANIFESTO · PREÇOS · VÍDEO
+          PHOTOGRAPHY · MANIFESTO · PRICING · VIDEO
         </div>
       </div>
     </section>

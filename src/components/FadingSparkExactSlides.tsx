@@ -1,86 +1,22 @@
 import React from 'react';
-import redThreadHandsImage from '../assets/images/red_thread_hands_1790503180613.jpg';
+import conceptNoteImage from '../assets/images/concept note.png';
 import exactThemeBoardPhotoImage from '../assets/images/exact_theme_board_photo_1790705956929.jpg';
-import page5PhotoshootImage from '../assets/images/page5_photoshoot_lookbook_1790746212735.jpg';
 
 /* =========================================================================
    PAGE 1: EXACT CONCEPT NOTE SLIDE
    ========================================================================= */
-export const ExactPage1ConceptNote: React.FC = () => {
-  return (
-    <div className="w-full aspect-[16/9] bg-[#F5E5DF] relative overflow-hidden rounded-xs shadow-2xl border border-[#D5B0A5] select-none flex flex-col justify-between p-6 sm:p-10 md:p-12 text-[#241217]">
-      {/* Background Soft Draped Fabric Texture with Subtle Diagonal Creases */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#EED5CC] via-[#F5E5DF] to-[#FAF0EB] pointer-events-none" />
-      <svg className="absolute inset-0 w-full h-full opacity-35 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 1000 562">
-        <path d="M-60,562 Q380,260 1020,-60 L1100,-60 L1100,562 Z" fill="#B86565" opacity="0.25" />
-        <path d="M-20,562 Q440,320 1080,40 L1120,40 L1120,562 Z" fill="#8C3535" opacity="0.18" />
-        <path d="M-100,200 Q200,60 500,0 L0,0 Z" fill="#FFFFFF" opacity="0.3" />
-      </svg>
-
-      {/* Slide Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-between">
-        {/* Top Center: Handwritten Red Calligraphy Script "Fading Spark" matching uploaded photo */}
-        <div className="text-center w-full mb-2 sm:mb-4">
-          <span
-            className="font-['Caveat','Reenie_Beanie','Dancing_Script',cursive] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#7A1426] tracking-wide inline-block transform -rotate-1 select-none"
-            style={{
-              textShadow: '0 1px 2px rgba(122,20,38,0.2)'
-            }}
-          >
-            Fading Spark
-          </span>
-        </div>
-
-        {/* Two-Column Stage */}
-        <div className="grid grid-cols-12 gap-5 sm:gap-10 items-center flex-1">
-          {/* Left Column: Exact Tall Portrait Photo of Hands with Red String (No title below it) */}
-          <div className="col-span-12 sm:col-span-5 flex justify-center sm:justify-start h-full max-h-[380px]">
-            <div className="bg-[#121214] p-1.5 rounded-xs border border-black/60 shadow-2xl w-full max-w-[280px] sm:max-w-none h-full overflow-hidden flex items-center justify-center">
-              <img
-                src={redThreadHandsImage}
-                alt="Two hands connected with red thread - The Fading Spark Concept"
-                className="w-full h-full object-cover object-center select-none"
-              />
-            </div>
-          </div>
-
-          {/* Right Column: Exact Monospace Typewriter Text (Paragraph 1 on Top, Paragraph 2 on Bottom) */}
-          <div className="col-span-12 sm:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 text-neutral-900 font-mono text-[9px] sm:text-[11px] md:text-[12.5px] lg:text-[13.5px] leading-relaxed text-left">
-            {/* Paragraph 1: "Love begins as a firestorm..." */}
-            <div className="space-y-1 text-neutral-800 tracking-normal">
-              <p>
-                Love begins as a firestorm — charged by chemistry, curiosity, and the unknown. The human brain, wired for novelty, releases a rush of dopamine and oxytocin at the start of every deep connection.
-              </p>
-              <p>
-                Over time, however, the same familiarity that once felt safe begins to dull the edges of that initial spark.What was once thrilling becomes routine, and the comfort that once healed us begins to quietly smother our need for growth.
-              </p>
-            </div>
-
-            {/* Paragraph 2: "The shift is not cruelty; it is evolution..." */}
-            <div className="space-y-1 font-bold tracking-tight text-neutral-950 pt-1 border-t border-[#DECFC0]/60">
-              <p>The shift is not cruelty; it is evolution.</p>
-              <p>The boredom we feel in old love is often the mind's gentle reminder</p>
-              <p>that we are meant to keep growing.</p>
-              <p>Comfort keeps us warm, but curiosity keeps us alive.</p>
-              <p>The fading of the spark is not always the</p>
-              <p>end of love — sometimes,</p>
-              <p>it is the invitation to rediscover it in a new form,</p>
-              <p>to meet each other again through changed eyes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+export const ExactPage1ConceptNote: React.FC = () => (
+  <div className="w-full aspect-[16/9] relative overflow-hidden select-none">
+    <img src={conceptNoteImage} alt="Concept note" className="block h-full w-full object-contain" />
+  </div>
+);
 
 /* =========================================================================
    PAGE 2: EXACT THEME BOARD SLIDE
    ========================================================================= */
 export const ExactPage2ThemeBoard: React.FC = () => {
   return (
-    <div className="w-full aspect-[16/9] bg-black relative overflow-hidden rounded-xs shadow-2xl border border-neutral-900 select-none flex items-center justify-center group">
+    <div className="w-full aspect-[16/9] relative overflow-hidden select-none flex items-center justify-center">
       <img
         src={exactThemeBoardPhotoImage}
         alt="The Fading Spark - Exact Theme Board Photo"
@@ -96,15 +32,7 @@ export const ExactPage2ThemeBoard: React.FC = () => {
    ========================================================================= */
 export const ExactPage3Illustration: React.FC = () => {
   return (
-    <div className="w-full aspect-[16/9] bg-[#E8CFC7] relative overflow-hidden rounded-xs shadow-2xl border border-[#D5B0A5] select-none p-4 sm:p-8 flex items-center justify-center">
-      {/* Background Soft Draped Fabric Texture Shading */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#DDB6AA] via-[#E8CFC7] to-[#F3DCD5] pointer-events-none" />
-      <svg className="absolute inset-0 w-full h-full opacity-35 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 1000 562">
-        <path d="M-100,562 Q350,250 1100,0 L1100,562 Z" fill="#C9988C" opacity="0.3" />
-        <path d="M-50,562 Q450,320 1100,100 L1100,562 Z" fill="#B88275" opacity="0.2" />
-        <path d="M0,0 Q600,180 1050,562 L1000,562 L0,200 Z" fill="#FFFFFF" opacity="0.15" />
-      </svg>
-
+    <div className="w-full aspect-[16/9] relative overflow-hidden select-none p-4 sm:p-8 flex items-center justify-center">
       {/* 5 Fashion Figures Line-up Clean Vector Stage */}
       <div className="relative z-10 w-full h-full max-w-[950px] mx-auto flex items-end justify-between px-2 sm:px-6 pb-2">
         <FashionFigureOutfit1 />
@@ -123,14 +51,7 @@ export const ExactPage3Illustration: React.FC = () => {
    ========================================================================= */
 export const ExactPage4IllustrationExplanation: React.FC = () => {
   return (
-    <div className="w-full aspect-[16/9] bg-[#E8CFC7] relative overflow-hidden rounded-xs shadow-2xl border border-[#D5B0A5] select-none p-4 sm:p-8 flex items-center justify-center">
-      {/* Background Soft Draped Fabric Texture Shading */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#DDB6AA] via-[#E8CFC7] to-[#F3DCD5] pointer-events-none" />
-      <svg className="absolute inset-0 w-full h-full opacity-35 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 1000 562">
-        <path d="M-100,562 Q350,250 1100,0 L1100,562 Z" fill="#C9988C" opacity="0.3" />
-        <path d="M-50,562 Q450,320 1100,100 L1100,562 Z" fill="#B88275" opacity="0.2" />
-      </svg>
-
+    <div className="w-full aspect-[16/9] relative overflow-hidden select-none p-4 sm:p-8 flex items-center justify-center">
       {/* Figures Container */}
       <div className="relative z-10 w-full h-full max-w-[950px] mx-auto flex items-end justify-between px-2 sm:px-6 pb-2">
         {/* Figure 1 with Red Handwritten Notes */}
@@ -454,22 +375,6 @@ const FashionFigureOutfit5: React.FC = () => {
         <path d="M40,284 L46,284 L44,291 Z" fill="#F8DFD4" />
         <path d="M54,284 L60,284 L58,291 Z" fill="#F8DFD4" />
       </svg>
-    </div>
-  );
-};
-
-
-/* =========================================================================
-   PAGE 5: EXACT PHOTOSHOOT LOOKBOOK SLIDE
-   ========================================================================= */
-export const ExactPage5Photoshoot: React.FC = () => {
-  return (
-    <div className="w-full aspect-[16/9] bg-[#E8CFC7] relative overflow-hidden rounded-xs shadow-2xl border border-[#D5B0A5] select-none flex items-center justify-center group">
-      <img
-        src={page5PhotoshootImage}
-        alt="The Fading Spark - Page 5 Editorial Photoshoot Lookbook"
-        className="w-full h-full object-cover select-none"
-      />
     </div>
   );
 };

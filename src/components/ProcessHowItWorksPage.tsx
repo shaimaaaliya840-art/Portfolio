@@ -17,14 +17,14 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
       {/* Background Volumetric Golden Aura Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 08 // COMO FUNCIONA) */}
+      {/* Top Slide Page Meta (PAGE 09 // COMO FUNCIONA) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-semibold">PAGE 08 · COMO FUNCIONA // METODOLOGIA DE ATELIER</span>
+          <span className="text-[#241217] font-semibold">PAGE 09 · HOW IT WORKS // ATELIER METHODOLOGY</span>
         </div>
         <div className="flex items-center gap-2">
-          <span>ETAPAS 01 — 03</span>
+          <span>STEPS 01 — 03</span>
           <Sparkles className="w-3.5 h-3.5 text-[#540D21]" />
         </div>
       </div>
@@ -33,12 +33,12 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
       <div className="max-w-7xl mx-auto mb-14 text-center">
         <div className="inline-flex items-center gap-3">
           <h2 className="text-5xl sm:text-6xl font-avonia font-normal tracking-normal text-[#540D21] drop-shadow-[0_4px_25px_rgba(84,13,33,0.15)] leading-tight">
-            Como Funciona
+            How It Works
           </h2>
           <span className="text-2xl text-[#540D21] animate-pulse">✦</span>
         </div>
         <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#540D21] pt-2 font-bold">
-          Do Primeiro Contato ao Vestir da Silhueta Final
+          From First Contact to Wearing the Final Silhouette
         </div>
       </div>
 
@@ -58,7 +58,7 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
                     {stepItem.step}
                   </span>
                   <span className="text-[10px] font-mono text-[#FAF6EE] uppercase tracking-widest font-black">
-                    FASE
+                    PHASE
                   </span>
                 </div>
 
@@ -72,7 +72,7 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
               </div>
 
               <div className="pt-4 border-t border-[#FAF6EE]/20 flex items-center justify-between text-[11px] font-mono font-bold text-[#FAF6EE]">
-                <span>ETAPA VERIFICADA</span>
+                <span>STEP VERIFIED</span>
                 <Check className="w-3.5 h-3.5 text-[#FAF6EE]" />
               </div>
             </div>

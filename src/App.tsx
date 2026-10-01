@@ -15,11 +15,11 @@ import { Hero } from './components/Hero';
 import { AtelierPhotoMoodboardPage } from './components/AtelierPhotoMoodboardPage';
 import { KineticManifestoPage } from './components/KineticManifestoPage';
 import { ManifestoDualArchPage } from './components/ManifestoDualArchPage';
-import { FeedbacksCreamPage } from './components/FeedbacksCreamPage';
 import { BenefitsStatsPage } from './components/BenefitsStatsPage';
 import { ServicePackagesPage } from './components/ServicePackagesPage';
 import { ProcessHowItWorksPage } from './components/ProcessHowItWorksPage';
 import { MyWorkReelsPage } from './components/MyWorkReelsPage';
+import { CvPage } from './components/CvPage';
 import { ObjectionStatsPage } from './components/ObjectionStatsPage';
 import { ContactIvoryPage } from './components/ContactIvoryPage';
 import { FloatingContactDock } from './components/FloatingContactDock';
@@ -29,11 +29,18 @@ import { QuickCustomizerModal } from './components/QuickCustomizerModal';
 import { EditorialLookbookDeckModal } from './components/EditorialLookbookDeckModal';
 import { ConceptLookbookModal } from './components/ConceptLookbookModal';
 import { ColorInspirationModal } from './components/ColorInspirationModal';
+import { FloatingBackButton } from './components/FloatingBackButton';
+import { AbhisarikaProjectDetailPage } from './components/AbhisarikaProjectDetailPage';
+import { FadingSparkProjectDetailPage, FadingSparkProjectPage } from './components/FadingSparkProjectDetailPage';
 
 export default function App() {
   // Color inspiration & theme state
   const [activePalette, setActivePalette] = useState<AtelierPalette>(getInitialTheme);
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
+  const [isFadingSparkOpen, setIsFadingSparkOpen] = useState(false);
+  const [isFadingSparkWorkOpen, setIsFadingSparkWorkOpen] = useState(false);
+  const [isAbhisarikaOpen, setIsAbhisarikaOpen] = useState(false);
+  const [abhisarikaReturnTarget, setAbhisarikaReturnTarget] = useState<'work' | 'atelier'>('atelier');
 
   useEffect(() => {
     applyThemeToDocument(activePalette);
@@ -91,6 +98,121 @@ export default function App() {
     setIsConceptLookbookOpen(true);
   };
 
+  const closeAbhisarika = () => {
+    setIsAbhisarikaOpen(false);
+    const targetId = abhisarikaReturnTarget === 'work' ? 'abhisarika-work-card' : 'abhisarai-ka-trigger';
+    window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 0);
+  };
+
+  const openAbhisarikaFromWork = () => {
+    setAbhisarikaReturnTarget('work');
+    setIsAbhisarikaOpen(true);
+  };
+
+  const openAbhisarikaFromAtelier = () => {
+    setAbhisarikaReturnTarget('atelier');
+    setIsAbhisarikaOpen(true);
+  };
+
+  const closeFadingSparkFromWork = () => {
+    setIsFadingSparkWorkOpen(false);
+    window.setTimeout(() => {
+      document.getElementById('fading-spark-work-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 0);
+  };
+
+  const handleGlobalBack = () => {
+    // 1. If any modal is open, close it
+    if (isAbhisarikaOpen) {
+      closeAbhisarika();
+      return;
+    }
+    if (isFadingSparkWorkOpen) {
+      closeFadingSparkFromWork();
+      return;
+    }
+    if (isFadingSparkOpen) {
+      setIsFadingSparkOpen(false);
+      return;
+    }
+    if (isDeckOpen) {
+      setIsDeckOpen(false);
+      return;
+    }
+    if (isConceptLookbookOpen) {
+      setIsConceptLookbookOpen(false);
+      return;
+    }
+    if (isColorModalOpen) {
+      setIsColorModalOpen(false);
+      return;
+    }
+    if (selectedProject) {
+      setSelectedProject(null);
+      return;
+    }
+    if (isInquiryOpen) {
+      setIsInquiryOpen(false);
+      return;
+    }
+    if (isCustomizerOpen) {
+      setIsCustomizerOpen(false);
+      return;
+    }
+
+    // 2. Otherwise step back to the previous section. This deliberately never calls
+    // history.back(): visitors arriving from another site (or via a shared #anchor link)
+    // would be sent off the portfolio entirely.
+    const sectionIds = [
+      'hero-section',
+      'kinetic-manifesto',
+      'fading-spark-page',
+      'my-work-reels',
+      'color-inspiration-page',
+      'manifesto-arch',
+      'benefits-stats',
+      'packages-page',
+      'how-it-works',
+      'objection-stats',
+      'curriculum-vitae',
+      'contact-ivory'
+    ];
+
+    const currentY = window.scrollY;
+    if (currentY <= 80) return; // Already at the cover; nothing earlier to go back to
+
+    let targetSection = 'hero-section';
+    for (let i = sectionIds.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sectionIds[i]);
+      // Section starts more than 100px above the viewport top. (offsetTop is relative to
+      // the nearest positioned ancestor, so measure against the viewport instead.)
+      if (el && el.getBoundingClientRect().top < -100) {
+        targetSection = sectionIds[i];
+        break;
+      }
+    }
+    document.getElementById(targetSection)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Support hardware/browser Back button to close modals
+  useEffect(() => {
+    const handlePopState = () => {
+      setIsAbhisarikaOpen(false);
+      setIsDeckOpen(false);
+      setIsConceptLookbookOpen(false);
+      setIsColorModalOpen(false);
+      setSelectedProject(null);
+      setIsInquiryOpen(false);
+      setIsCustomizerOpen(false);
+      setIsFadingSparkOpen(false);
+      setIsFadingSparkWorkOpen(false);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleSaveCustomizer = (newData: PortfolioData) => {
     setPortfolioData(newData);
     try {
@@ -138,42 +260,54 @@ export default function App() {
           onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 03: Inspiração de Cores & Materialidade do Atelier */}
+        {/* SLIDE 03: Fading Spark */}
+        <FadingSparkProjectPage />
+
+        {/* SLIDE 04: My Work & Runway Video Reels */}
+        <MyWorkReelsPage
+          onOpenInquiry={() => setIsInquiryOpen(true)}
+          onOpenAbhisarika={openAbhisarikaFromWork}
+          onOpenFadingSpark={() => setIsFadingSparkWorkOpen(true)}
+        />
+
+        {/* SLIDE 05: Inspiração de Cores & Materialidade do Atelier */}
         <AtelierPhotoMoodboardPage
           activePalette={activePalette}
+          isProjectDetailOpen={isFadingSparkOpen}
+          onProjectDetailOpenChange={setIsFadingSparkOpen}
+          onOpenAbhisarika={openAbhisarikaFromAtelier}
           onOpenColorModal={() => setIsColorModalOpen(true)}
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
+        <AbhisarikaProjectDetailPage
+          isOpen={isAbhisarikaOpen}
+          onClose={closeAbhisarika}
+          highlight={portfolioData.neelgarHighlight}
+          returnLabel={abhisarikaReturnTarget === 'work' ? 'Back to My Work' : 'Back to Atelier'}
+        />
+        <FadingSparkProjectDetailPage
+          isOpen={isFadingSparkWorkOpen}
+          onClose={closeFadingSparkFromWork}
+        />
 
-        {/* SLIDE 04: Dual Arch Quem Sou Eu & Atelier Profile Dossier */}
+        {/* SLIDE 06: Dual Arch Quem Sou Eu & Atelier Profile Dossier */}
         <ManifestoDualArchPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}
-          onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 05: Feedbacks & Mentors Commendations */}
-        <FeedbacksCreamPage
-          testimonials={testimonials}
-        />
-
-        {/* SLIDE 06: Benefícios do Atelier & 93% Stat */}
+        {/* SLIDE 07: Benefícios do Atelier & 93% Stat */}
         <BenefitsStatsPage
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 07: Pacotes de Serviços & Commission Tiers */}
+        {/* SLIDE 08: Pacotes de Serviços & Commission Tiers */}
         <ServicePackagesPage
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 08: Como Funciona Methodology */}
+        {/* SLIDE 09: Como Funciona Methodology */}
         <ProcessHowItWorksPage
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 09: My Work & Runway Video Reels */}
-        <MyWorkReelsPage
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
@@ -182,12 +316,18 @@ export default function App() {
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 11: Vamos Trabalhar Juntos & Contato */}
+        {/* SLIDE 11: Curriculum Vitae dossier */}
+        <CvPage portfolioData={portfolioData} />
+
+        {/* SLIDE 12: Vamos Trabalhar Juntos & Contato */}
         <ContactIvoryPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
       </main>
+
+      {/* Floating Global Back Button */}
+      <FloatingBackButton onBack={handleGlobalBack} />
 
       {/* Floating Quick Action & Slide Progress Dock */}
       <FloatingContactDock

@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({
                 className="group px-8 py-4 bg-[#EFE6D5] border border-[#DECFC0] hover:border-[#540D21] hover:text-[#540D21] text-xs font-mono uppercase tracking-[0.2em] transition-all flex items-center gap-3 text-[#241217] shadow-md"
                 data-cursor="pointer"
               >
-                <span>Trabalhe Comigo // Solicitar Dossiê</span>
+                <span>Work With Me // Request Dossier</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-[#540D21]" />
               </button>
 
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({
                     title="Copy Email"
                   >
                     {copiedField === 'footer-email' ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedField === 'footer-email' ? 'Copiado' : 'Copiar'}</span>
+                    <span>{copiedField === 'footer-email' ? 'Copied' : 'Copy'}</span>
                   </button>
                   <a
                     href={`mailto:${email}`}

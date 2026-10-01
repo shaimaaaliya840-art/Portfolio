@@ -62,7 +62,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                   <Sparkles className="w-3 h-3 text-[var(--color-accent,#540D21)]" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-serif font-black uppercase text-[var(--color-text,#241217)] tracking-tight">
-                  Paleta de Cores &amp; Materialidade
+                  Color Palette &amp; Materiality
                 </h2>
               </div>
             </div>
@@ -70,7 +70,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
             <button
               onClick={onClose}
               className="p-2 text-[var(--color-text-muted,#D2BDCF)] hover:text-[var(--color-accent,#540D21)] hover:bg-[var(--color-surface,#F3EBDD)] transition-colors rounded-sm cursor-pointer"
-              aria-label="Fechar modal"
+              aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
@@ -81,7 +81,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
             {/* 1. Theme Selector Chips */}
             <div>
               <div className="text-xs font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] mb-3 font-bold">
-                SELECIONAR INSPIRAÇÃO DO ATELIER
+                SELECT ATELIER INSPIRATION
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {atelierPalettes.map((palette) => {
@@ -141,7 +141,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                   </p>
                 </div>
                 <div className="px-3 py-1.5 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-accent,#540D21)] text-[10px] font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] font-bold shrink-0 self-start sm:self-center">
-                  PALETA ATIVA NO PORTFÓLIO
+                  ACTIVE PORTFOLIO PALETTE
                 </div>
               </div>
 
@@ -152,8 +152,8 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
               {/* Chromatic Proportion Spectrum Bar */}
               <div className="space-y-1.5 mb-6">
                 <div className="flex justify-between text-[10px] font-mono uppercase text-[var(--color-accent,#540D21)]">
-                  <span>Proporção Cromática na Alta Costura</span>
-                  <span>100% Harmonia de Atelier</span>
+                  <span>Chromatic Proportion in Haute Couture</span>
+                  <span>100% Atelier Harmony</span>
                 </div>
                 <div className="h-4 w-full flex overflow-hidden border border-[var(--color-mocha,#DECFC0)] rounded-xs">
                   {activePalette.swatches.map((s, idx) => (
@@ -194,17 +194,17 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                           <button
                             onClick={(e) => handleCopy(swatch.hex, e)}
                             className="opacity-0 group-hover:opacity-100 transition-opacity px-2 py-1 bg-black/80 text-[10px] font-mono text-white tracking-widest uppercase flex items-center gap-1 rounded-xs shadow"
-                            title="Copiar código HEX"
+                            title="Copy HEX code"
                           >
                             {copiedHex === swatch.hex ? (
                               <>
                                 <Check className="w-3 h-3 text-green-400" />
-                                <span>Copiado</span>
+                                <span>Copied</span>
                               </>
                             ) : (
                               <>
                                 <Copy className="w-3 h-3" />
-                                <span>Copiar</span>
+                                <span>Copy</span>
                               </>
                             )}
                           </button>
@@ -252,7 +252,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                 <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
                   <div className="p-3 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-mocha,#DECFC0)]">
                     <span className="text-[9px] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
-                      Equivalência DMC &amp; Têxtil
+                      DMC &amp; Textile Equivalent
                     </span>
                     <p className="text-[var(--color-text,#241217)] font-semibold">{selectedSwatch.dmc}</p>
                     <p className="text-[10px] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">{selectedSwatch.fabric}</p>
@@ -260,11 +260,11 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
 
                   <div className="p-3 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-mocha,#DECFC0)]">
                     <span className="text-[9px] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
-                      Aplicação nos Vestuários
+                      Garment Application
                     </span>
                     <p className="text-[var(--color-text,#241217)] font-semibold">{selectedSwatch.garmentUsage}</p>
                     <p className="text-[10px] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">
-                      Proporção estimada: {selectedSwatch.percentage}% da peça
+                      Estimated proportion: {selectedSwatch.percentage}% of the garment
                     </p>
                   </div>
                 </div>
@@ -275,13 +275,13 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
           {/* Footer Action */}
           <div className="p-4 sm:p-5 border-t border-[var(--color-mocha,#DECFC0)] bg-[var(--color-panel,#EFE6D5)] flex flex-wrap items-center justify-between gap-3 shrink-0">
             <div className="text-[11px] font-mono text-[var(--color-text-muted,#D2BDCF)]">
-              ✦ Cores calibradas para exibição editorial de alta-fidelidade.
+              ✦ Colors calibrated for high-fidelity editorial display.
             </div>
             <button
               onClick={onClose}
               className="px-6 py-2.5 bg-[var(--color-accent,#540D21)] hover:bg-[#6E112B] text-[var(--color-base,#FAF6EE)] font-mono text-xs uppercase tracking-widest font-black transition-colors cursor-pointer flex items-center gap-2 shadow-lg"
             >
-              <span>Aplicar &amp; Fechar</span>
+              <span>Apply &amp; Close</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

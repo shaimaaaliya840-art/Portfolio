@@ -16,11 +16,11 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
       {/* Background Volumetric Golden Aura Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 06 // PACOTES DE SERVIÇOS) */}
+      {/* Top Slide Page Meta (PAGE 08 // PACOTES DE SERVIÇOS) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-semibold">PAGE 06 · PACOTES DE SERVIÇOS &amp; ENCOMENDAS</span>
+          <span className="text-[#241217] font-semibold">PAGE 08 · SERVICE PACKAGES &amp; COMMISSIONS</span>
         </div>
         <div className="flex items-center gap-3">
           <span>ATELIER COMMISSIONS</span>
@@ -34,7 +34,7 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
         <div className="w-full lg:w-28 bg-gradient-to-b from-[#540D21] via-[#75122F] to-[#380612] border-2 border-[#851737] p-6 flex lg:flex-col items-center justify-between lg:justify-center relative shrink-0 shadow-2xl">
           <div className="absolute inset-1 border border-[#FAF6EE]/20 pointer-events-none" />
           <div className="lg:-rotate-90 whitespace-nowrap text-2xl sm:text-3xl font-avonia tracking-normal font-normal text-[#FAF6EE]">
-            Pacotes de Serviços
+            Service Packages
           </div>
           <div className="text-[10px] font-mono text-[#FAF6EE] font-bold uppercase tracking-widest mt-0 lg:mt-12">
             ATELIER // SHATMA
@@ -59,7 +59,7 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
 
                 {isRec && (
                   <div className="absolute -top-3.5 right-4 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[10px] font-mono uppercase tracking-widest font-black border border-[#540D21] shadow-lg">
-                    DESTAQUE
+                    FEATURED
                   </div>
                 )}
 
@@ -99,9 +99,9 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
                       : 'bg-[#540D21] hover:bg-[#6E112B] text-[#FAF6EE] border-[#540D21]'
                   }`}
                   data-cursor="pointer"
-                  data-cursor-text="RESERVAR"
+                  data-cursor-text="BOOK"
                 >
-                  <span>Solicitar Proposta</span>
+                  <span>Request a Proposal</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>

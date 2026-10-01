@@ -16,14 +16,14 @@ export const ObjectionStatsPage: React.FC<ObjectionStatsPageProps> = ({ onOpenIn
       {/* Background Volumetric Golden Aura Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 09 // AINDA NÃO TEM CERTEZA?) */}
+      {/* Top Slide Page Meta (PAGE 10 // AINDA NÃO TEM CERTEZA?) */}
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21] relative z-10">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-semibold">PAGE 09 · VALIDAÇÃO &amp; DECISÃO DE ATELIER</span>
+          <span className="text-[#241217] font-semibold">PAGE 10 · ATELIER VALIDATION &amp; DECISION</span>
         </div>
         <div className="flex items-center gap-2 text-[11px]">
-          <span>MÉTRICAS COMPROVADAS</span>
+          <span>PROVEN METRICS</span>
           <Sparkles className="w-3 h-3 text-[#540D21]" />
         </div>
       </div>
@@ -37,19 +37,19 @@ export const ObjectionStatsPage: React.FC<ObjectionStatsPageProps> = ({ onOpenIn
 
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[10px] font-mono uppercase tracking-[0.2em] w-fit font-bold shadow-md">
             <HelpCircle className="w-3 h-3 text-[#540D21]" />
-            <span>DIAGNÓSTICO EXCLUSIVO</span>
+            <span>EXCLUSIVE CONSULTATION</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#FAF6EE] leading-[1.15] font-black">
-            Ainda não tem certeza se alta-costura é o que você precisa?
+            Still not sure if haute couture is what you need?
           </h2>
 
           <p className="text-base sm:text-lg text-[#FAF6EE]/95 font-serif italic leading-relaxed font-bold">
-            "Cada encomenda comissionada a Shatma Aaliya passa por uma sessão diagnóstica de anatomia, pesquisa de tecidos históricos em teares manuais e modelagem arquitetônica tridimensional sem concessões."
+            "Every commission placed with Shatma Aaliya goes through an anatomical consultation, research into historic handloom textiles and uncompromising three-dimensional architectural pattern-making."
           </p>
 
           <p className="text-xs sm:text-sm text-[#FAF6EE]/85 font-normal leading-relaxed">
-            Não produzimos vestuário comum. Construímos armaduras de presença cênica para noivas de alta distinção, tapetes vermelhos e mulheres que exigem autoridade e beleza letal.
+            We don’t make ordinary clothing. We build armor of stage presence for distinguished brides, red carpets and women who demand authority and lethal beauty.
           </p>
 
           <div className="pt-2">
@@ -58,9 +58,9 @@ export const ObjectionStatsPage: React.FC<ObjectionStatsPageProps> = ({ onOpenIn
               id="objection-inquire-btn"
               className="px-8 py-3.5 bg-[#FAF6EE] hover:bg-[#F3EBDD] border border-[#FAF6EE] text-xs font-mono uppercase tracking-[0.2em] text-[#540D21] hover:text-[#851737] transition-all duration-300 shadow-xl flex items-center gap-3 w-fit font-bold cursor-pointer"
               data-cursor="pointer"
-              data-cursor-text="CONSULTAR"
+              data-cursor-text="CONSULT"
             >
-              <span>Trabalhe Comigo</span>
+              <span>Work With Me</span>
               <ArrowUpRight className="w-4 h-4 text-[#540D21]" />
             </button>
           </div>

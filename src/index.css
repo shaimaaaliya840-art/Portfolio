@@ -137,7 +137,6 @@
 
 .roll-container {
   overflow: clip;
-  overflow-clip-margin: 30px;
   line-height: 1.15;
 }
 

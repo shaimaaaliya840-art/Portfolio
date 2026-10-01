@@ -10,7 +10,7 @@ interface HeroProps {
   onOpenConceptLookbook?: () => void;
 }
 
-const KINETIC_WORDS = ['drapes', 'tailors', 'storyless', 'sculpts'];
+const KINETIC_WORDS = ['drapes', 'tailors', 'storytells', 'sculpts'];
 
 interface LetterProps {
   char: string;
@@ -71,10 +71,12 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
             </h1>
 
             {/* Line 2: Giant Kinetic Tumbler for the active moving word in Avonia luxury script */}
-            <div className="mt-2 sm:mt-5 flex flex-col items-center justify-center relative top-[1cm]">
+            <div className="flex flex-col items-center justify-center relative">
+              {/* Font size lives on the container so h-[1.4em] matches the word; Allura's tall
+                  ascenders/descenders need the extra line height or the clip cuts them off */}
               <span
                 id="scramble"
-                className="relative inline-flex items-center justify-center roll-container h-[1.32em] overflow-hidden px-6 sm:px-12 py-1 rounded-2xl bg-[#540D21]/5 border border-[#540D21]/20 shadow-[0_6px_30px_rgba(84,13,33,0.1)]"
+                className="relative inline-flex items-center justify-center roll-container h-[1.4em] overflow-hidden px-6 sm:px-12 font-avonia font-normal text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px]"
               >
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
@@ -86,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
                       duration: 0.6,
                       ease: [0.22, 1.15, 0.36, 1],
                     }}
-                    className="inline-flex items-center font-avonia font-normal text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px] text-[#540D21] leading-none drop-shadow-[0_4px_24px_rgba(84,13,33,0.2)]"
+                    className="inline-flex items-center text-[#540D21] leading-[1.4] drop-shadow-[0_4px_24px_rgba(84,13,33,0.2)]"
                   >
                     {activeWord.split('').map((char, i) => (
                       <InteractiveLetter
@@ -98,23 +100,6 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
                   </motion.span>
                 </AnimatePresence>
               </span>
-
-              {/* Signature Avonia Sweeping Flourish Underline (inspired by Avonia specimen) */}
-              <div className="w-full max-w-[280px] sm:max-w-[420px] md:max-w-[560px] flex items-center justify-center -mt-2 sm:-mt-3 pointer-events-none">
-                <svg
-                  className="w-full h-7 sm:h-11 text-[#540D21]/75"
-                  viewBox="0 0 500 45"
-                  fill="none"
-                >
-                  <path
-                    d="M 30 22 C 140 40, 260 40, 390 18 C 440 9, 475 14, 485 24"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                  />
-                  <circle cx="485" cy="24" r="2.5" fill="currentColor" />
-                </svg>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -129,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
       >
         <div className="flex items-center gap-2">
           <span className="animate-bounce">↓</span>
-          <span>Deslizar / Scroll Down</span>
+          <span>Scroll Down</span>
         </div>
         <div className="text-[10px] text-[#241217]/40 hidden sm:block">
           Atelier · Silhouette · Drape · Archive

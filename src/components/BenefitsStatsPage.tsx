@@ -9,11 +9,11 @@ interface BenefitsStatsPageProps {
 
 export const BenefitsStatsPage: React.FC<BenefitsStatsPageProps> = ({ onOpenInquiry }) => {
   const checklist = [
-    "Modelagem tridimensional e toiles sob medida para anatomias reais",
-    "Acesso a tecidos de arquivo históricos e sedas tecidas à mão em tear manual",
-    "Corpetes estruturados com barbatanas de alta sustentação e acabamento invisível",
-    "Direção de estilo completa para desfiles de moda, editoriais e tapetes vermelhos",
-    "Consultoria técnica em bordados de zardozi oxidado e metalurgia têxtil"
+    "Three-dimensional pattern-making and made-to-measure toiles for real bodies",
+    "Access to historic archive textiles and hand-woven handloom silks",
+    "Structured bodices with high-support boning and invisible finishing",
+    "Complete styling direction for runway shows, editorials and red carpets",
+    "Technical consulting in oxidized zardozi embroidery and textile metalwork"
   ];
 
   return (
@@ -24,14 +24,14 @@ export const BenefitsStatsPage: React.FC<BenefitsStatsPageProps> = ({ onOpenInqu
       {/* Background Volumetric Golden Aura Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 05 // BENEFÍCIOS & IMPACTO) */}
+      {/* Top Slide Page Meta (PAGE 07 // BENEFÍCIOS & IMPACTO) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21] relative z-10">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-semibold">PAGE 05 · BENEFÍCIOS DO ATELIER &amp; IMPACTO</span>
+          <span className="text-[#241217] font-semibold">PAGE 07 · ATELIER BENEFITS &amp; IMPACT</span>
         </div>
         <div className="flex items-center gap-2">
-          <span>93% EFICÁCIA COMPROVADA</span>
+          <span>93% PROVEN EFFECTIVENESS</span>
           <Sparkles className="w-3.5 h-3.5 text-[#540D21]" />
         </div>
       </div>
@@ -54,11 +54,11 @@ export const BenefitsStatsPage: React.FC<BenefitsStatsPageProps> = ({ onOpenInqu
           <div className="h-0.5 w-20 bg-[#FAF6EE]" />
 
           <p className="text-sm sm:text-base text-[#FAF6EE] font-mono uppercase tracking-widest font-black leading-relaxed">
-            Redução drástica em provas e ajustes através de modelagem anatômica tridimensional avançada.
+            Dramatically fewer fittings and alterations through advanced three-dimensional anatomical pattern-making.
           </p>
 
           <p className="text-xs text-[#FAF6EE]/90 font-serif italic leading-relaxed">
-            "A precisão do corte e a estrutura interna garantem que cada peça vista como uma armadura sob medida na primeira prova."
+            "Precise cutting and internal structure ensure every piece fits like made-to-measure armor at the very first fitting."
           </p>
 
           <div className="pt-2">
@@ -66,9 +66,9 @@ export const BenefitsStatsPage: React.FC<BenefitsStatsPageProps> = ({ onOpenInqu
               onClick={onOpenInquiry}
               className="px-6 py-3 bg-[#FAF6EE] hover:bg-[#F3EBDD] border border-[#FAF6EE] text-xs font-mono uppercase tracking-[0.2em] text-[#540D21] hover:text-[#851737] transition-all duration-300 shadow-xl flex items-center gap-2 font-bold cursor-pointer"
               data-cursor="pointer"
-              data-cursor-text="CONSULTAR"
+              data-cursor-text="CHECK"
             >
-              <span>Consultar Disponibilidade</span>
+              <span>Check Availability</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#540D21]" />
             </button>
           </div>

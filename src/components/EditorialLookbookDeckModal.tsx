@@ -131,12 +131,12 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-xs font-mono text-[#8A631E] uppercase tracking-widest">
-                    SLIDE 01 // CAPA EDITORIAL
+                    SLIDE 01 // EDITORIAL COVER
                   </div>
                 </motion.div>
               )}
 
-              {/* SLIDE 02: FOTOGRAFIA DE PRODUTO (CREAM) */}
+              {/* SLIDE 02: PRODUCT PHOTOGRAPHY (CREAM) */}
               {currentSlide === 1 && (
                 <motion.div
                   key="slide-2"
@@ -171,7 +171,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         />
                       </div>
                       <h3 className="text-2xl font-serif font-black uppercase text-[#14100A] pt-4">
-                        FOTOGRAFIA DE PRODUTO
+                        PRODUCT PHOTOGRAPHY
                       </h3>
                     </div>
 
@@ -209,7 +209,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                 </motion.div>
               )}
 
-              {/* SLIDE 03: QUEM SOU EU? & O QUE É O ATELIER */}
+              {/* SLIDE 03: WHO AM I? & O QUE É O ATELIER */}
               {currentSlide === 2 && (
                 <motion.div
                   key="slide-3"
@@ -220,20 +220,20 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#EAE0CD] text-[#FBF7EE] p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 03 · IDENTIDADE</span>
-                    <span>QUEM SOU EU? / O QUE É O ATELIER?</span>
+                    <span>PAGE 03 · IDENTITY</span>
+                    <span>WHO AM I? / WHAT IS THE ATELIER?</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center my-auto">
                     <div className="sm:col-span-4 space-y-3 text-left">
                       <h3 className="text-xl font-serif font-bold uppercase text-[#FBF7EE]">
-                        QUEM SOU EU?
+                        WHO AM I?
                       </h3>
                       <p className="text-xs text-[#F5D061]/90 leading-relaxed font-serif italic">
-                        "Shatma Aaliya, designer pela Indus Design School '27 e aprendiz de alta-costura no Atelier Neelgar."
+                        "Shatma Aaliya, designer from Indus Design School '27 and haute couture apprentice at Atelier Neelgar."
                       </p>
                       <p className="text-[11px] text-[#FBF7EE]/70 font-light leading-relaxed">
-                        Silhuetas femme fatale, corseteria estruturada em barbatanas e alfaiataria masculina subversiva.
+                        Femme fatale silhouettes, boned structured corsetry and subversive menswear tailoring.
                       </p>
                     </div>
 
@@ -249,16 +249,16 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
 
                     <div className="sm:col-span-4 space-y-3 text-left">
                       <h3 className="text-xl font-serif font-bold uppercase text-[#FBF7EE]">
-                        O QUE É O ATELIER?
+                        WHAT IS THE ATELIER?
                       </h3>
                       <p className="text-[11px] text-[#FBF7EE]/80 font-light leading-relaxed">
-                        Laboratório sob encomenda para desfiles, campanhas editoriais e clientes privados em busca de silhuetas de autoridade.
+                        A made-to-order lab for runway shows, editorial campaigns and private clients seeking silhouettes of authority.
                       </p>
                       <button
                         onClick={onOpenInquiry}
                         className="px-5 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[10px] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
                       >
-                        Trabalhe Comigo
+                        Work With Me
                       </button>
                     </div>
                   </div>
@@ -281,7 +281,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#8A631E]">
                     <span>PAGE 04 · FEEDBACKS</span>
-                    <span>DIREÇÃO CRIATIVA & JÚRI</span>
+                    <span>CREATIVE DIRECTION & JURY</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center my-auto">
@@ -292,7 +292,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         BACKS ✦
                       </h3>
                       <p className="text-xs font-mono text-[#8A631E]">
-                        Palavras dos mentores do Atelier Neelgar e Indus Design School.
+                        Words from mentors at Atelier Neelgar and Indus Design School.
                       </p>
                     </div>
 
@@ -321,7 +321,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E] text-right">
-                    100% RECOMENDAÇÃO ACADÊMICA E EDITORIAL
+                    100% ACADEMIC & EDITORIAL RECOMMENDATION
                   </div>
                 </motion.div>
               )}
@@ -337,8 +337,8 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#EAE0CD] text-[#FBF7EE] p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 05 · IMPACTO</span>
-                    <span>BENEFÍCIOS DO ATELIER</span>
+                    <span>PAGE 05 · IMPACT</span>
+                    <span>ATELIER BENEFITS</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center my-auto">
@@ -347,48 +347,48 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         93% ✦
                       </div>
                       <p className="font-serif italic text-sm text-[#F5D061] leading-relaxed">
-                        "dos clientes e membros do júri acreditam que as silhuetas de Shatma elevam decisivamente o valor de passarela da marca."
+                        "of clients and jury members believe Shatma’s silhouettes decisively raise a brand’s runway value."
                       </p>
                     </div>
 
                     <div className="sm:col-span-7 bg-[#14100A] border border-[#3E2F16] p-5 space-y-3 text-left">
                       <div className="text-xs font-mono uppercase text-[#F5D061] font-bold">
-                        BENEFÍCIOS PARA SUA MARCA:
+                        BENEFITS FOR YOUR BRAND:
                       </div>
                       <div className="space-y-2 text-xs text-[#FBF7EE]/90 font-light">
                         <div className="flex items-center gap-2">
                           <Check className="w-3.5 h-3.5 text-[#F5D061]" />
-                          <span>Modelagem tridimensional sob medida</span>
+                          <span>Made-to-measure 3D pattern-making</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <Check className="w-3.5 h-3.5 text-[#F5D061]" />
-                          <span>Sedas de arquivo e tecelagem manual de Varanasi</span>
+                          <span>Archive silks and Varanasi handloom weaving</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <Check className="w-3.5 h-3.5 text-[#F5D061]" />
-                          <span>Corpetes estruturados em barbatanas de aço</span>
+                          <span>Structured bodices with steel boning</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <Check className="w-3.5 h-3.5 text-[#F5D061]" />
-                          <span>Direção de estilo e passarela</span>
+                          <span>Styling and runway direction</span>
                         </div>
                       </div>
                       <button
                         onClick={onOpenInquiry}
                         className="mt-2 px-6 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[10px] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
                       >
-                        Trabalhe Comigo
+                        Work With Me
                       </button>
                     </div>
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E]">
-                    FONTE: AVALIAÇÃO DE BANCA INDUS '27
+                    SOURCE: INDUS '27 JURY ASSESSMENT
                   </div>
                 </motion.div>
               )}
 
-              {/* SLIDE 06: PACOTES DE SERVIÇOS */}
+              {/* SLIDE 06: SERVICE PACKAGES */}
               {currentSlide === 5 && (
                 <motion.div
                   key="slide-6"
@@ -399,14 +399,14 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#EAE0CD] text-[#FBF7EE] p-6 sm:p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 06 · VALORES</span>
-                    <span>PACOTES DE SERVIÇOS // ATELIER COMMISSIONS</span>
+                    <span>PAGE 06 · PRICING</span>
+                    <span>SERVICE PACKAGES // ATELIER COMMISSIONS</span>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 items-stretch my-auto">
                     <div className="w-full sm:w-20 bg-[#14100A] border border-[#3E2F16] p-3 flex sm:flex-col items-center justify-center text-center">
                       <div className="sm:-rotate-90 text-sm font-serif font-bold uppercase tracking-widest text-[#FBF7EE]">
-                        PACOTES DE SERVIÇOS
+                        SERVICE PACKAGES
                       </div>
                     </div>
 
@@ -427,9 +427,9 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="flex items-center justify-between text-[10px] font-mono text-[#8A631E]">
-                    <span>ENCOMENDAS SOB MEDIDA</span>
+                    <span>MADE-TO-ORDER COMMISSIONS</span>
                     <button onClick={onOpenInquiry} className="text-[#F5D061] underline">
-                      SOLICITAR PROPOSTA
+                      REQUEST A PROPOSAL
                     </button>
                   </div>
                 </motion.div>
@@ -447,7 +447,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
                     <span>PAGE 07 · REELS</span>
-                    <span>MY WORK // CONTEÚDO DE VÍDEO & RUNWAY</span>
+                    <span>MY WORK // VIDEO CONTENT & RUNWAY</span>
                   </div>
 
                   <div className="my-auto space-y-4">
@@ -456,7 +456,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         MY WORK
                       </h3>
                       <div className="text-[10px] font-mono text-[#F5D061] uppercase tracking-widest">
-                        Conteúdo de Vídeo & Silhuetas em 9:16
+                        Video Content & Silhouettes in 9:16
                       </div>
                     </div>
 
@@ -483,7 +483,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E]">
-                    91% DOS CONSUMIDORES PREFEREM VÍDEOS EM MOVIMENTO
+                    91% OF CONSUMERS PREFER VIDEOS IN MOTION
                   </div>
                 </motion.div>
               )}
@@ -499,8 +499,8 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#EAE0CD] text-[#FBF7EE] p-6 sm:p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 08 · PROCESSO</span>
-                    <span>COMO FUNCIONA ✦ // 3 ETAPAS</span>
+                    <span>PAGE 08 · PROCESS</span>
+                    <span>HOW IT WORKS ✦ // 3 STEPS</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center my-auto">
@@ -526,7 +526,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E]">
-                    METODOLOGIA COMPLETA DE ALTA-COSTURA
+                    COMPLETE HAUTE COUTURE METHODOLOGY
                   </div>
                 </motion.div>
               )}
@@ -542,23 +542,23 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#EAE0CD] text-[#FBF7EE] p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 09 · PRECISÃO</span>
-                    <span>AINDA NÃO TEM CERTEZA?</span>
+                    <span>PAGE 09 · PRECISION</span>
+                    <span>STILL NOT SURE?</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center my-auto">
                     <div className="sm:col-span-5 text-left space-y-4">
                       <h3 className="text-2xl sm:text-3xl font-serif text-[#FBF7EE] leading-snug">
-                        Ainda não tem certeza do que precisa?
+                        Still not sure what you need?
                       </h3>
                       <p className="text-xs text-[#F5D061]/80 font-serif italic">
-                        "Cada encomenda passa por uma sessão diagnóstica de silhueta e seleção de tecidos históricos."
+                        "Every commission begins with a silhouette consultation and a selection of historic textiles."
                       </p>
                       <button
                         onClick={onOpenInquiry}
                         className="px-6 py-2.5 rounded-full bg-[#2E2213] border border-[#F5D061] text-xs font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
                       >
-                        Trabalhe Comigo
+                        Work With Me
                       </button>
                     </div>
 
@@ -576,7 +576,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E]">
-                    INDUS DESIGN SCHOOL · EXCELÊNCIA TÉCNICA
+                    INDUS DESIGN SCHOOL · TECHNICAL EXCELLENCE
                   </div>
                 </motion.div>
               )}
@@ -592,8 +592,8 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#14100A] text-[#FBF7EE] p-8 flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#F5D061]">
-                    <span>PAGE 10 · ARQUIVO</span>
-                    <span>DOSSIERS DE COUTURE & NEELGAR</span>
+                    <span>PAGE 10 · ARCHIVE</span>
+                    <span>COUTURE & NEELGAR DOSSIERS</span>
                   </div>
 
                   <div className="grid grid-cols-3 gap-4 my-auto">
@@ -609,12 +609,12 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   </div>
 
                   <div className="text-[10px] font-mono text-[#8A631E]">
-                    EXPLORE OS 06+ PROJETOS NA PÁGINA PRINCIPAL
+                    EXPLORE THE 06+ PROJECTS ON THE MAIN PAGE
                   </div>
                 </motion.div>
               )}
 
-              {/* SLIDE 11: VAMOS TRABALHAR JUNTOS (CREAM) */}
+              {/* SLIDE 11: LET’S WORK TOGETHER (CREAM) */}
               {currentSlide === 10 && (
                 <motion.div
                   key="slide-11"
@@ -625,8 +625,8 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                   className="w-full h-full min-h-[460px] bg-[#FBF7EE] text-[#14100A] p-8 flex flex-col justify-between text-center"
                 >
                   <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#8A631E]">
-                    <span>PAGE 11 · CONTATO</span>
-                    <span>VAMOS TRABALHAR JUNTOS // LET'S CREATE</span>
+                    <span>PAGE 11 · CONTACT</span>
+                    <span>LET'S WORK TOGETHER // LET'S CREATE</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center my-auto">
@@ -638,9 +638,9 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
 
                     <div className="sm:col-span-6 space-y-3">
                       <h3 className="text-3xl font-serif font-black uppercase text-[#14100A]">
-                        VAMOS TRABALHAR
+                        LET’S WORK
                         <br />
-                        JUNTOS
+                        TOGETHER
                       </h3>
                       <div className="text-lg font-serif font-bold uppercase text-[#14100A]">
                         {portfolioData.name || 'SHATMA AALIYA'}
@@ -661,7 +661,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         onClick={onOpenInquiry}
                         className="px-6 py-2 bg-[#14100A] text-[#F5D061] text-xs font-mono uppercase tracking-widest hover:bg-[#2E2213] transition-colors"
                       >
-                        Formulário de Encomenda
+                        Commission Form
                       </button>
                     </div>
 

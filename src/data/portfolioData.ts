@@ -492,7 +492,7 @@ export const videoReels: VideoReel[] = [
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Entre em Contato / Initial Dialogue",
+    title: "Get in Touch / Initial Dialogue",
     description: "Direct consultation via WhatsApp or Atelier Salon to align on aesthetic intent, occasion, and architectural silhouettes.",
     checklist: [
       "Review client brief or runway requirements",
@@ -502,7 +502,7 @@ export const processSteps: ProcessStep[] = [
   },
   {
     step: "02",
-    title: "Definir Estratégia / Silhouette & Toile",
+    title: "Define Strategy / Silhouette & Toile",
     description: "Translating concept sketches into physical muslin toiles, testing high-tensile boning, drape kinetics, and posture.",
     checklist: [
       "Draft precision flat patterns & muslin toile",
@@ -512,7 +512,7 @@ export const processSteps: ProcessStep[] = [
   },
   {
     step: "03",
-    title: "Criar & Produção / Handloom & Finishing",
+    title: "Create & Produce / Handloom & Finishing",
     description: "Executing the final piece in handspun Varanasi silks, oxidized zardozi embroidery, and precision bespoke craftsmanship.",
     checklist: [
       "Cut heirloom textiles & handloom yardage",

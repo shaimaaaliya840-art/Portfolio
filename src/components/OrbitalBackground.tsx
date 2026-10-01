@@ -20,9 +20,24 @@ export const OrbitalBackground: React.FC = () => {
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
+    // The canvas is heavily CSS-blurred, so drawing it at a fraction of the viewport
+    // resolution is visually identical but cuts per-frame fill cost ~16x. Drawing code
+    // stays in CSS-pixel coordinates via the context transform.
+    const RENDER_SCALE = 0.25;
+    // The atmosphere drifts slowly; ~30fps is plenty and leaves frame budget for the cursor
+    const FRAME_INTERVAL = 1000 / 30;
+
     let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    const sizeCanvas = () => {
+      canvas.width = Math.ceil(width * RENDER_SCALE);
+      canvas.height = Math.ceil(height * RENDER_SCALE);
+      // Resizing the canvas resets the transform, so re-apply it every time
+      ctx.setTransform(RENDER_SCALE, 0, 0, RENDER_SCALE, 0, 0);
+    };
+    sizeCanvas();
 
     // Glowing golden volumetric light plumes (bright, radiant amber blooms)
     interface Blob {
@@ -166,14 +181,25 @@ export const OrbitalBackground: React.FC = () => {
     }));
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      sizeCanvas();
     };
 
     window.addEventListener('resize', handleResize, { passive: true });
 
+    let lastDrawTime = 0;
+
     const render = (time: number) => {
+      animationFrameId = requestAnimationFrame(render);
+
+      const sinceLast = time - lastDrawTime;
+      if (lastDrawTime && sinceLast < FRAME_INTERVAL) return;
+      // Motes were tuned in per-60fps-frame units; scale movement by real elapsed time
+      // (clamped so returning to a background tab doesn't teleport them)
+      const step = lastDrawTime ? Math.min(sinceLast, 100) / (1000 / 60) : 1;
+      lastDrawTime = time;
+
       const elapsed = time;
 
       // Base: Twilight Plum atelier canvas
@@ -238,8 +264,8 @@ export const OrbitalBackground: React.FC = () => {
 
       // 3. Render Floating Backlit Golden Dust Motes & Embers
       motes.forEach((mote) => {
-        mote.y += mote.speedY;
-        mote.x += mote.speedX;
+        mote.y += mote.speedY * step;
+        mote.x += mote.speedX * step;
 
         if (mote.y < -15) {
           mote.y = height + 15;
@@ -275,8 +301,6 @@ export const OrbitalBackground: React.FC = () => {
 
       ctx.fillStyle = edgeVignette;
       ctx.fillRect(0, 0, width, height);
-
-      animationFrameId = requestAnimationFrame(render);
     };
 
     animationFrameId = requestAnimationFrame(render);

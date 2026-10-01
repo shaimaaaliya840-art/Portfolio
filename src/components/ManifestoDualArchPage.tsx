@@ -4,7 +4,6 @@ import {
   ArrowUpRight, 
   Sparkles, 
   BookOpen, 
-  Eye, 
   GraduationCap, 
   Palette, 
   Scissors, 
@@ -20,18 +19,15 @@ import {
   Compass
 } from 'lucide-react';
 import { PortfolioData } from '../types';
-import ladyArchImage from '../assets/images/lady_silhouette_golden_arch_1790239245140.jpg';
 
 interface ManifestoDualArchPageProps {
   portfolioData: PortfolioData;
   onOpenInquiry: () => void;
-  onOpenDetail?: (initialSlideIndex?: number) => void;
 }
 
 export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   portfolioData,
-  onOpenInquiry,
-  onOpenDetail
+  onOpenInquiry
 }) => {
   const [showFullCV, setShowFullCV] = useState(true);
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
@@ -104,11 +100,11 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
       {/* Volumetric Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* 1. Top Slide Page Meta (PAGE 03 // SPREAD 02) */}
+      {/* 1. Top Slide Page Meta (PAGE 06 // SPREAD 02) */}
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between border-b border-[#DECFC0] pb-3 mb-8 text-[11px] font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-[#540D21] shadow-[0_0_8px_#540D21]" />
-          <span className="text-[#241217] font-bold">SLIDE 03 // QUEM SOU EU &amp; O ATELIER</span>
+          <span className="text-[#241217] font-bold">PAGE 06 // ABOUT ME &amp; THE ATELIER</span>
           <span className="text-[#851737]">/</span>
           <span>CURRICULUM VITAE &amp; ATELIER PROFILE</span>
         </div>
@@ -121,20 +117,20 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
         </div>
       </div>
 
-      {/* 2. Headline: "Quem Sou Eu?" in Avonia Modern Luxury Script */}
+      {/* 2. Headline: "Who Am I?" in Avonia Modern Luxury Script */}
       <div className="max-w-7xl mx-auto mb-10">
         <div className="font-mono text-xs uppercase tracking-[0.25em] text-[#540D21] mb-1 font-bold">
           MANIFESTO &amp; CREDENCIAIS //
         </div>
         <h2 className="text-5xl sm:text-7xl md:text-8xl font-avonia font-normal tracking-normal text-[#241217] leading-tight">
-          Quem Sou Eu?
+          Who Am I?
         </h2>
       </div>
 
-      {/* 2-Column Grid: Left (Interactive Dossier) & Right (High Fashion Editorial Portal) */}
+      {/* Interactive Experience & Skills Dossier */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Column 1 (Left): EXPERIENCES & SKILLS DOSSIER - Glowing Golden Plaque */}
-        <div className="lg:col-span-6 flex flex-col justify-between space-y-4 text-left p-6 sm:p-7 bg-[#EAE0CD] border-2 border-[#540D21] shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden backdrop-blur-md">
+        <div className="lg:col-span-12 flex flex-col justify-between space-y-4 text-left p-6 sm:p-7 bg-[#EAE0CD] border-2 border-[#540D21] shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden backdrop-blur-md">
           {/* Subtle Hairline Frame */}
           <div className="absolute inset-1.5 border border-[#540D21]/20 pointer-events-none" />
 
@@ -185,7 +181,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold flex items-center justify-between">
                   <span>EXPERIENCES &amp; WORKSHOPS</span>
-                  <span className="text-[9px] font-normal text-[#851737]">Clique para abrir</span>
+                  <span className="text-[9px] font-normal text-[#851737]">Click to open</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {experienceWorkshops.map((exp, idx) => (
@@ -222,7 +218,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold flex items-center justify-between">
                   <span>DIGITAL &amp; TACTILE HARD-SKILLS</span>
-                  <span className="text-[9px] font-normal text-[#851737]">Clique para abrir</span>
+                  <span className="text-[9px] font-normal text-[#851737]">Click to open</span>
                 </div>
                 {/* CLO3D Highlight Feature */}
                 <button
@@ -267,7 +263,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold flex items-center justify-between">
                   <span>NATURAL DYEING ALCHEMY</span>
-                  <span className="text-[9px] font-normal text-[#851737]">5 Técnicas</span>
+                  <span className="text-[9px] font-normal text-[#851737]">5 Techniques</span>
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
                   {dyeingSkills.map((dye, idx) => (
@@ -287,7 +283,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   ))}
                 </div>
                 <div className="text-[10px] font-mono text-[#851737] pt-1 italic">
-                  Banhos de índigo botânico, batik em cera, shibori japonês e descoloração mineral.
+                  Botanical indigo baths, wax batik, Japanese shibori and mineral discharge.
                 </div>
               </div>
             )}
@@ -296,7 +292,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-1.5">
                 <div className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold flex items-center justify-between">
                   <span>PERSONAL SKILLS RATING</span>
-                  <span className="text-[9px] font-bold text-[#851737]">SISTEMA 5 ESTRELAS</span>
+                  <span className="text-[9px] font-bold text-[#851737]">5-STAR SYSTEM</span>
                 </div>
                 <div className="space-y-1">
                   {personalSkills.map((item, idx) => (
@@ -369,7 +365,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               className="w-full py-2.5 px-3 bg-[#540D21] hover:bg-[#6E112B] text-[#FAF6EE] text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
               data-cursor="pointer"
             >
-              <span>Explorar Currículo Completo Abaixo</span>
+              <span>Explore Full CV Below</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#FAF6EE]" />
             </button>
 
@@ -378,65 +374,12 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               className="w-full py-1.5 px-3 bg-[#EFE6D5] hover:bg-[#241A13] text-[#540D21] text-[11px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors border border-[#DECFC0] cursor-pointer"
               data-cursor="pointer"
             >
-              <span>{showFullCV ? 'Ocultar Gaveta de Credenciais' : 'Expandir Gaveta de Credenciais'}</span>
+              <span>{showFullCV ? 'Hide Credentials Drawer' : 'Expand Credentials Drawer'}</span>
               {showFullCV ? <ChevronUp className="w-3 h-3 text-[#540D21]" /> : <ChevronDown className="w-3 h-3 text-[#540D21]" />}
             </button>
           </div>
         </div>
 
-        {/* Column 2 (Right): Arched Portal with Golden Border & Lookbook Access */}
-        <div className="lg:col-span-6 flex flex-col items-center">
-          <div
-            onClick={() => onOpenDetail?.(0)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onOpenDetail?.(0);
-              }
-            }}
-            data-cursor="pointer"
-            data-cursor-text="EXPAND"
-            title="Clique para ver o lookbook e simulação CLO3D"
-            className="w-full relative group cursor-pointer focus:outline-none border-2 border-[#540D21] bg-[#EAE0CD] overflow-hidden shadow-[0_20px_40px_rgba(84,13,33,0.18)]"
-          >
-            <div className="w-full aspect-[3/4.2] relative overflow-hidden bg-black">
-              <img
-                src={ladyArchImage}
-                alt="Shatma Aaliya High Fashion Editorial Portrait"
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6EE]/80 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#FAF6EE]/80 to-transparent text-[#241217]">
-                <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#540D21] font-bold">
-                  AUTUMN ARCHIVE // COUTURE
-                </div>
-                <div className="text-sm font-serif font-bold uppercase tracking-wider text-[#241217] pt-0.5">
-                  Lace Embroidery &amp; Spiral Corsetry
-                </div>
-              </div>
-
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#FAF6EE]/60 backdrop-blur-[2px]">
-                <span className="px-4 py-2 bg-[#540D21] text-[#FAF6EE] border border-[#540D21] text-xs font-mono font-bold tracking-widest uppercase shadow-2xl flex items-center gap-2">
-                  <Eye className="w-3.5 h-3.5 text-[#FAF6EE]" />
-                  <span>VIEW LOOKBOOK</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-[#EFE6D5] p-3 border-t border-[#DECFC0] flex items-center justify-between text-xs font-mono">
-              <span className="font-bold text-[#540D21] uppercase tracking-wider">
-                SHATMA AALIYA · ATELIER
-              </span>
-              <span className="text-[#851737] uppercase tracking-widest flex items-center gap-1">
-                <span>EXPAND</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#540D21]" />
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Expandable Comprehensive CV & Skills Dossier Tray */}

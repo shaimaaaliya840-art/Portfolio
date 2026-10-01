@@ -3,12 +3,19 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Play, Pause, Volume2, VolumeX, Sparkles, Smartphone, X } from 'lucide-react';
 import { videoReels } from '../data/portfolioData';
 import { VideoReel } from '../types';
+import fadingSparkPoster from '../assets/images/exact_theme_board_photo_1790705956929.jpg';
 
 interface MyWorkReelsPageProps {
   onOpenInquiry: () => void;
+  onOpenAbhisarika?: () => void;
+  onOpenFadingSpark?: () => void;
 }
 
-export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({ onOpenInquiry }) => {
+export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({
+  onOpenInquiry,
+  onOpenAbhisarika,
+  onOpenFadingSpark
+}) => {
   const [activeReel, setActiveReel] = useState<VideoReel | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -20,15 +27,15 @@ export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({ onOpenInquiry 
       {/* Background Volumetric Golden Aura Center Bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {/* Top Slide Page Meta (PAGE 07 // MY WORK & VÍDEO REELS) */}
+      {/* Top Slide Page Meta (PAGE 04 // NEELGAR ATELIER) */}
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-semibold">PAGE 07 · MY WORK // CONTEÚDO DE VÍDEO UGC &amp; RUNWAY</span>
+          <span className="text-[#241217] font-semibold">PAGE 04 · NEELGAR ATELIER // ABHISARIKA</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="hidden sm:inline text-[#851737]">9:16 VERTICAL FORMAT</span>
-          <span className="text-[#540D21]">4 REELS DISPONÍVEIS</span>
+          <span className="text-[#540D21]">4 REELS AVAILABLE</span>
         </div>
       </div>
 
@@ -36,33 +43,61 @@ export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({ onOpenInquiry 
       <div className="max-w-7xl mx-auto mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h2 className="text-5xl sm:text-6xl font-avonia font-normal tracking-normal text-[#241217] leading-none">
-            My Work
+            Neelgar Atelier ‘Abhisarika’
           </h2>
           <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#540D21] pt-1">
-            CONTEÚDO DE VÍDEO &amp; SILHUETAS EM MOVIMENTO
+            VIDEO CONTENT &amp; SILHOUETTES IN MOTION
           </div>
         </div>
 
         <p className="text-xs sm:text-sm text-[#540D21]/90 font-serif italic max-w-md">
-          "91% dos consumidores e compradores de alta-costura desejam ver silhuetas em movimento dinâmico antes de comissionar uma peça."
+          "91% of haute couture consumers and buyers want to see silhouettes in dynamic motion before commissioning a piece."
         </p>
       </div>
 
       {/* 4 Smartphone Reel Frames */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {videoReels.map((reel, idx) => (
+          (() => {
+            const isAbhisarika = idx === 0;
+            const isFadingSpark = idx === 1;
+            const title = isAbhisarika ? 'ABHISARIKA' : isFadingSpark ? 'Fading Spark' : reel.title;
+            const posterImage = isFadingSpark ? fadingSparkPoster : reel.posterImage;
+            const openReel = () => {
+              if (isAbhisarika && onOpenAbhisarika) {
+                onOpenAbhisarika();
+                return;
+              }
+              if (isFadingSpark && onOpenFadingSpark) {
+                onOpenFadingSpark();
+                return;
+              }
+              setActiveReel(reel);
+            };
+
+            return (
           <div
             key={reel.id || idx}
-            onClick={() => setActiveReel(reel)}
+            id={isAbhisarika ? 'abhisarika-work-card' : isFadingSpark ? 'fading-spark-work-card' : undefined}
+            role="button"
+            tabIndex={0}
+            aria-label={`Open project ${title}`}
+            onClick={openReel}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openReel();
+              }
+            }}
             className="group cursor-pointer bg-[#EFE6D5] border border-[#DECFC0] hover:border-[#540D21] p-4 flex flex-col justify-between transition-all duration-300 relative shadow-xl"
             data-cursor="pointer"
-            data-cursor-text="ASSISTIR"
+            data-cursor-text="WATCH"
           >
             {/* Phone Screen Mockup */}
             <div className="w-full aspect-[9/15] rounded-xl bg-black border-2 border-[#DECFC0] group-hover:border-[#540D21] overflow-hidden relative shadow-inner transition-colors">
               <img
-                src={reel.posterImage}
-                alt={reel.title}
+                src={posterImage}
+                alt={title}
                 className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6EE]/80 via-transparent to-transparent opacity-80" />
@@ -87,13 +122,15 @@ export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({ onOpenInquiry 
 
             <div className="pt-3">
               <h4 className="text-sm font-serif font-bold text-[#241217] group-hover:text-[#540D21] transition-colors">
-                {reel.title}
+                {title}
               </h4>
               <p className="text-xs text-[#851737] font-mono pt-1 line-clamp-1">
                 {reel.caption}
               </p>
             </div>
           </div>
+            );
+          })()
         ))}
       </div>
 
@@ -129,7 +166,7 @@ export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({ onOpenInquiry 
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                   <Play className="w-12 h-12 text-[#540D21] mb-3 animate-pulse" />
-                  <p className="text-xs font-mono text-[#241217]">Vídeo em Reprodução Contínua</p>
+                  <p className="text-xs font-mono text-[#241217]">Video Playing on Loop</p>
                   <p className="text-xs font-serif italic text-[#540D21] mt-2">{activeReel.caption}</p>
                 </div>
               </div>

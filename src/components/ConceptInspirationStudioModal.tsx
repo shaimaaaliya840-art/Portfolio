@@ -20,7 +20,7 @@ import { AtelierPalette } from '../data/colorPalettes';
 
 export interface ConceptItem {
   id: string;
-  category: 'INSPIRAÇÃO' | 'CONCEITO' | 'ILUSTRAÇÃO' | 'MATERIALIDADE';
+  category: 'INSPIRATION' | 'CONCEPT' | 'ILLUSTRATION' | 'MATERIALITY';
   badge: string;
   title: string;
   subtitle: string;
@@ -51,7 +51,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
   activePalette
 }) => {
   const [activeTab, setActiveTab] = useState<'create' | 'gallery'>('create');
-  const [category, setCategory] = useState<'INSPIRAÇÃO' | 'CONCEITO' | 'ILUSTRAÇÃO' | 'MATERIALIDADE'>('CONCEITO');
+  const [category, setCategory] = useState<'INSPIRATION' | 'CONCEPT' | 'ILLUSTRATION' | 'MATERIALITY'>('CONCEPT');
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [description, setDescription] = useState('');
@@ -69,7 +69,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
-      setUploadError('Por favor selecione um arquivo de imagem válido (PNG, JPG, WEBP).');
+      setUploadError('Please select a valid image file (PNG, JPG, WEBP).');
       return;
     }
 
@@ -98,21 +98,21 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
       imagePreview ||
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop';
 
-    let badge = 'NOTA CONCEITUAL';
-    if (category === 'INSPIRAÇÃO') badge = 'INSPIRAÇÃO TÊXTIL';
-    if (category === 'ILUSTRAÇÃO') badge = 'ILUSTRAÇÃO DE ALTA COSTURA';
-    if (category === 'MATERIALIDADE') badge = 'ESTUDO DE MATERIAIS';
+    let badge = 'CONCEPT NOTE';
+    if (category === 'INSPIRATION') badge = 'TEXTILE INSPIRATION';
+    if (category === 'ILLUSTRATION') badge = 'HAUTE COUTURE ILLUSTRATION';
+    if (category === 'MATERIALITY') badge = 'MATERIAL STUDY';
 
     const newItem: ConceptItem = {
       id: `concept-${Date.now()}`,
       category,
       badge,
       title: title.trim(),
-      subtitle: subtitle.trim() || 'Estudo criativo de ateliê para a coleção Fading Spark',
-      description: description.trim() || 'Anotações sensoriais sobre corte, textura e filosofia estética.',
+      subtitle: subtitle.trim() || 'Creative atelier study for the Fading Spark collection',
+      description: description.trim() || 'Sensory notes on cut, texture and aesthetic philosophy.',
       image: finalImage,
       technique: technique.trim() || undefined,
-      createdAt: new Date().toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', year: 'numeric' })
+      createdAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
     };
 
     onAddItem(newItem);
@@ -132,23 +132,23 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
   const sampleInspirations = [
     {
-      title: 'Croquis de Vestido Carmesim',
-      category: 'ILUSTRAÇÃO' as const,
+      title: 'Crimson Gown Croquis',
+      category: 'ILLUSTRATION' as const,
       url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=800&auto=format&fit=crop'
     },
     {
-      title: 'Seda Pura & Tintura Natural',
-      category: 'INSPIRAÇÃO' as const,
+      title: 'Pure Silk & Natural Dye',
+      category: 'INSPIRATION' as const,
       url: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=800&auto=format&fit=crop'
     },
     {
-      title: 'Drapeado Escultórico',
-      category: 'CONCEITO' as const,
+      title: 'Sculptural Drapery',
+      category: 'CONCEPT' as const,
       url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop'
     },
     {
-      title: 'Textura Zari & Bordado Manual',
-      category: 'MATERIALIDADE' as const,
+      title: 'Zari Texture & Hand Embroidery',
+      category: 'MATERIALITY' as const,
       url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop'
     }
   ];
@@ -177,7 +177,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse" />
                 </div>
                 <h2 className="font-avonia text-xl sm:text-2xl text-[#FAF6EE] leading-tight">
-                  Novo Conceito, Inspiração & Ilustração
+                  New Concept, Inspiration & Illustration
                 </h2>
               </div>
             </div>
@@ -185,8 +185,8 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
             <button
               onClick={onClose}
               className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-              title="Fechar estúdio"
-              aria-label="Fechar estúdio"
+              title="Close studio"
+              aria-label="Close studio"
             >
               <X className="w-5 h-5" />
             </button>
@@ -205,7 +205,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 }`}
               >
                 <Plus className="w-3.5 h-3.5" />
-                <span>+ Adicionar Novo Registro</span>
+                <span>+ Add New Entry</span>
               </button>
 
               <button
@@ -218,13 +218,13 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 }`}
               >
                 <Layers className="w-3.5 h-3.5" />
-                <span>Dossiê da Coleção ({items.length})</span>
+                <span>Collection Dossier ({items.length})</span>
               </button>
             </div>
 
             <div className="hidden sm:flex items-center gap-2 text-[10px] font-mono text-[#540D21]/80">
               <Sparkles className="w-3.5 h-3.5 text-[#540D21]" />
-              <span>Coleção Fading Spark</span>
+              <span>Fading Spark Collection</span>
             </div>
           </div>
 
@@ -235,14 +235,14 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Category Selection Pills */}
                 <div>
                   <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-2">
-                    Tipo de Registro Criativo:
+                    Creative Entry Type:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {[
-                      { id: 'CONCEITO', label: 'Nota Conceitual', icon: Lightbulb },
-                      { id: 'INSPIRAÇÃO', label: 'Inspiração Têxtil', icon: Sparkles },
-                      { id: 'ILUSTRAÇÃO', label: 'Croquis / Ilustração', icon: PenTool },
-                      { id: 'MATERIALIDADE', label: 'Materialidade', icon: Scissors }
+                      { id: 'CONCEPT', label: 'Concept Note', icon: Lightbulb },
+                      { id: 'INSPIRATION', label: 'Textile Inspiration', icon: Sparkles },
+                      { id: 'ILLUSTRATION', label: 'Croquis / Illustration', icon: PenTool },
+                      { id: 'MATERIALITY', label: 'Materiality', icon: Scissors }
                     ].map((cat) => {
                       const Icon = cat.icon;
                       const isSelected = category === cat.id;
@@ -271,12 +271,12 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
-                      Título do Registro *
+                      Entry Title *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Ex: Draperia Carmesim & Seda Zari"
+                      placeholder="e.g. Crimson Drapery & Zari Silk"
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-sm focus:outline-none focus:border-[#540D21] text-[#241217]"
@@ -285,11 +285,11 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                   <div>
                     <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
-                      Subtítulo / Linha de Estudo
+                      Subtitle / Line of Study
                     </label>
                     <input
                       type="text"
-                      placeholder="Ex: Caimento fluido e texturas esculturais"
+                      placeholder="e.g. Fluid drape and sculptural textures"
                       value={subtitle}
                       onChange={(e) => setSubtitle(e.target.value)}
                       className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-sm focus:outline-none focus:border-[#540D21] text-[#241217]"
@@ -300,7 +300,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Image Upload & URL */}
                 <div>
                   <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
-                    Imagem, Ilustração ou Croquis *
+                    Image, Illustration or Croquis *
                   </label>
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
@@ -309,14 +309,14 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                       {imagePreview || imageUrl ? (
                         <img
                           src={imagePreview || imageUrl}
-                          alt="Pré-visualização"
+                          alt="Preview"
                           className="w-full h-full object-cover"
                         />
                       ) : (
                         <div className="flex flex-col items-center gap-2 text-white/50 p-4">
                           <ImageIcon className="w-8 h-8 text-amber-200/60" />
                           <span className="text-[10px] font-mono uppercase tracking-wider">
-                            Sem imagem selecionada
+                            No image selected
                           </span>
                         </div>
                       )}
@@ -331,7 +331,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                           className="px-4 py-2 bg-[#EFE6D5] hover:bg-[#DECFC0] text-[#540D21] border border-[#DECFC0] rounded-xs text-xs font-mono uppercase tracking-wider font-bold flex items-center gap-2 transition-colors cursor-pointer"
                         >
                           <Upload className="w-4 h-4" />
-                          <span>Selecionar Imagem do Computador</span>
+                          <span>Select Image from Computer</span>
                         </button>
                         <input
                           type="file"
@@ -348,7 +348,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                       <div>
                         <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
-                          Ou insira uma URL de imagem direta:
+                          Or enter a direct image URL:
                         </span>
                         <input
                           type="url"
@@ -365,7 +365,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                       {/* Quick Presets */}
                       <div>
                         <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
-                          Ou escolha referências do Atelier:
+                          Or choose Atelier references:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {sampleInspirations.map((sample, idx) => (
@@ -387,12 +387,12 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Description & Technical notes */}
                 <div>
                   <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
-                    Nota Conceitual & Descrição Curatorial *
+                    Concept Note & Curatorial Description *
                   </label>
                   <textarea
                     required
                     rows={4}
-                    placeholder="Descreva a inspiração poética, silhueta planejada, caimento do tecido, fios de costura ou metáforas que norteiam esta peça..."
+                    placeholder="Describe the poetic inspiration, planned silhouette, fabric drape, sewing threads or metaphors that guide this piece..."
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-xs sm:text-sm focus:outline-none focus:border-[#540D21] text-[#241217] leading-relaxed resize-none"
@@ -402,11 +402,11 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Technique / Materials Tag */}
                 <div>
                   <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
-                    Técnica Têxtil / Aviamentos (Opcional)
+                    Textile Technique / Trims (Optional)
                   </label>
                   <input
                     type="text"
-                    placeholder="Ex: Seda Zari artesanal, veludo devorê, costura manual francesa"
+                    placeholder="e.g. Handcrafted zari silk, devoré velvet, French hand-stitching"
                     value={technique}
                     onChange={(e) => setTechnique(e.target.value)}
                     className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-sm focus:outline-none focus:border-[#540D21] text-[#241217]"
@@ -416,7 +416,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Submit button */}
                 <div className="pt-2 flex items-center justify-between border-t border-[#DECFC0]">
                   <span className="text-[11px] font-mono text-neutral-500">
-                    O registro será incluído no arco principal da página.
+                    The entry will be added to the main arch on the page.
                   </span>
 
                   <button
@@ -426,12 +426,12 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                     {isSuccess ? (
                       <>
                         <Check className="w-4 h-4 text-emerald-300" />
-                        <span>Salvo com Sucesso!</span>
+                        <span>Saved Successfully!</span>
                       </>
                     ) : (
                       <>
                         <Plus className="w-4 h-4" />
-                        <span>Adicionar ao Dossiê da Coleção</span>
+                        <span>Add to Collection Dossier</span>
                       </>
                     )}
                   </button>
@@ -442,14 +442,14 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="font-avonia text-xl text-[#241217]">
-                    Registros do Dossiê ({items.length})
+                    Dossier Entries ({items.length})
                   </h3>
                   <button
                     onClick={() => setActiveTab('create')}
                     className="px-3 py-1.5 bg-[#540D21] text-white text-xs font-mono uppercase tracking-wider rounded-xs flex items-center gap-1.5 hover:bg-[#6E112B] cursor-pointer"
                   >
                     <Plus className="w-3.5 h-3.5" />
-                    <span>Novo Registro</span>
+                    <span>New Entry</span>
                   </button>
                 </div>
 
@@ -479,7 +479,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                             {onDeleteItem && items.length > 1 && (
                               <button
                                 onClick={() => onDeleteItem(item.id)}
-                                title="Excluir este registro"
+                                title="Delete this entry"
                                 className="text-neutral-400 hover:text-red-700 transition-colors p-1 cursor-pointer"
                               >
                                 <Trash2 className="w-3.5 h-3.5" />
@@ -501,7 +501,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                         {onSelectActiveItem && (
                           <div className="pt-2 border-t border-neutral-100 flex items-center justify-between">
                             <span className="text-[9px] font-mono text-neutral-400">
-                              {item.createdAt || 'Coleção Principal'}
+                              {item.createdAt || 'Main Collection'}
                             </span>
                             <button
                               onClick={() => {
@@ -510,7 +510,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                               }}
                               className="text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:underline flex items-center gap-1 font-bold cursor-pointer"
                             >
-                              <span>Exibir no Arco</span>
+                              <span>Show in Arch</span>
                               <ArrowRight className="w-3 h-3" />
                             </button>
                           </div>
