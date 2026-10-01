@@ -1,0 +1,251 @@
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ArrowLeft, Flame, Gem, Moon, type LucideIcon } from 'lucide-react';
+import fadingSparkPage1 from '../assets/images/fading-spark/page-1.jpg';
+import fadingSparkPage2 from '../assets/images/fading-spark/page-2.jpg';
+import fadingSparkPage3 from '../assets/images/fading-spark/page-3.jpg';
+import fadingSparkPage4 from '../assets/images/fading-spark/page-4.jpg';
+import fadingSparkPage5 from '../assets/images/fading-spark/page-5.jpg';
+import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
+import abhisarikaBackground from '../assets/images/abhisarika_background.png';
+
+interface ProjectPage {
+  src: string;
+  alt: string;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  tagline: string;
+  icon: LucideIcon;
+  /** Backdrop of the project viewer */
+  background?: string;
+  backgroundColor: string;
+  /** Slides/pages shown in the viewer — add images here as they become available */
+  pages: ProjectPage[];
+}
+
+const PROJECTS: Project[] = [
+  {
+    id: 'fading-spark',
+    title: 'Fading Spark',
+    tagline: 'Collection',
+    icon: Flame,
+    background: fadingSparkBackground,
+    backgroundColor: '#F5E5DF',
+    // Rendered from public/fading-spark.pdf
+    pages: [
+      { src: fadingSparkPage1, alt: 'Fading Spark — concept statement with hands bound in red thread' },
+      { src: fadingSparkPage2, alt: 'Fading Spark — black and white mood board' },
+      { src: fadingSparkPage3, alt: 'Fading Spark — five-look collection lineup' },
+      { src: fadingSparkPage4, alt: 'Fading Spark — annotated lineup, first to fifth meeting' },
+      { src: fadingSparkPage5, alt: 'Fading Spark — the five looks photographed on models' }
+    ]
+  },
+  {
+    id: 'abhisarika',
+    title: 'Abhisarika',
+    tagline: 'Neelgar Atelier',
+    icon: Moon,
+    background: abhisarikaBackground,
+    backgroundColor: '#3E5A26',
+    pages: []
+  },
+  {
+    id: 'anatomy-of-ornament',
+    title: 'Anatomy of Ornament',
+    tagline: 'Project',
+    icon: Gem,
+    backgroundColor: '#1A0F12',
+    pages: []
+  }
+];
+
+// Workshops from the "all portfolio work" deck (its WORKSHOP slide)
+const WORKSHOPS = [
+  { name: 'Dabu Printing' },
+  { name: 'Coconut Shell Craft', note: 'Egai' },
+  { name: 'Paper Weaving', note: 'Wellpaper' },
+  { name: 'Eco Printing' },
+  { name: 'Indigo Site Visit' },
+  { name: 'Leather Craft' },
+  { name: 'Cyanotype Printing' }
+];
+
+/** Full-screen viewer for one project's pages. */
+const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    window.addEventListener('keydown', onKey);
+    // Keep the page behind from scrolling while the viewer is open
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  const isLight = project.id === 'fading-spark';
+
+  return createPortal(
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={project.title}
+      className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
+      style={{ backgroundColor: project.backgroundColor }}
+    >
+      {project.background && (
+        <img
+          src={project.background}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+        />
+      )}
+
+      <header className="relative z-20 flex shrink-0 items-center gap-4 px-4 py-3 sm:px-8 sm:py-4">
+        <button
+          type="button"
+          onClick={onClose}
+          data-cursor="pointer"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/50 bg-black/35 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-black/55 cursor-pointer group"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          <span>Back to Works</span>
+        </button>
+        <h2
+          className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
+            isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
+          }`}
+        >
+          {project.title}
+        </h2>
+      </header>
+
+      <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
+        {project.pages.length > 0 ? (
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
+            {project.pages.map((page, i) => (
+              <img
+                key={page.src}
+                src={page.src}
+                alt={page.alt}
+                width={2000}
+                height={1125}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                className="block h-auto w-full shadow-2xl"
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <p className="rounded-sm border border-white/30 bg-black/40 px-6 py-4 text-center text-sm font-mono uppercase tracking-[0.2em] text-[#FAF6EE] backdrop-blur-sm">
+              Project pages coming soon
+            </p>
+          </div>
+        )}
+      </main>
+    </div>,
+    document.body
+  );
+};
+
+export const WorksPage: React.FC = () => {
+  const [openProject, setOpenProject] = useState<Project | null>(null);
+
+  return (
+    <section
+      id="works"
+      className="relative text-[#241217] py-20 px-4 sm:px-8 md:px-12 overflow-hidden"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Page meta strip (same treatment as the contact page) */}
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#540D21]" />
+            <span className="font-bold text-[#241217]">PAGE 04 · WORKS // PROJECTS &amp; WORKSHOPS</span>
+          </div>
+          <span className="text-[#851737]">SHATMA AALIYA</span>
+        </div>
+
+        <h2 className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl leading-tight pt-6 sm:pt-8 mb-12 text-[#241217]">
+          Works
+        </h2>
+
+        {/* Project icons — each opens that project's pages */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
+          {PROJECTS.map((project) => {
+            const Icon = project.icon;
+            return (
+              <button
+                key={project.id}
+                type="button"
+                onClick={() => setOpenProject(project)}
+                data-cursor="pointer"
+                className="wine-card group flex flex-col items-center gap-5 px-6 py-10 text-center transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
+              >
+                {/* Cream icon circle, like the contact page's action icons */}
+                <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-transform duration-300 group-hover:scale-105">
+                  <Icon className="h-10 w-10" strokeWidth={1.5} />
+                </span>
+                <span className="flex flex-col items-center gap-1">
+                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE]">
+                    {project.title}
+                  </span>
+                  <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
+                    {project.tagline}
+                  </span>
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4">
+                  View project →
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
+        <div className="wine-card p-8 sm:p-10">
+          <div className="flex flex-col items-center text-center gap-2 mb-6">
+            <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
+              Workshop
+            </h3>
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
+              Hands-on crafts · {WORKSHOPS.length}
+            </span>
+            <span className="mt-2 w-16 h-0.5 bg-[#FAF6EE]" />
+          </div>
+
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+            {WORKSHOPS.map((workshop, i) => (
+              <li
+                key={workshop.name}
+                className="flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3"
+              >
+                <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="flex flex-col">
+                  <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
+                    {workshop.name}
+                  </span>
+                  {workshop.note && (
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
+                      {workshop.note}
+                    </span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {openProject && <ProjectViewer project={openProject} onClose={() => setOpenProject(null)} />}
+    </section>
+  );
+};

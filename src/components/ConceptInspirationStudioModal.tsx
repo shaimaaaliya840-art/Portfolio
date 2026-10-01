@@ -171,7 +171,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-200 font-bold">
+                  <span className="text-[0.625rem] font-mono uppercase tracking-[0.25em] text-amber-200 font-bold">
                     ATELIER CREATIVE DOSSIER
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse" />
@@ -222,7 +222,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
               </button>
             </div>
 
-            <div className="hidden sm:flex items-center gap-2 text-[10px] font-mono text-[#540D21]/80">
+            <div className="hidden sm:flex items-center gap-2 text-[0.625rem] font-mono text-[#540D21]/80">
               <Sparkles className="w-3.5 h-3.5 text-[#540D21]" />
               <span>Fading Spark Collection</span>
             </div>
@@ -234,7 +234,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
               <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
                 {/* Category Selection Pills */}
                 <div>
-                  <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-2">
+                  <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-2">
                     Creative Entry Type:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -270,7 +270,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                 {/* Title & Subtitle */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
+                    <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
                       Entry Title *
                     </label>
                     <input
@@ -284,7 +284,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
+                    <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
                       Subtitle / Line of Study
                     </label>
                     <input
@@ -299,7 +299,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                 {/* Image Upload & URL */}
                 <div>
-                  <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
+                  <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
                     Image, Illustration or Croquis *
                   </label>
 
@@ -315,7 +315,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                       ) : (
                         <div className="flex flex-col items-center gap-2 text-white/50 p-4">
                           <ImageIcon className="w-8 h-8 text-amber-200/60" />
-                          <span className="text-[10px] font-mono uppercase tracking-wider">
+                          <span className="text-[0.625rem] font-mono uppercase tracking-wider">
                             No image selected
                           </span>
                         </div>
@@ -347,7 +347,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                       )}
 
                       <div>
-                        <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
+                        <span className="block text-[0.625rem] font-mono uppercase tracking-wider text-neutral-500 mb-1">
                           Or enter a direct image URL:
                         </span>
                         <input
@@ -364,7 +364,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                       {/* Quick Presets */}
                       <div>
-                        <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
+                        <span className="block text-[0.625rem] font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
                           Or choose Atelier references:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
@@ -373,7 +373,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                               key={idx}
                               type="button"
                               onClick={() => handleApplyPresetImage(sample.url)}
-                              className="px-2 py-1 bg-white hover:bg-[#EFE6D5] border border-[#DECFC0] rounded-xs text-[10px] font-mono text-[#540D21] transition-colors cursor-pointer"
+                              className="px-2 py-1 bg-white hover:bg-[#EFE6D5] border border-[#DECFC0] rounded-xs text-[0.625rem] font-mono text-[#540D21] transition-colors cursor-pointer"
                             >
                               {sample.title}
                             </button>
@@ -386,7 +386,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                 {/* Description & Technical notes */}
                 <div>
-                  <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
+                  <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
                     Concept Note & Curatorial Description *
                   </label>
                   <textarea
@@ -401,7 +401,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                 {/* Technique / Materials Tag */}
                 <div>
-                  <label className="block text-[11px] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
+                  <label className="block text-[0.6875rem] font-mono uppercase tracking-widest text-[#540D21] font-bold mb-1.5">
                     Textile Technique / Trims (Optional)
                   </label>
                   <input
@@ -415,7 +415,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                 {/* Submit button */}
                 <div className="pt-2 flex items-center justify-between border-t border-[#DECFC0]">
-                  <span className="text-[11px] font-mono text-neutral-500">
+                  <span className="text-[0.6875rem] font-mono text-neutral-500">
                     The entry will be added to the main arch on the page.
                   </span>
 
@@ -465,7 +465,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                           alt={item.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        <span className="absolute top-1 left-1 px-1.5 py-0.5 bg-black/80 text-[8px] font-mono text-white rounded-xs">
+                        <span className="absolute top-1 left-1 px-1.5 py-0.5 bg-black/80 text-[0.625rem] font-mono text-white rounded-xs">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                       </div>
@@ -473,7 +473,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                       <div className="flex-1 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between gap-1 mb-1">
-                            <span className="text-[9px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
+                            <span className="text-[0.625rem] font-mono uppercase tracking-widest text-[#540D21] font-bold">
                               {item.badge}
                             </span>
                             {onDeleteItem && items.length > 1 && (
@@ -490,7 +490,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                           <h4 className="font-avonia text-lg text-[#241217] leading-tight line-clamp-1">
                             {item.title}
                           </h4>
-                          <p className="text-[11px] font-mono text-[#540D21] line-clamp-1 mb-1">
+                          <p className="text-[0.6875rem] font-mono text-[#540D21] line-clamp-1 mb-1">
                             {item.subtitle}
                           </p>
                           <p className="text-xs text-neutral-600 line-clamp-2 font-editorial">
@@ -500,7 +500,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
 
                         {onSelectActiveItem && (
                           <div className="pt-2 border-t border-neutral-100 flex items-center justify-between">
-                            <span className="text-[9px] font-mono text-neutral-400">
+                            <span className="text-[0.625rem] font-mono text-neutral-400">
                               {item.createdAt || 'Main Collection'}
                             </span>
                             <button
@@ -508,7 +508,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                                 onSelectActiveItem(item, index);
                                 onClose();
                               }}
-                              className="text-[10px] font-mono uppercase tracking-wider text-[#540D21] hover:underline flex items-center gap-1 font-bold cursor-pointer"
+                              className="text-[0.625rem] font-mono uppercase tracking-wider text-[#540D21] hover:underline flex items-center gap-1 font-bold cursor-pointer"
                             >
                               <span>Show in Arch</span>
                               <ArrowRight className="w-3 h-3" />

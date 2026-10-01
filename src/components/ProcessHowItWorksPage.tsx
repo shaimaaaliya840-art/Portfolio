@@ -57,7 +57,7 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
                   <span className="text-2xl font-serif font-black text-[#FAF6EE]">
                     {stepItem.step}
                   </span>
-                  <span className="text-[10px] font-mono text-[#FAF6EE] uppercase tracking-widest font-black">
+                  <span className="text-[0.625rem] font-mono text-[#FAF6EE] uppercase tracking-widest font-black">
                     PHASE
                   </span>
                 </div>
@@ -71,7 +71,7 @@ export const ProcessHowItWorksPage: React.FC<ProcessHowItWorksPageProps> = ({ on
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#FAF6EE]/20 flex items-center justify-between text-[11px] font-mono font-bold text-[#FAF6EE]">
+              <div className="pt-4 border-t border-[#FAF6EE]/20 flex items-center justify-between text-[0.6875rem] font-mono font-bold text-[#FAF6EE]">
                 <span>STEP VERIFIED</span>
                 <Check className="w-3.5 h-3.5 text-[#FAF6EE]" />
               </div>

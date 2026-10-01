@@ -72,7 +72,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
           {/* Instant Connect Option Strip */}
           <div className="bg-[#322131] border border-[#54394F] p-3.5 space-y-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#E9D5E6] flex items-center justify-between">
+            <div className="text-[0.625rem] font-mono uppercase tracking-[0.2em] text-[#E9D5E6] flex items-center justify-between">
               <span>DIRECT ATELIER TRANSMISSION</span>
               <span className="text-[#E9D5E6] flex items-center gap-1 font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E9D5E6] inline-block animate-pulse" /> Available for Commissions
@@ -120,7 +120,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono uppercase tracking-widest text-[#E9D5E6]">
+                  <label className="text-[0.6875rem] font-mono uppercase tracking-widest text-[#E9D5E6]">
                     Name / Brand
                   </label>
                   <input
@@ -134,7 +134,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono uppercase tracking-widest text-[#E9D5E6]">
+                  <label className="text-[0.6875rem] font-mono uppercase tracking-widest text-[#E9D5E6]">
                     Email Address
                   </label>
                   <input
@@ -150,7 +150,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono uppercase tracking-widest text-[#E9D5E6]">
+                  <label className="text-[0.6875rem] font-mono uppercase tracking-widest text-[#E9D5E6]">
                     Commission Scope
                   </label>
                   <select
@@ -167,7 +167,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-mono uppercase tracking-widest text-[#E9D5E6]">
+                  <label className="text-[0.6875rem] font-mono uppercase tracking-widest text-[#E9D5E6]">
                     Target Timeline
                   </label>
                   <select
@@ -184,7 +184,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[11px] font-mono uppercase tracking-widest text-[#E9D5E6]">
+                <label className="text-[0.6875rem] font-mono uppercase tracking-widest text-[#E9D5E6]">
                   Vision / Concept Notes
                 </label>
                 <textarea
@@ -198,7 +198,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               </div>
 
               <div className="flex items-center justify-between pt-2">
-                <span className="text-[11px] font-mono text-[#8A5C80]">
+                <span className="text-[0.6875rem] font-mono text-[#8A5C80]">
                   CONFIDENTIAL ATELIER RECORD
                 </span>
                 <button

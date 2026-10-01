@@ -133,7 +133,7 @@ export const HeroAudioCapsule: React.FC = () => {
               Runway Score: Femme Fatale
             </p>
           </div>
-          <span className="text-[10px] font-mono text-[#8B553F]">[ATELIER TAPE]</span>
+          <span className="text-[0.625rem] font-mono text-[#8B553F]">[ATELIER TAPE]</span>
         </div>
 
         {/* Interactive Scrub Track */}
@@ -151,7 +151,7 @@ export const HeroAudioCapsule: React.FC = () => {
           />
         </div>
 
-        <div className="flex items-center justify-between text-[10px] font-mono text-[#C0957B]/80">
+        <div className="flex items-center justify-between text-[0.625rem] font-mono text-[#C0957B]/80">
           <span>{currentTime}</span>
           <span className="text-[#8B553F]">BPM: 118 · NOCTURNE</span>
           <span>{duration}</span>

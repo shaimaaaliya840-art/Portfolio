@@ -47,7 +47,7 @@ export const FeaturedWorkStrip: React.FC<FeaturedWorkStripProps> = ({
               </div>
 
               <div className="flex flex-col">
-                <div className="flex items-center gap-3 text-[10px] uppercase font-mono tracking-widest text-[#851737]">
+                <div className="flex items-center gap-3 text-[0.625rem] uppercase font-mono tracking-widest text-[#851737]">
                   <span className="text-[#540D21] font-semibold">{item.number}</span>
                   <span className="text-[#241217]/90">{item.client}</span>
                   <span className="text-[#DECFC0]">•</span>

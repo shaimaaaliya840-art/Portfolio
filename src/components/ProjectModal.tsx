@@ -80,19 +80,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {/* Quick Metadata Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-[#EFE6D5] border border-[#DECFC0]">
               <div>
-                <div className="text-[10px] font-mono uppercase text-[#851737] tracking-widest font-bold">Client</div>
+                <div className="text-[0.625rem] font-mono uppercase text-[#851737] tracking-widest font-bold">Client</div>
                 <div className="text-sm font-serif font-bold text-[#241217] uppercase pt-1">{project.client}</div>
               </div>
               <div>
-                <div className="text-[10px] font-mono uppercase text-[#851737] tracking-widest font-bold">Year</div>
+                <div className="text-[0.625rem] font-mono uppercase text-[#851737] tracking-widest font-bold">Year</div>
                 <div className="text-sm font-serif font-bold text-[#241217] uppercase pt-1">{project.year}</div>
               </div>
               <div>
-                <div className="text-[10px] font-mono uppercase text-[#851737] tracking-widest font-bold">Discipline</div>
+                <div className="text-[0.625rem] font-mono uppercase text-[#851737] tracking-widest font-bold">Discipline</div>
                 <div className="text-sm font-serif font-bold text-[#241217] uppercase pt-1">{project.category}</div>
               </div>
               <div>
-                <div className="text-[10px] font-mono uppercase text-[#851737] tracking-widest font-bold">Role</div>
+                <div className="text-[0.625rem] font-mono uppercase text-[#851737] tracking-widest font-bold">Role</div>
                 <div className="text-sm font-serif font-bold text-[#241217] uppercase pt-1">{project.role}</div>
               </div>
             </div>

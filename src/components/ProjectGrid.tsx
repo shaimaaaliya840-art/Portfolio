@@ -61,7 +61,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
                 data-cursor="pointer"
               >
                 <span>{category}</span>
-                <span className="ml-1.5 text-[10px] font-mono opacity-70">({count})</span>
+                <span className="ml-1.5 text-[0.625rem] font-mono opacity-70">({count})</span>
               </button>
             );
           })}
@@ -112,7 +112,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
                 />
                 
                 {/* Tag Pill overlay */}
-                <div className="absolute bottom-3 left-3 bg-[#FAF6EE]/90 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase font-mono tracking-widest text-[#540D21] border border-[#DECFC0]">
+                <div className="absolute bottom-3 left-3 bg-[#FAF6EE]/90 backdrop-blur-sm px-2.5 py-1 text-[0.625rem] uppercase font-mono tracking-widest text-[#540D21] border border-[#DECFC0]">
                   {project.client}
                 </div>
 
@@ -139,7 +139,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] tracking-wider uppercase font-mono px-2.5 py-1 bg-[#FAF6EE] text-[#540D21] font-bold shadow-sm"
+                      className="text-[0.625rem] tracking-wider uppercase font-mono px-2.5 py-1 bg-[#FAF6EE] text-[#540D21] font-bold shadow-sm"
                     >
                       {tag}
                     </span>

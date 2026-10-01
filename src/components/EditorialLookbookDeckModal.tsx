@@ -108,7 +108,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     <div className="w-[300px] sm:w-[380px] -mb-10 z-10 pointer-events-none select-none">
                       <svg viewBox="0 0 500 200" className="w-full overflow-visible">
                         <path id="curve-modal" d="M 50,180 A 200,160 0 0,1 450,180" fill="transparent" />
-                        <text className="font-serif uppercase tracking-[0.28em] fill-[#FBF7EE] font-bold text-[30px]">
+                        <text className="font-serif uppercase tracking-[0.28em] fill-[#FBF7EE] font-bold text-[1.875rem]">
                           <textPath href="#curve-modal" startOffset="50%" textAnchor="middle">
                             COUTURE · PORTFOLIO
                           </textPath>
@@ -156,7 +156,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     <p className="text-xl sm:text-2xl font-serif italic text-[#14100A] leading-tight">
                       &ldquo;I tell stories through design, where garments meet imagination.&rdquo;
                     </p>
-                    <div className="text-[10px] font-mono tracking-widest uppercase text-[#851737] pt-1">
+                    <div className="text-[0.625rem] font-mono tracking-widest uppercase text-[#851737] pt-1">
                       // KINETIC ATELIER STATEMENT · SILHOUETTE &amp; POETRY
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E] text-right">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E] text-right">
                     ATELIER NOIR & GOLDEN MOODBOARD
                   </div>
                 </motion.div>
@@ -232,7 +232,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                       <p className="text-xs text-[#F5D061]/90 leading-relaxed font-serif italic">
                         "Shatma Aaliya, designer from Indus Design School '27 and haute couture apprentice at Atelier Neelgar."
                       </p>
-                      <p className="text-[11px] text-[#FBF7EE]/70 font-light leading-relaxed">
+                      <p className="text-[0.6875rem] text-[#FBF7EE]/70 font-light leading-relaxed">
                         Femme fatale silhouettes, boned structured corsetry and subversive menswear tailoring.
                       </p>
                     </div>
@@ -251,19 +251,19 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                       <h3 className="text-xl font-serif font-bold uppercase text-[#FBF7EE]">
                         WHAT IS THE ATELIER?
                       </h3>
-                      <p className="text-[11px] text-[#FBF7EE]/80 font-light leading-relaxed">
+                      <p className="text-[0.6875rem] text-[#FBF7EE]/80 font-light leading-relaxed">
                         A made-to-order lab for runway shows, editorial campaigns and private clients seeking silhouettes of authority.
                       </p>
                       <button
                         onClick={onOpenInquiry}
-                        className="px-5 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[10px] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
+                        className="px-5 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[0.625rem] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
                       >
                         Work With Me
                       </button>
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     INDUS DESIGN SCHOOL · CLASS OF 2023–2027
                   </div>
                 </motion.div>
@@ -309,7 +309,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     <div className="sm:col-span-5 space-y-3">
                       {testimonials.slice(0, 2).map((t) => (
                         <div key={t.id} className="p-3 bg-[#EDE4D0] border border-[#D5C7B0] text-left">
-                          <div className="text-[10px] font-mono font-bold text-[#14100A] uppercase">
+                          <div className="text-[0.625rem] font-mono font-bold text-[#14100A] uppercase">
                             {t.author} // {t.organization}
                           </div>
                           <p className="font-serif italic text-xs text-[#14100A] pt-1 leading-relaxed">
@@ -320,7 +320,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E] text-right">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E] text-right">
                     100% ACADEMIC & EDITORIAL RECOMMENDATION
                   </div>
                 </motion.div>
@@ -375,14 +375,14 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                       </div>
                       <button
                         onClick={onOpenInquiry}
-                        className="mt-2 px-6 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[10px] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
+                        className="mt-2 px-6 py-2 rounded-full bg-[#2E2213] border border-[#F5D061] text-[0.625rem] font-mono uppercase tracking-widest text-[#F5D061] hover:bg-[#F5D061] hover:text-[#261925] transition-colors"
                       >
                         Work With Me
                       </button>
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     SOURCE: INDUS '27 JURY ASSESSMENT
                   </div>
                 </motion.div>
@@ -414,11 +414,11 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                       {servicePackages.map((p) => (
                         <div key={p.id} className="p-3 bg-[#14100A] border border-[#3E2F16] flex flex-col justify-between">
                           <div>
-                            <div className="text-[10px] font-mono text-[#F5D061]">{p.code}</div>
+                            <div className="text-[0.625rem] font-mono text-[#F5D061]">{p.code}</div>
                             <div className="text-lg font-serif font-bold text-[#FBF7EE] pt-1">{p.price}</div>
                             <div className="text-xs font-serif italic text-[#F5D061]">{p.name}</div>
                           </div>
-                          <div className="text-[9px] font-mono text-[#8A631E] pt-3">
+                          <div className="text-[0.625rem] font-mono text-[#8A631E] pt-3">
                             {p.timeline}
                           </div>
                         </div>
@@ -426,7 +426,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-[10px] font-mono text-[#8A631E]">
+                  <div className="flex items-center justify-between text-[0.625rem] font-mono text-[#8A631E]">
                     <span>MADE-TO-ORDER COMMISSIONS</span>
                     <button onClick={onOpenInquiry} className="text-[#F5D061] underline">
                       REQUEST A PROPOSAL
@@ -455,7 +455,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                       <h3 className="text-3xl font-serif font-black uppercase text-[#FBF7EE]">
                         MY WORK
                       </h3>
-                      <div className="text-[10px] font-mono text-[#F5D061] uppercase tracking-widest">
+                      <div className="text-[0.625rem] font-mono text-[#F5D061] uppercase tracking-widest">
                         Video Content & Silhouettes in 9:16
                       </div>
                     </div>
@@ -470,10 +470,10 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0C0A07] via-transparent to-transparent opacity-80" />
                           <div className="absolute bottom-2 left-2 right-2 text-left">
-                            <div className="text-[8px] font-mono uppercase text-[#F5D061] truncate">
+                            <div className="text-[0.625rem] font-mono uppercase text-[#F5D061] truncate">
                               {reel.brandTag}
                             </div>
-                            <div className="text-[10px] font-serif font-bold text-white truncate">
+                            <div className="text-[0.625rem] font-serif font-bold text-white truncate">
                               {reel.title}
                             </div>
                           </div>
@@ -482,7 +482,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     91% OF CONSUMERS PREFER VIDEOS IN MOTION
                   </div>
                 </motion.div>
@@ -509,7 +509,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         <div key={step.step} className="p-3 bg-[#14100A] border border-[#3E2F16] space-y-2">
                           <div className="text-xl font-serif font-bold text-[#F5D061]">{step.step}</div>
                           <div className="text-xs font-serif font-bold text-[#FBF7EE] leading-tight">{step.title}</div>
-                          <p className="text-[10px] text-[#F5D061]/75 leading-normal">{step.description}</p>
+                          <p className="text-[0.625rem] text-[#F5D061]/75 leading-normal">{step.description}</p>
                         </div>
                       ))}
                     </div>
@@ -525,7 +525,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     COMPLETE HAUTE COUTURE METHODOLOGY
                   </div>
                 </motion.div>
@@ -567,7 +567,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         <div key={i} className="border-b border-[#3E2F16] pb-2 flex items-baseline justify-between">
                           <div>
                             <div className="text-xs font-mono uppercase text-[#F5D061]">{st.label}</div>
-                            <div className="text-[10px] text-[#FBF7EE]/70">{st.description}</div>
+                            <div className="text-[0.625rem] text-[#FBF7EE]/70">{st.description}</div>
                           </div>
                           <div className="text-3xl font-serif font-bold text-[#FBF7EE] pl-4">{st.stat}</div>
                         </div>
@@ -575,7 +575,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     INDUS DESIGN SCHOOL · TECHNICAL EXCELLENCE
                   </div>
                 </motion.div>
@@ -602,13 +602,13 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                         <div className="aspect-[4/3] overflow-hidden bg-black">
                           <img src={p.heroImage} alt={p.title} className="w-full h-full object-cover grayscale contrast-125" />
                         </div>
-                        <div className="text-[9px] font-mono text-[#F5D061] uppercase">{p.number} · {p.category}</div>
+                        <div className="text-[0.625rem] font-mono text-[#F5D061] uppercase">{p.number} · {p.category}</div>
                         <div className="text-sm font-serif font-bold text-[#FBF7EE] line-clamp-1">{p.title}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     EXPLORE THE 06+ PROJECTS ON THE MAIN PAGE
                   </div>
                 </motion.div>
@@ -672,7 +672,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
                     </div>
                   </div>
 
-                  <div className="text-[10px] font-mono text-[#8A631E]">
+                  <div className="text-[0.625rem] font-mono text-[#8A631E]">
                     AHMEDABAD & MUMBAI · CLASS OF 2023–2027
                   </div>
                 </motion.div>

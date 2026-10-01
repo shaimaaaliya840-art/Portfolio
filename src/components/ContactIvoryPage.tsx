@@ -37,7 +37,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
       <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-bold">PAGE 12 · LET’S WORK TOGETHER // ATELIER COMMISSIONS</span>
+          <span className="text-[#241217] font-bold">PAGE 05 · LET’S WORK TOGETHER // ATELIER COMMISSIONS</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[#851737]">AHMEDABAD &amp; MUMBAI</span>
@@ -58,7 +58,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
               />
             </div>
           </div>
-          <span className="text-[10px] font-mono text-[#540D21] uppercase tracking-widest mt-3 font-bold">
+          <span className="text-[0.625rem] font-mono text-[#540D21] uppercase tracking-widest mt-3 font-bold">
             INDUS DESIGN '27
           </span>
         </div>
@@ -157,7 +157,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
               />
             </div>
           </div>
-          <span className="text-[10px] font-mono text-[#540D21] uppercase tracking-widest mt-3 font-bold">
+          <span className="text-[0.625rem] font-mono text-[#540D21] uppercase tracking-widest mt-3 font-bold">
             NEELGAR ATELIER '26
           </span>
         </div>

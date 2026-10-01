@@ -129,7 +129,7 @@ export const PullQuoteAndTestimonials: React.FC<PullQuoteAndTestimonialsProps> =
             >
               <div className="text-xs font-mono text-[#851737] mb-2">{t.organization}</div>
               <div className="text-sm font-serif text-[#241217] line-clamp-2">"{t.quote}"</div>
-              <div className="text-[11px] font-mono text-[#540D21] mt-3">{t.author}</div>
+              <div className="text-[0.6875rem] font-mono text-[#540D21] mt-3">{t.author}</div>
             </div>
           ))}
         </div>

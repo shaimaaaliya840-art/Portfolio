@@ -36,7 +36,7 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
           <div className="lg:-rotate-90 whitespace-nowrap text-2xl sm:text-3xl font-avonia tracking-normal font-normal text-[#FAF6EE]">
             Service Packages
           </div>
-          <div className="text-[10px] font-mono text-[#FAF6EE] font-bold uppercase tracking-widest mt-0 lg:mt-12">
+          <div className="text-[0.625rem] font-mono text-[#FAF6EE] font-bold uppercase tracking-widest mt-0 lg:mt-12">
             ATELIER // SHATMA
           </div>
         </div>
@@ -58,7 +58,7 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
                 <div className={`absolute inset-1.5 border pointer-events-none ${isRec ? 'border-[#FAF6EE]/20' : 'border-[#241217]/10'}`} />
 
                 {isRec && (
-                  <div className="absolute -top-3.5 right-4 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[10px] font-mono uppercase tracking-widest font-black border border-[#540D21] shadow-lg">
+                  <div className="absolute -top-3.5 right-4 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[0.625rem] font-mono uppercase tracking-widest font-black border border-[#540D21] shadow-lg">
                     FEATURED
                   </div>
                 )}
@@ -68,7 +68,7 @@ export const ServicePackagesPage: React.FC<ServicePackagesPageProps> = ({ onOpen
                     <span className={`font-mono text-xs font-black tracking-widest ${isRec ? 'text-[#FAF6EE]' : 'text-[#540D21]'}`}>
                       {pkg.code}
                     </span>
-                    <span className={`text-[10px] font-mono uppercase tracking-wider font-bold ${isRec ? 'text-[#FAF6EE]/90' : 'text-[#6B545C]'}`}>
+                    <span className={`text-[0.625rem] font-mono uppercase tracking-wider font-bold ${isRec ? 'text-[#FAF6EE]/90' : 'text-[#6B545C]'}`}>
                       {pkg.timeline}
                     </span>
                   </div>

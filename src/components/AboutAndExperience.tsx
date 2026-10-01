@@ -40,7 +40,7 @@ export const AboutAndExperience: React.FC<AboutAndExperienceProps> = ({
               className="w-full h-full object-cover contrast-125 hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6EE]/75 via-transparent to-transparent opacity-60" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[0.625rem] font-mono uppercase tracking-widest text-[#540D21] font-bold">
               <span>SHATMA AALIYA</span>
               <span>INDUS DESIGN SCHOOL</span>
             </div>
@@ -69,7 +69,7 @@ export const AboutAndExperience: React.FC<AboutAndExperienceProps> = ({
                   <div className="absolute inset-1 border border-[#FAF6EE]/20 pointer-events-none" />
                   <div className="text-xs font-mono text-[#FAF6EE] font-black">{tenet.number}</div>
                   <div className="text-base font-serif font-black text-[#FAF6EE]">{tenet.title}</div>
-                  <div className="text-[11px] font-mono uppercase text-[#FAF6EE]/85 font-bold">{tenet.subtitle}</div>
+                  <div className="text-[0.6875rem] font-mono uppercase text-[#FAF6EE]/85 font-bold">{tenet.subtitle}</div>
                   <p className="text-xs text-[#FAF6EE] leading-normal pt-2 font-normal">
                     {tenet.description}
                   </p>
@@ -174,7 +174,7 @@ export const AboutAndExperience: React.FC<AboutAndExperienceProps> = ({
                 <div className="flex items-center gap-3">
                   <h4 className="text-xl font-serif font-black text-[#FAF6EE]">{item.company}</h4>
                   {item.isNeelgar && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 bg-[#FAF6EE] text-[#540D21] font-bold">
+                    <span className="text-[0.625rem] font-mono px-2 py-0.5 bg-[#FAF6EE] text-[#540D21] font-bold">
                       COUTURE APPRENTICESHIP
                     </span>
                   )}
@@ -196,7 +196,7 @@ export const AboutAndExperience: React.FC<AboutAndExperienceProps> = ({
                 {item.deliverables.map((deliv, i) => (
                   <span
                     key={i}
-                    className="text-[11px] font-mono text-[#540D21] px-2.5 py-1 bg-[#FAF6EE] border border-[#FAF6EE] font-semibold"
+                    className="text-[0.6875rem] font-mono text-[#540D21] px-2.5 py-1 bg-[#FAF6EE] border border-[#FAF6EE] font-semibold"
                   >
                     • {deliv}
                   </span>

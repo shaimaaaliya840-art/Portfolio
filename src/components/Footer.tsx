@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <div className="flex items-center gap-3 min-w-0">
                   <Mail className="w-4 h-4 text-[#851737] shrink-0" />
                   <div className="min-w-0">
-                    <span className="text-[10px] text-[#851737] block uppercase tracking-widest">Official Transmission</span>
+                    <span className="text-[0.625rem] text-[#851737] block uppercase tracking-widest">Official Transmission</span>
                     <span className="text-[#241217] font-medium truncate block text-sm">{email}</span>
                   </div>
                 </div>

@@ -138,7 +138,7 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Centered Editorial Header Plaque */}
         <div className="text-center mb-8 space-y-3 max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-gradient-to-r from-[var(--color-accent,#540D21)] via-[var(--color-gold,#851737)] to-[var(--color-bronze,#A63856)] border border-[var(--color-accent,#540D21)] shadow-md text-[var(--color-base,#FAF6EE)] text-[10px] font-mono uppercase tracking-[0.25em] font-black">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-gradient-to-r from-[var(--color-accent,#540D21)] via-[var(--color-gold,#851737)] to-[var(--color-bronze,#A63856)] border border-[var(--color-accent,#540D21)] shadow-md text-[var(--color-base,#FAF6EE)] text-[0.625rem] font-mono uppercase tracking-[0.25em] font-black">
             <Sparkles className="w-3 h-3" />
             <span>CHROMATIC ALCHEMY</span>
           </div>
@@ -169,7 +169,7 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
               id="abhisarai-ka-trigger"
               onClick={onOpenAbhisarika}
               aria-label="Open ABHISARAIKA details below"
-              className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.2em] font-bold text-[#540D21] transition-colors hover:text-[#851737] cursor-pointer"
+              className="inline-flex items-center gap-1 text-[0.625rem] font-mono uppercase tracking-[0.2em] font-bold text-[#540D21] transition-colors hover:text-[#851737] cursor-pointer"
             >
               <span>ABHISARAIKA</span>
               <ArrowDown className="h-3 w-3" />
@@ -183,10 +183,10 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
             {/* Action Bar Above Arch: Dossier Counter + Add Concept / Illustration Button */}
             <div className="flex items-center justify-between gap-2 mb-2.5 px-1">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#540D21] font-bold">
+                <span className="text-[0.625rem] font-mono uppercase tracking-widest text-[#540D21] font-bold">
                   {String(safeIndex + 1).padStart(2, '0')} / {String(lookbookItems.length).padStart(2, '0')}
                 </span>
-                <span className="text-[9px] font-mono px-2 py-0.5 bg-[#540D21]/10 text-[#540D21] rounded-xs border border-[#540D21]/20 font-bold uppercase">
+                <span className="text-[0.625rem] font-mono px-2 py-0.5 bg-[#540D21]/10 text-[#540D21] rounded-xs border border-[#540D21]/20 font-bold uppercase">
                   {currentPage.category}
                 </span>
               </div>
@@ -198,7 +198,7 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                   e.stopPropagation();
                   setIsStudioOpen(true);
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#540D21] hover:bg-[#6E112B] text-white text-[10px] sm:text-xs font-mono uppercase tracking-wider font-bold rounded-xs shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#540D21] hover:bg-[#6E112B] text-white text-[0.625rem] sm:text-xs font-mono uppercase tracking-wider font-bold rounded-xs shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
                 title="Open the page to add a new concept, inspiration or illustration"
               >
                 <Plus className="w-3.5 h-3.5 text-amber-200" />
@@ -242,7 +242,7 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                 <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/arch:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
                   <div className="px-4 py-2 bg-[#540D21]/95 text-[#FAF6EE] border border-amber-200/50 rounded-xs shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover/arch:translate-y-0 transition-transform duration-300">
                     <Eye className="w-4 h-4 text-amber-300" />
-                    <span className="text-[11px] font-mono uppercase tracking-widest font-bold">
+                    <span className="text-[0.6875rem] font-mono uppercase tracking-widest font-bold">
                       View Project Details
                     </span>
                   </div>
@@ -287,7 +287,7 @@ export const AtelierPhotoMoodboardPage: React.FC<AtelierPhotoMoodboardPageProps>
                   aria-label="Open the studio to add a concept"
                 >
                   <PenTool className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-white pr-1">
+                  <span className="text-[0.625rem] font-mono uppercase tracking-wider text-white pr-1">
                     + New
                   </span>
                 </button>

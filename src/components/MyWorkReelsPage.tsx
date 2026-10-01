@@ -110,11 +110,11 @@ export const MyWorkReelsPage: React.FC<MyWorkReelsPageProps> = ({
               </div>
 
               {/* Top & Bottom Badges */}
-              <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-[#FAF6EE]/80 border border-[#DECFC0] text-[9px] font-mono text-[#540D21] uppercase">
+              <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-[#FAF6EE]/80 border border-[#DECFC0] text-[0.625rem] font-mono text-[#540D21] uppercase">
                 {reel.brandTag}
               </div>
 
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-[#241217]">
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[0.625rem] font-mono text-[#241217]">
                 <span>{reel.duration}</span>
                 <span className="text-[#540D21]">{reel.stats}</span>
               </div>

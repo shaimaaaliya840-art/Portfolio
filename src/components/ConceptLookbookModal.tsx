@@ -252,7 +252,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                   {portfolioData.name || 'SHATMA AALIYA'}
                 </span>
                 <span className="text-[#DECFC0] mx-2 text-xs">/</span>
-                <span className="text-[11px] font-mono tracking-widest text-[#851737] uppercase">
+                <span className="text-[0.6875rem] font-mono tracking-widest text-[#851737] uppercase">
                   ATELIER LOOKBOOK DOSSIER
                 </span>
               </div>
@@ -264,7 +264,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                 <button
                   key={slide.id}
                   onClick={() => setCurrentSlideIndex(idx)}
-                  className={`px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  className={`px-3 sm:px-4 py-1.5 text-[0.625rem] sm:text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                     currentSlideIndex === idx
                       ? 'bg-[#540D21] text-[#FAF6EE] font-bold shadow-[0_0_10px_rgba(84,13,33,0.3)]'
                       : 'text-[#241217]/70 hover:text-[#540D21] hover:bg-[#540D21]'
@@ -291,10 +291,10 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#DECFC0] pb-6">
               <div className="space-y-2 max-w-2xl">
                 <div className="flex items-center gap-3">
-                  <span className="px-2.5 py-0.5 text-[10px] font-mono tracking-widest uppercase bg-[#540D21] text-[#FAF6EE] font-bold">
+                  <span className="px-2.5 py-0.5 text-[0.625rem] font-mono tracking-widest uppercase bg-[#540D21] text-[#FAF6EE] font-bold">
                     {currentSlide.badge}
                   </span>
-                  <span className="text-[11px] font-mono tracking-widest uppercase text-[#851737]">
+                  <span className="text-[0.6875rem] font-mono tracking-widest uppercase text-[#851737]">
                     {currentSlide.category}
                   </span>
                 </div>
@@ -341,7 +341,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6EE]/75 via-transparent to-transparent opacity-60" />
                     
-                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] font-mono tracking-widest text-[#540D21] uppercase font-bold">
+                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[0.625rem] font-mono tracking-widest text-[#540D21] uppercase font-bold">
                       <span>KEY SILHOUETTE</span>
                       <span>FIG. 0{currentSlideIndex + 1}</span>
                     </div>
@@ -381,7 +381,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                           className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <div className="text-[10px] font-mono tracking-wider text-[#540D21] uppercase font-bold truncate">
+                      <div className="text-[0.625rem] font-mono tracking-wider text-[#540D21] uppercase font-bold truncate">
                         {img.caption}
                       </div>
                     </div>
@@ -403,7 +403,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                         <h4 className="text-xs font-serif uppercase tracking-wider text-[#540D21] font-bold">
                           {bp.title}
                         </h4>
-                        <p className="text-[11px] text-[#6B545C] leading-relaxed font-editorial">
+                        <p className="text-[0.6875rem] text-[#6B545C] leading-relaxed font-editorial">
                           {bp.detail}
                         </p>
                       </div>
@@ -428,10 +428,10 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
                           style={{ backgroundColor: swatch.hex }}
                         />
                         <div className="overflow-hidden">
-                          <div className="text-[10px] font-mono font-bold text-[#241217] truncate">
+                          <div className="text-[0.625rem] font-mono font-bold text-[#241217] truncate">
                             {swatch.name}
                           </div>
-                          <div className="text-[9px] font-mono text-[#851737] truncate">
+                          <div className="text-[0.625rem] font-mono text-[#851737] truncate">
                             {swatch.hex}
                           </div>
                         </div>

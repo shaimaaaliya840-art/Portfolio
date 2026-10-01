@@ -93,7 +93,7 @@ export const CvPage: React.FC<CvPageProps> = ({ portfolioData }) => {
       <div className="mx-auto max-w-6xl">
         <header className="mb-5 flex flex-col items-center justify-between gap-5 rounded-xs border border-[#851737]/35 bg-gradient-to-r from-[#FFF9F8] via-[#F8E8E9] to-[#F3D0D4] p-5 text-center shadow-sm sm:flex-row sm:p-7 sm:text-left">
           <div>
-            <div className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#851737]">
+            <div className="mb-2 font-mono text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#851737]">
               Curriculum Vitae · 2023—2027
             </div>
             <h1 className="font-avonia text-5xl leading-none text-[#540D21] sm:text-7xl">
@@ -125,7 +125,7 @@ export const CvPage: React.FC<CvPageProps> = ({ portfolioData }) => {
                     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setActiveSection(id);
                   }}
-                  className={`block px-4 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] transition-colors sm:px-6 sm:text-xs sm:tracking-[0.18em] ${activeSection === id ? 'text-[#540D21] underline decoration-2 underline-offset-[14px]' : 'text-[#851737]/75 hover:text-[#540D21]'}`}
+                  className={`block px-4 py-4 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] transition-colors sm:px-6 sm:text-xs sm:tracking-[0.18em] ${activeSection === id ? 'text-[#540D21] underline decoration-2 underline-offset-[14px]' : 'text-[#851737]/75 hover:text-[#540D21]'}`}
                 >
                   {title}
                 </a>

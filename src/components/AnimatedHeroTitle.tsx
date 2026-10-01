@@ -66,7 +66,7 @@ export const AnimatedHeroTitle: React.FC<AnimatedHeroTitleProps> = ({ name }) =>
         {/* Rotated Vertical Eyebrow Label */}
         <div
           aria-hidden="true"
-          className="hidden xl:block absolute -left-14 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[10px] font-mono tracking-[0.35em] text-[#FAF6EE] uppercase whitespace-nowrap pointer-events-none font-bold"
+          className="hidden xl:block absolute -left-14 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[0.625rem] font-mono tracking-[0.35em] text-[#FAF6EE] uppercase whitespace-nowrap pointer-events-none font-bold"
         >
           COUTURE / SILHOUETTE / ARCHIVE
         </div>

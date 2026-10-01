@@ -78,7 +78,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
             <div className="flex items-center gap-3">
               <Sliders className="w-4 h-4 text-[#540D21]" />
               <div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#851737] font-bold">
+                <div className="text-[0.625rem] font-mono uppercase tracking-[0.2em] text-[#851737] font-bold">
                   PORTFOLIO CUSTOMIZER
                 </div>
                 <h3 className="text-lg font-serif font-bold uppercase text-[#241217]">
@@ -113,7 +113,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Designer Name</label>
+                  <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Designer Name</label>
                   <input
                     type="text"
                     value={formData.name || ''}
@@ -123,7 +123,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Title / Role</label>
+                  <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Title / Role</label>
                   <input
                     type="text"
                     value={formData.title || ''}
@@ -134,7 +134,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Atelier Location</label>
+                <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Atelier Location</label>
                 <input
                   type="text"
                   value={formData.location || ''}
@@ -144,7 +144,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Bio / About Me</label>
+                <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Bio / About Me</label>
                 <textarea
                   rows={4}
                   value={formData.aboutMe || ''}
@@ -162,7 +162,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Calling Number</label>
+                  <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Calling Number</label>
                   <input
                     type="text"
                     value={formData.callingNumber || ''}
@@ -172,7 +172,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">WhatsApp Number</label>
+                  <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">WhatsApp Number</label>
                   <input
                     type="text"
                     value={formData.whatsappNumber || ''}
@@ -183,7 +183,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Contact Email</label>
+                <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Contact Email</label>
                 <input
                   type="email"
                   value={formData.contactEmail || ''}
@@ -200,7 +200,7 @@ export const QuickCustomizerModal: React.FC<QuickCustomizerModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-[#851737] font-bold">Instagram URL</label>
+                <label className="text-[0.625rem] font-mono uppercase text-[#851737] font-bold">Instagram URL</label>
                 <input
                   type="text"
                   value={formData.socials?.instagram || ''}

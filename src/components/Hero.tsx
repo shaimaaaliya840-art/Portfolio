@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
           {/* Monumental Kinetic Headline in Avonia Modern Luxury Script */}
           <div className="w-full max-w-6xl flex flex-col items-center justify-center select-none">
             {/* Line 1: "Designer who" in Avonia modern luxury script */}
-            <h1 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
+            <h1 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8.125rem] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
               {/* Letters are separate spans (for the hover wobble), so keep each word in a
                   nowrap group or narrow screens break the line mid-word ("wh / o") */}
               {'Designer who'.split(' ').map((word, w) => (
@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
                   word is nudged down 0.3em) or the clip cuts its swashes off */}
               <span
                 id="scramble"
-                className="relative inline-flex items-center justify-center roll-container h-[2em] overflow-hidden px-2 sm:px-12 font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[130px]"
+                className="relative inline-flex items-center justify-center roll-container h-[2em] overflow-hidden px-2 sm:px-12 font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8.125rem]"
               >
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
@@ -123,13 +123,13 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.8 }}
-        className="w-full flex items-center justify-between border-t border-[#540D21]/15 pt-3 text-[10px] sm:text-xs font-mono tracking-[0.25em] text-[#540D21]/70 uppercase select-none"
+        className="w-full flex items-center justify-between border-t border-[#540D21]/15 pt-3 text-[0.625rem] sm:text-xs font-mono tracking-[0.25em] text-[#540D21]/70 uppercase select-none"
       >
         <div className="flex items-center gap-2">
           <span className="animate-bounce">↓</span>
           <span>Scroll Down</span>
         </div>
-        <div className="text-[10px] text-[#241217]/40 hidden sm:block">
+        <div className="text-[0.625rem] text-[#241217]/40 hidden sm:block">
           Atelier · Silhouette · Drape · Archive
         </div>
       </motion.div>

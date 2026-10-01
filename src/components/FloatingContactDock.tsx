@@ -70,74 +70,74 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
   return (
     <>
       {/* 1. Persistent Sleek Bottom Bar */}
-      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#FAF6EE]/95 border-t border-[#DECFC0] text-[#241217] select-none shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
+      <div className="fixed bottom-0 left-0 w-full z-40 bg-[#540D21] border-t border-[#FAF6EE]/15 text-[#FAF6EE] select-none shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2.5 flex items-center justify-between text-xs">
           {/* Quick Identity & Indicator */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#540D21] animate-pulse shadow-[0_0_8px_#540D21]" />
-              <span className="font-serif tracking-widest text-[#241217] uppercase text-xs hidden sm:inline font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#FAF6EE] animate-pulse shadow-[0_0_8px_#FAF6EE]" />
+              <span className="font-serif tracking-widest text-[#FAF6EE] uppercase text-xs hidden sm:inline font-bold">
                 {name}
               </span>
-              <span className="font-mono text-[10px] text-[#540D21] uppercase tracking-widest hidden md:inline">
+              <span className="font-mono text-[0.625rem] text-[#F0C9D6] uppercase tracking-widest hidden md:inline">
                 · ATELIER DOSSIER
               </span>
             </div>
 
             {/* Quick Contact Inline Links */}
-            <div className="flex items-center gap-2 sm:gap-4 text-[11px] font-mono">
+            <div className="flex items-center gap-2 sm:gap-4 text-[0.6875rem] font-mono">
               <a
                 href={`https://wa.me/91${cleanWa}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 hover:text-[#540D21] transition-colors group cursor-pointer"
+                className="flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
                 title="Chat on WhatsApp: 8404916721"
                 data-cursor="pointer"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                <span className="text-[#851737] hidden md:inline font-mono">WA:</span>
-                <span className="font-mono text-[#241217] group-hover:text-[#540D21]">{whatsappNo}</span>
+                <span className="text-[#F0C9D6] hidden md:inline font-mono">WA:</span>
+                <span className="font-mono text-[#FAF6EE] group-hover:text-white">{whatsappNo}</span>
               </a>
 
-              <span className="text-[#DECFC0]">/</span>
+              <span className="text-[#FAF6EE]/35">/</span>
 
               <a
                 href={`tel:+91${cleanCall}`}
-                className="flex items-center gap-1.5 hover:text-[#540D21] transition-colors group cursor-pointer"
+                className="flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
                 title="Call Shatma Aaliya: 6351283152"
                 data-cursor="pointer"
               >
-                <Phone className="w-3.5 h-3.5 text-[#540D21]" />
-                <span className="text-[#851737] hidden md:inline font-mono">CALL:</span>
-                <span className="font-mono text-[#241217] group-hover:text-[#540D21]">{callingNo}</span>
+                <Phone className="w-3.5 h-3.5 text-[#F0C9D6]" />
+                <span className="text-[#F0C9D6] hidden md:inline font-mono">CALL:</span>
+                <span className="font-mono text-[#FAF6EE] group-hover:text-white">{callingNo}</span>
               </a>
 
-              <span className="text-[#DECFC0]">/</span>
+              <span className="text-[#FAF6EE]/35">/</span>
 
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-1.5 hover:text-[#540D21] transition-colors group cursor-pointer"
+                className="flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
                 title={`Email: ${email}`}
                 data-cursor="pointer"
               >
-                <Mail className="w-3.5 h-3.5 text-[#851737]" />
-                <span className="font-mono text-[#241217] group-hover:text-[#540D21] truncate max-w-[170px] sm:max-w-none">
+                <Mail className="w-3.5 h-3.5 text-[#F0C9D6]" />
+                <span className="font-mono text-[#FAF6EE] group-hover:text-white truncate max-w-[170px] sm:max-w-none">
                   {email}
                 </span>
               </a>
 
-              <span className="text-[#DECFC0] hidden lg:inline">/</span>
+              <span className="text-[#FAF6EE]/35 hidden lg:inline">/</span>
 
               <a
                 href={instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="hidden lg:flex items-center gap-1.5 hover:text-[#540D21] transition-colors group cursor-pointer"
+                className="hidden lg:flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
                 title="Instagram Profile"
                 data-cursor="pointer"
               >
-                <Instagram className="w-3.5 h-3.5 text-[#540D21]" />
-                <span className="font-mono text-[#241217] group-hover:text-[#540D21]">@shaimaaaliya</span>
+                <Instagram className="w-3.5 h-3.5 text-[#F0C9D6]" />
+                <span className="font-mono text-[#FAF6EE] group-hover:text-white">@shaimaaaliya</span>
               </a>
             </div>
           </div>
@@ -147,7 +147,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             {scrollProgress > 5 && (
               <button
                 onClick={scrollToTop}
-                className="flex items-center justify-center p-1.5 bg-[#EFE6D5] border border-[#DECFC0] hover:border-[#540D21] text-[#540D21] hover:text-[#241217] transition-all cursor-pointer rounded-sm mr-1"
+                className="flex items-center justify-center p-1.5 bg-[#EFE6D5] border border-[#DECFC0] hover:border-white text-[#540D21] hover:bg-white transition-all cursor-pointer rounded-sm mr-1"
                 title="Back to Top"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
@@ -157,7 +157,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             {onOpenColorModal && (
               <button
                 onClick={onOpenColorModal}
-                className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider bg-[#EFE6D5] border border-[#540D21] text-[#540D21] hover:bg-[#540D21] hover:text-[#FAF6EE] transition-all cursor-pointer shadow-sm"
+                className="flex items-center gap-1.5 px-2.5 py-1 text-[0.6875rem] font-mono uppercase tracking-wider bg-[#EFE6D5] border border-[#FAF6EE] text-[#540D21] hover:bg-white transition-all cursor-pointer shadow-sm"
                 data-cursor="pointer"
                 title="Open Color Inspiration & Atelier Palettes"
               >
@@ -169,7 +169,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               id="expand-contact-dock-btn"
-              className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider bg-[#EFE6D5] border border-[#DECFC0] hover:border-[#540D21] text-[#540D21] hover:text-[#241217] transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1 text-[0.6875rem] font-mono uppercase tracking-wider bg-[#EFE6D5] border border-[#DECFC0] hover:border-white text-[#540D21] hover:bg-white transition-all cursor-pointer"
               data-cursor="pointer"
             >
               <span>{isExpanded ? 'Minimize' : 'Full Card'}</span>
@@ -179,9 +179,9 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
         </div>
 
         {/* Scroll Progress Line under the persistent bottom bar */}
-        <div className="w-full h-[2px] bg-[#DECFC0]/50">
+        <div className="w-full h-[2px] bg-[#FAF6EE]/15">
           <div 
-            className="h-full bg-gradient-to-r from-[#A63856] via-[#540D21] to-[#A63856] transition-all duration-150"
+            className="h-full bg-gradient-to-r from-[#E9D5E6] via-[#FAF6EE] to-[#E9D5E6] transition-all duration-150"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
@@ -200,14 +200,14 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             {/* Header */}
             <div className="flex items-start justify-between border-b border-[#DECFC0]/70 pb-4 mb-4">
               <div>
-                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-[#851737]">
+                <div className="flex items-center gap-2 text-[0.625rem] font-mono uppercase tracking-[0.25em] text-[#851737]">
                   <span className="w-2 h-2 bg-[#EFE6D5] border border-[#540D21]/60" />
                   <span>DIRECT ATELIER DOSSIER</span>
                 </div>
                 <h4 className="text-xl font-serif font-black uppercase text-[#241217] tracking-tight mt-1">
                   {name}
                 </h4>
-                <div className="text-[11px] font-mono text-[#851737]">
+                <div className="text-[0.6875rem] font-mono text-[#851737]">
                   Haute Couture Apprentice &amp; Designer
                 </div>
               </div>

@@ -57,7 +57,7 @@ export const ExactPage4IllustrationExplanation: React.FC = () => {
         {/* Figure 1 with Red Handwritten Notes */}
         <div className="relative h-full flex flex-col items-center justify-between flex-1">
           {/* Red Handwritten Annotation Top */}
-          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-tight pt-1 sm:pt-2 w-full pl-1">
+          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[0.625rem] sm:text-[0.8125rem] md:text-[0.9375rem] lg:text-[1.0625rem] leading-tight pt-1 sm:pt-2 w-full pl-1">
             <p className="font-bold text-xs sm:text-base md:text-lg">1st meeting</p>
             <p>fresh, crisp, perfect.</p>
             <p>enthusiasm walks in,</p>
@@ -82,7 +82,7 @@ export const ExactPage4IllustrationExplanation: React.FC = () => {
 
         {/* Figure 2 with Red Handwritten Notes */}
         <div className="relative h-full flex flex-col items-center justify-between flex-1">
-          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-tight pt-1 sm:pt-2 w-full pl-1">
+          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[0.625rem] sm:text-[0.8125rem] md:text-[0.9375rem] lg:text-[1.0625rem] leading-tight pt-1 sm:pt-2 w-full pl-1">
             <p className="font-bold text-xs sm:text-base md:text-lg">2nd meeting</p>
             <p>still formal - the pants</p>
             <p>hold the line, but the</p>
@@ -100,7 +100,7 @@ export const ExactPage4IllustrationExplanation: React.FC = () => {
 
         {/* Figure 3 with Red Handwritten Notes */}
         <div className="relative h-full flex flex-col items-center justify-between flex-1">
-          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-tight pt-1 sm:pt-2 w-full pl-1">
+          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[0.625rem] sm:text-[0.8125rem] md:text-[0.9375rem] lg:text-[1.0625rem] leading-tight pt-1 sm:pt-2 w-full pl-1">
             <p className="font-bold text-xs sm:text-base md:text-lg">3rd meeting</p>
             <p>red puffed bows -</p>
             <p>softness & a bubbly,</p>
@@ -119,7 +119,7 @@ export const ExactPage4IllustrationExplanation: React.FC = () => {
 
         {/* Figure 4 with Red Handwritten Notes */}
         <div className="relative h-full flex flex-col items-center justify-between flex-1">
-          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-tight pt-1 sm:pt-2 w-full pl-1">
+          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[0.625rem] sm:text-[0.8125rem] md:text-[0.9375rem] lg:text-[1.0625rem] leading-tight pt-1 sm:pt-2 w-full pl-1">
             <p className="font-bold text-xs sm:text-base md:text-lg">4th meeting</p>
             <p>red gown - modest yet</p>
             <p>curvy & bold. no formality,</p>
@@ -137,7 +137,7 @@ export const ExactPage4IllustrationExplanation: React.FC = () => {
 
         {/* Figure 5 with Red Handwritten Notes */}
         <div className="relative h-full flex flex-col items-center justify-between flex-1">
-          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-tight pt-1 sm:pt-2 w-full pl-1">
+          <div className="text-left font-['Caveat','Nanum_Pen_Script','Architects_Daughter',cursive] text-[#8C1322] font-semibold text-[0.625rem] sm:text-[0.8125rem] md:text-[0.9375rem] lg:text-[1.0625rem] leading-tight pt-1 sm:pt-2 w-full pl-1">
             <p className="font-bold text-xs sm:text-base md:text-lg">5th meeting</p>
             <p>comfort. boredom creeps</p>
             <p>in - no prep, full chill,</p>

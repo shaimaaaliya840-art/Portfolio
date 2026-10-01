@@ -29,12 +29,12 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
           <span className="w-2 h-2 rounded-full bg-[#F5D061] animate-pulse" />
           <span className="text-[#FBF7EE] font-semibold">PAGE 01 · COVER DOSSIER</span>
         </div>
-        <div className="flex items-center gap-4 text-[11px]">
+        <div className="flex items-center gap-4 text-[0.6875rem]">
           <span className="hidden sm:inline text-[#8A631E]">INDUS DESIGN SCHOOL · CLASS OF '27</span>
           {onOpenDeck && (
             <button
               onClick={onOpenDeck}
-              className="px-3 py-1 bg-[#1A140D] hover:bg-[#2E2213] border border-[#3E2F16] hover:border-[#F5D061] text-[#F5D061] hover:text-[#FBF7EE] text-[10px] uppercase tracking-widest transition-all flex items-center gap-1.5"
+              className="px-3 py-1 bg-[#1A140D] hover:bg-[#2E2213] border border-[#3E2F16] hover:border-[#F5D061] text-[#F5D061] hover:text-[#FBF7EE] text-[0.625rem] uppercase tracking-widest transition-all flex items-center gap-1.5"
             >
               <Sparkles className="w-3 h-3 text-[#F5D061]" />
               <span>Open Slide Deck (11 Pages)</span>
@@ -55,7 +55,7 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
                 d="M 40,200 A 210,180 0 0,1 460,200"
                 fill="transparent"
               />
-              <text className="font-serif uppercase tracking-[0.28em] fill-[#FBF7EE] font-bold text-[28px] sm:text-[34px]">
+              <text className="font-serif uppercase tracking-[0.28em] fill-[#FBF7EE] font-bold text-[1.75rem] sm:text-[2.125rem]">
                 <textPath href="#curve" startOffset="50%" textAnchor="middle">
                   PORTFOLIO · COUTURE
                 </textPath>
@@ -94,7 +94,7 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
             {/* "by Shatma Aaliya" signature pill at base of arch */}
             <div className="mt-4 inline-flex items-center gap-2 px-5 py-2 bg-[#14100A] border border-[#3E2F16] rounded-full text-xs font-serif italic text-[#F5D061] tracking-wider shadow-lg">
               <span>by {portfolioData.name || 'Shatma Aaliya'}</span>
-              <span className="text-[#8A631E] font-mono not-italic text-[10px]">· INDUS '27</span>
+              <span className="text-[#8A631E] font-mono not-italic text-[0.625rem]">· INDUS '27</span>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ export const CoverArchHero: React.FC<CoverArchHeroProps> = ({
           <ArrowDown className="w-3.5 h-3.5 text-[#F5D061] animate-bounce" />
         </div>
 
-        <div className="text-[11px] text-[#D4A02A]">
+        <div className="text-[0.6875rem] text-[#D4A02A]">
           PHOTOGRAPHY · MANIFESTO · PRICING · VIDEO
         </div>
       </div>

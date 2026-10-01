@@ -22,7 +22,7 @@ export const ObjectionStatsPage: React.FC<ObjectionStatsPageProps> = ({ onOpenIn
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
           <span className="text-[#241217] font-semibold">PAGE 10 · ATELIER VALIDATION &amp; DECISION</span>
         </div>
-        <div className="flex items-center gap-2 text-[11px]">
+        <div className="flex items-center gap-2 text-[0.6875rem]">
           <span>PROVEN METRICS</span>
           <Sparkles className="w-3 h-3 text-[#540D21]" />
         </div>
@@ -35,7 +35,7 @@ export const ObjectionStatsPage: React.FC<ObjectionStatsPageProps> = ({ onOpenIn
           {/* Subtle Hairline Frame */}
           <div className="absolute inset-1.5 border border-[#FAF6EE]/20 pointer-events-none" />
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[10px] font-mono uppercase tracking-[0.2em] w-fit font-bold shadow-md">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAF6EE] text-[#540D21] text-[0.625rem] font-mono uppercase tracking-[0.2em] w-fit font-bold shadow-md">
             <HelpCircle className="w-3 h-3 text-[#540D21]" />
             <span>EXCLUSIVE CONSULTATION</span>
           </div>

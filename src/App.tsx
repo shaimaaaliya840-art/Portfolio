@@ -14,6 +14,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { KineticManifestoPage } from './components/KineticManifestoPage';
 import { ManifestoDualArchPage } from './components/ManifestoDualArchPage';
+import { WorksPage } from './components/WorksPage';
 import { ContactIvoryPage } from './components/ContactIvoryPage';
 import { FloatingContactDock } from './components/FloatingContactDock';
 import { ProjectModal } from './components/ProjectModal';
@@ -22,7 +23,6 @@ import { QuickCustomizerModal } from './components/QuickCustomizerModal';
 import { EditorialLookbookDeckModal } from './components/EditorialLookbookDeckModal';
 import { ConceptLookbookModal } from './components/ConceptLookbookModal';
 import { ColorInspirationModal } from './components/ColorInspirationModal';
-import { FloatingBackButton } from './components/FloatingBackButton';
 
 export default function App() {
   // Color inspiration & theme state
@@ -83,54 +83,6 @@ export default function App() {
   const handleOpenConceptLookbook = (initialSlide: number = 0) => {
     setConceptLookbookInitialSlide(initialSlide);
     setIsConceptLookbookOpen(true);
-  };
-
-  const handleGlobalBack = () => {
-    // 1. If any modal is open, close it
-    if (isDeckOpen) {
-      setIsDeckOpen(false);
-      return;
-    }
-    if (isConceptLookbookOpen) {
-      setIsConceptLookbookOpen(false);
-      return;
-    }
-    if (isColorModalOpen) {
-      setIsColorModalOpen(false);
-      return;
-    }
-    if (selectedProject) {
-      setSelectedProject(null);
-      return;
-    }
-    if (isInquiryOpen) {
-      setIsInquiryOpen(false);
-      return;
-    }
-    if (isCustomizerOpen) {
-      setIsCustomizerOpen(false);
-      return;
-    }
-
-    // 2. Otherwise step back to the previous section. This deliberately never calls
-    // history.back(): visitors arriving from another site (or via a shared #anchor link)
-    // would be sent off the portfolio entirely.
-    const sectionIds = ['hero-section', 'kinetic-manifesto', 'manifesto-arch', 'contact-ivory'];
-
-    const currentY = window.scrollY;
-    if (currentY <= 80) return; // Already at the cover; nothing earlier to go back to
-
-    let targetSection = 'hero-section';
-    for (let i = sectionIds.length - 1; i >= 0; i--) {
-      const el = document.getElementById(sectionIds[i]);
-      // Section starts more than 100px above the viewport top. (offsetTop is relative to
-      // the nearest positioned ancestor, so measure against the viewport instead.)
-      if (el && el.getBoundingClientRect().top < -100) {
-        targetSection = sectionIds[i];
-        break;
-      }
-    }
-    document.getElementById(targetSection)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Support hardware/browser Back button to close modals
@@ -200,15 +152,15 @@ export default function App() {
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 04: Let's Work Together & Contact */}
+        {/* SLIDE 04: Works — Fading Spark collection & workshops */}
+        <WorksPage />
+
+        {/* SLIDE 05: Let's Work Together & Contact */}
         <ContactIvoryPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
       </main>
-
-      {/* Floating Global Back Button */}
-      <FloatingBackButton onBack={handleGlobalBack} />
 
       {/* Floating Quick Action & Slide Progress Dock */}
       <FloatingContactDock

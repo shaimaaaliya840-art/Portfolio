@@ -57,7 +57,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                 <Palette className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[var(--color-accent,#540D21)] font-bold flex items-center gap-2">
+                <div className="text-[0.625rem] font-mono uppercase tracking-[0.25em] text-[var(--color-accent,#540D21)] font-bold flex items-center gap-2">
                   <span>ATELIER ARCHIVES · COLOR INSPIRATION</span>
                   <Sparkles className="w-3 h-3 text-[var(--color-accent,#540D21)]" />
                 </div>
@@ -117,7 +117,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                       <div className="text-xs font-serif font-black uppercase text-[var(--color-text,#241217)] truncate">
                         {palette.name}
                       </div>
-                      <div className="text-[10px] font-mono text-[var(--color-text-muted,#D2BDCF)] tracking-wider truncate">
+                      <div className="text-[0.625rem] font-mono text-[var(--color-text-muted,#D2BDCF)] tracking-wider truncate">
                         {palette.era}
                       </div>
                     </button>
@@ -140,7 +140,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                     {activePalette.tagline}
                   </p>
                 </div>
-                <div className="px-3 py-1.5 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-accent,#540D21)] text-[10px] font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] font-bold shrink-0 self-start sm:self-center">
+                <div className="px-3 py-1.5 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-accent,#540D21)] text-[0.625rem] font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] font-bold shrink-0 self-start sm:self-center">
                   ACTIVE PORTFOLIO PALETTE
                 </div>
               </div>
@@ -151,7 +151,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
 
               {/* Chromatic Proportion Spectrum Bar */}
               <div className="space-y-1.5 mb-6">
-                <div className="flex justify-between text-[10px] font-mono uppercase text-[var(--color-accent,#540D21)]">
+                <div className="flex justify-between text-[0.625rem] font-mono uppercase text-[var(--color-accent,#540D21)]">
                   <span>Chromatic Proportion in Haute Couture</span>
                   <span>100% Atelier Harmony</span>
                 </div>
@@ -193,7 +193,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                         >
                           <button
                             onClick={(e) => handleCopy(swatch.hex, e)}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity px-2 py-1 bg-black/80 text-[10px] font-mono text-white tracking-widest uppercase flex items-center gap-1 rounded-xs shadow"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity px-2 py-1 bg-black/80 text-[0.625rem] font-mono text-white tracking-widest uppercase flex items-center gap-1 rounded-xs shadow"
                             title="Copy HEX code"
                           >
                             {copiedHex === swatch.hex ? (
@@ -213,12 +213,12 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                         <div className="text-xs font-serif font-black text-[var(--color-text,#241217)] truncate">
                           {swatch.name}
                         </div>
-                        <div className="text-[10px] font-mono text-[var(--color-accent,#540D21)] font-bold">
+                        <div className="text-[0.625rem] font-mono text-[var(--color-accent,#540D21)] font-bold">
                           {swatch.hex}
                         </div>
                       </div>
 
-                      <div className="pt-2 mt-2 border-t border-[var(--color-mocha,#DECFC0)]/50 text-[9px] font-mono text-[var(--color-text-muted,#D2BDCF)]">
+                      <div className="pt-2 mt-2 border-t border-[var(--color-mocha,#DECFC0)]/50 text-[0.625rem] font-mono text-[var(--color-text-muted,#D2BDCF)]">
                         {swatch.dmc}
                       </div>
                     </div>
@@ -236,7 +236,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                     style={{ backgroundColor: selectedSwatch.hex }}
                   />
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] font-bold">
+                    <span className="text-[0.625rem] font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] font-bold">
                       {selectedSwatch.role}
                     </span>
                     <h4 className="text-lg font-serif font-black text-[var(--color-text,#241217)]">
@@ -251,19 +251,19 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
 
                 <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
                   <div className="p-3 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-mocha,#DECFC0)]">
-                    <span className="text-[9px] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
+                    <span className="text-[0.625rem] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
                       DMC &amp; Textile Equivalent
                     </span>
                     <p className="text-[var(--color-text,#241217)] font-semibold">{selectedSwatch.dmc}</p>
-                    <p className="text-[10px] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">{selectedSwatch.fabric}</p>
+                    <p className="text-[0.625rem] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">{selectedSwatch.fabric}</p>
                   </div>
 
                   <div className="p-3 bg-[var(--color-base,#FAF6EE)] border border-[var(--color-mocha,#DECFC0)]">
-                    <span className="text-[9px] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
+                    <span className="text-[0.625rem] text-[var(--color-accent,#540D21)] uppercase tracking-wider block mb-1 font-bold">
                       Garment Application
                     </span>
                     <p className="text-[var(--color-text,#241217)] font-semibold">{selectedSwatch.garmentUsage}</p>
-                    <p className="text-[10px] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">
+                    <p className="text-[0.625rem] text-[var(--color-text-muted,#D2BDCF)] mt-0.5">
                       Estimated proportion: {selectedSwatch.percentage}% of the garment
                     </p>
                   </div>
@@ -274,7 +274,7 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
 
           {/* Footer Action */}
           <div className="p-4 sm:p-5 border-t border-[var(--color-mocha,#DECFC0)] bg-[var(--color-panel,#EFE6D5)] flex flex-wrap items-center justify-between gap-3 shrink-0">
-            <div className="text-[11px] font-mono text-[var(--color-text-muted,#D2BDCF)]">
+            <div className="text-[0.6875rem] font-mono text-[var(--color-text-muted,#D2BDCF)]">
               ✦ Colors calibrated for high-fidelity editorial display.
             </div>
             <button

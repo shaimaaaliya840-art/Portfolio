@@ -105,7 +105,7 @@ export const CustomCursor: React.FC = () => {
         transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.35 }}
       >
         {cursorText && (
-          <span className="text-[9px] tracking-[0.2em] uppercase font-mono font-bold text-[#FAF6EE] select-none text-center px-1">
+          <span className="text-[0.625rem] tracking-[0.2em] uppercase font-mono font-bold text-[#FAF6EE] select-none text-center px-1">
             {cursorText}
           </span>
         )}
