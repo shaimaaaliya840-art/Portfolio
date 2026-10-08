@@ -11,13 +11,7 @@ import fadingSparkPage3 from '../assets/images/fading-spark/page-3.jpg';
 import fadingSparkPage4 from '../assets/images/fading-spark/page-4.jpg';
 import fadingSparkPage5 from '../assets/images/fading-spark/page-5.jpg';
 
-const FADING_SPARK_PAGES = [
-  { src: fadingSparkPage1, alt: 'Fading Spark — concept statement with hands bound in red thread' },
-  { src: fadingSparkPage2, alt: 'Fading Spark — black and white mood board' },
-  { src: fadingSparkPage3, alt: 'Fading Spark — five-look collection lineup' },
-  { src: fadingSparkPage4, alt: 'Fading Spark — annotated lineup, first to fifth meeting' },
-  { src: fadingSparkPage5, alt: 'Fading Spark — the five looks photographed on models' }
-];
+const FADING_SPARK_PAGES: any[] = [];
 
 export const FadingSparkProjectPage: React.FC = () => (
   <section
@@ -25,10 +19,11 @@ export const FadingSparkProjectPage: React.FC = () => (
     aria-label="Fading Spark"
     className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12"
   >
-    <div className="pointer-events-none absolute inset-0 z-0 bg-[#FAF6EE]" aria-hidden="true">
-      {/* Volumetric pinkish gradient bloom */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
-    </div>
+    <div 
+      className="pointer-events-none absolute inset-0 z-0" 
+      style={{ background: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)' }} 
+      aria-hidden="true" 
+    />
     <div className="relative z-10 flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
       {FADING_SPARK_PAGES.map((page, i) => (
         <img
@@ -59,10 +54,11 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
 
   return createPortal(
     <div className="fixed inset-0 z-[100] flex flex-col overflow-hidden text-[#241217]">
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[#FAF6EE]" aria-hidden="true">
-        {/* Volumetric pinkish gradient bloom */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
-      </div>
+    <div 
+      className="pointer-events-none absolute inset-0 z-0" 
+      style={{ background: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)' }} 
+      aria-hidden="true" 
+    />
       <header className="relative z-20 shrink-0 bg-[#F5E5DF]/70 px-4 py-3 backdrop-blur-md sm:px-8">
         <button
           type="button"
@@ -74,11 +70,7 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
         </button>
       </header>
       <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center overflow-y-auto px-4 py-6">
-        <img
-          src={fadingSparkConceptImage}
-          alt="Fading Spark concept"
-          className="block h-auto max-h-full w-auto max-w-full object-contain mix-blend-multiply"
-        />
+        {/* Waiting for user's illustrations... */}
       </main>
     </div>,
     document.body

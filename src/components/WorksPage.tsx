@@ -32,15 +32,8 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Collection',
     icon: Flame,
-    backgroundColor: '#FAF6EE',
-    // Rendered from public/fading-spark.pdf
-    pages: [
-      { src: fadingSparkPage1, alt: 'Fading Spark — concept statement with hands bound in red thread' },
-      { src: fadingSparkPage2, alt: 'Fading Spark — black and white mood board' },
-      { src: fadingSparkPage3, alt: 'Fading Spark — five-look collection lineup' },
-      { src: fadingSparkPage4, alt: 'Fading Spark — annotated lineup, first to fifth meeting' },
-      { src: fadingSparkPage5, alt: 'Fading Spark — the five looks photographed on models' }
-    ]
+    backgroundColor: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)',
+    pages: []
   },
   {
     id: 'abhisarika',
@@ -94,7 +87,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       aria-modal="true"
       aria-label={project.title}
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
-      style={{ backgroundColor: project.backgroundColor }}
+      style={{ background: project.backgroundColor }}
     >
       {/* Volumetric pinkish gradient bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
