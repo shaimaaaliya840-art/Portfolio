@@ -217,8 +217,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop',
     category: 'workshop',
     icon: Flame, // fallback
-    background: abhisarikaBackground,
-    backgroundColor: '#000000',
+    backgroundColor: 'radial-gradient(circle at 50% 50%, #4a5c39 0%, #394A2D 60%, #1e2b14 100%)',
     pages: [
       {
         type: 'text',
@@ -306,7 +305,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
             className="pointer-events-none absolute -bottom-16 -right-16 w-[300px] sm:w-[450px] md:w-[600px] max-w-[70vw] object-contain opacity-90 rotate-180"
           />
         </>
-      ) : project.background && (project.id === 'abhisarika' || project.id === 'eco-printing') ? (
+      ) : project.background && project.id === 'abhisarika' ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full"
           style={{
