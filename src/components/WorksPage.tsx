@@ -131,13 +131,15 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Works</span>
         </button>
-        <h2
-          className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
-            isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
-          }`}
-        >
-          {project.title}
-        </h2>
+        {project.id !== 'fading-spark' && (
+          <h2
+            className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
+              isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
+            }`}
+          >
+            {project.title}
+          </h2>
+        )}
       </header>
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
