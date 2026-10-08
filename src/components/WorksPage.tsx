@@ -222,8 +222,17 @@ const PROJECTS: Project[] = [
     backgroundColor: '#FAF6EE',
     pages: [
       {
-        type: 'text',
+        type: 'grid',
         titleImage: ecoTitle,
+        gridCols: 3,
+        imageFit: 'cover',
+        images: [
+          { src: eco1, alt: 'Baskets of dye plants' },
+          { src: eco2, alt: 'Pounding leaves portrait' },
+          { src: eco3, alt: 'Pounding leaves landscape' },
+          { src: eco5, alt: 'Washing dyed fabric' },
+          { src: eco4, alt: 'Results of eco-printing' }
+        ],
         paragraphs: [
           "Eco-printing is a process of pressing the entire dye plant against the fabric and transferring the color while the plant stays flat.",
           "Tannin-rich leaves, like - rose, guava, eucalyptus, and oaks, are used to etch their distinct mark on textiles, through the color present in the leaves. The same technique is used to dye with flowers or kitchen waste as well.",
@@ -237,18 +246,6 @@ const PROJECTS: Project[] = [
           "2. Unique: Each print is one-of-a-kind, with subtle variations.",
           "3. Creative: Eco-printing encourages experimentation and creativity.",
           "Eco-printing is a beautiful way to connect with nature and create stunning, unique prints."
-        ]
-      },
-      {
-        type: 'grid',
-        gridCols: 3,
-        imageFit: 'cover',
-        images: [
-          { src: eco1, alt: 'Baskets of dye plants' },
-          { src: eco2, alt: 'Pounding leaves portrait' },
-          { src: eco3, alt: 'Pounding leaves landscape' },
-          { src: eco5, alt: 'Washing dyed fabric' },
-          { src: eco4, alt: 'Results of eco-printing' }
         ]
       }
     ]
@@ -356,7 +353,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'grid') {
                 return (
                   <div key={`grid-${i}`} className="flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
-                    {page.title && (
+                    {page.titleImage && (
+                      <div className="flex justify-center w-full max-w-[600px] mx-auto py-4 mb-8">
+                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain drop-shadow-md mix-blend-multiply" />
+                      </div>
+                    )}
+                    {page.title && !page.titleImage && (
                       <h2 className={`font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 ${
                         isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
                       }`}>
@@ -405,12 +407,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </div>
                     )}
                     {page.paragraphs && page.paragraphs.length > 0 && (
-                      <div className="mt-8 mx-auto max-w-2xl text-center">
-                        {page.paragraphs.map((p, pIdx) => (
-                          <p key={pIdx} className={`font-serif italic text-lg sm:text-xl tracking-wide leading-relaxed ${isLight ? 'text-[#540D21]/80' : 'text-white/80'} ${pIdx > 0 ? 'mt-4' : ''}`}>
-                            {p}
-                          </p>
-                        ))}
+                      <div className="mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm ${isLight ? 'text-[#540D21]/90' : 'text-white/90'}`}>
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
