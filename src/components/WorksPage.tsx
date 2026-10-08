@@ -27,6 +27,10 @@ import garment2_4 from '../assets/images/abhisarika/garment2_4.jpg';
 import garment3_1 from '../assets/images/abhisarika/garment3_1.jpg';
 import garment3_2 from '../assets/images/abhisarika/garment3_2.png';
 import garment3_3 from '../assets/images/abhisarika/garment3_3.jpg';
+import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
+import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
+import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
+import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -135,6 +139,21 @@ const PROJECTS: Project[] = [
           { src: garment3_1, alt: 'Garment 3 view 1' },
           { src: garment3_2, alt: 'Garment 3 view 2' },
           { src: garment3_3, alt: 'Garment 3 view 3' }
+        ]
+      },
+      {
+        type: 'grid',
+        title: 'garment-4',
+        layout: 'bento-center-stack',
+        imageFit: 'cover',
+        images: [
+          { src: garment4_1, alt: 'Garment 4 view 1' },
+          { src: garment4_2, alt: 'Garment 4 view 2' },
+          { src: garment4_3, alt: 'Garment 4 view 3' },
+          { src: garment4_4, alt: 'Garment 4 view 4' }
+        ],
+        paragraphs: [
+          "(The embellished bag carried by the model is also handcrafted by me)"
         ]
       }
     ]
@@ -280,6 +299,15 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                               style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
                             />
                           </div>
+                        ))}
+                      </div>
+                    )}
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 mx-auto max-w-2xl text-center">
+                        {page.paragraphs.map((p, pIdx) => (
+                          <p key={pIdx} className={`font-serif italic text-lg sm:text-xl tracking-wide leading-relaxed ${isLight ? 'text-[#540D21]/80' : 'text-white/80'} ${pIdx > 0 ? 'mt-4' : ''}`}>
+                            {p}
+                          </p>
                         ))}
                       </div>
                     )}
