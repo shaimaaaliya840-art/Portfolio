@@ -11,6 +11,7 @@ import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
 import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
+import abhisarikaCollage from '../assets/images/abhisarika/abhisarika_collage.png';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text';
@@ -72,6 +73,11 @@ const PROJECTS: Project[] = [
           "Abhisarika is the nayika who moves. Not the one who waits, but the one who dresses for the dark and walks into it. Her love is not passive longing — it is a journey she chooses, alone, through night, storm, and shadow, toward what she wants.",
           "This collection borrows her courage. Each look marks a stage of her passage — dusk, moonlight, darkness, storm — built in velvet, metallic silk, and sheer organza that catch light the way she moves through it: quietly, then boldly. Crescent motifs recall the moon that guides her; black and wine recall the night she isn't afraid of."
         ]
+      },
+      {
+        type: 'single',
+        src: abhisarikaCollage,
+        alt: 'Abhisarika Collage'
       }
     ]
   },
@@ -209,7 +215,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   height={1125}
                   loading={i === 0 ? 'eager' : 'lazy'}
                   decoding="async"
-                  className={`block h-auto w-full object-contain ${isLight ? '' : 'shadow-2xl'}`}
+                  className={`block h-auto w-full object-contain ${isLight ? '' : 'drop-shadow-2xl'}`}
                 />
               );
             })}
