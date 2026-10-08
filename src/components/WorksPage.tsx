@@ -117,7 +117,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           src={project.background}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+          className={`pointer-events-none absolute inset-0 h-full w-full object-center ${project.id === 'abhisarika' ? 'object-contain' : 'object-cover'}`}
         />
       )}
 
