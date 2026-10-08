@@ -205,6 +205,35 @@ const PROJECTS: Project[] = [
         ]
       }
     ]
+  },
+  {
+    id: 'eco-printing',
+    title: 'Eco Printing',
+    tagline: 'Workshop',
+    category: 'workshop',
+    icon: Flame, // fallback
+    background: abhisarikaBackground,
+    backgroundColor: '#000000',
+    pages: [
+      {
+        type: 'text',
+        title: 'ECO PRINTING',
+        paragraphs: [
+          "Eco-printing is a process of pressing the entire dye plant against the fabric and transferring the color while the plant stays flat.",
+          "Tannin-rich leaves, like - rose, guava, eucalyptus, and oaks, are used to etch their distinct mark on textiles, through the color present in the leaves. The same technique is used to dye with flowers or kitchen waste as well.",
+          "Every eco-printed piece celebrates the harmonious relationship between human creativity and the environment and serves as a reminder of our communication and collaboration with nature. This elaborate process can take up to 2-3 days to dye one garment, and always results in unique, one-of-kind results, where no two pieces are alike, yet all beautiful in their own right.",
+          "TYPES OF ECO-PRINTING:",
+          "1. Leaf printing: Using leaves to create prints with intricate vein patterns.",
+          "2. Flower pounding: Pounding flowers onto paper or fabric to create delicate, petal-like prints.",
+          "3. Branch printing: Using branches to create textured, organic prints.",
+          "BENEFITS OF ECO-PRINTING:",
+          "1. Sustainable: Eco-printing uses natural, biodegradable materials.",
+          "2. Unique: Each print is one-of-a-kind, with subtle variations.",
+          "3. Creative: Eco-printing encourages experimentation and creativity.",
+          "Eco-printing is a beautiful way to connect with nature and create stunning, unique prints."
+        ]
+      }
+    ]
   }
 ];
 
@@ -213,7 +242,7 @@ const WORKSHOPS = [
   { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai' },
   { name: 'Paper Weaving', note: 'Wellpaper' },
-  { name: 'Eco Printing' },
+  { name: 'Eco Printing', projectId: 'eco-printing' },
   { name: 'Indigo Site Visit' },
   { name: 'Leather Craft' },
   { name: 'Cyanotype Printing' }
@@ -262,7 +291,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
             className="pointer-events-none absolute -bottom-16 -right-16 w-[300px] sm:w-[450px] md:w-[600px] max-w-[70vw] object-contain opacity-90 rotate-180"
           />
         </>
-      ) : project.background && project.id === 'abhisarika' ? (
+      ) : project.background && (project.id === 'abhisarika' || project.id === 'eco-printing') ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full"
           style={{
