@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GraduationCap, Palette, Star, Briefcase, Cpu } from 'lucide-react';
 import { PortfolioData } from '../types';
+import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
 
 interface ManifestoDualArchPageProps {
   portfolioData: PortfolioData;
@@ -276,6 +277,19 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       <div className="text-[#FAF6EE]/80 text-[0.625rem] sm:text-xs pt-2 leading-relaxed">
                         {intern.summary}
                       </div>
+                      {intern.organization.includes('Neelgar') && (
+                        <div className="mt-4 border-t border-[#FAF6EE]/20 pt-4">
+                          <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold mb-3 flex items-center gap-2">
+                            <Star className="w-3.5 h-3.5 text-[#FAF6EE]" />
+                            Certificate of Appreciation
+                          </div>
+                          <img 
+                            src={neelgarCertificate} 
+                            alt="Neelgar Certificate of Appreciation" 
+                            className="w-full max-w-[280px] border-2 border-[#FAF6EE]/20 shadow-md hover:border-[#FAF6EE] transition-colors"
+                          />
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
