@@ -36,6 +36,11 @@ import dabu1 from '../assets/images/dabu/dabu1.png';
 import dabu2 from '../assets/images/dabu/dabu2.jpg';
 import dabu3 from '../assets/images/dabu/dabu3.png';
 import dabu4 from '../assets/images/dabu/dabu4.jpg';
+import eco1 from '../assets/images/eco/eco1.jpg';
+import eco2 from '../assets/images/eco/eco2.jpg';
+import eco3 from '../assets/images/eco/eco3.jpg';
+import eco4 from '../assets/images/eco/eco4.jpg';
+import eco5 from '../assets/images/eco/eco5.jpg';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -231,6 +236,16 @@ const PROJECTS: Project[] = [
           "2. Unique: Each print is one-of-a-kind, with subtle variations.",
           "3. Creative: Eco-printing encourages experimentation and creativity.",
           "Eco-printing is a beautiful way to connect with nature and create stunning, unique prints."
+        ]
+      },
+      {
+        type: 'collage',
+        images: [
+          { src: eco1, alt: 'Baskets of dye plants' },
+          { src: eco2, alt: 'Pounding leaves portrait' },
+          { src: eco3, alt: 'Pounding leaves landscape' },
+          { src: eco5, alt: 'Washing dyed fabric' },
+          { src: eco4, alt: 'Results of eco-printing' }
         ]
       }
     ]
