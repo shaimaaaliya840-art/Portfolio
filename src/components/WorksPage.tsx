@@ -179,7 +179,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop',
     category: 'workshop',
     icon: Flame, // fallback
-    backgroundColor: '#FAF6EE',
+    backgroundColor: '#16233B',
     pages: [
       {
         type: 'text',
