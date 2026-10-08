@@ -13,10 +13,12 @@ import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_bac
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 
 interface ProjectPage {
-  type?: 'single' | 'grid';
+  type?: 'single' | 'grid' | 'text';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string }[];
+  title?: string;
+  paragraphs?: string[];
 }
 
 interface Project {
@@ -62,7 +64,16 @@ const PROJECTS: Project[] = [
     icon: Moon,
     background: abhisarikaBackground,
     backgroundColor: '#3E5A26',
-    pages: []
+    pages: [
+      {
+        type: 'text',
+        title: 'Abhisarika',
+        paragraphs: [
+          "Abhisarika is the nayika who moves. Not the one who waits, but the one who dresses for the dark and walks into it. Her love is not passive longing — it is a journey she chooses, alone, through night, storm, and shadow, toward what she wants.",
+          "This collection borrows her courage. Each look marks a stage of her passage — dusk, moonlight, darkness, storm — built in velvet, metallic silk, and sheer organza that catch light the way she moves through it: quietly, then boldly. Crescent motifs recall the moon that guides her; black and wine recall the night she isn't afraid of."
+        ]
+      }
+    ]
   },
   {
     id: 'anatomy-of-ornament',
@@ -141,7 +152,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Works</span>
         </button>
-        {project.id !== 'fading-spark' && (
+        {project.id !== 'fading-spark' && project.id !== 'abhisarika' && (
           <h2
             className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
               isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
@@ -170,6 +181,22 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
                       />
                     ))}
+                  </div>
+                );
+              }
+              if (page.type === 'text') {
+                return (
+                  <div key={`text-${i}`} className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
+                    {page.title && (
+                      <h1 className="font-avonia text-7xl sm:text-8xl lg:text-9xl text-[#FAF6EE] uppercase tracking-widest drop-shadow-lg">
+                        {page.title}
+                      </h1>
+                    )}
+                    <div className="flex flex-col gap-8 text-lg sm:text-xl md:text-2xl font-serif italic font-bold text-[#FAF6EE] leading-relaxed drop-shadow-md">
+                      {page.paragraphs?.map((p, pIdx) => (
+                        <p key={pIdx}>{p}</p>
+                      ))}
+                    </div>
                   </div>
                 );
               }
