@@ -5,13 +5,30 @@ import pinkFabricBackground from '../assets/images/fading_spark_pink_fabric_back
 import fadingSparkConceptImage from '../assets/images/fading_spark_concept.png';
 // Pages of public/fading-spark.pdf, pre-rendered so the slide shows the artwork
 // itself instead of the browser's PDF viewer chrome
-import fadingSparkPage1 from '../assets/images/fading-spark/page-1.jpg';
-import fadingSparkPage2 from '../assets/images/fading-spark/page-2.jpg';
-import fadingSparkPage3 from '../assets/images/fading-spark/page-3.jpg';
-import fadingSparkPage4 from '../assets/images/fading-spark/page-4.jpg';
-import fadingSparkPage5 from '../assets/images/fading-spark/page-5.jpg';
+import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
+import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
+import fadingSparkPg3_1 from '../assets/images/fading-spark/pg 3.1.png';
+import fadingSparkPg3_2 from '../assets/images/fading-spark/pg 3.2.png';
+import fadingSparkPg3_3 from '../assets/images/fading-spark/pg 3.3.png';
+import fadingSparkPg3_4 from '../assets/images/fading-spark/pg 3.4.png';
+import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
+import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 
-const FADING_SPARK_PAGES: any[] = [];
+const FADING_SPARK_PAGES: any[] = [
+  { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
+  { type: 'single', src: fadingSparkPg2, alt: 'Fading Spark Page 2' },
+  {
+    type: 'grid',
+    images: [
+      { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
+      { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
+      { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' },
+      { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
+      { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' }
+    ]
+  },
+  { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
+];
 
 export const FadingSparkProjectPage: React.FC = () => (
   <section
@@ -25,18 +42,37 @@ export const FadingSparkProjectPage: React.FC = () => (
       aria-hidden="true" 
     />
     <div className="relative z-10 flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
-      {FADING_SPARK_PAGES.map((page, i) => (
-        <img
-          key={page.src}
-          src={page.src}
-          alt={page.alt}
-          width={2000}
-          height={1125}
-          loading={i === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          className="block h-auto w-full mix-blend-multiply"
-        />
-      ))}
+      {FADING_SPARK_PAGES.map((page, i) => {
+        if (page.type === 'grid') {
+          return (
+            <div key={`grid-${i}`} className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+              {page.images?.map((img: any, idx: number) => (
+                <img
+                  key={img.src}
+                  src={img.src}
+                  alt={img.alt}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className="block h-auto w-full sm:w-1/5 object-contain"
+                  style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
+                />
+              ))}
+            </div>
+          );
+        }
+        return (
+          <img
+            key={page.src || i}
+            src={page.src}
+            alt={page.alt}
+            width={2000}
+            height={1125}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            className="block h-auto w-full object-contain"
+          />
+        );
+      })}
     </div>
   </section>
 );
@@ -69,8 +105,8 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
           <span>Back to Atelier</span>
         </button>
       </header>
-      <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center overflow-y-auto px-4 py-6">
-        {/* Waiting for user's illustrations... */}
+      <main className="relative z-10 flex min-h-0 flex-1 items-start justify-center overflow-y-auto w-full">
+        <FadingSparkProjectPage />
       </main>
     </div>,
     document.body

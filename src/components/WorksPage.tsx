@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowLeft, Flame, Gem, Moon, type LucideIcon } from 'lucide-react';
-import fadingSparkPage1 from '../assets/images/fading-spark/page-1.jpg';
-import fadingSparkPage2 from '../assets/images/fading-spark/page-2.jpg';
-import fadingSparkPage3 from '../assets/images/fading-spark/page-3.jpg';
-import fadingSparkPage4 from '../assets/images/fading-spark/page-4.jpg';
-import fadingSparkPage5 from '../assets/images/fading-spark/page-5.jpg';
+import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
+import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
+import fadingSparkPg3_1 from '../assets/images/fading-spark/pg 3.1.png';
+import fadingSparkPg3_2 from '../assets/images/fading-spark/pg 3.2.png';
+import fadingSparkPg3_3 from '../assets/images/fading-spark/pg 3.3.png';
+import fadingSparkPg3_4 from '../assets/images/fading-spark/pg 3.4.png';
+import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
+import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 
 interface ProjectPage {
-  src: string;
-  alt: string;
+  type?: 'single' | 'grid';
+  src?: string;
+  alt?: string;
+  images?: { src: string; alt: string }[];
 }
 
 interface Project {
@@ -33,7 +38,22 @@ const PROJECTS: Project[] = [
     tagline: 'Collection',
     icon: Flame,
     backgroundColor: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)',
-    pages: []
+    pages: [
+      { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
+      { type: 'single', src: fadingSparkPg2, alt: 'Fading Spark Page 2' },
+      {
+        type: 'grid',
+        images: [
+          { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
+          { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
+          { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' },
+          { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
+          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' }
+        ]
+      },
+      // Page 4 is missing, will be added later
+      { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
+    ]
   },
   {
     id: 'abhisarika',
@@ -123,18 +143,37 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
         {project.pages.length > 0 ? (
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
-            {project.pages.map((page, i) => (
-              <img
-                key={page.src}
-                src={page.src}
-                alt={page.alt}
-                width={2000}
-                height={1125}
-                loading={i === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                className={`block h-auto w-full ${isLight ? 'mix-blend-multiply' : 'shadow-2xl'}`}
-              />
-            ))}
+            {project.pages.map((page, i) => {
+              if (page.type === 'grid') {
+                return (
+                  <div key={`grid-${i}`} className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.images?.map((img, idx) => (
+                      <img
+                        key={img.src}
+                        src={img.src}
+                        alt={img.alt}
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                        decoding="async"
+                        className={`block h-auto w-full sm:w-1/5 object-contain ${isLight ? '' : 'shadow-lg'}`}
+                        style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
+                      />
+                    ))}
+                  </div>
+                );
+              }
+              return (
+                <img
+                  key={page.src || i}
+                  src={page.src}
+                  alt={page.alt}
+                  width={2000}
+                  height={1125}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className={`block h-auto w-full object-contain ${isLight ? '' : 'shadow-2xl'}`}
+                />
+              );
+            })}
           </div>
         ) : (
           <div className="flex h-full items-center justify-center">
