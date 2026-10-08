@@ -32,6 +32,10 @@ import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
 import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
 import lotusImage from '../assets/images/anatomy-of-ornament/lotus.png';
+import dabu1 from '../assets/images/dabu/dabu1.png';
+import dabu2 from '../assets/images/dabu/dabu2.jpg';
+import dabu3 from '../assets/images/dabu/dabu3.png';
+import dabu4 from '../assets/images/dabu/dabu4.jpg';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -54,6 +58,7 @@ interface Project {
   /** Backdrop of the project viewer */
   background?: string;
   backgroundColor: string;
+  category?: 'work' | 'workshop';
   /** Slides/pages shown in the viewer — add images here as they become available */
   pages: ProjectPage[];
 }
@@ -167,12 +172,34 @@ const PROJECTS: Project[] = [
     background: lotusImage,
     backgroundColor: '#000000',
     pages: []
+  },
+  {
+    id: 'dabu-printing',
+    title: 'Dabu Printing',
+    tagline: 'Workshop',
+    category: 'workshop',
+    icon: Flame, // fallback
+    backgroundColor: '#FAF6EE',
+    pages: [
+      {
+        type: 'grid',
+        gridCols: 2,
+        imageAspect: 'aspect-[4/3]',
+        imageFit: 'cover',
+        images: [
+          { src: dabu1, alt: 'Hand printing on cloth' },
+          { src: dabu2, alt: 'Printing dots on fabric' },
+          { src: dabu3, alt: 'Wooden printing block' },
+          { src: dabu4, alt: 'Indigo dyeing vat' }
+        ]
+      }
+    ]
   }
 ];
 
 // Workshops from the "all portfolio work" deck (its WORKSHOP slide)
 const WORKSHOPS = [
-  { name: 'Dabu Printing' },
+  { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai' },
   { name: 'Paper Weaving', note: 'Wellpaper' },
   { name: 'Eco Printing' },
@@ -455,7 +482,7 @@ export const WorksPage: React.FC = () => {
 
         {/* Project icons — each opens that project's pages */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
-          {PROJECTS.map((project) => {
+          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => {
             const Icon = project.icon;
             return (
               <button
@@ -498,26 +525,33 @@ export const WorksPage: React.FC = () => {
           </div>
 
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-            {WORKSHOPS.map((workshop, i) => (
-              <li
-                key={workshop.name}
-                className="flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3"
-              >
-                <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
-                    {workshop.name}
+            {WORKSHOPS.map((workshop, i) => {
+              const Tag = workshop.projectId ? 'button' : 'li';
+              return (
+                <Tag
+                  key={workshop.name}
+                  onClick={workshop.projectId ? () => {
+                    const p = PROJECTS.find(proj => proj.id === workshop.projectId);
+                    if (p) setOpenProject(p);
+                  } : undefined}
+                  className={`flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3 text-left ${workshop.projectId ? 'cursor-pointer hover:bg-[#FAF6EE]/20 transition-colors' : ''}`}
+                >
+                  <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
+                    {String(i + 1).padStart(2, '0')}
                   </span>
-                  {workshop.note && (
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
-                      {workshop.note}
+                  <span className="flex flex-col">
+                    <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
+                      {workshop.name}
                     </span>
-                  )}
-                </span>
-              </li>
-            ))}
+                    {workshop.note && (
+                      <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
+                        {workshop.note}
+                      </span>
+                    )}
+                  </span>
+                </Tag>
+              );
+            })}
           </ol>
         </div>
       </div>
