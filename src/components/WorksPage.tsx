@@ -32,8 +32,7 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Collection',
     icon: Flame,
-    background: fadingSparkBackground,
-    backgroundColor: '#F5E5DF',
+    backgroundColor: '#FAF6EE',
     // Rendered from public/fading-spark.pdf
     pages: [
       { src: fadingSparkPage1, alt: 'Fading Spark — concept statement with hands bound in red thread' },
@@ -97,6 +96,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ backgroundColor: project.backgroundColor }}
     >
+      {/* Volumetric pinkish gradient bloom */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
+
       {project.background && (
         <img
           src={project.background}
@@ -137,7 +139,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 height={1125}
                 loading={i === 0 ? 'eager' : 'lazy'}
                 decoding="async"
-                className="block h-auto w-full shadow-2xl"
+                className={`block h-auto w-full ${isLight ? 'mix-blend-multiply' : 'shadow-2xl'}`}
               />
             ))}
           </div>

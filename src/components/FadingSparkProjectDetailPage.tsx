@@ -25,13 +25,9 @@ export const FadingSparkProjectPage: React.FC = () => (
     aria-label="Fading Spark"
     className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12"
   >
-    <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-      <img
-        src={pinkFabricBackground}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-[#F5E5DF]/25" />
+    <div className="pointer-events-none absolute inset-0 z-0 bg-[#FAF6EE]" aria-hidden="true">
+      {/* Volumetric pinkish gradient bloom */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
     </div>
     <div className="relative z-10 flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
       {FADING_SPARK_PAGES.map((page, i) => (
@@ -43,7 +39,7 @@ export const FadingSparkProjectPage: React.FC = () => (
           height={1125}
           loading={i === 0 ? 'eager' : 'lazy'}
           decoding="async"
-          className="block h-auto w-full shadow-2xl"
+          className="block h-auto w-full mix-blend-multiply"
         />
       ))}
     </div>
@@ -63,13 +59,9 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
 
   return createPortal(
     <div className="fixed inset-0 z-[100] flex flex-col overflow-hidden text-[#241217]">
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-        <img
-          src={pinkFabricBackground}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-[#F5E5DF]/25" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[#FAF6EE]" aria-hidden="true">
+        {/* Volumetric pinkish gradient bloom */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       </div>
       <header className="relative z-20 shrink-0 bg-[#F5E5DF]/70 px-4 py-3 backdrop-blur-md sm:px-8">
         <button
@@ -85,7 +77,7 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
         <img
           src={fadingSparkConceptImage}
           alt="Fading Spark concept"
-          className="block h-auto max-h-full w-auto max-w-full object-contain"
+          className="block h-auto max-h-full w-auto max-w-full object-contain mix-blend-multiply"
         />
       </main>
     </div>,
