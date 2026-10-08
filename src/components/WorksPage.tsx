@@ -188,7 +188,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`text-${i}`} className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
                     {page.title && (
-                      <h1 className="font-avonia text-7xl sm:text-8xl lg:text-9xl text-[#FAF6EE] uppercase tracking-widest drop-shadow-lg">
+                      <h1 className="font-avonia text-7xl sm:text-8xl lg:text-9xl text-[#FAF6EE] uppercase tracking-widest drop-shadow-lg leading-relaxed py-4">
                         {page.title}
                       </h1>
                     )}
