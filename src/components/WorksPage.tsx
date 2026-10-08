@@ -130,7 +130,6 @@ const PROJECTS: Project[] = [
       {
         type: 'grid',
         title: 'garment-3',
-        imageAspect: 'aspect-[1/2]',
         imageFit: 'cover',
         images: [
           { src: garment3_1, alt: 'Garment 3 view 1' },
@@ -244,13 +243,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
                     {page.layout === 'bento-center-stack' ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-2 sm:gap-4 w-full">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-2 sm:gap-4 w-full h-[80vh] sm:h-[85vh]">
                         {page.images?.map((img, idx) => {
                           let placementClass = '';
-                          if (idx === 0) placementClass = 'sm:col-start-1 sm:row-start-1 sm:row-span-2 aspect-[3/4] sm:aspect-[1/2]';
-                          else if (idx === 1) placementClass = 'sm:col-start-2 sm:row-start-1 sm:row-span-1 aspect-[3/4] sm:aspect-square';
-                          else if (idx === 2) placementClass = 'sm:col-start-2 sm:row-start-2 sm:row-span-1 aspect-[3/4] sm:aspect-square';
-                          else if (idx === 3) placementClass = 'sm:col-start-3 sm:row-start-1 sm:row-span-2 aspect-[3/4] sm:aspect-[1/2]';
+                          if (idx === 0) placementClass = 'sm:col-start-1 sm:row-start-1 sm:row-span-2';
+                          else if (idx === 1) placementClass = 'sm:col-start-2 sm:row-start-1 sm:row-span-1';
+                          else if (idx === 2) placementClass = 'sm:col-start-2 sm:row-start-2 sm:row-span-1';
+                          else if (idx === 3) placementClass = 'sm:col-start-3 sm:row-start-1 sm:row-span-2';
                           
                           return (
                             <div key={img.src} className={`relative w-full h-full overflow-hidden rounded-sm ${placementClass} ${isLight ? '' : 'shadow-lg'}`}>
@@ -268,18 +267,19 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         })}
                       </div>
                     ) : (
-                      <div className={`w-full ${page.gridCols === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4'}`}>
+                      <div className={`w-full ${page.gridCols === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-4 h-auto sm:h-[85vh]'}`}>
                         {page.images?.map((img, idx) => (
-                          <img
-                            key={img.src}
-                            src={img.src}
-                            alt={img.alt}
-                            onClick={() => setSelectedImage(img.src)}
-                            loading={i === 0 ? 'eager' : 'lazy'}
-                            decoding="async"
-                            className={`block w-full cursor-pointer transition-transform hover:scale-[1.02] ${page.gridCols === 2 ? '' : 'sm:flex-1'} rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'} ${isLight ? '' : 'shadow-lg'}`}
-                            style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
-                          />
+                          <div key={img.src} className={`relative overflow-hidden w-full ${page.gridCols === 2 ? '' : 'sm:flex-1 h-full'}`}>
+                            <img
+                              src={img.src}
+                              alt={img.alt}
+                              onClick={() => setSelectedImage(img.src)}
+                              loading={i === 0 ? 'eager' : 'lazy'}
+                              decoding="async"
+                              className={`block w-full h-full cursor-pointer transition-transform hover:scale-[1.03] rounded-sm ${page.imageAspect || ''} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'} ${isLight ? '' : 'shadow-lg'}`}
+                              style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
+                            />
+                          </div>
                         ))}
                       </div>
                     )}
