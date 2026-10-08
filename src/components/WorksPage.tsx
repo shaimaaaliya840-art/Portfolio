@@ -31,6 +31,7 @@ import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
 import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
 import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
+import lotusImage from '../assets/images/anatomy-of-ornament/lotus.png';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -163,7 +164,8 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornament',
     tagline: 'Project',
     icon: Gem,
-    backgroundColor: '#1A0F12',
+    background: lotusImage,
+    backgroundColor: '#000000',
     pages: []
   }
 ];
@@ -207,7 +209,22 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       {/* Volumetric pinkish gradient bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {project.background && project.id === 'abhisarika' ? (
+      {project.background && project.id === 'anatomy-of-ornament' ? (
+        <>
+          <img
+            src={project.background}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-16 -left-16 w-[300px] sm:w-[450px] md:w-[600px] max-w-[70vw] object-contain opacity-90"
+          />
+          <img
+            src={project.background}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-16 -right-16 w-[300px] sm:w-[450px] md:w-[600px] max-w-[70vw] object-contain opacity-90 rotate-180"
+          />
+        </>
+      ) : project.background && project.id === 'abhisarika' ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full"
           style={{
