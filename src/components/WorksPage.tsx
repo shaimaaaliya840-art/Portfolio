@@ -294,6 +294,15 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       {/* Volumetric pinkish gradient bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
+      {project.id === 'eco-printing' && (
+        <div 
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83v1.58L30 27.873 4.543 2.41l.83-.83h1.58L30 24.627 53.047 1.58h1.58zM27.873 60L2.41 34.543l-.83.83v1.58L24.627 60h1.58l26.846-26.846-.83-.83v-1.58L30 55.373 5.373 30 30 4.627 54.627 29.254l-.83.83v1.58L30 58.42 4.543 32.96l.83-.83h1.58L30 55.273 53.047 32.226h1.58z' fill='%23540d21' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
+          }}
+        />
+      )}
+
       {project.background && project.id === 'anatomy-of-ornament' ? (
         <>
           <img
