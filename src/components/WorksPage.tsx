@@ -28,6 +28,8 @@ interface ProjectPage {
   images?: { src: string; alt: string }[];
   title?: string;
   paragraphs?: string[];
+  imageAspect?: string;
+  imageFit?: 'cover' | 'contain';
 }
 
 interface Project {
@@ -95,6 +97,8 @@ const PROJECTS: Project[] = [
       {
         type: 'grid',
         title: 'garment-1',
+        imageAspect: 'aspect-[3/4]',
+        imageFit: 'cover',
         images: [
           { src: garment1_1, alt: 'Garment 1 view 1' },
           { src: garment1_2, alt: 'Garment 1 view 2' },
@@ -214,7 +218,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           alt={img.alt}
                           loading={i === 0 ? 'eager' : 'lazy'}
                           decoding="async"
-                          className={`block h-auto w-full sm:flex-1 object-contain rounded-sm ${isLight ? '' : 'shadow-lg'}`}
+                          className={`block w-full sm:flex-1 rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'} ${isLight ? '' : 'shadow-lg'}`}
                           style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
                         />
                       ))}

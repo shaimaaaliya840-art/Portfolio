@@ -59,7 +59,7 @@ export const FadingSparkProjectPage: React.FC = () => (
                     alt={img.alt}
                     loading={i === 0 ? 'eager' : 'lazy'}
                     decoding="async"
-                    className="block h-auto w-full sm:flex-1 object-contain rounded-sm"
+                    className={`block w-full sm:flex-1 rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'}`}
                     style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
                   />
                 ))}
