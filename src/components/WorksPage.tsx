@@ -182,6 +182,16 @@ const PROJECTS: Project[] = [
     backgroundColor: '#FAF6EE',
     pages: [
       {
+        type: 'text',
+        paragraphs: [
+          "AAVARAN in Udaipur is known for reviving and sustaining traditional Dabu mud-resist hand block printing from Rajasthan. Founded by Alka Sharma in 2008, Aavaran works closely with artisan communities, particularly from the Akola region near Chittorgarh.",
+          "The process uses hand-carved wooden blocks to apply a resist paste made primarily from mud, lime (calcium hydroxide) and natural gum onto fabric. The fabric is then dyed, often with natural indigo, and the resist is washed away to reveal the printed motifs. Multiple rounds of Dabu printing and dyeing can be used to create layered patterns and colours.",
+          "Aavaran combines this traditional craft with contemporary motifs and modern garments, while continuing to use natural dyes and focusing on artisan livelihoods and sustainable production. Its signature aesthetic is strongly associated with indigo, earthy tones and intricate hand-blocked motifs.",
+          "PROCESS:",
+          "Wooden block → Dabu mud resist → Natural dye/indigo → Drying & oxidation → Washing → Final hand-printed textile."
+        ]
+      },
+      {
         type: 'grid',
         gridCols: 2,
         imageAspect: 'aspect-[4/3]',
@@ -362,11 +372,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`text-${i}`} className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
                     {page.title && (
-                      <h1 className="font-avonia text-7xl sm:text-8xl lg:text-9xl text-[#FAF6EE] uppercase tracking-widest drop-shadow-lg leading-relaxed py-4">
+                      <h1 className={`font-avonia text-7xl sm:text-8xl lg:text-9xl uppercase tracking-widest drop-shadow-lg leading-relaxed py-4 ${isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'}`}>
                         {page.title}
                       </h1>
                     )}
-                    <div className="flex flex-col gap-8 text-lg sm:text-xl md:text-2xl font-serif italic font-bold text-[#FAF6EE] leading-relaxed drop-shadow-md">
+                    <div className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl md:text-left font-serif leading-relaxed drop-shadow-sm ${isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'}`}>
                       {page.paragraphs?.map((p, pIdx) => (
                         <p key={pIdx}>{p}</p>
                       ))}
