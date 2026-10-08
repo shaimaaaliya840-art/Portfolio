@@ -45,18 +45,25 @@ export const FadingSparkProjectPage: React.FC = () => (
       {FADING_SPARK_PAGES.map((page, i) => {
         if (page.type === 'grid') {
           return (
-            <div key={`grid-${i}`} className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
-              {page.images?.map((img: any, idx: number) => (
-                <img
-                  key={img.src}
-                  src={img.src}
-                  alt={img.alt}
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                  className="block h-auto w-full sm:w-1/5 object-contain"
-                  style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
-                />
-              ))}
+            <div key={`grid-${i}`} className="flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+              {page.title && (
+                <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#540D21]">
+                  {page.title}
+                </h2>
+              )}
+              <div className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full">
+                {page.images?.map((img: any, idx: number) => (
+                  <img
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    className="block h-auto w-full sm:flex-1 object-contain rounded-sm"
+                    style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
+                  />
+                ))}
+              </div>
             </div>
           );
         }

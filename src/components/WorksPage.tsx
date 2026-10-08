@@ -16,6 +16,10 @@ import imgTop from '../assets/images/abhisarika/img_top.jpg';
 import imgTopRight from '../assets/images/abhisarika/img_top_right.jpg';
 import imgBottomLeft from '../assets/images/abhisarika/img_bottom_left.jpg';
 import imgBottomRight from '../assets/images/abhisarika/img_bottom_right.jpg';
+import garment1_1 from '../assets/images/abhisarika/garment1_1.jpg';
+import garment1_2 from '../assets/images/abhisarika/garment1_2.jpg';
+import garment1_3 from '../assets/images/abhisarika/garment1_3.jpg';
+import garment1_4 from '../assets/images/abhisarika/garment1_4.jpg';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -86,6 +90,16 @@ const PROJECTS: Project[] = [
           { src: imgTopRight, alt: 'Top Right' },
           { src: imgBottomLeft, alt: 'Bottom Left' },
           { src: imgBottomRight, alt: 'Bottom Right' }
+        ]
+      },
+      {
+        type: 'grid',
+        title: 'garment-1',
+        images: [
+          { src: garment1_1, alt: 'Garment 1 view 1' },
+          { src: garment1_2, alt: 'Garment 1 view 2' },
+          { src: garment1_3, alt: 'Garment 1 view 3' },
+          { src: garment1_4, alt: 'Garment 1 view 4' }
         ]
       }
     ]
@@ -184,18 +198,27 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
             {project.pages.map((page, i) => {
               if (page.type === 'grid') {
                 return (
-                  <div key={`grid-${i}`} className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
-                    {page.images?.map((img, idx) => (
-                      <img
-                        key={img.src}
-                        src={img.src}
-                        alt={img.alt}
-                        loading={i === 0 ? 'eager' : 'lazy'}
-                        decoding="async"
-                        className={`block h-auto w-full sm:w-1/5 object-contain ${isLight ? '' : 'shadow-lg'}`}
-                        style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
-                      />
-                    ))}
+                  <div key={`grid-${i}`} className="flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className={`font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 ${
+                        isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
+                      }`}>
+                        {page.title}
+                      </h2>
+                    )}
+                    <div className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full">
+                      {page.images?.map((img, idx) => (
+                        <img
+                          key={img.src}
+                          src={img.src}
+                          alt={img.alt}
+                          loading={i === 0 ? 'eager' : 'lazy'}
+                          decoding="async"
+                          className={`block h-auto w-full sm:flex-1 object-contain rounded-sm ${isLight ? '' : 'shadow-lg'}`}
+                          style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
+                        />
+                      ))}
+                    </div>
                   </div>
                 );
               }
