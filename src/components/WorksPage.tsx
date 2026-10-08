@@ -355,7 +355,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`grid-${i}`} className="flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
                     {page.titleImage && (
                       <div className="flex justify-center w-full max-w-[600px] mx-auto py-4 mb-8">
-                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain drop-shadow-md mix-blend-multiply" />
+                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain mix-blend-darken" />
                       </div>
                     )}
                     {page.title && !page.titleImage && (
@@ -423,7 +423,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`text-${i}`} className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
                     {page.titleImage && (
                       <div className="flex justify-center w-full max-w-[600px] py-4">
-                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain drop-shadow-md mix-blend-multiply" />
+                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain mix-blend-darken" />
                       </div>
                     )}
                     {page.title && !page.titleImage && (
