@@ -217,7 +217,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop',
     category: 'workshop',
     icon: Flame, // fallback
-    backgroundColor: 'radial-gradient(circle at 50% 50%, #4a5c39 0%, #394A2D 60%, #1e2b14 100%)',
+    backgroundColor: '#FAF6EE',
     pages: [
       {
         type: 'text',
@@ -238,7 +238,9 @@ const PROJECTS: Project[] = [
         ]
       },
       {
-        type: 'collage',
+        type: 'grid',
+        gridCols: 3,
+        imageFit: 'cover',
         images: [
           { src: eco1, alt: 'Baskets of dye plants' },
           { src: eco2, alt: 'Pounding leaves portrait' },
@@ -277,7 +279,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
     };
   }, [onClose]);
 
-  const isLight = project.id === 'fading-spark';
+  const isLight = project.id === 'fading-spark' || project.id === 'eco-printing';
 
   return createPortal(
     <div
