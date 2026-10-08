@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import pinkFabricBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
 import fadingSparkConceptImage from '../assets/images/fading_spark_concept.png';
 // Pages of public/fading-spark.pdf, pre-rendered so the slide shows the artwork
@@ -30,7 +30,10 @@ const FADING_SPARK_PAGES: any[] = [
   { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
 ];
 
-export const FadingSparkProjectPage: React.FC = () => (
+export const FadingSparkProjectPage: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  return (
   <section
     id="fading-spark-page"
     aria-label="Fading Spark"
@@ -51,15 +54,16 @@ export const FadingSparkProjectPage: React.FC = () => (
                   {page.title}
                 </h2>
               )}
-              <div className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full">
+              <div className={`w-full ${page.gridCols === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4'}`}>
                 {page.images?.map((img: any, idx: number) => (
                   <img
                     key={img.src}
                     src={img.src}
                     alt={img.alt}
+                    onClick={() => setSelectedImage(img.src)}
                     loading={i === 0 ? 'eager' : 'lazy'}
                     decoding="async"
-                    className={`block w-full sm:flex-1 rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'}`}
+                    className={`block w-full cursor-pointer transition-transform hover:scale-[1.02] ${page.gridCols === 2 ? '' : 'sm:flex-1'} rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'}`}
                     style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
                   />
                 ))}
@@ -81,8 +85,30 @@ export const FadingSparkProjectPage: React.FC = () => (
         );
       })}
     </div>
+
+    {selectedImage && createPortal(
+      <div 
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm cursor-pointer"
+        onClick={() => setSelectedImage(null)}
+      >
+        <button 
+          className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+          onClick={() => setSelectedImage(null)}
+        >
+          <X className="w-8 h-8" />
+        </button>
+        <img 
+          src={selectedImage} 
+          alt="Enlarged view" 
+          className="max-h-full max-w-full object-contain drop-shadow-2xl cursor-default"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>,
+      document.body
+    )}
   </section>
-);
+  );
+};
 
 interface FadingSparkProjectDetailPageProps {
   isOpen: boolean;

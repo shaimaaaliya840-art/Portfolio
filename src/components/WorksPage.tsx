@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Flame, Gem, Moon, type LucideIcon } from 'lucide-react';
+import { ArrowLeft, Flame, Gem, Moon, X, type LucideIcon } from 'lucide-react';
 import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
 import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
 import fadingSparkPg3_1 from '../assets/images/fading-spark/pg 3.1.png';
@@ -30,6 +30,7 @@ interface ProjectPage {
   paragraphs?: string[];
   imageAspect?: string;
   imageFit?: 'cover' | 'contain';
+  gridCols?: number;
 }
 
 interface Project {
@@ -131,6 +132,7 @@ const WORKSHOPS = [
 
 /** Full-screen viewer for one project's pages. */
 const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     window.addEventListener('keydown', onKey);
@@ -210,15 +212,16 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         {page.title}
                       </h2>
                     )}
-                    <div className="flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4 w-full">
+                    <div className={`w-full ${page.gridCols === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4'}`}>
                       {page.images?.map((img, idx) => (
                         <img
                           key={img.src}
                           src={img.src}
                           alt={img.alt}
+                          onClick={() => setSelectedImage(img.src)}
                           loading={i === 0 ? 'eager' : 'lazy'}
                           decoding="async"
-                          className={`block w-full sm:flex-1 rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'} ${isLight ? '' : 'shadow-lg'}`}
+                          className={`block w-full cursor-pointer transition-transform hover:scale-[1.02] ${page.gridCols === 2 ? '' : 'sm:flex-1'} rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'} ${isLight ? '' : 'shadow-lg'}`}
                           style={isLight ? { filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' } : {}}
                         />
                       ))}
@@ -298,6 +301,27 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               Project pages coming soon
             </p>
           </div>
+        )}
+
+        {selectedImage && createPortal(
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm cursor-pointer"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Enlarged view" 
+              className="max-h-full max-w-full object-contain drop-shadow-2xl cursor-default"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            />
+          </div>,
+          document.body
         )}
       </main>
     </div>,
