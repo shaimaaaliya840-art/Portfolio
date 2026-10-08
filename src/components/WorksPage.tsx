@@ -20,6 +20,10 @@ import garment1_1 from '../assets/images/abhisarika/garment1_1.jpg';
 import garment1_2 from '../assets/images/abhisarika/garment1_2.jpg';
 import garment1_3 from '../assets/images/abhisarika/garment1_3.jpg';
 import garment1_4 from '../assets/images/abhisarika/garment1_4.jpg';
+import garment2_1 from '../assets/images/abhisarika/garment2_1.jpg';
+import garment2_2 from '../assets/images/abhisarika/garment2_2.jpg';
+import garment2_3 from '../assets/images/abhisarika/garment2_3.png';
+import garment2_4 from '../assets/images/abhisarika/garment2_4.jpg';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -106,6 +110,18 @@ const PROJECTS: Project[] = [
           { src: garment1_2, alt: 'Garment 1 view 2' },
           { src: garment1_3, alt: 'Garment 1 view 3' },
           { src: garment1_4, alt: 'Garment 1 view 4' }
+        ]
+      },
+      {
+        type: 'grid',
+        title: 'garment-2',
+        layout: 'bento-center-stack',
+        imageFit: 'cover',
+        images: [
+          { src: garment2_1, alt: 'Garment 2 view 1' },
+          { src: garment2_2, alt: 'Garment 2 view 2' },
+          { src: garment2_3, alt: 'Garment 2 view 3' },
+          { src: garment2_4, alt: 'Garment 2 view 4' }
         ]
       }
     ]
