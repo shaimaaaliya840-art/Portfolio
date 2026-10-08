@@ -46,9 +46,9 @@ const PROJECTS: Project[] = [
         images: [
           { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
           { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
-          { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' },
+          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
           { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
-          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' }
+          { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' }
         ]
       },
       // Page 4 is missing, will be added later
