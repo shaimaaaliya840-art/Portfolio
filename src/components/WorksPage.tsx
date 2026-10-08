@@ -41,6 +41,7 @@ import eco2 from '../assets/images/eco/eco2.jpg';
 import eco3 from '../assets/images/eco/eco3.jpg';
 import eco4 from '../assets/images/eco/eco4.jpg';
 import eco5 from '../assets/images/eco/eco5.jpg';
+import ecoTitle from '../assets/images/eco/eco_title.png';
 
 interface ProjectPage {
   type?: 'single' | 'grid' | 'text' | 'collage';
@@ -48,6 +49,7 @@ interface ProjectPage {
   alt?: string;
   images?: { src: string; alt: string }[];
   title?: string;
+  titleImage?: string;
   paragraphs?: string[];
   imageAspect?: string;
   imageFit?: 'cover' | 'contain';
@@ -221,7 +223,7 @@ const PROJECTS: Project[] = [
     pages: [
       {
         type: 'text',
-        title: 'ECO PRINTING',
+        titleImage: ecoTitle,
         paragraphs: [
           "Eco-printing is a process of pressing the entire dye plant against the fabric and transferring the color while the plant stays flat.",
           "Tannin-rich leaves, like - rose, guava, eucalyptus, and oaks, are used to etch their distinct mark on textiles, through the color present in the leaves. The same technique is used to dye with flowers or kitchen waste as well.",
@@ -417,7 +419,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'text') {
                 return (
                   <div key={`text-${i}`} className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
-                    {page.title && (
+                    {page.titleImage && (
+                      <div className="flex justify-center w-full max-w-[600px] py-4">
+                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain drop-shadow-md" />
+                      </div>
+                    )}
+                    {page.title && !page.titleImage && (
                       <h1 className={`font-avonia text-7xl sm:text-8xl lg:text-9xl uppercase tracking-widest drop-shadow-lg leading-relaxed py-4 ${isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'}`}>
                         {page.title}
                       </h1>
