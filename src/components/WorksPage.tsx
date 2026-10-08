@@ -220,32 +220,32 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`collage-${i}`} className="relative w-full max-w-5xl mx-auto min-h-[140vh] sm:min-h-[160vh] flex items-center justify-center py-20 mt-12 mb-24 overflow-visible">
                     
                     {/* Top Left Image */}
-                    <div className="absolute top-[5%] left-0 sm:left-[5%] w-[55%] sm:w-[35%] z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    <div className="absolute top-[25%] left-0 sm:left-[2%] w-[45%] sm:w-[30%] z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img src={page.images[1].src} alt={page.images[1].alt} className="w-full h-auto object-cover rounded-sm" />
                     </div>
 
                     {/* Top Right Image */}
-                    <div className="absolute top-[15%] right-0 sm:right-[5%] w-[55%] sm:w-[35%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    <div className="absolute top-[5%] right-0 sm:right-[2%] w-[45%] sm:w-[30%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img src={page.images[2].src} alt={page.images[2].alt} className="w-full h-auto object-cover rounded-sm" />
                     </div>
 
                     {/* Bottom Left Image */}
-                    <div className="absolute bottom-[10%] left-0 sm:left-[5%] w-[60%] sm:w-[40%] z-30 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    <div className="absolute bottom-[5%] left-0 sm:left-[5%] w-[45%] sm:w-[30%] z-30 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img src={page.images[3].src} alt={page.images[3].alt} className="w-full h-auto object-cover rounded-sm" />
                     </div>
 
                     {/* Bottom Right Image */}
-                    <div className="absolute bottom-[20%] right-0 sm:right-[2%] w-[50%] sm:w-[32%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    <div className="absolute bottom-[15%] right-0 sm:right-[5%] w-[45%] sm:w-[30%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img src={page.images[4].src} alt={page.images[4].alt} className="w-full h-auto object-cover rounded-sm" />
                     </div>
 
                     {/* Center Oval */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] sm:w-[45%] z-50 drop-shadow-[0_25px_45px_rgba(0,0,0,0.6)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] sm:w-[35%] z-50 drop-shadow-[0_25px_45px_rgba(0,0,0,0.6)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img 
                         src={page.images[0].src} 
                         alt={page.images[0].alt} 
                         className="w-full h-auto object-cover" 
-                        style={{ borderRadius: '50%', border: '12px solid rgba(133,143,186,0.3)' }}
+                        style={{ borderRadius: '50%', border: '10px solid rgba(133,143,186,0.3)' }}
                       />
                     </div>
                   </div>
