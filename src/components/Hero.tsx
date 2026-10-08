@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 max-w-7xl mx-auto text-[#241217] selection:bg-[#540D21] selection:text-[#FAF6EE] py-16 overflow-hidden"
+      className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 max-w-7xl mx-auto text-[#241217] selection:bg-[#540D21] selection:text-[#FAF6EE] pt-32 pb-16 overflow-hidden"
     >
       {/* Main Centerpiece: Moving kinetic title */}
       <div className="my-auto w-full flex flex-col items-center justify-center text-center py-6 sm:py-10">
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
           {/* Monumental Kinetic Headline in Avonia Modern Luxury Script */}
           <div className="w-full max-w-6xl flex flex-col items-center justify-center select-none">
             {/* Line 1: "Designer who" in Avonia modern luxury script */}
-            <h1 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8.125rem] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
+            <h1 className="font-avonia font-normal text-[clamp(2.5rem,min(8vw,12vh),8.125rem)] text-[#241217] tracking-normal leading-[0.9] drop-shadow-[0_2px_14px_rgba(84,13,33,0.1)]">
               {/* Letters are separate spans (for the hover wobble), so keep each word in a
                   nowrap group or narrow screens break the line mid-word ("wh / o") */}
               {'Designer who'.split(' ').map((word, w) => (
@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
                   word is nudged down 0.3em) or the clip cuts its swashes off */}
               <span
                 id="scramble"
-                className="relative inline-flex items-center justify-center roll-container h-[2em] overflow-hidden px-2 sm:px-12 font-avonia font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8.125rem]"
+                className="relative inline-flex items-center justify-center roll-container h-[2em] overflow-hidden px-2 sm:px-12 font-avonia font-normal text-[clamp(2.5rem,min(8vw,12vh),8.125rem)]"
               >
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
