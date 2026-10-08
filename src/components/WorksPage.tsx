@@ -219,8 +219,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`collage-${i}`} className="relative w-full max-w-5xl mx-auto min-h-[140vh] sm:min-h-[160vh] flex items-center justify-center py-20 mt-12 mb-24 overflow-visible">
                     
-                    {/* Top Image */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] sm:w-[40%] z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
+                    {/* Top Left Image */}
+                    <div className="absolute top-[5%] left-0 sm:left-[5%] w-[55%] sm:w-[35%] z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
                       <img src={page.images[1].src} alt={page.images[1].alt} className="w-full h-auto object-cover rounded-sm" />
                     </div>
 
