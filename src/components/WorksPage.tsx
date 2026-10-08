@@ -112,14 +112,24 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       {/* Volumetric pinkish gradient bloom */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
-      {project.background && (
+      {project.background && project.id === 'abhisarika' ? (
+        <div
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          style={{
+            backgroundImage: `url(${project.background})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center'
+          }}
+        />
+      ) : project.background ? (
         <img
           src={project.background}
           alt=""
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-0 h-full w-full object-center ${project.id === 'abhisarika' ? 'object-contain' : 'object-cover'}`}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         />
-      )}
+      ) : null}
 
       <header className="relative z-20 flex shrink-0 items-center gap-4 px-4 py-3 sm:px-8 sm:py-4">
         <button
