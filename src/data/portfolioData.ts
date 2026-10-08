@@ -352,7 +352,7 @@ export const experienceTimeline: ExperienceItem[] = [
     location: "Ahmedabad & Mumbai",
     isCurrent: true,
     isNeelgar: true,
-    description: "Immersive tenure within the prestigious Neelgar atelier, working under master tailors on bespoke client garments, runway lookbooks, and archival preservation.",
+    description: "At Neelgar, I worked across creative storytelling, concept development, and fashion design development. My work included developing creative concepts, exploring design directions, fashion photography, styling, and creating hand and digital illustrations. I also contributed to building visual stories around Indian craft, culture, and contemporary fashion, translating ideas into strong visual and design outcomes. After my 3-month internship, I continued working part-time for another month on creative projects.",
     deliverables: [
       "Developed technical pattern sets for Neelgar's bespoke corsetry and silk outerwear.",
       "Co-authored the archival monograph 'Neelgar: Obsidian & Handloom Thread'.",

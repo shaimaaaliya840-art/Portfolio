@@ -49,7 +49,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
       organization: "Neelgar Haute Couture Atelier",
       period: "2024 — Present",
       location: "Mumbai & Ahmedabad",
-      summary: "Direct immersion under Master Couturier at Neelgar Atelier. Responsible for translating conceptual sketches into structural silhouettes, pattern precision, and textile sourcing.",
+      summary: "At Neelgar, I worked across creative storytelling, concept development, and fashion design development. My work included developing creative concepts, exploring design directions, fashion photography, styling, and creating hand and digital illustrations. I also contributed to building visual stories around Indian craft, culture, and contemporary fashion, translating ideas into strong visual and design outcomes. After my 3-month internship, I continued working part-time for another month on creative projects.",
       highlights: [
         "Pattern Drafting & Toile Fitting: Assisted senior designers with precise pattern manipulation and muslin draping for bespoke runway silhouettes.",
         "CLO3D Virtual Prototyping: Simulated 3D digital avatars and garment stress-maps, accelerating client fitting turnarounds.",
@@ -264,16 +264,19 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                 </div>
                 <div className="space-y-1.5">
                   {internships.map((intern, idx) => (
-                    <button
+                    <div
                       key={idx}
-                      className="w-full text-left p-2.5 bg-[#FAF6EE]/10 border border-[#FAF6EE]/20 hover:border-[#FAF6EE]/60 text-xs font-mono transition-all cursor-pointer"
+                      className="w-full text-left p-3 bg-[#FAF6EE]/10 border border-[#FAF6EE]/20 text-xs font-mono transition-all"
                     >
                       <div className="text-[#FAF6EE] font-bold flex items-center justify-between">
                         <span>{intern.organization}</span>
                         <span className="text-[0.625rem] text-[#540D21] bg-[#FAF6EE] px-1.5 py-0.5 border border-[#FAF6EE]">{intern.period}</span>
                       </div>
-                      <div className="text-[#FAF6EE]/85 text-[0.6875rem] pt-0.5">{intern.role}</div>
-                    </button>
+                      <div className="text-[#FAF6EE]/85 text-[0.6875rem] pt-1 font-semibold">{intern.role}</div>
+                      <div className="text-[#FAF6EE]/80 text-[0.625rem] sm:text-xs pt-2 leading-relaxed">
+                        {intern.summary}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
