@@ -32,7 +32,6 @@ import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
 import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
 import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
-import lotusImage from '../assets/images/anatomy-of-ornament/lotus.png';
 import aooMbRunway from '../assets/images/anatomy-of-ornament/aoo_mb_runway.png';
 import aooMbCorset from '../assets/images/anatomy-of-ornament/aoo_mb_corset.png';
 import aooMbKurta from '../assets/images/anatomy-of-ornament/aoo_mb_kurta.png';
@@ -212,8 +211,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Project',
     icon: Gem,
-    background: lotusImage,
-    backgroundColor: '#000000',
+    backgroundColor: '#09080B',
     pages: [
       {
         type: 'text',
@@ -531,25 +529,45 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ background: project.backgroundColor }}
     >
-      {/* Volumetric pinkish gradient bloom */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
+      {project.id === 'anatomy-of-ornament' ? (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10 select-none">
+          {/* Deep Obsidian Noir Silk Gradient Base */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#100E14] via-[#09080B] to-[#040405]" />
 
-      {project.background && project.id === 'anatomy-of-ornament' ? (
-        <>
-          <img
-            src={project.background}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none fixed -top-8 -left-8 sm:-top-12 sm:-left-12 w-[180px] sm:w-[260px] md:w-[340px] max-w-[50vw] object-contain opacity-25"
+          {/* Top-Center Antique Gold Volumetric Ambient Aura */}
+          <div
+            className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[750px] pointer-events-none blur-[110px]"
+            style={{
+              background: 'radial-gradient(ellipse at 50% 25%, rgba(212, 175, 55, 0.13) 0%, rgba(180, 130, 45, 0.05) 45%, transparent 75%)'
+            }}
           />
-          <img
-            src={project.background}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none fixed -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 w-[180px] sm:w-[260px] md:w-[340px] max-w-[50vw] object-contain opacity-25 rotate-180"
+
+          {/* Lower Bronze / Amber Warmth Halo */}
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none blur-[140px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(140, 90, 35, 0.05) 0%, rgba(100, 60, 25, 0.02) 50%, transparent 75%)'
+            }}
           />
-        </>
-      ) : project.background && project.id === 'abhisarika' ? (
+
+          {/* Micro-weave Silk Texture Layer */}
+          <div
+            className="absolute inset-0 opacity-[0.035] mix-blend-screen pointer-events-none"
+            style={{
+              backgroundImage: 'radial-gradient(rgba(255,255,255,0.7) 1px, transparent 0)',
+              backgroundSize: '24px 24px'
+            }}
+          />
+
+          {/* Subtle Obsidian Vignette at Edges */}
+          <div className="absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.85)] pointer-events-none" />
+        </div>
+      ) : (
+        /* Volumetric pinkish gradient bloom */
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
+      )}
+
+      {project.background && project.id === 'abhisarika' ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full"
           style={{
@@ -596,11 +614,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'grid') {
                 return (
                   <div key={`grid-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
-                    {project.id === 'anatomy-of-ornament' && (
-                      <div className="pointer-events-none absolute -top-2 right-0 sm:right-2 w-24 sm:w-36 opacity-15 -z-10 select-none">
-                        <img src={lotusImage} alt="" aria-hidden="true" className="w-full h-auto object-contain" />
-                      </div>
-                    )}
                     {page.titleImage && (
                       <div className="flex justify-center w-full max-w-[500px] mx-auto py-2 mb-8">
                         <img src={page.titleImage} alt="Title" className={`w-full h-auto object-contain ${isLight ? 'mix-blend-darken' : ''}`} />
@@ -698,11 +711,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'text') {
                 return (
                   <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
-                    {project.id === 'anatomy-of-ornament' && (
-                      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[320px] max-w-[70vw] opacity-20 -z-10 select-none">
-                        <img src={lotusImage} alt="" aria-hidden="true" className="w-full h-auto object-contain" />
-                      </div>
-                    )}
                     {page.titleImage && (
                       <div className="flex justify-center w-full max-w-[600px] py-4">
                         <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain mix-blend-darken" />
@@ -732,11 +740,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'moodboard-collage') {
                 return (
                   <div key={`mb-collage-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
-                    {project.id === 'anatomy-of-ornament' && (
-                      <div className="pointer-events-none absolute -top-2 right-0 sm:right-2 w-24 sm:w-36 opacity-15 -z-10 select-none">
-                        <img src={lotusImage} alt="" aria-hidden="true" className="w-full h-auto object-contain" />
-                      </div>
-                    )}
                     {page.title && (
                       <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#FAF6EE]">
                         {page.title}
