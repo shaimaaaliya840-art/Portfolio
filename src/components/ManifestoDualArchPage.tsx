@@ -118,7 +118,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
           <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
             {[
               { id: 'experience', label: 'Workshops (8)' },
-              { id: 'skills', label: 'Hard-Skills & CLO3D' },
+              { id: 'skills', label: 'Hard-Skills & Software' },
               { id: 'dyeing', label: 'Dyeing Alchemy' },
               { id: 'personal', label: 'Personal' },
               { id: 'internships', label: `Internships (${internships.length})` }
@@ -171,7 +171,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
             {plaqueTab === 'skills' && (
               <div className="space-y-2.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
-                  <span>DIGITAL &amp; TACTILE HARD-SKILLS</span>
+                  <span>HARD-SKILLS &amp; SOFTWARE</span>
                 </div>
                 {/* CLO3D Highlight Feature */}
                 <button
