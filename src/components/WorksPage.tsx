@@ -121,6 +121,8 @@ interface Project {
   title: string;
   tagline: string;
   icon: LucideIcon;
+  /** Full-bleed 4:5 editorial cover image in black and white */
+  coverImage?: string;
   /** Backdrop of the project viewer */
   background?: string;
   backgroundColor: string;
@@ -135,6 +137,7 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Collection',
     icon: Flame,
+    coverImage: fadingSparkPg3_5,
     backgroundColor: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)',
     pages: [
       { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
@@ -158,6 +161,7 @@ const PROJECTS: Project[] = [
     title: 'Abhisarika',
     tagline: 'Neelgar Atelier',
     icon: Moon,
+    coverImage: garment1_1,
     background: abhisarikaBackground,
     backgroundColor: '#3E5A26',
     pages: [
@@ -235,6 +239,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Project',
     icon: Gem,
+    coverImage: aooGarment1,
     backgroundColor: '#000000',
     pages: [
       {
@@ -1099,33 +1104,53 @@ export const WorksPage: React.FC = () => {
           Works
         </h2>
 
-        {/* Project icons — each opens that project's pages */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
-          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => {
-            const Icon = project.icon;
+        {/* Project cards — full-bleed 4:5 editorial photo cards with B&W garment imagery and overlaid title */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-20">
+          {PROJECTS.filter(p => p.category !== 'workshop').map((project, idx) => {
             return (
               <button
                 key={project.id}
                 type="button"
                 onClick={() => setOpenProject(project)}
                 data-cursor="pointer"
-                className="wine-card group flex flex-col items-center gap-5 px-6 py-10 text-center transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
+                className="group relative aspect-[4/5] w-full overflow-hidden rounded-md text-left transition-all duration-500 hover:-translate-y-1.5 cursor-pointer shadow-2xl border border-white/10 hover:border-[#FAF6EE]/40 bg-[#161014]"
               >
-                {/* Cream icon circle, like the contact page's action icons */}
-                <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="h-10 w-10" strokeWidth={1.5} />
-                </span>
-                <span className="flex flex-col items-center gap-1">
-                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE]">
-                    {project.title}
+                {/* Full-bleed photo of the project in black & white */}
+                {project.coverImage ? (
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="absolute inset-0 h-full w-full object-cover object-top filter grayscale contrast-[1.2] brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-125 group-hover:brightness-95"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-[#540D21]" />
+                )}
+
+                {/* Soft dark gradient at the bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 via-45% to-transparent pointer-events-none" />
+
+                {/* Top subtle vignette */}
+                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+
+                {/* Project index badge top right */}
+                <div className="absolute top-4 right-4 z-10 pointer-events-none">
+                  <span className="font-mono text-[0.625rem] font-bold tracking-[0.25em] text-[#FAF6EE]/80 bg-black/60 px-2.5 py-1 rounded-xs border border-white/15 backdrop-blur-sm">
+                    {String(idx + 1).padStart(2, '0')} // LOOK
                   </span>
-                  <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
+                </div>
+
+                {/* Content overlaid at the bottom */}
+                <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8">
+                  <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/80 mb-1">
                     {project.tagline}
                   </span>
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4">
-                  View project →
-                </span>
+                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md">
+                    {project.title}
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4 mt-3 group-hover:text-white group-hover:decoration-white group-hover:translate-x-1 transition-all">
+                    View project →
+                  </span>
+                </div>
               </button>
             );
           })}
