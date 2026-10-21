@@ -948,9 +948,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
                       style={{ aspectRatio: '801 / 447' }}
                     >
-                      {/* 1. Upper Red Embroidery Band (Left): behind model, aligning seamlessly with postcard top cross-stitch band */}
+                      {/* 1. Upper Red Embroidery Band (Left): layered ON TOP across model & postcard border as marked */}
                       <div 
-                        className="absolute left-[25.5%] top-[23.5%] w-[29%] h-[10.5%] opacity-95 z-[10] pointer-events-none"
+                        className="absolute left-[24%] top-[23.5%] w-[30.5%] h-[10.5%] opacity-100 z-[35] pointer-events-none drop-shadow-md"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
@@ -959,9 +959,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         }}
                       />
 
-                      {/* 2. Lower Red Embroidery Band (Right): under jacket hem, aligning seamlessly with postcard bottom cross-stitch band */}
+                      {/* 2. Lower Red Embroidery Band (Right): layered ON TOP under jacket hem across postcard border as marked */}
                       <div 
-                        className="absolute right-0 top-[64%] w-[42%] h-[10.5%] opacity-95 z-[5] pointer-events-none"
+                        className="absolute right-0 top-[64%] w-[42%] h-[10.5%] opacity-100 z-[35] pointer-events-none drop-shadow-md"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
