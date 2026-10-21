@@ -82,6 +82,7 @@ import aooGarment7 from '../assets/images/anatomy-of-ornament/garment_7.jpg';
 import aooGarment8 from '../assets/images/anatomy-of-ornament/garment_8.jpg';
 import aooGarment9 from '../assets/images/anatomy-of-ornament/garment_9.jpg';
 import aooGarment10 from '../assets/images/anatomy-of-ornament/garment_10.jpg';
+import aooGarment3Moodboard from '../assets/images/anatomy-of-ornament/aoo_garment3_moodboard.png';
 import dabu1 from '../assets/images/dabu/dabu1.png';
 import dabu2 from '../assets/images/dabu/dabu2.jpg';
 import dabu3 from '../assets/images/dabu/dabu3.png';
@@ -109,7 +110,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment3';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -322,6 +323,16 @@ const PROJECTS: Project[] = [
         paragraphs: [
           "LOOK 02 · OBSIDIAN WAVE & BONED CORSETRY",
           "Sculpted midnight strapless corset featuring an organic wave neckline and vertical textured bugle bead embroidery, engineered with traditional back lacing and paired with tailored fluid silk trousers."
+        ]
+      },
+      {
+        type: 'moodboard-garment3',
+        title: 'Mood Board',
+        src: aooGarment3Moodboard,
+        alt: 'Anatomy of Ornamentation — Garment 03 Mood Board',
+        paragraphs: [
+          "MATERIAL & SILHOUETTE RESEARCH · LOOK 03:",
+          "Exploration of structured indigo tailoring, artisanal quilting, geometric cross-stitch motifs, and topographic contour embroidery."
         ]
       },
       {
@@ -918,6 +929,44 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         <p key={pIdx}>{p}</p>
                       ))}
                     </div>
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-garment3') {
+                return (
+                  <div key={`mb-g3-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#FAF6EE]">
+                        {page.title}
+                      </h2>
+                    )}
+
+                    {/* Proportional Mood Board Container */}
+                    <div
+                      className="group relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none overflow-hidden rounded-md border border-white/15 shadow-2xl bg-black/90 cursor-pointer transition-transform duration-500 hover:scale-[1.01]"
+                      onClick={() => page.src && setSelectedImage(page.src)}
+                    >
+                      <img
+                        src={page.src}
+                        alt={page.alt || 'Garment 03 Mood Board'}
+                        className="w-full h-auto object-contain block"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-4">
+                        <span className="text-[11px] uppercase tracking-widest text-[#FAF6EE] font-mono bg-black/70 px-2.5 py-1 backdrop-blur-sm rounded-xs border border-white/15">
+                          Click to enlarge
+                        </span>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-4 text-base sm:text-lg font-serif leading-relaxed drop-shadow-sm text-white/90">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
