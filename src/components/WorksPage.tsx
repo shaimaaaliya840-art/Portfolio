@@ -87,7 +87,6 @@ import aooMb3RunwaySuit from '../assets/images/anatomy-of-ornament/aoo_mb3_runwa
 import aooMb3Postcard from '../assets/images/anatomy-of-ornament/aoo_mb3_vintage_postcard_crossstitch.png';
 import aooMb3JacketBack from '../assets/images/anatomy-of-ornament/aoo_mb3_embroidered_jacket_back.png';
 import aooMb3Ribbon from '../assets/images/anatomy-of-ornament/aoo_mb3_border_ribbon_transparent.png';
-import aooGarment2Moodboard from '../assets/images/anatomy-of-ornament/aoo_garment2_moodboard.png';
 import aooMb2CatNecklace from '../assets/images/anatomy-of-ornament/aoo_mb2_black_cat_necklace.png';
 import aooMb2CarvedLeather from '../assets/images/anatomy-of-ornament/aoo_mb2_carved_leather.png';
 import aooMb2CatEyes from '../assets/images/anatomy-of-ornament/aoo_mb2_cat_eyes.png';
@@ -306,7 +305,6 @@ const PROJECTS: Project[] = [
       {
         type: 'moodboard-garment2',
         title: 'Mood Board',
-        src: aooGarment2Moodboard,
         alt: 'Garment 02 Mood Board — Noir, Feline Architecture & Gothic Metallurgy',
         paragraphs: [
           "MATERIAL & NOIR RESEARCH · LOOK 02:",
@@ -959,29 +957,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Exact Reference Proportional Collage */}
+                    {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, No Artificial Background) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
-                      style={{ aspectRatio: '752 / 438' }}
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      style={{ aspectRatio: '632 / 428' }}
                     >
-                      {/* 1. Cat with Diamond/Pearl Necklace (Far Left: X=4.8%, Top=31.5%, W=22.4%, H=41.5%) */}
+                      {/* 1. Carved Black Leather Architectural Panel (Center-Left: Left=25.95%, Top=0%, Width=27.53%, Height=74.94%) */}
                       <div
-                        className="absolute left-[4.8%] top-[31.5%] w-[22.4%] h-[41.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
-                        onClick={() => setSelectedImage(aooMb2CatNecklace)}
-                      >
-                        <img 
-                          src={aooMb2CatNecklace} 
-                          alt="Black Panther / Feline Noir with Diamond Choker" 
-                          className="w-full h-full object-cover object-center" 
-                        />
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Feline Noir</span>
-                        </div>
-                      </div>
-
-                      {/* 2. Carved Black Leather Architectural Panel (Center-Left: X=26.8%, Top=0%, W=23.2%, H=73%) */}
-                      <div
-                        className="absolute left-[26.8%] top-0 w-[23.2%] h-[73%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/10 shadow-2xl"
+                        className="absolute left-[25.95%] top-0 w-[27.53%] h-[74.94%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-xl"
                         onClick={() => setSelectedImage(aooMb2CarvedLeather)}
                       >
                         <img 
@@ -994,9 +977,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 3. Black Cat Glowing Eyes (Top Right: X=49.8%, Top=0%, W=39.2%, H=31.5%) */}
+                      {/* 2. Black Cat Glowing Eyes (Top Right: Left=53.48%, Top=0%, Width=46.52%, Height=30.0%) */}
                       <div
-                        className="absolute left-[49.8%] top-0 w-[39.2%] h-[31.5%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute left-[53.48%] top-0 w-[46.52%] h-[30.0%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-lg"
                         onClick={() => setSelectedImage(aooMb2CatEyes)}
                       >
                         <img 
@@ -1009,24 +992,24 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 4. Ace of Spades Gothic Metallurgy Card (Center-Bottom: X=47.8%, Top=31.5%, W=25.2%, H=68.5%) */}
+                      {/* 3. Black Cat with Diamond Choker (Far Left: Left=0%, Top=30.0%, Width=25.95%, Height=42.62%) */}
                       <div
-                        className="absolute left-[47.8%] top-[31.5%] w-[25.2%] h-[68.5%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
-                        onClick={() => setSelectedImage(aooMb2AceOfSpades)}
+                        className="absolute left-0 top-[30.0%] w-[25.95%] h-[42.62%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-lg"
+                        onClick={() => setSelectedImage(aooMb2CatNecklace)}
                       >
                         <img 
-                          src={aooMb2AceOfSpades} 
-                          alt="Ornate Carved Stone Ace of Spades with Faceted Black Diamond" 
-                          className="w-full h-full object-contain filter drop-shadow-md" 
+                          src={aooMb2CatNecklace} 
+                          alt="Black Panther / Feline Noir with Diamond Choker" 
+                          className="w-full h-full object-cover object-center" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Gothic Metallurgy</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Feline Noir</span>
                         </div>
                       </div>
 
-                      {/* 5. Midnight Floral Botanical Jacquard (Center-Right: X=71.8%, Top=31.5%, W=17.2%, H=41.5%) */}
+                      {/* 4. Midnight Floral Botanical Jacquard (Far Right: Left=79.75%, Top=30.0%, Width=20.25%, Height=42.62%) */}
                       <div
-                        className="absolute left-[71.8%] top-[31.5%] w-[17.2%] h-[41.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute left-[79.75%] top-[30.0%] w-[20.25%] h-[42.62%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-lg"
                         onClick={() => setSelectedImage(aooMb2FloralJacquard)}
                       >
                         <img 
@@ -1036,6 +1019,21 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
                           <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Midnight Jacquard</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Ace of Spades Gothic Metallurgy Card (Center-Front: Left=51.27%, Top=30.0%, Width=29.9%, Height=70.0%) */}
+                      <div
+                        className="absolute left-[51.27%] top-[30.0%] w-[29.9%] h-[70.0%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_25px_35px_rgba(0,0,0,0.95)]"
+                        onClick={() => setSelectedImage(aooMb2AceOfSpades)}
+                      >
+                        <img 
+                          src={aooMb2AceOfSpades} 
+                          alt="Ornate Carved Stone Ace of Spades with Faceted Black Diamond" 
+                          className="w-full h-full object-contain filter drop-shadow-md" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Gothic Metallurgy</span>
                         </div>
                       </div>
                     </div>
