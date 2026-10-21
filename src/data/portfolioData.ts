@@ -11,7 +11,7 @@ export const initialPortfolioData: PortfolioData = {
   bioHeadline: "An editorial sensibility forged in dark couture, architectural corsetry, and subverted heritage textiles.",
   bioParagraphs: [
     "Shatma Aaliya (Shaima Aaliya) is a fashion designer pursuing her Bachelor of Design (B.Des) in Fashion Design at Indus Design School (Indus University, Class of 2023–2027). Her creative discipline synthesizes architectural haute couture with virtual 3D garment simulation in CLO3D, advanced flat pattern drafting, and generational Indian textile craft.",
-    "Currently apprenticing within the esteemed Neelgar Couture atelier in Ahmedabad and Mumbai, Shatma deconstructs traditional Indian handlooms, zardozi metallurgies, and fluid silk drapes, weaponizing them into razor-sharp silhouettes, internal steel-boned corsetry, and subversive menswear.",
+    "Having completed her design apprenticeship within the esteemed Neelgar Couture atelier in Ahmedabad and Mumbai, Shatma deconstructs traditional Indian handlooms, zardozi metallurgies, and fluid silk drapes, weaponizing them into razor-sharp silhouettes, internal steel-boned corsetry, and subversive menswear.",
     "Her design philosophy embodies calculated seduction: garments engineered not as fleeting decorative attire, but as sculptural instruments of psychological poise, physical dominance, and uncompromising precision."
   ],
   education: {
@@ -57,7 +57,7 @@ export const initialPortfolioData: PortfolioData = {
   },
   neelgarHighlight: {
     role: "Fashion Design & Haute Couture Apprentice",
-    period: "2024 — Present",
+    period: "22 May – Aug 2026 (internship + part-time)",
     tagline: "The Neelgar Archive & Couture Textile Modernity",
     summary: "Collaborated directly with master drapers and artisans at Neelgar, co-developing seasonal couture silhouettes, researching archival zardozi techniques, and styling international editorial lookbooks.",
     achievements: [
@@ -132,7 +132,7 @@ export const initialPortfolioData: PortfolioData = {
     {
       role: "Haute Couture & Atelier Intern / Apprentice",
       organization: "Neelgar Atelier",
-      period: "2024 — Present",
+      period: "22 May – Aug 2026 (internship + part-time)",
       location: "Ahmedabad & Mumbai",
       summary: "Under the mentorship of senior couturiers, focusing on architectural draping, internal spiral steel corsetry, and heritage Varanasi handloom weaves.",
       highlights: [
@@ -349,11 +349,11 @@ export const experienceTimeline: ExperienceItem[] = [
   },
   {
     id: "exp-2",
-    period: "2024 — Present",
+    period: "22 May – Aug 2026 (internship + part-time)",
     company: "Neelgar Atelier",
     role: "Fashion Design & Haute Couture Apprentice",
     location: "Ahmedabad & Mumbai",
-    isCurrent: true,
+    isCurrent: false,
     isNeelgar: true,
     description: "At Neelgar, I worked across creative storytelling, concept development, and fashion design development. My work included developing creative concepts, exploring design directions, fashion photography, styling, and creating hand and digital illustrations. I also contributed to building visual stories around Indian craft, culture, and contemporary fashion, translating ideas into strong visual and design outcomes. After my 3-month internship, I continued working part-time for another month on creative projects.",
     deliverables: [

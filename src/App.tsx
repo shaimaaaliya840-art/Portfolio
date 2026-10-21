@@ -58,6 +58,8 @@ export default function App() {
           softSkills: initialPortfolioData.softSkills,
           languagesList: initialPortfolioData.languagesList,
           internships: initialPortfolioData.internships,
+          neelgarHighlight: initialPortfolioData.neelgarHighlight,
+          bioParagraphs: initialPortfolioData.bioParagraphs,
           skills: initialPortfolioData.skills,
           socials: {
             ...initialPortfolioData.socials,

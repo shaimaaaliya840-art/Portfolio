@@ -89,7 +89,7 @@ export const AboutAndExperience: React.FC<AboutAndExperienceProps> = ({
             <div>
               <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FAF6EE] font-bold">
                 <span className="w-2 h-2 rounded-full bg-[#FAF6EE]" />
-                <span>ATELIER TENURE // 2024—PRESENT</span>
+                <span>ATELIER TENURE // 22 MAY – AUG 2026 (INTERNSHIP + PART-TIME)</span>
               </div>
               <h3 className="text-3xl sm:text-4xl font-serif font-black text-[#FAF6EE] pt-2">
                 Neelgar Atelier & Couture

@@ -48,7 +48,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
     {
       role: "Haute Couture Atelier Apprentice & Draping Specialist",
       organization: "Neelgar Haute Couture Atelier",
-      period: "2024 — Present",
+      period: "22 May – Aug 2026 (internship + part-time)",
       location: "Mumbai & Ahmedabad",
       summary: "At Neelgar, I worked across creative storytelling, concept development, and fashion design development. My work included developing creative concepts, exploring design directions, fashion photography, styling, and creating hand and digital illustrations. I also contributed to building visual stories around Indian craft, culture, and contemporary fashion, translating ideas into strong visual and design outcomes. After my 3-month internship, I continued working part-time for another month on creative projects.",
       highlights: [
@@ -161,7 +161,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                 <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
-                    <span>Neelgar Atelier · Haute Couture Apprentice (2024—Present)</span>
+                    <span>Neelgar Atelier · Haute Couture Apprentice (22 May – Aug 2026)</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <GraduationCap className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
