@@ -18,6 +18,11 @@ import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_
 import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
 import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
 import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
+import kutchYarnSkeins from '../assets/images/kutch-weaving/kutch_dyed_yarn_skeins.jpg';
+import kutchArtisanWeaving from '../assets/images/kutch-weaving/kutch_artisan_handloom_weaving.jpg';
+import kutchIndigoVat from '../assets/images/kutch-weaving/kutch_indigo_vat_immersion.jpg';
+import kutchMasterWeaver from '../assets/images/kutch-weaving/kutch_master_weaver_traditional_border.jpg';
+import kutchTanaBana from '../assets/images/kutch-weaving/kutch_tana_bana_warping_atelier.jpg';
 import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
@@ -30,7 +35,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
-  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'cyanotype'>('seamstress');
+  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'weaving' | 'cyanotype'>('seamstress');
   const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(seamstressCert);
   const [workshopLightbox, setWorkshopLightbox] = useState<{ src: string; caption: string } | null>(null);
 
@@ -174,11 +179,13 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   {experienceWorkshops.map((exp, idx) => {
                     const isSeamstress = exp.includes('Seamstress');
                     const isTailoring = exp.includes('Tailoring') || exp.includes('LLDC');
+                    const isWeaving = exp.includes('Weaving') || exp.includes('Bhujodi');
                     const isCyanotype = exp.includes('Cyanotype');
-                    const isFeatured = isSeamstress || isTailoring || isCyanotype;
+                    const isFeatured = isSeamstress || isTailoring || isWeaving || isCyanotype;
                     const isSelected = 
                       (isSeamstress && selectedWorkshop === 'seamstress') ||
                       (isTailoring && selectedWorkshop === 'tailoring') ||
+                      (isWeaving && selectedWorkshop === 'weaving') ||
                       (isCyanotype && selectedWorkshop === 'cyanotype');
 
                     return (
@@ -191,6 +198,9 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                           } else if (isTailoring) {
                             setSelectedWorkshop('tailoring');
                             setActiveWorkshopImg(lldcMannequins);
+                          } else if (isWeaving) {
+                            setSelectedWorkshop('weaving');
+                            setActiveWorkshopImg(kutchMasterWeaver);
                           } else if (isCyanotype) {
                             setSelectedWorkshop('cyanotype');
                             setActiveWorkshopImg(cyanotypeBanner);
@@ -211,7 +221,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                           <span className={`text-[0.5625rem] px-1 py-0.2 font-bold rounded-xs ml-0.5 ${
                             isSelected ? 'bg-[#540D21] text-[#FAF6EE]' : 'bg-[#FAF6EE]/30 text-[#FAF6EE]'
                           }`}>
-                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : 'RECORD'}
+                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : isWeaving ? 'BHUJODI' : 'RECORD'}
                           </span>
                         )}
                       </button>
@@ -270,6 +280,83 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                         { img: seamstressLecture, label: 'Lecture' },
                         { img: seamstressStitch, label: 'Hand Stitch' },
                         { img: seamstressBeeswax, label: 'Beeswax Tools' }
+                      ].map((item, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveWorkshopImg(item.img);
+                          }}
+                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
+                            activeWorkshopImg === item.img
+                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
+                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                          }`}
+                          title={item.label}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.label}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : selectedWorkshop === 'weaving' ? (
+                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
+                        <span>KUTCH HANDLOOM WEAVING &amp; NATURAL DYEING · BHUJODI HERITAGE</span>
+                      </div>
+                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
+                        TRADITIONAL EXTRA-WEFT &amp; PIT LOOM TEXTILES
+                      </span>
+                    </div>
+
+                    {/* Main Active Photo with Zoom Preview Trigger */}
+                    <div 
+                      onClick={() => setWorkshopLightbox({
+                        src: activeWorkshopImg,
+                        caption: 'Kutch Handloom Weaving Atelier · Master artisans, traditional pit loom weaving with extra-weft motifs, raw yarn spinning, and natural indigo dyeing'
+                      })}
+                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
+                      title="Click to view full photo"
+                    >
+                      <img
+                        src={activeWorkshopImg}
+                        alt="Kutch Handloom Weaving Workshop"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
+                        <div className="text-left font-mono">
+                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
+                            Kutch, Gujarat · Handloom Weaving &amp; Natural Indigo Dyeing
+                          </div>
+                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
+                            Master Vankar artisans · Pit-loom extra-weft insertion, tana-bana warping, and organic vat fermentation
+                          </div>
+                        </div>
+                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
+                          View Full ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 5-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {[
+                        { img: kutchMasterWeaver, label: 'Master Weaver' },
+                        { img: kutchArtisanWeaving, label: 'Handloom' },
+                        { img: kutchYarnSkeins, label: 'Dyed Skeins' },
+                        { img: kutchIndigoVat, label: 'Indigo Vat' },
+                        { img: kutchTanaBana, label: 'Warping Atelier' }
                       ].map((item, idx) => (
                         <button
                           key={idx}

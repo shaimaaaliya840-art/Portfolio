@@ -91,6 +91,7 @@ export const initialPortfolioData: PortfolioData = {
   experienceWorkshops: [
     "The Seamstress's Secret (The School of Historical Dress & LLDC)",
     "The Geometry & Structure of Tailoring (LLDC Kutch)",
+    "Kutch Handloom Weaving (Bhujodi Heritage)",
     "Cyanotype Printing",
     "Carving, Sculpting",
     "Clay pottery",

@@ -64,6 +64,11 @@ import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_
 import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
 import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
 import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
+import kutchYarnSkeins from '../assets/images/kutch-weaving/kutch_dyed_yarn_skeins.jpg';
+import kutchArtisanWeaving from '../assets/images/kutch-weaving/kutch_artisan_handloom_weaving.jpg';
+import kutchIndigoVat from '../assets/images/kutch-weaving/kutch_indigo_vat_immersion.jpg';
+import kutchMasterWeaver from '../assets/images/kutch-weaving/kutch_master_weaver_traditional_border.jpg';
+import kutchTanaBana from '../assets/images/kutch-weaving/kutch_tana_bana_warping_atelier.jpg';
 import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
 import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
@@ -551,6 +556,33 @@ const PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'kutch-weaving',
+    title: 'Kutch Handloom Weaving',
+    tagline: 'Workshop · Bhujodi Craft Heritage',
+    category: 'workshop',
+    icon: Layers,
+    backgroundColor: '#121A1A',
+    pages: [
+      {
+        type: 'grid',
+        title: 'Kutch Handloom Weaving',
+        gridCols: 2,
+        imageAspect: 'aspect-[4/3]',
+        imageFit: 'cover',
+        images: [
+          { src: kutchMasterWeaver, alt: 'Master artisan in traditional turban weaving intricate geometric extra-weft red borders on a pit loom' },
+          { src: kutchArtisanWeaving, alt: 'Artisan weaving fine handloom textile on traditional shuttle loom with selvedge motifs' },
+          { src: kutchYarnSkeins, alt: 'Hand-spun naturally dyed yarn skeins in indigo, raw bouclé wool, and earthy mineral tones' },
+          { src: kutchIndigoVat, alt: 'Artisan holding freshly dyed blue and mottled indigo yarn skeins over an active fermentation dye vat' },
+          { src: kutchTanaBana, alt: 'Traditional weaving atelier showing wide horizontal warping frames (tana-bana), bicycle-wheel charkha, and loom setup' }
+        ],
+        paragraphs: [
+          "Hands-on workshop and artisanal study of traditional Kutch handloom weaving and natural dyeing techniques in the weaver clusters of Kutch, Gujarat. Exploring the complete alchemy of heritage textile production — from raw fiber processing and bicycle-wheel bobbin winding to horizontal tana-bana (warp preparation), fermentation indigo vat dipping, and pit-loom weaving featuring signature geometric extra-weft motifs and fine selvedge borders."
+        ]
+      }
+    ]
+  },
+  {
     id: 'geometry-structure-tailoring',
     title: 'The Geometry & Structure of Tailoring',
     tagline: 'Workshop · LLDC [Kutch]',
@@ -618,6 +650,7 @@ const PROJECTS: Project[] = [
 const WORKSHOPS = [
   { name: "The Seamstress's Secret", note: "School of Historical Dress & LLDC", projectId: "seamstress-secret" },
   { name: 'The Geometry & Structure of Tailoring', note: 'LLDC [Kutch]', projectId: 'geometry-structure-tailoring' },
+  { name: 'Kutch Handloom Weaving', note: 'Bhujodi Heritage', projectId: 'kutch-weaving' },
   { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai', projectId: 'coconut-shell-craft' },
   { name: 'Paper Weaving', note: 'Wellpaper', projectId: 'paper-weaving' },
