@@ -30,7 +30,7 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
     >
       {/* Center Arena: Massive Kinetic Typography Runway */}
       <div className="relative z-10 w-full flex flex-col justify-center items-start overflow-hidden px-4 sm:px-10">
-        {/* Page meta strip (same treatment as the contact page) */}
+        {/* Page meta strip */}
         <div className="w-full flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-10 text-xs font-mono tracking-[0.25em] text-[#540D21]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#540D21]" />
@@ -39,19 +39,8 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
           <span className="text-[#851737]">SHATMA AALIYA</span>
         </div>
 
-        {/* Poetic Sub-narrative Ribbon (Exchanged to Top) */}
-        <div className="px-6 mb-6 max-w-4xl flex items-center justify-between">
-          <p className="text-sm sm:text-base text-[#2A1519] font-editorial leading-relaxed border-l-2 border-[#540D21]/60 pl-4 max-w-3xl text-left sm:text-justify">
-            <span className="font-avonia text-3xl sm:text-4xl text-[#540D21] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none">
-              I
-            </span>
-            {aboutMeText.startsWith("I") ? aboutMeText.slice(1) : aboutMeText}
-          </p>
-        </div>
-
-        {/* Manifesto line — static so it can be read: whole sentence visible, wrapping to
-            fit the screen. The Amoresa initial comes from .font-avonia::first-letter. */}
-        <h2 className="px-6 font-avonia text-[clamp(2.25rem,5.2vw,4.75rem)] font-normal leading-[1.3] tracking-[0.04em] text-[#241217]">
+        {/* 1. Big Headline First (Top) */}
+        <h2 className="px-6 font-avonia text-[clamp(2.25rem,5.2vw,4.75rem)] font-normal leading-[1.3] tracking-[0.04em] text-[#241217] mb-8 sm:mb-10">
           {words.map((word, wordIdx) => {
             const isSpecial = SPECIAL_WORDS.some((w) => word.toLowerCase().includes(w));
             return (
@@ -68,6 +57,16 @@ export const KineticManifestoPage: React.FC<KineticManifestoPageProps> = ({
             );
           })}
         </h2>
+
+        {/* 2. Poetic Sub-narrative Paragraph Below Headline */}
+        <div className="px-6 max-w-4xl flex items-center justify-between">
+          <p className="text-sm sm:text-base text-[#2A1519] font-editorial leading-relaxed border-l-2 border-[#540D21]/60 pl-4 max-w-3xl text-left sm:text-justify">
+            <span className="font-avonia text-3xl sm:text-4xl text-[#540D21] font-normal italic inline-block pr-1.5 leading-none align-baseline select-none">
+              I
+            </span>
+            {aboutMeText.startsWith("I") ? aboutMeText.slice(1) : aboutMeText}
+          </p>
+        </div>
       </div>
     </section>
   );
