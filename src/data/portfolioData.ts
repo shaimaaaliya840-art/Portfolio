@@ -75,12 +75,13 @@ export const initialPortfolioData: PortfolioData = {
   location: "Ahmedabad, gujrat",
   aboutMe: "I'm a creatively driven individual with a strong foundation in cultural aesthetics and design thinking. My work is deeply rooted in exploring heritage while translating it into contemporary, functional garments. I have a keen interest in material experimentation, focusing on textures, structure, and innovative fabric use. I aim to create clothing that balances modesty, elegance, and bold expression. With an eye for detail and storytelling, I strive to design pieces that are both meaningful and wearable. My approach blends tradition with modern sensibilities to craft unique, statement-driven fashion.",
   personalSkills: [
-    { skill: "Hand Illustration", rating: 4 },
-    { skill: "Storytelling", rating: 4 },
-    { skill: "Styling & makeup", rating: 4 },
-    { skill: "Market analyst", rating: 4 },
-    { skill: "Material Sourcing", rating: 4 },
-    { skill: "Pattern making", rating: 4 }
+    { skill: "Draping" },
+    { skill: "Hand Illustration" },
+    { skill: "Storytelling" },
+    { skill: "Styling & makeup" },
+    { skill: "Market analyst" },
+    { skill: "Material Sourcing" },
+    { skill: "Pattern making" }
   ],
   educationEntries: [
     { title: "5-Sem Indus University", institution: "Indus University", level: "Higher Education / B.Des" },
@@ -88,7 +89,7 @@ export const initialPortfolioData: PortfolioData = {
     { title: "10th - Balika Vidyapith lakhisarai", institution: "Balika Vidyapith Lakhisarai", level: "Secondary School (10th)" }
   ],
   experienceWorkshops: [
-    "Cynotype printing",
+    "Cyanotype Printing",
     "Carving, Sculpting",
     "Clay pottery",
     "Silhouette Art",

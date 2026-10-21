@@ -7,7 +7,7 @@ interface CvPageProps {
 }
 
 const experience = [
-  'Cynotype Printing',
+  'Cyanotype Printing',
   'Carving, Sculpting',
   'Clay Pottery',
   'Silhouette Art',

@@ -15,16 +15,17 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
 
   const personalSkills = portfolioData.personalSkills || [
-    { skill: "Storyteller & Visionary", rating: 4 },
-    { skill: "Research & Development", rating: 4 },
-    { skill: "Leadership & Direction", rating: 4 },
-    { skill: "Time Management", rating: 4 },
-    { skill: "Empathy & Cultural Resonance", rating: 4 },
-    { skill: "Collaboration & Team Spirit", rating: 4 },
+    { skill: "Draping" },
+    { skill: "Hand Illustration" },
+    { skill: "Storytelling" },
+    { skill: "Styling & makeup" },
+    { skill: "Market analyst" },
+    { skill: "Material Sourcing" },
+    { skill: "Pattern making" },
   ];
 
   const experienceWorkshops = portfolioData.experienceWorkshops || [
-    "Cynotype Printing", "Clay & Pottery Craft", "Stone & Wood Carving",
+    "Cyanotype Printing", "Clay & Pottery Craft", "Stone & Wood Carving",
     "Sculpting & Form Study", "Batik Resist Dyeing", "Shibori & Tie-Dye",
     "Silhouette & Form Art", "Basketry & Fiber Weaving"
   ];
@@ -105,7 +106,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                 Shatma Aaliya
               </h3>
               <span className="px-2 py-0.5 bg-[#FAF6EE] text-[#540D21] font-mono text-[0.625rem] font-bold tracking-widest uppercase">
-                EXPERIENCE &amp; SKILLS
+                WORKSHOPS &amp; SKILLS
               </span>
             </div>
             <div className="text-[0.75rem] font-mono text-[#FAF6EE]/85 font-bold tracking-widest uppercase pt-1">
@@ -116,10 +117,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
           {/* Clickable Category Switcher Tabs */}
           <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
             {[
-              { id: 'experience', label: 'Experiences (8)' },
+              { id: 'experience', label: 'Workshops (8)' },
               { id: 'skills', label: 'Hard-Skills & CLO3D' },
               { id: 'dyeing', label: 'Dyeing Alchemy' },
-              { id: 'personal', label: 'Personal (5★)' },
+              { id: 'personal', label: 'Personal' },
               { id: 'internships', label: `Internships (${internships.length})` }
             ].map((tab) => (
               <button
@@ -144,7 +145,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
             {plaqueTab === 'experience' && (
               <div className="space-y-2.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
-                  <span>EXPERIENCES &amp; WORKSHOPS</span>
+                  <span>WORKSHOPS</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {experienceWorkshops.map((exp, idx) => (
@@ -223,31 +224,20 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
             )}
 
             {plaqueTab === 'personal' && (
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
-                  <span>PERSONAL SKILLS RATING</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">4-STAR RATING</span>
+                  <span>PERSONAL SKILLS</span>
+                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">{personalSkills.length} SKILLS</span>
                 </div>
-                <div className="space-y-1">
+                <div className="flex flex-wrap gap-1.5">
                   {personalSkills.map((item, idx) => (
-                    <button
+                    <div
                       key={idx}
-                      className="w-full flex items-center justify-between text-[0.6875rem] bg-[#FAF6EE]/10 hover:bg-[#FAF6EE]/20 border border-[#FAF6EE]/20 text-[#FAF6EE] px-2.5 py-1.5 cursor-pointer transition-colors"
+                      className="px-2.5 py-1.5 bg-[#FAF6EE]/10 hover:bg-[#FAF6EE]/20 border border-[#FAF6EE]/20 text-[#FAF6EE] text-[0.6875rem] font-mono font-medium transition-colors inline-flex items-center gap-1.5 shadow-sm"
                     >
-                      <span className="font-mono font-semibold">{item.skill}</span>
-                      <div className="flex items-center gap-0.5">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star
-                            key={star}
-                            className={`w-3.5 h-3.5 ${
-                              star <= item.rating
-                                ? "text-[#FAF6EE] fill-[#FAF6EE]"
-                                : "text-[#FAF6EE]/30 fill-transparent"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </button>
+                      <span className="opacity-70">✦</span>
+                      <span>{item.skill}</span>
+                    </div>
                   ))}
                 </div>
               </div>

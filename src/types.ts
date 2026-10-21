@@ -95,7 +95,7 @@ export interface PortfolioData {
   aboutMe?: string;
   personalSkills?: {
     skill: string;
-    rating: number; // 1 to 5
+    rating?: number; // 1 to 5
   }[];
   educationEntries?: {
     title: string;

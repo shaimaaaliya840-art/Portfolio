@@ -74,7 +74,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
         },
         {
           title: 'Dyeing Skills & Hands-On Workshops',
-          detail: 'Mastering Tie-dye, Batik, Shibori, Bleaching & Dyeing, and Block-printing. Workshop tenure in Cynotype printing, Carving/Sculpting, Clay pottery, Silhouette Art, Pidilite Workshop, Hand woven basket, Kolam, and Eco-printing.'
+          detail: 'Mastering Tie-dye, Batik, Shibori, Bleaching & Dyeing, and Block-printing. Workshop tenure in Cyanotype Printing, Carving/Sculpting, Clay pottery, Silhouette Art, Pidilite Workshop, Hand woven basket, Kolam, and Eco-printing.'
         },
         {
           title: 'Personal Proficiencies & Values',
