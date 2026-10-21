@@ -545,15 +545,7 @@ const PROJECTS: Project[] = [
           { src: seamstressBeeswax, alt: 'Natural honeycomb beeswax cakes and historical thread conditioning tools used for archival hand-sewing' }
         ],
         paragraphs: [
-          "THE SEAMSTRESS'S SECRET — GLOBAL SYMPOSIUM ON HISTORICAL DRESS",
-          "Conducted as part of 'Patterns of Fashion: Across Europe' — A Global Symposium on Historical Dress, 17th-Century Tailoring & Craft, co-presented by The School of Historical Dress (London) and Living & Learning Design Centre (LLDC) in Ajrakhpur, Kutch.",
-          "LED BY PROF. JENNY TIRAMANI & MASTER SCHOLARS:",
-          "Under the direct mentorship of Prof. Jenny Tiramani (Principal, The School of Historical Dress, London; co-author of Janet Arnold's Patterns of Fashion series) and Ami Shroff (Managing Trustee, LLDC).",
-          "HISTORICAL SEAMSTRESS METHODOLOGY & ARCHIVAL TECHNIQUES:",
-          "1. 17th-Century Linen Preparation & Wax Conditioning: Treating unbleached fine linen filaments with pure botanical and honeycomb beeswax blocks, preventing thread abrasion, knotting, and rot during high-tension hand sewing.",
-          "2. Architectural Cartridge Pleating & Ruff Architecture: Hand-crafting historical neck ruffs (c. 1620–1630) using figure-of-eight scrolling shapes, standing linen neckbands, fine starching, and microscopic gathering ratios.",
-          "3. Fine Insertion & Seam Joining Stitches: Executing precision hand-embroidery and seamstress edge-finishing techniques with dyed silk filaments on linen selvages, reviving archival stitches documented in master pattern archives across Europe.",
-          "4. Archival Material Culture: Deciphering the intimate, undocumented domestic techniques of 17th-century professional seamstresses that gave historical couture garments their structural integrity and silent longevity."
+          "At LLDC, Bhuj, as part of the Pattern of Fashion Global Symposium, I attended a workshop under PAWL TOMASZEWSKI exploring the intricate stitching techniques used in traditional innerwear construction. The workshop helped me understand the precision, craftsmanship, and attention to detail involved in creating innerwear, along with the importance of stitch selection, structure, and finishing."
         ]
       }
     ]

@@ -236,7 +236,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                     <div 
                       onClick={() => setWorkshopLightbox({
                         src: activeWorkshopImg,
-                        caption: "The Seamstress's Secret · The School of Historical Dress (London) & LLDC [Kutch] · Prof. Jenny Tiramani"
+                        caption: "Pattern of Fashion Global Symposium at LLDC, Bhuj · Under Pawl Tomaszewski (Traditional Innerwear Construction)"
                       })}
                       className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
                       title="Click to view full photo"
@@ -250,10 +250,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
                         <div className="text-left font-mono">
                           <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            The Seamstress's Secret · The School of Historical Dress (London) &amp; LLDC
+                            LLDC, Bhuj · The Secret of Seamstress
                           </div>
                           <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Prof. Jenny Tiramani Masterclass · 17th-Century Linen Cartridge Pleating, Ruff Architecture &amp; Beeswax Conditioning
+                            Pattern of Fashion Global Symposium · Under Pawl Tomaszewski (Traditional Innerwear Construction)
                           </div>
                         </div>
                         <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
