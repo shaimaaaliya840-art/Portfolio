@@ -2,29 +2,6 @@ import React, { useState } from 'react';
 import { Palette, Star, Briefcase, Cpu } from 'lucide-react';
 import { PortfolioData } from '../types';
 import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
-import cyanotypeBanner from '../assets/images/cyanotype/cyanotype_banner.jpg';
-import cyanotypeNews from '../assets/images/cyanotype/cyanotype_record_news.png';
-import cyanotypeExposure from '../assets/images/cyanotype/cyanotype_sun_exposure.jpg';
-import cyanotypeComp from '../assets/images/cyanotype/cyanotype_composition.jpg';
-import cyanotypeChems from '../assets/images/cyanotype/cyanotype_chemicals.jpg';
-import lldcMannequins from '../assets/images/tailoring-geometry/lldc_mannequins_display.jpg';
-import lldcPatternsBook from '../assets/images/tailoring-geometry/lldc_patterns_of_fashion_book.jpg';
-import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historical_drafting_book.jpg';
-import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
-import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
-import lldcPaperMockup from '../assets/images/tailoring-geometry/lldc_geometric_paper_mockup.png';
-import seamstressCert from '../assets/images/seamstress-secret/seamstress_certificate.jpg';
-import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_ruff.png';
-import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
-import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
-import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
-import kalaLoom from '../assets/images/kutch-weaving/kutch_kala_cotton_pit_loom.jpg';
-import kutchYarnSkeins from '../assets/images/kutch-weaving/kutch_dyed_yarn_skeins.jpg';
-import kutchArtisanWeaving from '../assets/images/kutch-weaving/kutch_artisan_handloom_weaving.jpg';
-import kutchIndigoVat from '../assets/images/kutch-weaving/kutch_indigo_vat_immersion.jpg';
-import kutchMasterWeaver from '../assets/images/kutch-weaving/kutch_master_weaver_traditional_border.jpg';
-import kutchTanaBana from '../assets/images/kutch-weaving/kutch_tana_bana_warping_atelier.jpg';
-import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
   portfolioData: PortfolioData;
@@ -36,9 +13,6 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
-  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'fiber' | 'cyanotype'>('seamstress');
-  const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(seamstressCert);
-  const [workshopLightbox, setWorkshopLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   const personalSkills = portfolioData.personalSkills || [
     { skill: "Draping" },
@@ -53,6 +27,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   const experienceWorkshops = portfolioData.experienceWorkshops || [
     "The Seamstress's Secret (The School of Historical Dress & LLDC)",
     "The Geometry & Structure of Tailoring (LLDC Kutch)",
+    "Fiber to Fabric (Chaman Siju · Bhuj)",
     "Cyanotype Printing", "Clay & Pottery Craft", "Stone & Wood Carving",
     "Sculpting & Form Study", "Batik Resist Dyeing", "Shibori & Tie-Dye",
     "Silhouette & Form Art", "Basketry & Fiber Weaving"
@@ -177,376 +152,21 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   <span className="text-[0.625rem] text-[#FAF6EE]/75 font-mono">HANDS-ON TEXTILE ARTS</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {experienceWorkshops.map((exp, idx) => {
-                    const isSeamstress = exp.includes('Seamstress');
-                    const isTailoring = exp.includes('Tailoring') || exp.includes('LLDC');
-                    const isFiberToFabric = exp.includes('Fiber to Fabric') || exp.includes('Chaman Siju') || exp.includes('Weaving');
-                    const isCyanotype = exp.includes('Cyanotype');
-                    const isFeatured = isSeamstress || isTailoring || isFiberToFabric || isCyanotype;
-                    const isSelected = 
-                      (isSeamstress && selectedWorkshop === 'seamstress') ||
-                      (isTailoring && selectedWorkshop === 'tailoring') ||
-                      (isFiberToFabric && selectedWorkshop === 'fiber') ||
-                      (isCyanotype && selectedWorkshop === 'cyanotype');
-
-                    return (
-                      <button
-                        key={idx}
-                        onClick={isFeatured ? () => {
-                          if (isSeamstress) {
-                            setSelectedWorkshop('seamstress');
-                            setActiveWorkshopImg(seamstressCert);
-                          } else if (isTailoring) {
-                            setSelectedWorkshop('tailoring');
-                            setActiveWorkshopImg(lldcMannequins);
-                          } else if (isFiberToFabric) {
-                            setSelectedWorkshop('fiber');
-                            setActiveWorkshopImg(kalaLoom);
-                          } else if (isCyanotype) {
-                            setSelectedWorkshop('cyanotype');
-                            setActiveWorkshopImg(cyanotypeBanner);
-                          }
-                        } : undefined}
-                        className={`px-2 py-1 text-[0.6875rem] font-mono font-medium transition-all inline-flex items-center gap-1 shadow-sm border ${
-                          isSelected
-                            ? 'bg-[#FAF6EE] text-[#540D21] border-[#FAF6EE] font-bold cursor-pointer'
-                            : isFeatured
-                            ? 'bg-[#FAF6EE]/20 hover:bg-[#FAF6EE]/40 text-[#FAF6EE] border-[#FAF6EE]/40 cursor-pointer'
-                            : 'bg-[#FAF6EE]/10 text-[#FAF6EE]/80 border-[#FAF6EE]/20 cursor-default'
-                        }`}
-                        title={isFeatured ? `Click to view ${exp} archive & photos` : exp}
-                      >
-                        <span className="opacity-70">✦</span>
-                        <span>{exp}</span>
-                        {isFeatured && (
-                          <span className={`text-[0.5625rem] px-1 py-0.2 font-bold rounded-xs ml-0.5 ${
-                            isSelected ? 'bg-[#540D21] text-[#FAF6EE]' : 'bg-[#FAF6EE]/30 text-[#FAF6EE]'
-                          }`}>
-                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : isFiberToFabric ? 'CHAMAN SIJU' : 'RECORD'}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
+                  {experienceWorkshops.map((exp, idx) => (
+                    <div
+                      key={idx}
+                      className="px-2.5 py-1.5 bg-[#FAF6EE]/10 text-[#FAF6EE] border border-[#FAF6EE]/20 text-[0.6875rem] font-mono font-medium inline-flex items-center gap-1.5 shadow-sm"
+                    >
+                      <span className="opacity-70">✦</span>
+                      <span>{exp}</span>
+                    </div>
+                  ))}
                 </div>
-
-                {/* Dynamic Workshop Showcase Card (Seamstress, Tailoring, or Cyanotype) */}
-                {selectedWorkshop === 'seamstress' ? (
-                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
-                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#E5B887] animate-pulse" />
-                        <span>THE SEAMSTRESS'S SECRET · SCHOOL OF HISTORICAL DRESS (LONDON) &amp; LLDC</span>
-                      </div>
-                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                        PATTERNS OF FASHION GLOBAL SYMPOSIUM · 4TH OCT 2026
-                      </span>
-                    </div>
-
-                    {/* Main Active Photo with Zoom Preview Trigger */}
-                    <div 
-                      onClick={() => setWorkshopLightbox({
-                        src: activeWorkshopImg,
-                        caption: "Pattern of Fashion Global Symposium at LLDC, Bhuj · Under Pawl Tomaszewski (Traditional Innerwear Construction)"
-                      })}
-                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
-                      title="Click to view full photo"
-                    >
-                      <img
-                        src={activeWorkshopImg}
-                        alt="The Seamstress's Secret Workshop"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
-                        <div className="text-left font-mono">
-                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            LLDC, Bhuj · The Secret of Seamstress
-                          </div>
-                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Pattern of Fashion Global Symposium · Under Pawl Tomaszewski (Traditional Innerwear Construction)
-                          </div>
-                        </div>
-                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
-                          View Full ↗
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 5-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-5 gap-1.5">
-                      {[
-                        { img: seamstressCert, label: 'Certificate' },
-                        { img: seamstressRuff, label: 'Linen Ruff' },
-                        { img: seamstressLecture, label: 'Lecture' },
-                        { img: seamstressStitch, label: 'Hand Stitch' },
-                        { img: seamstressBeeswax, label: 'Beeswax Tools' }
-                      ].map((item, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveWorkshopImg(item.img);
-                          }}
-                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
-                            activeWorkshopImg === item.img
-                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
-                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
-                          }`}
-                          title={item.label}
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.label}
-                            className="w-full h-full object-cover"
-                          />
-                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : selectedWorkshop === 'fiber' ? (
-                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
-                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-                        <span>FIBER TO FABRIC · CHAMAN SIJU [BHUJ]</span>
-                      </div>
-                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                        TRADITIONAL KALA COTTON &amp; HANDLOOM SAREES
-                      </span>
-                    </div>
-
-                    {/* Main Active Photo with Zoom Preview Trigger */}
-                    <div 
-                      onClick={() => setWorkshopLightbox({
-                        src: activeWorkshopImg,
-                        caption: 'During our visit to Bhuj, we met Chaman Siju, a skilled artisan who transforms traditional Kala cotton into beautiful handloom sarees. The visit offered valuable insights into the traditional processes of cotton weaving, the importance of artisan craftsmanship, and the preservation of Kutch’s rich textile heritage.'
-                      })}
-                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
-                      title="Click to view full photo"
-                    >
-                      <img
-                        src={activeWorkshopImg}
-                        alt="Fiber to Fabric Workshop - Chaman Siju Bhuj"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
-                        <div className="text-left font-mono">
-                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            Bhuj, Kutch · Fiber to Fabric (Chaman Siju)
-                          </div>
-                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Traditional Kala cotton handloom weaving &amp; artisan textile preservation
-                          </div>
-                        </div>
-                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
-                          View Full ↗
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 6-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-6 gap-1.5">
-                      {[
-                        { img: kalaLoom, label: 'Kala Loom' },
-                        { img: kutchMasterWeaver, label: 'Chaman Siju' },
-                        { img: kutchArtisanWeaving, label: 'Handloom' },
-                        { img: kutchYarnSkeins, label: 'Dyed Skeins' },
-                        { img: kutchIndigoVat, label: 'Indigo Vat' },
-                        { img: kutchTanaBana, label: 'Warping Frame' }
-                      ].map((item, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveWorkshopImg(item.img);
-                          }}
-                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
-                            activeWorkshopImg === item.img
-                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
-                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
-                          }`}
-                          title={item.label}
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.label}
-                            className="w-full h-full object-cover"
-                          />
-                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : selectedWorkshop === 'tailoring' ? (
-                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
-                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#E5B887] animate-pulse" />
-                        <span>THE GEOMETRY &amp; STRUCTURE OF TAILORING · LLDC [KUTCH]</span>
-                      </div>
-                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                        HISTORICAL TAILORING ARCHIVE c.1675–1795
-                      </span>
-                    </div>
-
-                    {/* Main Active Photo with Zoom Preview Trigger */}
-                    <div 
-                      onClick={() => setWorkshopLightbox({
-                        src: activeWorkshopImg,
-                        caption: 'Pattern of Fashion Global Symposium at LLDC, Bhuj · Under Jenny Tiramani (The School of Historical Dress London)'
-                      })}
-                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
-                      title="Click to view full photo"
-                    >
-                      <img
-                        src={activeWorkshopImg}
-                        alt="The Geometry & Structure of Tailoring Workshop at LLDC Kutch"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
-                        <div className="text-left font-mono">
-                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            LLDC, Bhuj · The Geometry &amp; Structure of Tailoring
-                          </div>
-                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Pattern of Fashion Global Symposium · Under Jenny Tiramani (The School of Historical Dress London)
-                          </div>
-                        </div>
-                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
-                          View Full ↗
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 6-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-6 gap-1.5">
-                      {[
-                        { img: lldcMannequins, label: 'Coats Display' },
-                        { img: lldcPatternsBook, label: 'Patterns Book' },
-                        { img: lldcDraftingBook, label: '1712 Plates' },
-                        { img: lldcPatternDesk, label: 'Cutting Desk' },
-                        { img: lldcPaperToile, label: '3D Paper Toile' },
-                        { img: lldcPaperMockup, label: 'Origami Fold' }
-                      ].map((item, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveWorkshopImg(item.img);
-                          }}
-                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
-                            activeWorkshopImg === item.img
-                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
-                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
-                          }`}
-                          title={item.label}
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.label}
-                            className="w-full h-full object-cover"
-                          />
-                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
-                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
-                        <span>CYANOTYPE PRINTING · INDUS WORLD RECORD</span>
-                      </div>
-                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                        560 FT TEXTILE INSTALLATION
-                      </span>
-                    </div>
-
-                    {/* Main Active Photo with Zoom Preview Trigger */}
-                    <div 
-                      onClick={() => setWorkshopLightbox({
-                        src: activeWorkshopImg,
-                        caption: 'Indus Design School · Monumental Sun Printing Record Workshop'
-                      })}
-                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
-                      title="Click to view full photo"
-                    >
-                      <img
-                        src={activeWorkshopImg}
-                        alt="Cyanotype Printing Workshop at Indus Design School"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
-                        <div className="text-left font-mono">
-                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            Indus Design School · Monumental Sun Printing Record
-                          </div>
-                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Natural sunlight exposure using Potassium Ferricyanide &amp; Ammonium Ferric Citrate
-                          </div>
-                        </div>
-                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
-                          View Full ↗
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 5-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-5 gap-1.5">
-                      {[
-                        { img: cyanotypeBanner, label: 'Banner' },
-                        { img: cyanotypeNews, label: 'News Record' },
-                        { img: cyanotypeExposure, label: 'Sun Exposure' },
-                        { img: cyanotypeComp, label: 'Composition' },
-                        { img: cyanotypeChems, label: 'Chemicals' }
-                      ].map((item, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveWorkshopImg(item.img);
-                          }}
-                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
-                            activeWorkshopImg === item.img
-                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
-                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
-                          }`}
-                          title={item.label}
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.label}
-                            className="w-full h-full object-cover"
-                          />
-                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
-                    <span>Neelgar Atelier · Design & Content Intern (22 May – Aug 2026)</span>
+                    <span>Neelgar Atelier · Design &amp; Content Intern (22 May – Aug 2026)</span>
                   </div>
                 </div>
               </div>
@@ -671,34 +291,6 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
 
       </div>
 
-      {/* Workshop Lightbox Modal */}
-      {workshopLightbox && (
-        <div 
-          onClick={() => setWorkshopLightbox(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-pointer"
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()} 
-            className="relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center bg-[#1A121A] border-2 border-[#FAF6EE]/40 p-2 sm:p-4 shadow-2xl"
-          >
-            <button
-              onClick={() => setWorkshopLightbox(null)}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-[#540D21] border border-[#FAF6EE] text-[#FAF6EE] flex items-center justify-center hover:bg-[#851737] transition-colors cursor-pointer shadow-lg z-10"
-              title="Close"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <img
-              src={workshopLightbox.src}
-              alt="Workshop Full View"
-              className="max-h-[80vh] w-auto max-w-full object-contain border border-[#FAF6EE]/20"
-            />
-            <div className="pt-2 text-center font-mono text-xs text-[#FAF6EE]/90">
-              {workshopLightbox.caption}
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
