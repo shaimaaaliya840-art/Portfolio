@@ -1107,6 +1107,7 @@ export const WorksPage: React.FC = () => {
         {/* Project cards — full-bleed 4:5 editorial photo cards with B&W garment imagery and overlaid title */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-20">
           {PROJECTS.filter(p => p.category !== 'workshop').map((project, idx) => {
+            const Icon = project.icon;
             return (
               <button
                 key={project.id}
@@ -1131,6 +1132,13 @@ export const WorksPage: React.FC = () => {
 
                 {/* Top subtle vignette */}
                 <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+
+                {/* Small icon circle like earlier */}
+                <div className="absolute top-4 left-4 z-10 pointer-events-none">
+                  <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                </div>
 
                 {/* Project index badge top right */}
                 <div className="absolute top-4 right-4 z-10 pointer-events-none">
