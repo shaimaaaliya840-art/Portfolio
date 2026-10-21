@@ -18,6 +18,7 @@ import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_
 import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
 import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
 import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
+import kalaLoom from '../assets/images/kutch-weaving/kutch_kala_cotton_pit_loom.jpg';
 import kutchYarnSkeins from '../assets/images/kutch-weaving/kutch_dyed_yarn_skeins.jpg';
 import kutchArtisanWeaving from '../assets/images/kutch-weaving/kutch_artisan_handloom_weaving.jpg';
 import kutchIndigoVat from '../assets/images/kutch-weaving/kutch_indigo_vat_immersion.jpg';
@@ -35,7 +36,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
-  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'weaving' | 'cyanotype'>('seamstress');
+  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'fiber' | 'cyanotype'>('seamstress');
   const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(seamstressCert);
   const [workshopLightbox, setWorkshopLightbox] = useState<{ src: string; caption: string } | null>(null);
 
@@ -179,13 +180,13 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   {experienceWorkshops.map((exp, idx) => {
                     const isSeamstress = exp.includes('Seamstress');
                     const isTailoring = exp.includes('Tailoring') || exp.includes('LLDC');
-                    const isWeaving = exp.includes('Weaving') || exp.includes('Bhujodi');
+                    const isFiberToFabric = exp.includes('Fiber to Fabric') || exp.includes('Chaman Siju') || exp.includes('Weaving');
                     const isCyanotype = exp.includes('Cyanotype');
-                    const isFeatured = isSeamstress || isTailoring || isWeaving || isCyanotype;
+                    const isFeatured = isSeamstress || isTailoring || isFiberToFabric || isCyanotype;
                     const isSelected = 
                       (isSeamstress && selectedWorkshop === 'seamstress') ||
                       (isTailoring && selectedWorkshop === 'tailoring') ||
-                      (isWeaving && selectedWorkshop === 'weaving') ||
+                      (isFiberToFabric && selectedWorkshop === 'fiber') ||
                       (isCyanotype && selectedWorkshop === 'cyanotype');
 
                     return (
@@ -198,9 +199,9 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                           } else if (isTailoring) {
                             setSelectedWorkshop('tailoring');
                             setActiveWorkshopImg(lldcMannequins);
-                          } else if (isWeaving) {
-                            setSelectedWorkshop('weaving');
-                            setActiveWorkshopImg(kutchMasterWeaver);
+                          } else if (isFiberToFabric) {
+                            setSelectedWorkshop('fiber');
+                            setActiveWorkshopImg(kalaLoom);
                           } else if (isCyanotype) {
                             setSelectedWorkshop('cyanotype');
                             setActiveWorkshopImg(cyanotypeBanner);
@@ -221,7 +222,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                           <span className={`text-[0.5625rem] px-1 py-0.2 font-bold rounded-xs ml-0.5 ${
                             isSelected ? 'bg-[#540D21] text-[#FAF6EE]' : 'bg-[#FAF6EE]/30 text-[#FAF6EE]'
                           }`}>
-                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : isWeaving ? 'BHUJODI' : 'RECORD'}
+                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : isFiberToFabric ? 'CHAMAN SIJU' : 'RECORD'}
                           </span>
                         )}
                       </button>
@@ -307,15 +308,15 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       ))}
                     </div>
                   </div>
-                ) : selectedWorkshop === 'weaving' ? (
+                ) : selectedWorkshop === 'fiber' ? (
                   <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
                     <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
                       <div className="flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-                        <span>KUTCH HANDLOOM WEAVING &amp; NATURAL DYEING · BHUJODI HERITAGE</span>
+                        <span>FIBER TO FABRIC · CHAMAN SIJU [BHUJ]</span>
                       </div>
                       <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                        TRADITIONAL EXTRA-WEFT &amp; PIT LOOM TEXTILES
+                        TRADITIONAL KALA COTTON &amp; HANDLOOM SAREES
                       </span>
                     </div>
 
@@ -323,24 +324,24 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                     <div 
                       onClick={() => setWorkshopLightbox({
                         src: activeWorkshopImg,
-                        caption: 'Kutch Handloom Weaving Atelier · Master artisans, traditional pit loom weaving with extra-weft motifs, raw yarn spinning, and natural indigo dyeing'
+                        caption: 'During our visit to Bhuj, we met Chaman Siju, a skilled artisan who transforms traditional Kala cotton into beautiful handloom sarees. The visit offered valuable insights into the traditional processes of cotton weaving, the importance of artisan craftsmanship, and the preservation of Kutch’s rich textile heritage.'
                       })}
                       className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
                       title="Click to view full photo"
                     >
                       <img
                         src={activeWorkshopImg}
-                        alt="Kutch Handloom Weaving Workshop"
+                        alt="Fiber to Fabric Workshop - Chaman Siju Bhuj"
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
                       <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
                         <div className="text-left font-mono">
                           <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            Kutch, Gujarat · Handloom Weaving &amp; Natural Indigo Dyeing
+                            Bhuj, Kutch · Fiber to Fabric (Chaman Siju)
                           </div>
                           <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Master Vankar artisans · Pit-loom extra-weft insertion, tana-bana warping, and organic vat fermentation
+                            Traditional Kala cotton handloom weaving &amp; artisan textile preservation
                           </div>
                         </div>
                         <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
@@ -349,14 +350,15 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       </div>
                     </div>
 
-                    {/* 5-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-5 gap-1.5">
+                    {/* 6-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-6 gap-1.5">
                       {[
-                        { img: kutchMasterWeaver, label: 'Master Weaver' },
+                        { img: kalaLoom, label: 'Kala Loom' },
+                        { img: kutchMasterWeaver, label: 'Chaman Siju' },
                         { img: kutchArtisanWeaving, label: 'Handloom' },
                         { img: kutchYarnSkeins, label: 'Dyed Skeins' },
                         { img: kutchIndigoVat, label: 'Indigo Vat' },
-                        { img: kutchTanaBana, label: 'Warping Atelier' }
+                        { img: kutchTanaBana, label: 'Warping Frame' }
                       ].map((item, idx) => (
                         <button
                           key={idx}

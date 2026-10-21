@@ -64,6 +64,7 @@ import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_
 import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
 import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
 import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
+import kalaLoom from '../assets/images/kutch-weaving/kutch_kala_cotton_pit_loom.jpg';
 import kutchYarnSkeins from '../assets/images/kutch-weaving/kutch_dyed_yarn_skeins.jpg';
 import kutchArtisanWeaving from '../assets/images/kutch-weaving/kutch_artisan_handloom_weaving.jpg';
 import kutchIndigoVat from '../assets/images/kutch-weaving/kutch_indigo_vat_immersion.jpg';
@@ -556,28 +557,29 @@ const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'kutch-weaving',
-    title: 'Kutch Handloom Weaving',
-    tagline: 'Workshop · Bhujodi Craft Heritage',
+    id: 'fiber-to-fabric',
+    title: 'Fiber to Fabric',
+    tagline: 'Workshop · Chaman Siju [Bhuj]',
     category: 'workshop',
     icon: Layers,
     backgroundColor: '#121A1A',
     pages: [
       {
         type: 'grid',
-        title: 'Kutch Handloom Weaving',
+        title: 'Fiber to Fabric',
         gridCols: 2,
         imageAspect: 'aspect-[4/3]',
         imageFit: 'cover',
         images: [
-          { src: kutchMasterWeaver, alt: 'Master artisan in traditional turban weaving intricate geometric extra-weft red borders on a pit loom' },
-          { src: kutchArtisanWeaving, alt: 'Artisan weaving fine handloom textile on traditional shuttle loom with selvedge motifs' },
-          { src: kutchYarnSkeins, alt: 'Hand-spun naturally dyed yarn skeins in indigo, raw bouclé wool, and earthy mineral tones' },
+          { src: kalaLoom, alt: 'Traditional pit loom with white Kala cotton warp threads stretched in Chaman Siju workshop in Bhuj' },
+          { src: kutchMasterWeaver, alt: 'Skilled artisan Chaman Siju weaving intricate geometric extra-weft red borders on a pit loom' },
+          { src: kutchArtisanWeaving, alt: 'Artisan weaving traditional Kala cotton handloom saree on shuttle loom' },
+          { src: kutchYarnSkeins, alt: 'Hand-spun naturally dyed Kala cotton yarn skeins in indigo, raw bouclé wool, and earthy tones' },
           { src: kutchIndigoVat, alt: 'Artisan holding freshly dyed blue and mottled indigo yarn skeins over an active fermentation dye vat' },
-          { src: kutchTanaBana, alt: 'Traditional weaving atelier showing wide horizontal warping frames (tana-bana), bicycle-wheel charkha, and loom setup' }
+          { src: kutchTanaBana, alt: 'Traditional weaving atelier showing wide horizontal warping frames (tana-bana) and spinning setup' }
         ],
         paragraphs: [
-          "Hands-on workshop and artisanal study of traditional Kutch handloom weaving and natural dyeing techniques in the weaver clusters of Kutch, Gujarat. Exploring the complete alchemy of heritage textile production — from raw fiber processing and bicycle-wheel bobbin winding to horizontal tana-bana (warp preparation), fermentation indigo vat dipping, and pit-loom weaving featuring signature geometric extra-weft motifs and fine selvedge borders."
+          "During our visit to Bhuj, we met Chaman Siju, a skilled artisan who transforms traditional Kala cotton into beautiful handloom sarees. The visit offered valuable insights into the traditional processes of cotton weaving, the importance of artisan craftsmanship, and the preservation of Kutch’s rich textile heritage."
         ]
       }
     ]
@@ -650,7 +652,7 @@ const PROJECTS: Project[] = [
 const WORKSHOPS = [
   { name: "The Seamstress's Secret", note: "School of Historical Dress & LLDC", projectId: "seamstress-secret" },
   { name: 'The Geometry & Structure of Tailoring', note: 'LLDC [Kutch]', projectId: 'geometry-structure-tailoring' },
-  { name: 'Kutch Handloom Weaving', note: 'Bhujodi Heritage', projectId: 'kutch-weaving' },
+  { name: 'Fiber to Fabric', note: 'Chaman Siju · Bhuj', projectId: 'fiber-to-fabric' },
   { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai', projectId: 'coconut-shell-craft' },
   { name: 'Paper Weaving', note: 'Wellpaper', projectId: 'paper-weaving' },
