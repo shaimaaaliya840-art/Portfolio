@@ -32,7 +32,6 @@ import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
 import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
 import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
-import aooCoutureBackground from '../assets/images/anatomy-of-ornament/aoo_couture_background.jpg';
 import aooMbRunway from '../assets/images/anatomy-of-ornament/aoo_mb_runway.png';
 import aooMbCorset from '../assets/images/anatomy-of-ornament/aoo_mb_corset.png';
 import aooMbKurta from '../assets/images/anatomy-of-ornament/aoo_mb_kurta.png';
@@ -43,6 +42,10 @@ import aooGarment1_1 from '../assets/images/anatomy-of-ornament/aoo_garment1_1.p
 import aooGarment1_2 from '../assets/images/anatomy-of-ornament/aoo_garment1_2.png';
 import aooGarment1_3 from '../assets/images/anatomy-of-ornament/aoo_garment1_3.png';
 import aooGarment1_4 from '../assets/images/anatomy-of-ornament/aoo_garment1_4.png';
+import aooGarment2_1 from '../assets/images/anatomy-of-ornament/aoo_garment2_1.png';
+import aooGarment2_2 from '../assets/images/anatomy-of-ornament/aoo_garment2_2.png';
+import aooGarment2_3 from '../assets/images/anatomy-of-ornament/aoo_garment2_3.png';
+import aooGarment2_4 from '../assets/images/anatomy-of-ornament/aoo_garment2_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
 import aooGarment2 from '../assets/images/anatomy-of-ornament/garment_2.jpg';
 import aooGarment3 from '../assets/images/anatomy-of-ornament/garment_3.jpg';
@@ -212,8 +215,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Project',
     icon: Gem,
-    background: aooCoutureBackground,
-    backgroundColor: '#09080B',
+    backgroundColor: '#000000',
     pages: [
       {
         type: 'text',
@@ -267,15 +269,33 @@ const PROJECTS: Project[] = [
       {
         type: 'grid',
         title: 'Garment 02',
+        layout: 'bento-center-stack',
         imageFit: 'cover',
         images: [
-          { src: aooGarment4, alt: 'Garment 02 — Sculptural silhouette view' },
-          { src: aooGarment6, alt: 'Garment 02 — High-fashion editorial poise' },
-          { src: aooGarment7, alt: 'Garment 02 — Back and sleeve architectural lines' }
+          {
+            src: aooGarment2_4,
+            alt: 'Garment 02 — Frontal silhouette with sculpted wave neckline and textured beading',
+            objectPosition: 'center 20%'
+          },
+          {
+            src: aooGarment2_2,
+            alt: 'Garment 02 — Scalloped strapless neckline, hand-sewn bugle beading and earrings',
+            objectPosition: 'center 20%'
+          },
+          {
+            src: aooGarment2_3,
+            alt: 'Garment 02 — Architectural side profile against textured brickwork with dark eyewear',
+            objectPosition: 'center 20%'
+          },
+          {
+            src: aooGarment2_1,
+            alt: 'Garment 02 — Back architecture showing bespoke eyelet lacing and fluid trouser drape',
+            objectPosition: 'center 20%'
+          }
         ],
         paragraphs: [
-          "LOOK 02 · THE GILDED PETAL",
-          "Asymmetrical shoulder architecture evoking layered lotus leaves, constructed in handwoven charcoal silk with gold bullion thread."
+          "LOOK 02 · OBSIDIAN WAVE & BONED CORSETRY",
+          "Sculpted midnight strapless corset featuring an organic wave neckline and vertical textured bugle bead embroidery, engineered with traditional back lacing and paired with tailored fluid silk trousers."
         ]
       },
       {
@@ -531,40 +551,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ background: project.backgroundColor }}
     >
-      {project.id === 'anatomy-of-ornament' && project.background ? (
-        <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10 select-none">
-          {/* Base deep obsidian tone */}
-          <div className="absolute inset-0 bg-[#09080B]" />
-
-          {/* Bespoke Couture Textile Background Artwork */}
-          <img
-            src={project.background}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-center opacity-85"
-          />
-
-          {/* Top-Center Antique Gold Volumetric Ambient Aura */}
-          <div
-            className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[750px] pointer-events-none blur-[100px]"
-            style={{
-              background: 'radial-gradient(ellipse at 50% 25%, rgba(212, 175, 55, 0.14) 0%, rgba(180, 130, 45, 0.05) 50%, transparent 75%)'
-            }}
-          />
-
-          {/* Subtle Bronze Warmth Bloom in Lower Center */}
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none blur-[140px]"
-            style={{
-              background: 'radial-gradient(circle, rgba(140, 90, 35, 0.05) 0%, transparent 70%)'
-            }}
-          />
-
-          {/* Dark Atmospheric Vertical Contrast Gradient & Deep Obsidian Vignette */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
-          <div className="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.92)] pointer-events-none" />
-        </div>
-      ) : project.id !== 'anatomy-of-ornament' ? (
+      {project.id !== 'anatomy-of-ornament' ? (
         /* Volumetric pinkish gradient bloom */
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
