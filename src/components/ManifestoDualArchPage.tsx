@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, Palette, Star, Briefcase, Cpu } from 'lucide-react';
+import { Palette, Star, Briefcase, Cpu } from 'lucide-react';
 import { PortfolioData } from '../types';
 import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
 
@@ -162,10 +162,6 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
                     <span>Neelgar Atelier · Design & Content Intern (22 May – Aug 2026)</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <GraduationCap className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
-                    <span>Indus University Design Studios · Craft Researcher</span>
                   </div>
                 </div>
               </div>
