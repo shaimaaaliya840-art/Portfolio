@@ -313,7 +313,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                     <div 
                       onClick={() => setWorkshopLightbox({
                         src: activeWorkshopImg,
-                        caption: 'LLDC [Kutch] · The Geometry and Structure of Tailoring Archival Masterclass'
+                        caption: 'Pattern of Fashion Global Symposium at LLDC, Bhuj · Under Jenny Tiramani (The School of Historical Dress London)'
                       })}
                       className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
                       title="Click to view full photo"
@@ -327,10 +327,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
                         <div className="text-left font-mono">
                           <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                            LLDC [Kutch] · The Geometry &amp; Structure of Tailoring
+                            LLDC, Bhuj · The Geometry &amp; Structure of Tailoring
                           </div>
                           <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                            Janet Arnold Patterns of Fashion, 1712 Master Tailor Manuscripts &amp; 3D Paper Toile Studies
+                            Pattern of Fashion Global Symposium · Under Jenny Tiramani (The School of Historical Dress London)
                           </div>
                         </div>
                         <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">

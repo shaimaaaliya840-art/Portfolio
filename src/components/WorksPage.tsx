@@ -581,14 +581,7 @@ const PROJECTS: Project[] = [
           { src: lldcPaperMockup, alt: 'Geometric origami paper toile study deconstructing flat pattern to 3D garment silhouette' }
         ],
         paragraphs: [
-          "THE GEOMETRY AND STRUCTURE OF TAILORING — LLDC [KUTCH]",
-          "An intensive masterclass and archival research immersion conducted at Living and Learning Design Centre (LLDC) in Ajrakhpur, Kutch, Gujarat — deconstructing the anatomical mathematics and architectural cutting systems of historical European tailoring from the late 17th to 18th centuries.",
-          "RESEARCH & ARCHITECTURAL METHODOLOGY:",
-          "1. Mathematical Pattern Analysis: Studying seminal archival pattern treatises (Janet Arnold's 'Patterns of Fashion 6' and historical Bohemian master tailor manuscripts from 1712) to decode the geometric origins of the three-piece suit, sleeved waistcoats, and Spanish breeches.",
-          "2. Two-Dimensional to Three-Dimensional Transposition: Translating flat geometric diagrams — circular arcs, triangular skirt inserts, and gussets — into precision paper scale-models to understand how flat sheets curve into rigid body architecture without synthetic stretch.",
-          "3. Structural Interfacing & Pleating Systems: Investigating historical pleat-fan geometry (back pleats, side-vent gores, and curved armhole cuts) that distribute fabric volume cleanly across waist and hip contours.",
-          "4. Reconstructed Haute Tailoring: Analyzing original full-scale replicas featuring intricate gold bullion metallic frogging, standing linen ruff collars, slashed doublet sleeves, and hand-worked buttonholes.",
-          "SYNTHESIS: Bridging historical pattern geometry with modern avant-garde couture architectural silhouettes and structural corsetry."
+          "As part of the Pattern of Fashion Global Symposium at LLDC, Bhuj, I attended a workshop under JENNY TIRAMANI co-founder of the school of historical dress london on historical garment pattern-making, where I learned to create traditional flat patterns inspired by dressmaking techniques from 1,000-2,000 years ago. The workshop offered valuable insights into ancient construction methods, historical silhouettes, and the evolution of garment design."
         ]
       }
     ]
