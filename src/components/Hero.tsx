@@ -123,13 +123,13 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.8 }}
-        className="w-full flex items-center justify-between border-t border-[#540D21]/15 pt-3 text-[0.625rem] sm:text-xs font-mono tracking-[0.25em] text-[#540D21]/70 uppercase select-none"
+        className="w-full flex items-center justify-between border-t border-[var(--color-accent,#E9D5E6)]/25 pt-3.5 text-[0.6875rem] sm:text-xs font-mono tracking-[0.25em] uppercase select-none"
       >
-        <div className="flex items-center gap-2">
-          <span className="animate-bounce">↓</span>
-          <span>Scroll Down</span>
+        <div className="flex items-center gap-2 text-[var(--color-text,#FAF0F8)] font-semibold">
+          <span className="animate-bounce text-[var(--color-accent,#E9D5E6)] font-bold text-sm">↓</span>
+          <span className="tracking-[0.25em]">Scroll Down</span>
         </div>
-        <div className="text-[0.625rem] text-[#241217]/40 hidden sm:block">
+        <div className="text-[0.6875rem] text-[var(--color-text-muted,#D2BDCF)] hidden sm:block tracking-[0.25em] font-medium">
           Atelier · Silhouette · Drape · Archive
         </div>
       </motion.div>
