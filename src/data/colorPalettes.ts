@@ -373,5 +373,144 @@ export const atelierPalettes: AtelierPalette[] = [
         garmentUsage: 'Display headlines, Bodoni numerals, quotes'
       }
     ]
+  },
+  {
+    id: 'orchid-blossom-gallery-noir',
+    name: 'Orchid Blossom & Gallery Noir',
+    tagline: 'Electric Orchid Pink (#FFA7E4), Laser Violet (#B080FC) & Museum Gallery Noir',
+    era: 'Atelier Contemporain · "ABOUT Me" Exhibition',
+    description: 'Calibrated directly from the contemporary "ABOUT Me" gallery exhibition visual. High-voltage Orchid Pink (#FFA7E4) typography paired with electric violet hairline framing (#B080FC), set against deep monochrome gallery shadows and obsidian atelier tailoring.',
+    base: '#0B0B0E',
+    surface: '#131217',
+    panel: '#1C1A22',
+    accent: '#FFA7E4',
+    brass: '#B080FC',
+    gold: '#FFA7E4',
+    bronze: '#8B3DFF',
+    mocha: '#36283E',
+    text: '#FAF5FA',
+    textMuted: '#C4B5CD',
+    swatches: [
+      {
+        name: 'Electric Orchid Pink',
+        hex: '#FFA7E4',
+        rgb: '255, 167, 228',
+        dmc: 'DMC 603 Ultra Light Cranberry',
+        role: 'Primary Radiant Typography & Sparkle Accent',
+        percentage: 30,
+        fabric: 'Glazed Mulberry Silk Gazar & Liquid Vinyl Applique',
+        garmentUsage: 'Oversized typographic applique, centerpiece star embroidery, radiant seam details'
+      },
+      {
+        name: 'Electric Violet Laser Rim',
+        hex: '#B080FC',
+        rgb: '176, 128, 252',
+        dmc: 'DMC 209 Dark Lavender',
+        role: 'Architectural Hairline Frame & Seam Piping',
+        percentage: 20,
+        fabric: 'Optic-Fiber Weft Organza & High-Sheen Metallic Taffeta',
+        garmentUsage: 'Outer border piping, architectural corsetry channels, slide framing accents'
+      },
+      {
+        name: 'Gallery Obsidian Noir',
+        hex: '#0B0B0E',
+        rgb: '11, 11, 14',
+        dmc: 'DMC 310 Jet Black Noir',
+        role: 'Monolithic Deep Foundation & Silhouette Frame',
+        percentage: 25,
+        fabric: 'Matte Wool Barathea & Heavy Silk Velvet',
+        garmentUsage: 'Exhibition floor mantles, structural overcoats, deep shadow drapery'
+      },
+      {
+        name: 'Exhibition Smoked Slate',
+        hex: '#2E2D36',
+        rgb: '46, 45, 54',
+        dmc: 'DMC 3799 Very Dark Pewter',
+        role: 'Midtone Gallery Contrast & Tailored Layering',
+        percentage: 15,
+        fabric: 'Brushed Mohair & Raw Carbon-Woven Twill',
+        garmentUsage: 'Card containers, tailored suit lapels, architectural pleats'
+      },
+      {
+        name: 'Orchid Petal Mist',
+        hex: '#FAF5FA',
+        rgb: '250, 245, 250',
+        dmc: 'DMC B5200 Bright Snow Petal',
+        role: 'High-Fidelity Editorial Typographic Clarity',
+        percentage: 10,
+        fabric: 'Featherlight Mulberry Silk Crepe de Chine',
+        garmentUsage: 'Editorial body typography, floating translucent veil layers, drop caps'
+      }
+    ]
+  },
+  {
+    id: 'noir-blossom-mineral-slate',
+    name: 'Noir Blossom & Mineral Slate',
+    tagline: 'Obsidian Noir (#000000), Radiant Blossom Pink (#FFA7E4), Mineral Slate (#5D5D5D) & Deep Charcoal (#393839)',
+    era: 'Minimalist Haute Couture · Modernist Quad-Tone Capsule',
+    description: 'Calibrated directly from the signature quad-tone graphic palette. A high-contrast modernist tension between monolithic Obsidian Noir (#000000) and electric Blossom Pink (#FFA7E4), balanced through tailored Mineral Slate (#5D5D5D) and architectonic Deep Charcoal (#393839).',
+    base: '#000000',
+    surface: '#1A1A1C',
+    panel: '#262629',
+    accent: '#FFA7E4',
+    brass: '#FFA7E4',
+    gold: '#FFA7E4',
+    bronze: '#5D5D5D',
+    mocha: '#393839',
+    text: '#FAF7FA',
+    textMuted: '#B5B4B8',
+    swatches: [
+      {
+        name: 'Obsidian Jet Noir',
+        hex: '#000000',
+        rgb: '0, 0, 0',
+        dmc: 'DMC 310 Jet Black Noir',
+        role: 'Monolithic Base & Infinite Shadow',
+        percentage: 35,
+        fabric: 'Matte Tuxedo Wool Barathea & Heavy Silk Velvet',
+        garmentUsage: 'Monolithic outerwear coats, structural draping, high-contrast floor silhouettes'
+      },
+      {
+        name: 'Radiant Blossom Pink',
+        hex: '#FFA7E4',
+        rgb: '255, 167, 228',
+        dmc: 'DMC 603 Ultra Light Cranberry',
+        role: 'Primary Radiant Focal Accent & Neon Typographic Glow',
+        percentage: 25,
+        fabric: 'Glazed Mulberry Silk Gazar & Liquid Vinyl Applique',
+        garmentUsage: 'Hero typographic statements, luminescent badges, jewel accents, radiant embroidery'
+      },
+      {
+        name: 'Mineral Slate Gray',
+        hex: '#5D5D5D',
+        rgb: '93, 93, 93',
+        dmc: 'DMC 3799 Medium Slate Pewter',
+        role: 'Architectural Hairline Framing & Mid-Tone Structure',
+        percentage: 20,
+        fabric: 'Brushed Mohair & Raw Carbon-Woven Twill',
+        garmentUsage: 'Card borders, tactile dividers, tailored suit lapels, geometric seams'
+      },
+      {
+        name: 'Deep Charcoal Graphite',
+        hex: '#393839',
+        rgb: '57, 56, 57',
+        dmc: 'DMC 413 Dark Charcoal',
+        role: 'Tonal Depth, Inset Panels & Shadow Geometry',
+        percentage: 15,
+        fabric: 'Molded Technical Neoprene & Charcoal Wool Crepe',
+        garmentUsage: 'Inner drawer containers, dimensional card frames, structural boning channels'
+      },
+      {
+        name: 'Crisp Alabaster Mist',
+        hex: '#FAF7FA',
+        rgb: '250, 247, 250',
+        dmc: 'DMC B5200 Bright Snow Petal',
+        role: 'High-Fidelity Editorial Typographic Clarity',
+        percentage: 5,
+        fabric: 'Featherlight Mulberry Silk Crepe de Chine',
+        garmentUsage: 'Display serif headlines, high-contrast editorial body prose, numerals'
+      }
+    ]
   }
 ];
+

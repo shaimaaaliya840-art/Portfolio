@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles, Copy, Check, Palette, CheckCircle2, ArrowRight } from 'lucide-react';
 import { AtelierPalette, atelierPalettes, AtelierSwatch } from '../data/colorPalettes';
+import aboutMeGalleryOrchidImage from '../assets/images/about_me_gallery_orchid.png';
+import paletteNoirBlossomSlateImage from '../assets/images/palette_noir_blossom_slate.png';
+
 
 interface ColorInspirationModalProps {
   isOpen: boolean;
@@ -83,9 +86,11 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
               <div className="text-xs font-mono uppercase tracking-widest text-[var(--color-accent,#540D21)] mb-3 font-bold">
                 SELECT ATELIER INSPIRATION
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {atelierPalettes.map((palette) => {
                   const isCurrent = palette.id === activePalette.id;
+                  const isOrchid = palette.id === 'orchid-blossom-gallery-noir';
+                  const isNoirBlossom = palette.id === 'noir-blossom-mineral-slate';
                   return (
                     <button
                       key={palette.id}
@@ -113,6 +118,16 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                             style={{ backgroundColor: s.hex }}
                           />
                         ))}
+                        {isNoirBlossom && (
+                          <span className="ml-auto text-[0.5625rem] font-mono uppercase tracking-wider px-1.5 py-0.5 bg-[#FFA7E4]/20 border border-[#FFA7E4] text-[#FFA7E4] font-bold rounded-xs">
+                            QUAD-TONE REF
+                          </span>
+                        )}
+                        {isOrchid && (
+                          <span className="ml-auto text-[0.5625rem] font-mono uppercase tracking-wider px-1.5 py-0.5 bg-[#FFA7E4]/20 border border-[#FFA7E4] text-[#FFA7E4] font-bold rounded-xs">
+                            REFERENCE REF
+                          </span>
+                        )}
                       </div>
                       <div className="text-xs font-serif font-black uppercase text-[var(--color-text,#241217)] truncate">
                         {palette.name}
@@ -144,6 +159,62 @@ export const ColorInspirationModal: React.FC<ColorInspirationModalProps> = ({
                   ACTIVE PORTFOLIO PALETTE
                 </div>
               </div>
+
+              {/* Special Reference Artwork Preview Card if Noir Blossom & Mineral Slate palette is active */}
+              {activePalette.id === 'noir-blossom-mineral-slate' && (
+                <div className="mb-6 p-4 bg-black/90 border-2 border-[#FFA7E4] shadow-xl flex flex-col md:flex-row items-center gap-5 rounded-sm">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 overflow-hidden border border-[#5D5D5D] shrink-0 shadow-inner group relative rounded-sm bg-black p-1 flex items-center justify-center">
+                    <img
+                      src={paletteNoirBlossomSlateImage}
+                      alt="Quad-tone Palette Reference Swatch"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xs"
+                    />
+                    <div className="absolute top-1 left-1 px-1 py-0.5 bg-black/80 text-[0.5rem] font-mono text-[#FFA7E4] font-bold uppercase tracking-wider border border-[#FFA7E4]/50">
+                      REF
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 text-left flex-1">
+                    <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FFA7E4] font-bold flex items-center gap-2">
+                      <Sparkles className="w-3.5 h-3.5 text-[#FFA7E4]" />
+                      <span>COLOR PALETTE &amp; MATERIALITY REFERENCE</span>
+                    </div>
+                    <div className="text-sm font-serif font-black text-white">
+                      Modernist Quad-Tone Graphic Capsule
+                    </div>
+                    <p className="text-xs text-[#FAF7FA]/80 font-mono leading-relaxed">
+                      Exact 4-stripe color extraction: <strong className="text-white">#000000</strong> (Obsidian Noir), <strong className="text-[#FFA7E4]">#FFA7E4</strong> (Radiant Blossom Pink), <strong className="text-[#A0A0A0]">#5D5D5D</strong> (Mineral Slate Gray), and <strong className="text-[#B5B4B8]">#393839</strong> (Deep Graphite Charcoal).
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Special Reference Artwork Preview Card if Orchid Blossom palette is active */}
+              {activePalette.id === 'orchid-blossom-gallery-noir' && (
+                <div className="mb-6 p-4 bg-black/75 border-2 border-[#FFA7E4] shadow-xl flex flex-col md:flex-row items-center gap-5 rounded-sm">
+                  <div className="w-full md:w-56 aspect-[16/9] overflow-hidden border border-[#B080FC] shrink-0 shadow-inner group relative">
+                    <img
+                      src={aboutMeGalleryOrchidImage}
+                      alt="About Me Reference Image"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 bg-black/80 text-[0.5625rem] font-mono text-[#FFA7E4] font-bold uppercase tracking-wider border border-[#FFA7E4]/50">
+                      REFERENCE IMAGE
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 text-left flex-1">
+                    <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FFA7E4] font-bold flex items-center gap-2">
+                      <Sparkles className="w-3.5 h-3.5 text-[#FFA7E4]" />
+                      <span>COLOR PALETTE &amp; MATERIALITY REFERENCE</span>
+                    </div>
+                    <div className="text-sm font-serif font-black text-white">
+                      "ABOUT Me" Gallery Exhibition &amp; Materiality Calibration
+                    </div>
+                    <p className="text-xs text-[#FAF5FA]/80 font-mono leading-relaxed">
+                      Exact color extraction: <strong className="text-[#FFA7E4]">#FFA7E4</strong> (high-voltage orchid pink typography &amp; star spark), <strong className="text-[#B080FC]">#B080FC</strong> (laser-piped perimeter frame), and <strong className="text-white">#0B0B0E</strong> (gallery chiaroscuro noir).
+                    </p>
+                  </div>
+                </div>
+              )}
 
               <p className="text-xs sm:text-sm text-[var(--color-text-muted,#D2BDCF)] leading-relaxed mb-6 font-mono">
                 {activePalette.description}

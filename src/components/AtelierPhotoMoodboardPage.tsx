@@ -5,7 +5,10 @@ import antiqueBrassAtelierImage from '../assets/images/antique_brass_atelier_pal
 import redThreadHandsImage from '../assets/images/red_thread_hands_1790503180613.jpg';
 import pinterestThumbnailImage from '../assets/images/pinterest_thumbnail_180144053839629127.jpg';
 import coutureConceptSketchImage from '../assets/images/couture_concept_sketch_1790592803430.jpg';
+import aboutMeGalleryOrchidImage from '../assets/images/about_me_gallery_orchid.png';
+import paletteNoirBlossomSlateImage from '../assets/images/palette_noir_blossom_slate.png';
 import { ConceptInspirationStudioModal, ConceptItem } from './ConceptInspirationStudioModal';
+
 import { FadingSparkProjectDetailPage } from './FadingSparkProjectDetailPage';
 
 const DEFAULT_LOOKBOOK_PAGES: ConceptItem[] = [
@@ -44,8 +47,27 @@ const DEFAULT_LOOKBOOK_PAGES: ConceptItem[] = [
     subtitle: 'An alchemy of mineral pigments and botanical embroidery skeins',
     description: 'A composition of fine trims, historic atelier hardware and French silk skeins dyed in red wine, ochre and aged gold.',
     image: antiqueBrassAtelierImage
+  },
+  {
+    id: 'materiality-2',
+    category: 'MATERIALITY',
+    badge: 'COLOR PALETTE & MATERIALITY',
+    title: 'Orchid Blossom & Gallery Noir Materiality',
+    subtitle: 'Luminous Orchid Pink (#FFA7E4), Electric Violet (#B080FC) & Exhibition Chiaroscuro',
+    description: 'A study of contemporary high-fashion typography and architectural color framing: radiant bubblegum orchid silk applique, iridescent optic fiber borders, and deep gallery noir gabardine.',
+    image: aboutMeGalleryOrchidImage
+  },
+  {
+    id: 'materiality-3',
+    category: 'MATERIALITY',
+    badge: 'COLOR PALETTE & MATERIALITY',
+    title: 'Noir Blossom & Mineral Slate Materiality',
+    subtitle: 'Obsidian Noir (#000000), Radiant Blossom Pink (#FFA7E4), Mineral Slate (#5D5D5D) & Deep Charcoal (#393839)',
+    description: 'A modernist quad-tone chromatic study: monolithic black wool barathea, radiant blossom pink silk gazar, tailored mineral slate twill, and architectural deep charcoal neoprene.',
+    image: paletteNoirBlossomSlateImage
   }
 ];
+
 
 interface AtelierPhotoMoodboardPageProps {
   activePalette: AtelierPalette;

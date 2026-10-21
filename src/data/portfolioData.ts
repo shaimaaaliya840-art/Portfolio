@@ -95,14 +95,17 @@ export const initialPortfolioData: PortfolioData = {
     "Pidilite Workshop",
     "Hand woven basket",
     "Kolam",
-    "Eco-printing"
+    "Eco-printing",
+    "Indigo Site Visit",
+    "Coconut Shell Craft (Egai)"
   ],
   dyeingSkills: [
     "Tie-dye",
     "Batik",
     "Shibori",
     "Bleaching & dyeing",
-    "Block-printing"
+    "Block-printing",
+    "Natural Indigo Fermentation"
   ],
   hardSkills: [
     "CLO3D (3D Garment Simulation & Digital Prototyping)",
