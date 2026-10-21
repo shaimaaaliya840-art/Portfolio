@@ -32,6 +32,7 @@ import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
 import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
 import garment4_4 from '../assets/images/abhisarika/garment4_4.jpg';
+import aooCoutureBackground from '../assets/images/anatomy-of-ornament/aoo_couture_background.jpg';
 import aooMbRunway from '../assets/images/anatomy-of-ornament/aoo_mb_runway.png';
 import aooMbCorset from '../assets/images/anatomy-of-ornament/aoo_mb_corset.png';
 import aooMbKurta from '../assets/images/anatomy-of-ornament/aoo_mb_kurta.png';
@@ -211,6 +212,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Project',
     icon: Gem,
+    background: aooCoutureBackground,
     backgroundColor: '#09080B',
     pages: [
       {
@@ -529,43 +531,43 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ background: project.backgroundColor }}
     >
-      {project.id === 'anatomy-of-ornament' ? (
+      {project.id === 'anatomy-of-ornament' && project.background ? (
         <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10 select-none">
-          {/* Deep Obsidian Noir Silk Gradient Base */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#100E14] via-[#09080B] to-[#040405]" />
+          {/* Base deep obsidian tone */}
+          <div className="absolute inset-0 bg-[#09080B]" />
+
+          {/* Bespoke Couture Textile Background Artwork */}
+          <img
+            src={project.background}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-85"
+          />
 
           {/* Top-Center Antique Gold Volumetric Ambient Aura */}
           <div
-            className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[750px] pointer-events-none blur-[110px]"
+            className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[750px] pointer-events-none blur-[100px]"
             style={{
-              background: 'radial-gradient(ellipse at 50% 25%, rgba(212, 175, 55, 0.13) 0%, rgba(180, 130, 45, 0.05) 45%, transparent 75%)'
+              background: 'radial-gradient(ellipse at 50% 25%, rgba(212, 175, 55, 0.14) 0%, rgba(180, 130, 45, 0.05) 50%, transparent 75%)'
             }}
           />
 
-          {/* Lower Bronze / Amber Warmth Halo */}
+          {/* Subtle Bronze Warmth Bloom in Lower Center */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none blur-[140px]"
             style={{
-              background: 'radial-gradient(circle, rgba(140, 90, 35, 0.05) 0%, rgba(100, 60, 25, 0.02) 50%, transparent 75%)'
+              background: 'radial-gradient(circle, rgba(140, 90, 35, 0.05) 0%, transparent 70%)'
             }}
           />
 
-          {/* Micro-weave Silk Texture Layer */}
-          <div
-            className="absolute inset-0 opacity-[0.035] mix-blend-screen pointer-events-none"
-            style={{
-              backgroundImage: 'radial-gradient(rgba(255,255,255,0.7) 1px, transparent 0)',
-              backgroundSize: '24px 24px'
-            }}
-          />
-
-          {/* Subtle Obsidian Vignette at Edges */}
-          <div className="absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.85)] pointer-events-none" />
+          {/* Dark Atmospheric Vertical Contrast Gradient & Deep Obsidian Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
+          <div className="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.92)] pointer-events-none" />
         </div>
-      ) : (
+      ) : project.id !== 'anatomy-of-ornament' ? (
         /* Volumetric pinkish gradient bloom */
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
-      )}
+      ) : null}
 
       {project.background && project.id === 'abhisarika' ? (
         <div
