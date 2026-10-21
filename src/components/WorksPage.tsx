@@ -46,6 +46,10 @@ import aooGarment2_1 from '../assets/images/anatomy-of-ornament/aoo_garment2_1.p
 import aooGarment2_2 from '../assets/images/anatomy-of-ornament/aoo_garment2_2.png';
 import aooGarment2_3 from '../assets/images/anatomy-of-ornament/aoo_garment2_3.png';
 import aooGarment2_4 from '../assets/images/anatomy-of-ornament/aoo_garment2_4.png';
+import aooGarment3_1 from '../assets/images/anatomy-of-ornament/aoo_garment3_1.png';
+import aooGarment3_2 from '../assets/images/anatomy-of-ornament/aoo_garment3_2.png';
+import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
+import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
 import aooGarment2 from '../assets/images/anatomy-of-ornament/garment_2.jpg';
 import aooGarment3 from '../assets/images/anatomy-of-ornament/garment_3.jpg';
@@ -301,15 +305,33 @@ const PROJECTS: Project[] = [
       {
         type: 'grid',
         title: 'Garment 03',
+        layout: 'bento-center-stack',
         imageFit: 'cover',
         images: [
-          { src: aooGarment8, alt: 'Garment 03 — Evening gown editorial look' },
-          { src: aooGarment9, alt: 'Garment 03 — Movement and fluid sweep' },
-          { src: aooGarment10, alt: 'Garment 03 — Intricate surface ornamentation finish' }
+          {
+            src: aooGarment3_1,
+            alt: 'Garment 03 — Full-length architectural utility jacket silhouette in boots',
+            objectPosition: 'center 35%'
+          },
+          {
+            src: aooGarment3_2,
+            alt: 'Garment 03 — Editorial portrait with dark eyewear and embroidered jacket lapels',
+            objectPosition: 'center 30%'
+          },
+          {
+            src: aooGarment3_3,
+            alt: 'Garment 03 — Close-up craft detail of gold threadwork embroidery on raw indigo denim',
+            objectPosition: 'center'
+          },
+          {
+            src: aooGarment3_4,
+            alt: 'Garment 03 — Dynamic side profile showcasing windblown poise and sleeve ornamentation',
+            objectPosition: 'center 20%'
+          }
         ],
         paragraphs: [
-          "LOOK 03 · THE NOCTURNE BLOOM",
-          "Dramatic floor-sweeping evening ensemble in midnight noir velvet with cascading lotus-contour panels."
+          "LOOK 03 · INDIGO BOTANICA & STRUCTURED OVERCOAT",
+          "Raw dark indigo utility jacket tailored with wide notched lapels and flap pockets, elevated with intricate golden ochre hand-embroidered botanical motifs cascading along both sleeves, paired over a midnight mini silhouette."
         ]
       }
     ]
