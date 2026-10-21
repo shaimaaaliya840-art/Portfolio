@@ -266,7 +266,7 @@ const PROJECTS: Project[] = [
           }
         ],
         paragraphs: [
-          "LOOK 01 · PADMA RADIANCE & ARCHITECTURAL DRAPE",
+          "LOOK 01 · PADMA RADIANCE & ARCHITECTURAL SILHOUETTE",
           "Sculpted one-shoulder midnight silk column silhouette engineered with radial gold bullion lotus ornamentation emerging from the waistline, paired with an asymmetrical cascading sash anchored by a bespoke floral metallurgy tassel."
         ]
       },
@@ -293,7 +293,7 @@ const PROJECTS: Project[] = [
           },
           {
             src: aooGarment2_1,
-            alt: 'Garment 02 — Back architecture showing bespoke eyelet lacing and fluid trouser drape',
+            alt: 'Garment 02 — Back architecture showing bespoke eyelet lacing and fluid trouser tailoring',
             objectPosition: 'center 20%'
           }
         ],

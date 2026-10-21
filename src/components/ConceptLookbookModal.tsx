@@ -53,7 +53,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
       supportingImages: [
         {
           url: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop',
-          caption: 'CLO3D Virtual Prototyping & Draping Muslin'
+          caption: 'CLO3D Virtual Prototyping & Muslin Fitting'
         },
         {
           url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop',
@@ -117,11 +117,11 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
         },
         {
           title: 'Neelgar Craft Synergy',
-          detail: 'Collaborative development with master drapers at Neelgar atelier, reinterpreting 18th-century Varanasi weaves.'
+          detail: 'Collaborative development with master artisans at Neelgar atelier, reinterpreting 18th-century Varanasi weaves.'
         },
         {
           title: 'Subversive Menswear & Bridal',
-          detail: 'Transcending gender boundaries with raw-edged khadi wool coats, asymmetric closure lapels, and liquid noir drapery.'
+          detail: 'Transcending gender boundaries with raw-edged khadi wool coats, asymmetric closure lapels, and liquid noir silhouettes.'
         }
       ],
       palette: [
@@ -148,7 +148,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
         },
         {
           url: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop',
-          caption: 'Raw Tusser Silk & Biomechanical Drapes'
+          caption: 'Raw Tusser Silk & Biomechanical Silhouettes'
         }
       ],
       description:
@@ -159,7 +159,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
           detail: 'Rough, hand-loomed Gujarat khadi wool confronted against liquid duchess satin and shimmering Varanasi brocade.'
         },
         {
-          title: 'Sculptural Drapery',
+          title: 'Sculptural Silhouettes',
           detail: 'Choreographed folds developed directly on living dress forms rather than flat 2D drafting, preserving organic movement.'
         },
         {

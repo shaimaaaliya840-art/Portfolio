@@ -231,7 +231,7 @@ const FashionFigureOutfit4: React.FC = () => {
         {/* Floor-Length Crimson Sculptural Gown with Cascading Swirl Folds */}
         <path d="M45,44 Q50,47 55,44 L58,85 Q62,130 57,175 Q68,230 73,290 L27,290 Q32,230 43,175 Q38,130 42,85 Z" fill="#6B0F22" />
 
-        {/* Organic Drapery Swirl Highlights */}
+        {/* Organic Silhouette Swirl Highlights */}
         <path d="M48,50 Q43,80 50,110 Q58,150 48,190 Q40,240 34,290" fill="none" stroke="#480A16" strokeWidth="1.8" />
         <path d="M52,50 Q56,80 52,110 Q46,150 54,190 Q62,240 68,290" fill="none" stroke="#8C1830" strokeWidth="1.5" />
         <path d="M50,90 Q45,120 48,160 Q52,210 44,260" fill="none" stroke="#480A16" strokeWidth="1.4" />
@@ -253,7 +253,7 @@ const FashionFigureOutfit5: React.FC = () => {
         <path d="M38,20 C38,10 62,10 62,20 C64,45 60,65 58,72 L55,72 C55,45 54,32 50,22 C46,32 45,45 45,72 L42,72 C40,65 36,45 38,20 Z" fill="#2B1E1A" />
         <rect x="48" y="32" width="4" height="8" fill="#F8DFD4" />
 
-        {/* Relaxed Oversized Mint-Sage Green Drape T-Shirt */}
+        {/* Relaxed Oversized Mint-Sage Green Silhouette T-Shirt */}
         <path d="M42,40 Q50,44 58,40 L68,52 L62,88 L58,80 L59,120 L41,120 L42,80 L38,88 L32,52 Z" fill="#CCD8CC" stroke="#BACAB9" strokeWidth="0.5" />
         {/* Neckline */}
         <path d="M45,40 Q50,46 55,40" fill="none" stroke="#A8BCA7" strokeWidth="1" />

@@ -7,7 +7,7 @@ interface AnimatedHeroTitleProps {
 }
 
 const DEFAULT_WORDS = [
-  'drapes',
+  'creates',
   'sculpts',
   'tailors',
   'storytells'

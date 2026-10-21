@@ -10,7 +10,7 @@ interface HeroProps {
   onOpenConceptLookbook?: () => void;
 }
 
-const KINETIC_WORDS = ['drapes', 'tailors', 'storytells', 'sculpts'];
+const KINETIC_WORDS = ['creates', 'tailors', 'storytells', 'sculpts'];
 
 interface LetterProps {
   char: string;
@@ -130,7 +130,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
           <span className="tracking-[0.25em]">Scroll Down</span>
         </div>
         <div className="text-[0.6875rem] text-[var(--color-text-muted,#D2BDCF)] hidden sm:block tracking-[0.25em] font-medium">
-          Atelier · Silhouette · Drape · Archive
+          Atelier · Silhouette · Tailoring · Archive
         </div>
       </motion.div>
     </section>

@@ -16,8 +16,8 @@ const DEFAULT_LOOKBOOK_PAGES: ConceptItem[] = [
     id: 'inspiration-1',
     category: 'INSPIRATION',
     badge: 'TEXTILE INSPIRATION',
-    title: 'Crimson Drapery & Zari Silk',
-    subtitle: 'Noble velvet textures, reflections and classic drapery',
+    title: 'Crimson Velvet & Zari Silk',
+    subtitle: 'Noble velvet textures, reflections and classic tailoring',
     description: 'A sensory study of the deep folds of crimson silk and the subtle gleam of golden zari thread, the sculptural starting point for the Fading Spark collection.',
     image: pinterestThumbnailImage
   },
@@ -35,7 +35,7 @@ const DEFAULT_LOOKBOOK_PAGES: ConceptItem[] = [
     category: 'ILLUSTRATION',
     badge: 'HAUTE COUTURE ILLUSTRATION',
     title: 'Haute Couture Croquis: Fading Spark Gown',
-    subtitle: 'A study of silhouette, drape and cut on parchment paper',
+    subtitle: 'A study of silhouette, structure and cut on parchment paper',
     description: 'A hand-drawn editorial illustration in India ink and crimson watercolor, detailing the flowing train, the bodice structure and the raised embroidery.',
     image: coutureConceptSketchImage
   },

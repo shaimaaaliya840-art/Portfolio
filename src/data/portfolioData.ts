@@ -11,7 +11,7 @@ export const initialPortfolioData: PortfolioData = {
   bioHeadline: "An editorial sensibility forged in dark couture, architectural corsetry, and subverted heritage textiles.",
   bioParagraphs: [
     "Shatma Aaliya (Shaima Aaliya) is a fashion designer pursuing her Bachelor of Design (B.Des) in Fashion Design at Indus Design School (Indus University, Class of 2023–2027). Her creative discipline synthesizes architectural haute couture with virtual 3D garment simulation in CLO3D, advanced flat pattern drafting, and generational Indian textile craft.",
-    "Having completed her design apprenticeship within the esteemed Neelgar Couture atelier in Ahmedabad and Mumbai, Shatma deconstructs traditional Indian handlooms, zardozi metallurgies, and fluid silk drapes, weaponizing them into razor-sharp silhouettes, internal steel-boned corsetry, and subversive menswear.",
+    "Having completed her design apprenticeship within the esteemed Neelgar Couture atelier in Ahmedabad and Mumbai, Shatma deconstructs traditional Indian handlooms, zardozi metallurgies, and fluid silk textiles, weaponizing them into razor-sharp silhouettes, internal steel-boned corsetry, and subversive menswear.",
     "Her design philosophy embodies calculated seduction: garments engineered not as fleeting decorative attire, but as sculptural instruments of psychological poise, physical dominance, and uncompromising precision."
   ],
   education: {
@@ -19,7 +19,7 @@ export const initialPortfolioData: PortfolioData = {
     institution: "Indus Design School, Indus University",
     period: "2023 — 2027",
     location: "Ahmedabad, Gujarat, India",
-    details: "Specialized in Advanced Pattern Architecture, Haute Couture Draping, CLO3D Digital Garment Prototyping, Surface Metallurgy, and Archival Indian Textile Research."
+    details: "Specialized in Advanced Pattern Architecture, Haute Couture Tailoring, CLO3D Digital Garment Prototyping, Surface Metallurgy, and Archival Indian Textile Research."
   },
   skills: {
     digitalAnd3D: [
@@ -35,7 +35,7 @@ export const initialPortfolioData: PortfolioData = {
       "Pattern Drafting & Flat Pattern Manipulation",
       "Haute Couture Garment Construction",
       "Architectonic Corsetry & Spiral Steel Boning",
-      "3D Draping on Live Form & Toile Fitting",
+      "3D Modeling on Live Form & Toile Fitting",
       "Surface Embellishment & Zardozi Metallurgy",
       "Varanasi Mulberry Silk & Handloom Weaving Research",
       "Subversive Menswear Tailoring & Asymmetric Closures"
@@ -56,15 +56,15 @@ export const initialPortfolioData: PortfolioData = {
     ]
   },
   neelgarHighlight: {
-    role: "Fashion Design & Haute Couture Apprentice",
+    role: "Design & Content Intern",
     period: "22 May – Aug 2026 (internship + part-time)",
     tagline: "The Neelgar Archive & Couture Textile Modernity",
-    summary: "Collaborated directly with master drapers and artisans at Neelgar, co-developing seasonal couture silhouettes, researching archival zardozi techniques, and styling international editorial lookbooks.",
+    summary: "Collaborated directly with master tailors and artisans at Neelgar, co-developing seasonal couture silhouettes, researching archival zardozi techniques, and styling international editorial lookbooks.",
     achievements: [
       "Assisted in cutting and structural prototyping for 4 seasonal high-fashion presentations across Mumbai and Paris fashion circles.",
       "Researched and revived 18th-century Varanasi metallic handloom weaves for Neelgar's limited couture capsule 'Nocturne'.",
       "Drafted technical patterns for structured boned corsets paired with heavy unspun mulberry silks.",
-      "Co-curated the Neelgar archival retrospective monograph documenting two decades of artisan-draped silhouettes."
+      "Co-curated the Neelgar archival retrospective monograph documenting two decades of artisan couture silhouettes."
     ]
   },
   pullQuote: {
@@ -75,12 +75,12 @@ export const initialPortfolioData: PortfolioData = {
   location: "Ahmedabad, gujrat",
   aboutMe: "I'm a creatively driven individual with a strong foundation in cultural aesthetics and design thinking. My work is deeply rooted in exploring heritage while translating it into contemporary, functional garments. I have a keen interest in material experimentation, focusing on textures, structure, and innovative fabric use. I aim to create clothing that balances modesty, elegance, and bold expression. With an eye for detail and storytelling, I strive to design pieces that are both meaningful and wearable. My approach blends tradition with modern sensibilities to craft unique, statement-driven fashion.",
   personalSkills: [
-    { skill: "Hand Illustration", rating: 5 },
-    { skill: "Storytelling", rating: 5 },
+    { skill: "Hand Illustration", rating: 4 },
+    { skill: "Storytelling", rating: 4 },
     { skill: "Styling & makeup", rating: 4 },
     { skill: "Market analyst", rating: 4 },
     { skill: "Material Sourcing", rating: 4 },
-    { skill: "Pattern making", rating: 3 }
+    { skill: "Pattern making", rating: 4 }
   ],
   educationEntries: [
     { title: "5-Sem Indus University", institution: "Indus University", level: "Higher Education / B.Des" },
@@ -130,13 +130,13 @@ export const initialPortfolioData: PortfolioData = {
   ],
   internships: [
     {
-      role: "Haute Couture & Atelier Intern / Apprentice",
+      role: "Design & Content Intern",
       organization: "Neelgar Atelier",
       period: "22 May – Aug 2026 (internship + part-time)",
       location: "Ahmedabad & Mumbai",
-      summary: "Under the mentorship of senior couturiers, focusing on architectural draping, internal spiral steel corsetry, and heritage Varanasi handloom weaves.",
+      summary: "Under the mentorship of senior couturiers, focusing on architectural tailoring, internal spiral steel corsetry, and heritage Varanasi handloom weaves.",
       highlights: [
-        "Pattern Drafting & Toile Fitting: Assisted senior designers with precise pattern manipulation and muslin draping for bespoke runway silhouettes.",
+        "Pattern Drafting & Toile Fitting: Assisted senior designers with precise pattern manipulation and muslin prototyping for bespoke runway silhouettes.",
         "CLO3D Virtual Prototyping: Simulated 3D digital avatars and garment stress-maps, accelerating client fitting turnarounds.",
         "Heritage Metallurgy & Material Sourcing: Coordinated directly with master artisans in Varanasi for hand-spun pure zari and raw silk brocades."
       ]
@@ -208,12 +208,12 @@ export const initialProjects: Project[] = [
   {
     id: "subversive-menswear",
     number: "N°03",
-    title: "Obsidian Drapes: Menswear",
+    title: "Obsidian Silhouettes: Menswear",
     subtitle: "Deconstructed Tailoring & Fluid Asymmetry",
     client: "Shatma Studio & Indus Laboratory",
     category: "Menswear",
     year: "2025",
-    role: "Concept, Tailoring, Drape Choreography",
+    role: "Concept, Tailoring, Silhouette Choreography",
     heroImage: "https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=1400&auto=format&fit=crop",
     galleryImages: [
       "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
@@ -269,7 +269,7 @@ export const initialProjects: Project[] = [
       "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1200&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop"
     ],
-    excerpt: "A comprehensive archival study documenting two decades of Neelgar's master drapes, indigo resist dyeing, and silhouette experiments.",
+    excerpt: "A comprehensive archival study documenting two decades of Neelgar's master silhouettes, indigo resist dyeing, and silhouette experiments.",
     challenge: "Synthesizing generational artisan knowledge into a sleek editorial tome that resonates with contemporary fashion critics.",
     concept: "Structured into five chromatic stages of night: Twilight, Obsidian, Eclipse, Zardozi Gold, and Ash.",
     outcome: "Archived in the Indus Design School Library and presented to international fashion luminaries.",
@@ -324,7 +324,7 @@ export const initialTestimonials: Testimonial[] = [
   },
   {
     id: "test-3",
-    quote: "Her menswear silhouettes have that rare balance of restraint and provocation. In a world full of conventional wedding sherwanis, Shatma's obsidian drapes are a masterclass in modern structural elegance.",
+    quote: "Her menswear silhouettes have that rare balance of restraint and provocation. In a world full of conventional wedding sherwanis, Shatma's obsidian tailoring is a masterclass in modern structural elegance.",
     author: "Rohan Singhania",
     role: "Senior Menswear Stylist",
     organization: "Bombay Editorial House",
@@ -351,7 +351,7 @@ export const experienceTimeline: ExperienceItem[] = [
     id: "exp-2",
     period: "22 May – Aug 2026 (internship + part-time)",
     company: "Neelgar Atelier",
-    role: "Fashion Design & Haute Couture Apprentice",
+    role: "Design & Content Intern",
     location: "Ahmedabad & Mumbai",
     isCurrent: false,
     isNeelgar: true,
@@ -401,7 +401,7 @@ export const servicePackages: ServicePackage[] = [
   {
     id: "pkg-1",
     code: "PKG / 01",
-    name: "Editorial Silhouette Draping",
+    name: "Editorial Silhouette Tailoring",
     price: "₹35,000",
     timeline: "10-14 Days",
     deliverables: [
@@ -421,7 +421,7 @@ export const servicePackages: ServicePackage[] = [
     deliverables: [
       "Full bespoke corsetry with high-tensile boning",
       "Neelgar archival mulberry silk sourcing",
-      "Chiaroscuro drapery & custom floor train",
+      "Chiaroscuro contours & custom floor train",
       "3 Private salon fittings with Shatma Aaliya"
     ]
   },
@@ -456,8 +456,8 @@ export const servicePackages: ServicePackage[] = [
 export const videoReels: VideoReel[] = [
   {
     id: "reel-1",
-    title: "Nocturne: Archival Silk Draping",
-    caption: "Live draping of Varanasi mulberry silk across structured boned corsets at Neelgar.",
+    title: "Nocturne: Archival Silk Tailoring",
+    caption: "Live fitting of Varanasi mulberry silk across structured boned corsets at Neelgar.",
     brandTag: "NEELGAR ATELIER",
     duration: "0:24",
     posterImage: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=900&auto=format&fit=crop",
@@ -506,7 +506,7 @@ export const processSteps: ProcessStep[] = [
   {
     step: "02",
     title: "Define Strategy / Silhouette & Toile",
-    description: "Translating concept sketches into physical muslin toiles, testing high-tensile boning, drape kinetics, and posture.",
+    description: "Translating concept sketches into physical muslin toiles, testing high-tensile boning, movement kinetics, and posture.",
     checklist: [
       "Draft precision flat patterns & muslin toile",
       "Calibrate corset tension & structural curves",
@@ -543,7 +543,7 @@ export const inspirationMetrics = {
     {
       stat: "84%",
       label: "Pattern Precision & Distinction",
-      description: "Mathematical accuracy in architectural draping, awarded Top Honors at Indus Design School '27."
+      description: "Mathematical accuracy in architectural tailoring, awarded Top Honors at Indus Design School '27."
     }
   ]
 };

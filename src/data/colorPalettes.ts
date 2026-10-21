@@ -419,7 +419,7 @@ export const atelierPalettes: AtelierPalette[] = [
         role: 'Monolithic Deep Foundation & Silhouette Frame',
         percentage: 25,
         fabric: 'Matte Wool Barathea & Heavy Silk Velvet',
-        garmentUsage: 'Exhibition floor mantles, structural overcoats, deep shadow drapery'
+        garmentUsage: 'Exhibition floor mantles, structural overcoats, deep shadow silhouettes'
       },
       {
         name: 'Exhibition Smoked Slate',
@@ -468,7 +468,7 @@ export const atelierPalettes: AtelierPalette[] = [
         role: 'Monolithic Base & Infinite Shadow',
         percentage: 35,
         fabric: 'Matte Tuxedo Wool Barathea & Heavy Silk Velvet',
-        garmentUsage: 'Monolithic outerwear coats, structural draping, high-contrast floor silhouettes'
+        garmentUsage: 'Monolithic outerwear coats, structural tailoring, high-contrast floor silhouettes'
       },
       {
         name: 'Radiant Blossom Pink',

@@ -15,12 +15,12 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
 
   const personalSkills = portfolioData.personalSkills || [
-    { skill: "Storyteller & Visionary", rating: 5 },
-    { skill: "Research & Development", rating: 5 },
-    { skill: "Leadership & Direction", rating: 5 },
-    { skill: "Time Management", rating: 5 },
-    { skill: "Empathy & Cultural Resonance", rating: 5 },
-    { skill: "Collaboration & Team Spirit", rating: 5 },
+    { skill: "Storyteller & Visionary", rating: 4 },
+    { skill: "Research & Development", rating: 4 },
+    { skill: "Leadership & Direction", rating: 4 },
+    { skill: "Time Management", rating: 4 },
+    { skill: "Empathy & Cultural Resonance", rating: 4 },
+    { skill: "Collaboration & Team Spirit", rating: 4 },
   ];
 
   const experienceWorkshops = portfolioData.experienceWorkshops || [
@@ -36,7 +36,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
 
   const hardSkills = portfolioData.hardSkills || [
     "CLO3D (3D Garment Simulation)",
-    "Pattern Making & Draping", "Garment Construction",
+    "Pattern Making & Drafting", "Garment Construction",
     "Creative Direction", "Trend Research & Forecasting",
     "Styling & Runway Curation", "Moodboard & Theme Conceptualization",
     "Fabric Sourcing & Metallurgy", "Craft & Surface Exploration",
@@ -46,13 +46,13 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
 
   const internships = [
     {
-      role: "Haute Couture Atelier Apprentice & Draping Specialist",
+      role: "Design & Content Intern",
       organization: "Neelgar Haute Couture Atelier",
       period: "22 May – Aug 2026 (internship + part-time)",
       location: "Mumbai & Ahmedabad",
       summary: "At Neelgar, I worked across creative storytelling, concept development, and fashion design development. My work included developing creative concepts, exploring design directions, fashion photography, styling, and creating hand and digital illustrations. I also contributed to building visual stories around Indian craft, culture, and contemporary fashion, translating ideas into strong visual and design outcomes. After my 3-month internship, I continued working part-time for another month on creative projects.",
       highlights: [
-        "Pattern Drafting & Toile Fitting: Assisted senior designers with precise pattern manipulation and muslin draping for bespoke runway silhouettes.",
+        "Pattern Drafting & Toile Fitting: Assisted senior designers with precise pattern manipulation and muslin prototyping for bespoke runway silhouettes.",
         "CLO3D Virtual Prototyping: Simulated 3D digital avatars and garment stress-maps, accelerating client fitting turnarounds.",
         "Heritage Metallurgy & Material Sourcing: Coordinated directly with master artisans in Varanasi for hand-spun pure zari and raw silk brocades."
       ]
@@ -161,7 +161,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                 <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
-                    <span>Neelgar Atelier · Haute Couture Apprentice (22 May – Aug 2026)</span>
+                    <span>Neelgar Atelier · Design & Content Intern (22 May – Aug 2026)</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <GraduationCap className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
@@ -230,7 +230,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-1.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>PERSONAL SKILLS RATING</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">5-STAR SYSTEM</span>
+                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">4-STAR RATING</span>
                 </div>
                 <div className="space-y-1">
                   {personalSkills.map((item, idx) => (

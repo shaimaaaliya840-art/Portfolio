@@ -142,7 +142,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
       url: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=800&auto=format&fit=crop'
     },
     {
-      title: 'Sculptural Drapery',
+      title: 'Sculptural Silhouettes',
       category: 'CONCEPT' as const,
       url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop'
     },
@@ -276,7 +276,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Crimson Drapery & Zari Silk"
+                      placeholder="e.g. Crimson Velvet & Zari Silk"
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-sm focus:outline-none focus:border-[#540D21] text-[#241217]"
@@ -289,7 +289,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Fluid drape and sculptural textures"
+                      placeholder="e.g. Fluid movement and sculptural textures"
                       value={subtitle}
                       onChange={(e) => setSubtitle(e.target.value)}
                       className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-sm focus:outline-none focus:border-[#540D21] text-[#241217]"
@@ -392,7 +392,7 @@ export const ConceptInspirationStudioModal: React.FC<ConceptInspirationStudioMod
                   <textarea
                     required
                     rows={4}
-                    placeholder="Describe the poetic inspiration, planned silhouette, fabric drape, sewing threads or metaphors that guide this piece..."
+                    placeholder="Describe the poetic inspiration, planned silhouette, fabric texture, sewing threads or metaphors that guide this piece..."
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full px-3 py-2 bg-white border border-[#DECFC0] rounded-xs font-sans text-xs sm:text-sm focus:outline-none focus:border-[#540D21] text-[#241217] leading-relaxed resize-none"
