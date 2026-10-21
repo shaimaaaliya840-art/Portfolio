@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, X, type LucideIcon } from 'lucide-react';
+import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, X, type LucideIcon } from 'lucide-react';
 
 import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
 import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
@@ -59,6 +59,11 @@ import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historica
 import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
 import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
 import lldcPaperMockup from '../assets/images/tailoring-geometry/lldc_geometric_paper_mockup.png';
+import seamstressCert from '../assets/images/seamstress-secret/seamstress_certificate.jpg';
+import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_ruff.png';
+import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
+import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
+import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
 import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
 import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
@@ -519,6 +524,41 @@ const PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'seamstress-secret',
+    title: "The Seamstress's Secret",
+    tagline: 'Workshop · School of Historical Dress & LLDC',
+    category: 'workshop',
+    icon: Scissors,
+    backgroundColor: '#181216',
+    pages: [
+      {
+        type: 'grid',
+        title: "The Seamstress's Secret",
+        gridCols: 2,
+        imageAspect: 'aspect-[4/3]',
+        imageFit: 'cover',
+        images: [
+          { src: seamstressCert, alt: 'Official Certificate of Participation awarded to Shatma Aaliya by Prof. Jenny Tiramani (The School of Historical Dress London) and Ami Shroff (LLDC Kutch)' },
+          { src: seamstressRuff, alt: 'Handmade reconstructed 17th-century historical linen ruff with fine cartridge pleating and red LB monogram' },
+          { src: seamstressLecture, alt: 'Global symposium lecture presenting 1620-30 historical linen ruff scrolling construction and couture sewing tools' },
+          { src: seamstressStitch, alt: 'Fine hand-stitching on pure white linen edge using burgundy silk thread for historical decorative seam joining' },
+          { src: seamstressBeeswax, alt: 'Natural honeycomb beeswax cakes and historical thread conditioning tools used for archival hand-sewing' }
+        ],
+        paragraphs: [
+          "THE SEAMSTRESS'S SECRET — GLOBAL SYMPOSIUM ON HISTORICAL DRESS",
+          "Conducted as part of 'Patterns of Fashion: Across Europe' — A Global Symposium on Historical Dress, 17th-Century Tailoring & Craft, co-presented by The School of Historical Dress (London) and Living & Learning Design Centre (LLDC) in Ajrakhpur, Kutch.",
+          "LED BY PROF. JENNY TIRAMANI & MASTER SCHOLARS:",
+          "Under the direct mentorship of Prof. Jenny Tiramani (Principal, The School of Historical Dress, London; co-author of Janet Arnold's Patterns of Fashion series) and Ami Shroff (Managing Trustee, LLDC).",
+          "HISTORICAL SEAMSTRESS METHODOLOGY & ARCHIVAL TECHNIQUES:",
+          "1. 17th-Century Linen Preparation & Wax Conditioning: Treating unbleached fine linen filaments with pure botanical and honeycomb beeswax blocks, preventing thread abrasion, knotting, and rot during high-tension hand sewing.",
+          "2. Architectural Cartridge Pleating & Ruff Architecture: Hand-crafting historical neck ruffs (c. 1620–1630) using figure-of-eight scrolling shapes, standing linen neckbands, fine starching, and microscopic gathering ratios.",
+          "3. Fine Insertion & Seam Joining Stitches: Executing precision hand-embroidery and seamstress edge-finishing techniques with dyed silk filaments on linen selvages, reviving archival stitches documented in master pattern archives across Europe.",
+          "4. Archival Material Culture: Deciphering the intimate, undocumented domestic techniques of 17th-century professional seamstresses that gave historical couture garments their structural integrity and silent longevity."
+        ]
+      }
+    ]
+  },
+  {
     id: 'geometry-structure-tailoring',
     title: 'The Geometry & Structure of Tailoring',
     tagline: 'Workshop · LLDC [Kutch]',
@@ -591,6 +631,7 @@ const PROJECTS: Project[] = [
 
 // Workshops from the "all portfolio work" deck (its WORKSHOP slide)
 const WORKSHOPS = [
+  { name: "The Seamstress's Secret", note: "School of Historical Dress & LLDC", projectId: "seamstress-secret" },
   { name: 'The Geometry & Structure of Tailoring', note: 'LLDC [Kutch]', projectId: 'geometry-structure-tailoring' },
   { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai', projectId: 'coconut-shell-craft' },

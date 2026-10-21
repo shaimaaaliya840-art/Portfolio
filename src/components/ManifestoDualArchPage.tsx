@@ -13,6 +13,11 @@ import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historica
 import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
 import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
 import lldcPaperMockup from '../assets/images/tailoring-geometry/lldc_geometric_paper_mockup.png';
+import seamstressCert from '../assets/images/seamstress-secret/seamstress_certificate.jpg';
+import seamstressRuff from '../assets/images/seamstress-secret/seamstress_linen_ruff.png';
+import seamstressLecture from '../assets/images/seamstress-secret/seamstress_lecture_presentation.png';
+import seamstressStitch from '../assets/images/seamstress-secret/seamstress_hand_stitching.jpg';
+import seamstressBeeswax from '../assets/images/seamstress-secret/seamstress_beeswax_tools.png';
 import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
@@ -25,8 +30,8 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
-  const [selectedWorkshop, setSelectedWorkshop] = useState<'tailoring' | 'cyanotype'>('tailoring');
-  const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(lldcMannequins);
+  const [selectedWorkshop, setSelectedWorkshop] = useState<'seamstress' | 'tailoring' | 'cyanotype'>('seamstress');
+  const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(seamstressCert);
   const [workshopLightbox, setWorkshopLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   const personalSkills = portfolioData.personalSkills || [
@@ -40,6 +45,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   ];
 
   const experienceWorkshops = portfolioData.experienceWorkshops || [
+    "The Seamstress's Secret (The School of Historical Dress & LLDC)",
     "The Geometry & Structure of Tailoring (LLDC Kutch)",
     "Cyanotype Printing", "Clay & Pottery Craft", "Stone & Wood Carving",
     "Sculpting & Form Study", "Batik Resist Dyeing", "Shibori & Tie-Dye",
@@ -166,16 +172,23 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {experienceWorkshops.map((exp, idx) => {
+                    const isSeamstress = exp.includes('Seamstress');
                     const isTailoring = exp.includes('Tailoring') || exp.includes('LLDC');
                     const isCyanotype = exp.includes('Cyanotype');
-                    const isFeatured = isTailoring || isCyanotype;
-                    const isSelected = (isTailoring && selectedWorkshop === 'tailoring') || (isCyanotype && selectedWorkshop === 'cyanotype');
+                    const isFeatured = isSeamstress || isTailoring || isCyanotype;
+                    const isSelected = 
+                      (isSeamstress && selectedWorkshop === 'seamstress') ||
+                      (isTailoring && selectedWorkshop === 'tailoring') ||
+                      (isCyanotype && selectedWorkshop === 'cyanotype');
 
                     return (
                       <button
                         key={idx}
                         onClick={isFeatured ? () => {
-                          if (isTailoring) {
+                          if (isSeamstress) {
+                            setSelectedWorkshop('seamstress');
+                            setActiveWorkshopImg(seamstressCert);
+                          } else if (isTailoring) {
                             setSelectedWorkshop('tailoring');
                             setActiveWorkshopImg(lldcMannequins);
                           } else if (isCyanotype) {
@@ -198,7 +211,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                           <span className={`text-[0.5625rem] px-1 py-0.2 font-bold rounded-xs ml-0.5 ${
                             isSelected ? 'bg-[#540D21] text-[#FAF6EE]' : 'bg-[#FAF6EE]/30 text-[#FAF6EE]'
                           }`}>
-                            {isTailoring ? 'LLDC KUTCH' : 'RECORD'}
+                            {isSeamstress ? 'LONDON & LLDC' : isTailoring ? 'LLDC KUTCH' : 'RECORD'}
                           </span>
                         )}
                       </button>
@@ -206,8 +219,85 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   })}
                 </div>
 
-                {/* Dynamic Workshop Showcase Card (Tailoring LLDC vs Cyanotype) */}
-                {selectedWorkshop === 'tailoring' ? (
+                {/* Dynamic Workshop Showcase Card (Seamstress, Tailoring, or Cyanotype) */}
+                {selectedWorkshop === 'seamstress' ? (
+                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#E5B887] animate-pulse" />
+                        <span>THE SEAMSTRESS'S SECRET · SCHOOL OF HISTORICAL DRESS (LONDON) &amp; LLDC</span>
+                      </div>
+                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
+                        PATTERNS OF FASHION GLOBAL SYMPOSIUM · 4TH OCT 2026
+                      </span>
+                    </div>
+
+                    {/* Main Active Photo with Zoom Preview Trigger */}
+                    <div 
+                      onClick={() => setWorkshopLightbox({
+                        src: activeWorkshopImg,
+                        caption: "The Seamstress's Secret · The School of Historical Dress (London) & LLDC [Kutch] · Prof. Jenny Tiramani"
+                      })}
+                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
+                      title="Click to view full photo"
+                    >
+                      <img
+                        src={activeWorkshopImg}
+                        alt="The Seamstress's Secret Workshop"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
+                        <div className="text-left font-mono">
+                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
+                            The Seamstress's Secret · The School of Historical Dress (London) &amp; LLDC
+                          </div>
+                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
+                            Prof. Jenny Tiramani Masterclass · 17th-Century Linen Cartridge Pleating, Ruff Architecture &amp; Beeswax Conditioning
+                          </div>
+                        </div>
+                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
+                          View Full ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 5-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {[
+                        { img: seamstressCert, label: 'Certificate' },
+                        { img: seamstressRuff, label: 'Linen Ruff' },
+                        { img: seamstressLecture, label: 'Lecture' },
+                        { img: seamstressStitch, label: 'Hand Stitch' },
+                        { img: seamstressBeeswax, label: 'Beeswax Tools' }
+                      ].map((item, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveWorkshopImg(item.img);
+                          }}
+                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
+                            activeWorkshopImg === item.img
+                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
+                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                          }`}
+                          title={item.label}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.label}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : selectedWorkshop === 'tailoring' ? (
                   <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
                     <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
                       <div className="flex items-center gap-1.5">
