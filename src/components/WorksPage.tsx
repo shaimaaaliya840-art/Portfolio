@@ -757,14 +757,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Exact Reference Proportional Collage (Seamless, Centered & Enlarged) */}
+                    {/* Exact Reference Proportional Collage (Truly Center Aligned) */}
                     <div
-                      className="relative w-full max-w-5xl lg:max-w-6xl mx-auto my-6 sm:my-10 select-none"
-                      style={{ aspectRatio: '598 / 424' }}
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none"
+                      style={{ aspectRatio: '635 / 447' }}
                     >
-                      {/* 1. Spool in carved wood tray (Left bottom: X=0%, W=28.4%, H=66.5%) */}
+                      {/* 1. Spool in carved wood tray (Left bottom: X=0%, W=18.27%, H=66.44%) */}
                       <div
-                        className="absolute left-0 bottom-0 w-[28.4%] h-[66.5%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-0 bottom-0 w-[18.27%] h-[66.44%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbSpool)}
                       >
                         <img src={aooMbSpool} alt="Gold Zari Spool in Carved Tray" className="w-full h-full object-cover" />
@@ -773,9 +773,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 2. Terracotta Kantha (Bottom Center: X=28.4%, W=25.1%, H=43.6%) */}
+                      {/* 2. Terracotta Kantha (Bottom Center: X=26.93%, W=28.66%, H=43.62%) */}
                       <div
-                        className="absolute left-[28.4%] bottom-0 w-[25.1%] h-[43.6%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[26.93%] bottom-0 w-[28.66%] h-[43.62%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-white/10 shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbKantha)}
                       >
                         <img src={aooMbKantha} alt="Terracotta Kantha Embroidery" className="w-full h-full object-cover" />
@@ -784,9 +784,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 3. Embroidered Kurta with Teal Wall (Top Right: X=53.5%, W=26.4%, H=35.8%) */}
+                      {/* 3. Embroidered Kurta with Teal Wall (Top Right: X=52.91%, W=26.93%, H=35.79%) */}
                       <div
-                        className="absolute left-[53.5%] top-0 w-[26.4%] h-[35.8%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[52.91%] top-0 w-[26.93%] h-[35.79%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbKurta)}
                       >
                         <img src={aooMbKurta} alt="Embroidered Kurta on Teal Wall" className="w-full h-full object-cover" />
@@ -795,9 +795,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 4. Sunburst Corset on Mannequin (Bottom Right: X=53.5%, W=30.8%, H=64.2%) */}
+                      {/* 4. Sunburst Corset on Mannequin (Bottom Right: X=52.91%, W=31.65%, H=64.21%) */}
                       <div
-                        className="absolute left-[53.5%] bottom-0 w-[30.8%] h-[64.2%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-l border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[52.91%] bottom-0 w-[31.65%] h-[64.21%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-l border-white/10 shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbCorset)}
                       >
                         <img src={aooMbCorset} alt="Sunburst Beaded Corset" className="w-full h-full object-cover" />
@@ -806,9 +806,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 5. Runway Model Christy Turlington (Center Hero: X=22.4%, Y=5.9%, W=30.3%, H=73.8%) */}
+                      {/* 5. Runway Model Christy Turlington (Center Hero: X=18.43%, Y=5.37%, W=34.49%, H=70.25%) */}
                       <div
-                        className="absolute left-[22.4%] top-[5.9%] w-[30.3%] h-[73.8%] z-20 cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/20 rounded-sm"
+                        className="absolute left-[18.43%] top-[5.37%] w-[34.49%] h-[70.25%] z-20 cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/20 rounded-sm"
                         onClick={() => setSelectedImage(aooMbRunway)}
                       >
                         <img src={aooMbRunway} alt="Archival Runway Model" className="w-full h-full object-cover" />
@@ -817,9 +817,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 6. Applique Left (Floating Top Left, Oriented Rightward: X=2%, Y=2.5%, W=24%, H=56%) */}
+                      {/* 6. Applique Left (Floating Top Left, Oriented Rightward: X=2.99%, Y=2.68%, W=16.69%, H=53.02%) */}
                       <div
-                        className="absolute left-[2%] top-[2.5%] w-[24%] h-[56%] z-30 cursor-pointer transition-all duration-500 hover:z-40 hover:scale-[1.06] group pointer-events-auto"
+                        className="absolute left-[2.99%] top-[2.68%] w-[16.69%] h-[53.02%] z-30 cursor-pointer transition-all duration-500 hover:z-40 hover:scale-[1.06] group pointer-events-auto"
                         onClick={() => setSelectedImage(aooMbApplique)}
                       >
                         <img
@@ -830,9 +830,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         />
                       </div>
 
-                      {/* 7. Applique Right (Floating Lower Right: X=74%, Bottom=0%, W=24%, H=53%) */}
+                      {/* 7. Applique Right (Floating Lower Right: X=83.31%, Bottom=0%, W=16.69%, H=46.98%) */}
                       <div
-                        className="absolute left-[74%] bottom-0 w-[24%] h-[53%] z-30 cursor-pointer transition-all duration-500 hover:z-40 hover:scale-[1.06] group pointer-events-auto"
+                        className="absolute left-[83.31%] bottom-0 w-[16.69%] h-[46.98%] z-30 cursor-pointer transition-all duration-500 hover:z-40 hover:scale-[1.06] group pointer-events-auto"
                         onClick={() => setSelectedImage(aooMbApplique)}
                       >
                         <img
