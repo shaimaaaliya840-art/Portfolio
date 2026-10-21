@@ -38,9 +38,9 @@ import aooMbKurta from '../assets/images/anatomy-of-ornament/aoo_mb_kurta.png';
 import aooMbSpool from '../assets/images/anatomy-of-ornament/aoo_mb_spool.png';
 import aooMbKantha from '../assets/images/anatomy-of-ornament/aoo_mb_kantha.jpg';
 import aooMbApplique from '../assets/images/anatomy-of-ornament/aoo_mb_applique.png';
-import aooGarment1_1 from '../assets/images/anatomy-of-ornament/aoo_garment1_1.png';
-import aooGarment1_2 from '../assets/images/anatomy-of-ornament/aoo_garment1_2.png';
-import aooGarment1_3 from '../assets/images/anatomy-of-ornament/aoo_garment1_3.png';
+import aooGarment1_1 from '../assets/images/anatomy-of-ornament/aoo_garment1_1.jpg';
+import aooGarment1_2 from '../assets/images/anatomy-of-ornament/aoo_garment1_2.jpg';
+import aooGarment1_3 from '../assets/images/anatomy-of-ornament/aoo_garment1_3.jpg';
 import aooGarment1_4 from '../assets/images/anatomy-of-ornament/aoo_garment1_4.png';
 import aooGarment2_1 from '../assets/images/anatomy-of-ornament/aoo_garment2_1.png';
 import aooGarment2_2 from '../assets/images/anatomy-of-ornament/aoo_garment2_2.png';
@@ -260,14 +260,14 @@ const PROJECTS: Project[] = [
             objectPosition: 'center 25%'
           },
           {
-            src: aooGarment1_4,
+            src: aooGarment1_3,
             alt: 'Garment 01 — Asymmetrical neckline, dark eyewear & avant-garde editorial poise',
             objectPosition: 'center 20%'
           },
           {
-            src: aooGarment1_3,
-            alt: 'Garment 01 — Cascading silk sash with handcrafted golden blossom tassel',
-            objectPosition: 'center 25%'
+            src: aooGarment1_4,
+            alt: 'Garment 01 — Cascading silk sash with handcrafted golden blossom tassel by white tree trunk',
+            objectPosition: 'center 20%'
           }
         ],
         paragraphs: [
