@@ -48,6 +48,11 @@ import aooGarment2_3 from '../assets/images/anatomy-of-ornament/aoo_garment2_3.p
 import aooGarment2_4 from '../assets/images/anatomy-of-ornament/aoo_garment2_4.png';
 import aooGarment3_1 from '../assets/images/anatomy-of-ornament/aoo_garment3_1.png';
 import aooGarment3_2 from '../assets/images/anatomy-of-ornament/aoo_garment3_2.png';
+import cyanotypeBanner from '../assets/images/cyanotype/cyanotype_banner.jpg';
+import cyanotypeNews from '../assets/images/cyanotype/cyanotype_record_news.png';
+import cyanotypeExposure from '../assets/images/cyanotype/cyanotype_sun_exposure.jpg';
+import cyanotypeComp from '../assets/images/cyanotype/cyanotype_composition.jpg';
+import cyanotypeChems from '../assets/images/cyanotype/cyanotype_chemicals.jpg';
 import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
 import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
@@ -506,6 +511,40 @@ const PROJECTS: Project[] = [
         ]
       }
     ]
+  },
+  {
+    id: 'cyanotype-printing',
+    title: 'Cyanotype Printing',
+    tagline: 'Monumental Workshop · Indus World Record',
+    category: 'workshop',
+    icon: Droplet,
+    backgroundColor: '#091A30',
+    pages: [
+      {
+        type: 'grid',
+        title: 'Cyanotype Printing',
+        gridCols: 2,
+        imageAspect: 'aspect-[4/3]',
+        imageFit: 'cover',
+        images: [
+          { src: cyanotypeBanner, alt: 'Indus Design School monumental cyanotype blue textile banner held by students' },
+          { src: cyanotypeNews, alt: 'Newspaper coverage of the monumental cyanotype world record at Indus University' },
+          { src: cyanotypeExposure, alt: 'Students stretching and sun-exposing the 560-foot cyanotype fabric across the campus grounds' },
+          { src: cyanotypeComp, alt: 'Photogram composition setup with bow, phone silhouettes, and floral stencils on sensitized fabric' },
+          { src: cyanotypeChems, alt: 'Potassium ferricyanide and ammonium ferric citrate chemical bottles' }
+        ],
+        paragraphs: [
+          "RECORD-BREAKING MONUMENTAL CYANOTYPE PRINTING — INDUS DESIGN SCHOOL",
+          "An ambitious architectural sun-printing workshop creating a monumental 560-foot-long, 6-foot-wide hand-coated cyanotype textile banner at Indus University, Ahmedabad — setting an unprecedented record for monumental sun-printed fabric art.",
+          "CHEMISTRY & METHODOLOGY:",
+          "1. Chemistry Formulation: An aqueous solution of Potassium Ferricyanide (K₃[Fe(CN)₆]) and Ammonium Ferric Citrate (C₁₂H₂₂FeN₃O₁₄) was mixed in controlled darkroom conditions, producing a light-sensitive photosensitive emulsion.",
+          "2. Hand Coating & Dark Sensitizing: Yards of woven cotton fabric were uniformly hand-brushed with the iron-salt solution and dried in light-sealed studio environments.",
+          "3. Outdoor Solar Photogram Exposure: Stretched outdoors under brilliant natural sunlight between 10:30 AM and 12:30 PM, incorporating negative silhouettes, typography stencils, cultural motifs, and real objects across the textile surface.",
+          "4. Oxidation & Prussian Blue Fixing: Exposed in the sunlight and thoroughly water-washed, oxidizing iron ions to fix permanent insoluble Prussian Blue (ferric ferrocyanide) pigment.",
+          "FEATURED IN REGIONAL PRESS: Documented in regional news as an extraordinary achievement merging 19th-century photochemical printing with modern collaborative campus installation."
+        ]
+      }
+    ]
   }
 ];
 
@@ -517,7 +556,7 @@ const WORKSHOPS = [
   { name: 'Eco Printing', projectId: 'eco-printing' },
   { name: 'Indigo Site Visit', projectId: 'indigo-site-visit' },
   { name: 'Leather Craft' },
-  { name: 'Cyanotype Printing' }
+  { name: 'Cyanotype Printing', note: 'Indus Record', projectId: 'cyanotype-printing' }
 ];
 
 /** Editorial headline with an uncut Amoresa script initial and Perandory Condensed capitals */

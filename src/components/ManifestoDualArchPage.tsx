@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Palette, Star, Briefcase, Cpu } from 'lucide-react';
 import { PortfolioData } from '../types';
 import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
+import cyanotypeBanner from '../assets/images/cyanotype/cyanotype_banner.jpg';
+import cyanotypeNews from '../assets/images/cyanotype/cyanotype_record_news.png';
+import cyanotypeExposure from '../assets/images/cyanotype/cyanotype_sun_exposure.jpg';
+import cyanotypeComp from '../assets/images/cyanotype/cyanotype_composition.jpg';
+import cyanotypeChems from '../assets/images/cyanotype/cyanotype_chemicals.jpg';
+import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
   portfolioData: PortfolioData;
@@ -13,6 +19,8 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
+  const [activeCyanotypeImg, setActiveCyanotypeImg] = useState<string>(cyanotypeBanner);
+  const [cyanotypeLightbox, setCyanotypeLightbox] = useState<string | null>(null);
 
   const personalSkills = portfolioData.personalSkills || [
     { skill: "Draping" },
@@ -143,22 +151,108 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
           {/* Dynamic Tab Body: Experiences, Hard Skills, Dyeing, Personal Ratings & Internships */}
           <div className="min-h-[160px] py-1">
             {plaqueTab === 'experience' && (
-              <div className="space-y-2.5">
+              <div className="space-y-3">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>WORKSHOPS</span>
+                  <span className="text-[0.625rem] text-[#FAF6EE]/75 font-mono">HANDS-ON TEXTILE ARTS</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {experienceWorkshops.map((exp, idx) => (
                     <button
                       key={idx}
-                      className="px-2 py-1 bg-[#FAF6EE]/10 hover:bg-[#FAF6EE] hover:text-[#540D21] text-[#FAF6EE] border border-[#FAF6EE]/20 text-[0.6875rem] font-mono font-medium transition-colors inline-flex items-center gap-1 shadow-sm cursor-pointer"
+                      className={`px-2 py-1 text-[0.6875rem] font-mono font-medium transition-all inline-flex items-center gap-1 shadow-sm cursor-pointer border ${
+                        exp === 'Cyanotype Printing'
+                          ? 'bg-[#FAF6EE] text-[#540D21] border-[#FAF6EE] font-bold'
+                          : 'bg-[#FAF6EE]/10 hover:bg-[#FAF6EE] hover:text-[#540D21] text-[#FAF6EE] border-[#FAF6EE]/20'
+                      }`}
                       title={`Click to explore ${exp}`}
                     >
                       <span className="opacity-70">✦</span>
                       <span>{exp}</span>
+                      {exp === 'Cyanotype Printing' && (
+                        <span className="text-[0.5625rem] px-1 py-0.2 bg-[#540D21] text-[#FAF6EE] font-bold rounded-xs ml-0.5">
+                          FEATURED
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
+
+                {/* Cyanotype Printing Workshop Showcase Card */}
+                <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
+                  <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
+                      <span>CYANOTYPE PRINTING · INDUS WORLD RECORD</span>
+                    </div>
+                    <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
+                      560 FT TEXTILE INSTALLATION
+                    </span>
+                  </div>
+
+                  {/* Main Active Photo with Zoom Preview Trigger */}
+                  <div 
+                    onClick={() => setCyanotypeLightbox(activeCyanotypeImg)}
+                    className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
+                    title="Click to view full photo"
+                  >
+                    <img
+                      src={activeCyanotypeImg}
+                      alt="Cyanotype Printing Workshop at Indus Design School"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+                    <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
+                      <div className="text-left font-mono">
+                        <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
+                          Indus Design School · Monumental Sun Printing Record
+                        </div>
+                        <div className="text-[0.5625rem] text-[#FAF6EE]/80">
+                          Natural sunlight exposure using Potassium Ferricyanide &amp; Ammonium Ferric Citrate
+                        </div>
+                      </div>
+                      <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
+                        View Full ↗
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 5-Photo Thumbnail Strip */}
+                  <div className="grid grid-cols-5 gap-1.5">
+                    {[
+                      { img: cyanotypeBanner, label: 'Banner' },
+                      { img: cyanotypeNews, label: 'News Record' },
+                      { img: cyanotypeExposure, label: 'Sun Exposure' },
+                      { img: cyanotypeComp, label: 'Composition' },
+                      { img: cyanotypeChems, label: 'Chemicals' }
+                    ].map((item, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveCyanotypeImg(item.img);
+                        }}
+                        className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
+                          activeCyanotypeImg === item.img
+                            ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
+                            : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                        }`}
+                        title={item.label}
+                      >
+                        <img
+                          src={item.img}
+                          alt={item.label}
+                          className="w-full h-full object-cover"
+                        />
+                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
@@ -287,6 +381,34 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
 
       </div>
 
+      {/* Cyanotype Lightbox Modal */}
+      {cyanotypeLightbox && (
+        <div 
+          onClick={() => setCyanotypeLightbox(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-pointer"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()} 
+            className="relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center bg-[#1A121A] border-2 border-[#FAF6EE]/40 p-2 sm:p-4 shadow-2xl"
+          >
+            <button
+              onClick={() => setCyanotypeLightbox(null)}
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-[#540D21] border border-[#FAF6EE] text-[#FAF6EE] flex items-center justify-center hover:bg-[#851737] transition-colors cursor-pointer shadow-lg z-10"
+              title="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <img
+              src={cyanotypeLightbox}
+              alt="Cyanotype Printing Full View"
+              className="max-h-[80vh] w-auto max-w-full object-contain border border-[#FAF6EE]/20"
+            />
+            <div className="pt-2 text-center font-mono text-xs text-[#FAF6EE]/90">
+              Indus Design School · Monumental Cyanotype Printing Record Workshop
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
