@@ -82,7 +82,11 @@ import aooGarment7 from '../assets/images/anatomy-of-ornament/garment_7.jpg';
 import aooGarment8 from '../assets/images/anatomy-of-ornament/garment_8.jpg';
 import aooGarment9 from '../assets/images/anatomy-of-ornament/garment_9.jpg';
 import aooGarment10 from '../assets/images/anatomy-of-ornament/garment_10.jpg';
-import aooGarment3Moodboard from '../assets/images/anatomy-of-ornament/aoo_garment3_moodboard.png';
+import aooMb3QuiltedSleeve from '../assets/images/anatomy-of-ornament/aoo_mb3_quilted_sleeve.png';
+import aooMb3RunwaySuit from '../assets/images/anatomy-of-ornament/aoo_mb3_runway_navy_suit.png';
+import aooMb3Postcard from '../assets/images/anatomy-of-ornament/aoo_mb3_vintage_postcard_crossstitch.png';
+import aooMb3JacketBack from '../assets/images/anatomy-of-ornament/aoo_mb3_embroidered_jacket_back.png';
+import aooMb3Ribbon from '../assets/images/anatomy-of-ornament/aoo_mb3_border_ribbon_transparent.png';
 import dabu1 from '../assets/images/dabu/dabu1.png';
 import dabu2 from '../assets/images/dabu/dabu2.jpg';
 import dabu3 from '../assets/images/dabu/dabu3.png';
@@ -328,8 +332,6 @@ const PROJECTS: Project[] = [
       {
         type: 'moodboard-garment3',
         title: 'Mood Board',
-        src: aooGarment3Moodboard,
-        alt: 'Anatomy of Ornamentation — Garment 03 Mood Board',
         paragraphs: [
           "MATERIAL & SILHOUETTE RESEARCH · LOOK 03:",
           "Exploration of structured indigo tailoring, artisanal quilting, geometric cross-stitch motifs, and topographic contour embroidery."
@@ -941,20 +943,91 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Proportional Mood Board Container */}
+                    {/* Exact Reference Proportional Collage */}
                     <div
-                      className="group relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none overflow-hidden rounded-md border border-white/15 shadow-2xl bg-black/90 cursor-pointer transition-transform duration-500 hover:scale-[1.01]"
-                      onClick={() => page.src && setSelectedImage(page.src)}
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
+                      style={{ aspectRatio: '725 / 447' }}
                     >
-                      <img
-                        src={page.src}
-                        alt={page.alt || 'Garment 03 Mood Board'}
-                        className="w-full h-auto object-contain block"
+                      {/* Background Red Embroidery Band across middle */}
+                      <div 
+                        className="absolute left-0 top-[37%] w-full h-[10%] opacity-90 z-0 pointer-events-none"
+                        style={{
+                          backgroundImage: `url(${aooMb3Ribbon})`,
+                          backgroundRepeat: 'repeat-x',
+                          backgroundSize: 'auto 100%',
+                          backgroundPosition: 'left center'
+                        }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-4">
-                        <span className="text-[11px] uppercase tracking-widest text-[#FAF6EE] font-mono bg-black/70 px-2.5 py-1 backdrop-blur-sm rounded-xs border border-white/15">
-                          Click to enlarge
-                        </span>
+
+                      {/* Background Red Embroidery Band at lower right */}
+                      <div 
+                        className="absolute right-0 bottom-[4%] w-[35%] h-[10%] opacity-90 z-0 pointer-events-none"
+                        style={{
+                          backgroundImage: `url(${aooMb3Ribbon})`,
+                          backgroundRepeat: 'repeat-x',
+                          backgroundSize: 'auto 100%',
+                          backgroundPosition: 'left center'
+                        }}
+                      />
+
+                      {/* 1. Quilted Sleeve (Top Left: X=0%, Y=0%, W=27.5%, H=65%) */}
+                      <div
+                        className="absolute left-0 top-0 w-[27.5%] h-[65%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
+                        onClick={() => setSelectedImage(aooMb3QuiltedSleeve)}
+                      >
+                        <img 
+                          src={aooMb3QuiltedSleeve} 
+                          alt="Kantha / Sashiko Quilted Sleeve" 
+                          className="w-full h-full object-cover object-left-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Quilted Sleeve</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Runway Model in Navy Structured Suit (Center-Left: X=26.5%, Bottom=0%, W=26.5%, H=75%) */}
+                      <div
+                        className="absolute left-[26.5%] bottom-0 w-[26.5%] h-[75%] z-20 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-2xl"
+                        onClick={() => setSelectedImage(aooMb3RunwaySuit)}
+                      >
+                        <img 
+                          src={aooMb3RunwaySuit} 
+                          alt="Hourglass Double-Breasted Runway Suit" 
+                          className="w-full h-full object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Tailored Blazer</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Vintage Postcard with Red Cross-Stitch Embroidery (Center-Right: X=50%, Top=14%, W=28%, H=78%) */}
+                      <div
+                        className="absolute left-[50%] top-[14%] w-[28%] h-[78%] z-30 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
+                        onClick={() => setSelectedImage(aooMb3Postcard)}
+                      >
+                        <img 
+                          src={aooMb3Postcard} 
+                          alt="Archival Postcard with Hand-Embroidered Cross-Stitch Motif" 
+                          className="w-full h-full object-contain filter drop-shadow-md" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Archival Postcard</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Jacket Back with Topographic Threadwork (Top Right: Right=0%, Top=0%, W=24.5%, H=75%) */}
+                      <div
+                        className="absolute right-0 top-0 w-[24.5%] h-[75%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        onClick={() => setSelectedImage(aooMb3JacketBack)}
+                      >
+                        <img 
+                          src={aooMb3JacketBack} 
+                          alt="Topographic Contour Threadwork Embroidery on Jacket Back" 
+                          className="w-full h-full object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Contour Threadwork</span>
+                        </div>
                       </div>
                     </div>
 
