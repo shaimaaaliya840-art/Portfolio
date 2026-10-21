@@ -89,6 +89,7 @@ export const initialPortfolioData: PortfolioData = {
     { title: "10th - Balika Vidyapith lakhisarai", institution: "Balika Vidyapith Lakhisarai", level: "Secondary School (10th)" }
   ],
   experienceWorkshops: [
+    "The Geometry & Structure of Tailoring (LLDC Kutch)",
     "Cyanotype Printing",
     "Carving, Sculpting",
     "Clay pottery",

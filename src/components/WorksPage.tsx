@@ -53,6 +53,11 @@ import cyanotypeNews from '../assets/images/cyanotype/cyanotype_record_news.png'
 import cyanotypeExposure from '../assets/images/cyanotype/cyanotype_sun_exposure.jpg';
 import cyanotypeComp from '../assets/images/cyanotype/cyanotype_composition.jpg';
 import cyanotypeChems from '../assets/images/cyanotype/cyanotype_chemicals.jpg';
+import lldcMannequins from '../assets/images/tailoring-geometry/lldc_mannequins_display.jpg';
+import lldcPatternsBook from '../assets/images/tailoring-geometry/lldc_patterns_of_fashion_book.jpg';
+import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historical_drafting_book.jpg';
+import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
+import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
 import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
 import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
@@ -513,6 +518,40 @@ const PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'geometry-structure-tailoring',
+    title: 'The Geometry & Structure of Tailoring',
+    tagline: 'Workshop · LLDC [Kutch]',
+    category: 'workshop',
+    icon: Layers,
+    backgroundColor: '#181014',
+    pages: [
+      {
+        type: 'grid',
+        title: 'The Geometry & Structure of Tailoring',
+        gridCols: 2,
+        imageAspect: 'aspect-[4/3]',
+        imageFit: 'cover',
+        images: [
+          { src: lldcMannequins, alt: 'Reconstructed 17th-18th century tailored coats on display mannequins at LLDC Kutch' },
+          { src: lldcPatternsBook, alt: 'Janet Arnold Patterns of Fashion research desk with tools and anatomical geometry notes' },
+          { src: lldcDraftingBook, alt: 'Archival master tailor drafting plates showing geometric pleats, gores, and coat patterns c.1675-1712' },
+          { src: lldcPatternDesk, alt: 'Pattern cutting workspace with miniature drafting toiles, rulers, leather sketchbook, and geometry shears' },
+          { src: lldcPaperToile, alt: 'Three-dimensional folded paper structural toile study of historical waistcoat silhouette' }
+        ],
+        paragraphs: [
+          "THE GEOMETRY AND STRUCTURE OF TAILORING — LLDC [KUTCH]",
+          "An intensive masterclass and archival research immersion conducted at Living and Learning Design Centre (LLDC) in Ajrakhpur, Kutch, Gujarat — deconstructing the anatomical mathematics and architectural cutting systems of historical European tailoring from the late 17th to 18th centuries.",
+          "RESEARCH & ARCHITECTURAL METHODOLOGY:",
+          "1. Mathematical Pattern Analysis: Studying seminal archival pattern treatises (Janet Arnold's 'Patterns of Fashion 6' and historical Bohemian master tailor manuscripts from 1712) to decode the geometric origins of the three-piece suit, sleeved waistcoats, and Spanish breeches.",
+          "2. Two-Dimensional to Three-Dimensional Transposition: Translating flat geometric diagrams — circular arcs, triangular skirt inserts, and gussets — into precision paper scale-models to understand how flat sheets curve into rigid body architecture without synthetic stretch.",
+          "3. Structural Interfacing & Pleating Systems: Investigating historical pleat-fan geometry (back pleats, side-vent gores, and curved armhole cuts) that distribute fabric volume cleanly across waist and hip contours.",
+          "4. Reconstructed Haute Tailoring: Analyzing original full-scale replicas featuring intricate gold bullion metallic frogging, standing linen ruff collars, slashed doublet sleeves, and hand-worked buttonholes.",
+          "SYNTHESIS: Bridging historical pattern geometry with modern avant-garde couture architectural silhouettes and structural corsetry."
+        ]
+      }
+    ]
+  },
+  {
     id: 'cyanotype-printing',
     title: 'Cyanotype Printing',
     tagline: 'Monumental Workshop · Indus World Record',
@@ -550,6 +589,7 @@ const PROJECTS: Project[] = [
 
 // Workshops from the "all portfolio work" deck (its WORKSHOP slide)
 const WORKSHOPS = [
+  { name: 'The Geometry & Structure of Tailoring', note: 'LLDC [Kutch]', projectId: 'geometry-structure-tailoring' },
   { name: 'Dabu Printing', projectId: 'dabu-printing' },
   { name: 'Coconut Shell Craft', note: 'Egai', projectId: 'coconut-shell-craft' },
   { name: 'Paper Weaving', note: 'Wellpaper', projectId: 'paper-weaving' },

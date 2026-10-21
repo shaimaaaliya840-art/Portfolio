@@ -7,6 +7,11 @@ import cyanotypeNews from '../assets/images/cyanotype/cyanotype_record_news.png'
 import cyanotypeExposure from '../assets/images/cyanotype/cyanotype_sun_exposure.jpg';
 import cyanotypeComp from '../assets/images/cyanotype/cyanotype_composition.jpg';
 import cyanotypeChems from '../assets/images/cyanotype/cyanotype_chemicals.jpg';
+import lldcMannequins from '../assets/images/tailoring-geometry/lldc_mannequins_display.jpg';
+import lldcPatternsBook from '../assets/images/tailoring-geometry/lldc_patterns_of_fashion_book.jpg';
+import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historical_drafting_book.jpg';
+import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
+import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
 import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
@@ -19,8 +24,9 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   onOpenInquiry
 }) => {
   const [plaqueTab, setPlaqueTab] = useState<'experience' | 'skills' | 'dyeing' | 'personal' | 'internships'>('experience');
-  const [activeCyanotypeImg, setActiveCyanotypeImg] = useState<string>(cyanotypeBanner);
-  const [cyanotypeLightbox, setCyanotypeLightbox] = useState<string | null>(null);
+  const [selectedWorkshop, setSelectedWorkshop] = useState<'tailoring' | 'cyanotype'>('tailoring');
+  const [activeWorkshopImg, setActiveWorkshopImg] = useState<string>(lldcMannequins);
+  const [workshopLightbox, setWorkshopLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   const personalSkills = portfolioData.personalSkills || [
     { skill: "Draping" },
@@ -33,6 +39,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   ];
 
   const experienceWorkshops = portfolioData.experienceWorkshops || [
+    "The Geometry & Structure of Tailoring (LLDC Kutch)",
     "Cyanotype Printing", "Clay & Pottery Craft", "Stone & Wood Carving",
     "Sculpting & Form Study", "Batik Resist Dyeing", "Shibori & Tie-Dye",
     "Silhouette & Form Art", "Basketry & Fiber Weaving"
@@ -125,7 +132,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
           {/* Clickable Category Switcher Tabs */}
           <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
             {[
-              { id: 'experience', label: 'Workshops (8)' },
+              { id: 'experience', label: `Workshops (${experienceWorkshops.length})` },
               { id: 'skills', label: 'Hard-Skills & Software' },
               { id: 'dyeing', label: 'Dyeing Alchemy' },
               { id: 'personal', label: 'Personal' },
@@ -157,101 +164,203 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                   <span className="text-[0.625rem] text-[#FAF6EE]/75 font-mono">HANDS-ON TEXTILE ARTS</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {experienceWorkshops.map((exp, idx) => (
-                    <button
-                      key={idx}
-                      className={`px-2 py-1 text-[0.6875rem] font-mono font-medium transition-all inline-flex items-center gap-1 shadow-sm cursor-pointer border ${
-                        exp === 'Cyanotype Printing'
-                          ? 'bg-[#FAF6EE] text-[#540D21] border-[#FAF6EE] font-bold'
-                          : 'bg-[#FAF6EE]/10 hover:bg-[#FAF6EE] hover:text-[#540D21] text-[#FAF6EE] border-[#FAF6EE]/20'
-                      }`}
-                      title={`Click to explore ${exp}`}
-                    >
-                      <span className="opacity-70">✦</span>
-                      <span>{exp}</span>
-                      {exp === 'Cyanotype Printing' && (
-                        <span className="text-[0.5625rem] px-1 py-0.2 bg-[#540D21] text-[#FAF6EE] font-bold rounded-xs ml-0.5">
-                          FEATURED
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
+                  {experienceWorkshops.map((exp, idx) => {
+                    const isTailoring = exp.includes('Tailoring') || exp.includes('LLDC');
+                    const isCyanotype = exp.includes('Cyanotype');
+                    const isFeatured = isTailoring || isCyanotype;
+                    const isSelected = (isTailoring && selectedWorkshop === 'tailoring') || (isCyanotype && selectedWorkshop === 'cyanotype');
 
-                {/* Cyanotype Printing Workshop Showcase Card */}
-                <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
-                  <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
-                      <span>CYANOTYPE PRINTING · INDUS WORLD RECORD</span>
-                    </div>
-                    <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
-                      560 FT TEXTILE INSTALLATION
-                    </span>
-                  </div>
-
-                  {/* Main Active Photo with Zoom Preview Trigger */}
-                  <div 
-                    onClick={() => setCyanotypeLightbox(activeCyanotypeImg)}
-                    className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
-                    title="Click to view full photo"
-                  >
-                    <img
-                      src={activeCyanotypeImg}
-                      alt="Cyanotype Printing Workshop at Indus Design School"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-                    <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
-                      <div className="text-left font-mono">
-                        <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
-                          Indus Design School · Monumental Sun Printing Record
-                        </div>
-                        <div className="text-[0.5625rem] text-[#FAF6EE]/80">
-                          Natural sunlight exposure using Potassium Ferricyanide &amp; Ammonium Ferric Citrate
-                        </div>
-                      </div>
-                      <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
-                        View Full ↗
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 5-Photo Thumbnail Strip */}
-                  <div className="grid grid-cols-5 gap-1.5">
-                    {[
-                      { img: cyanotypeBanner, label: 'Banner' },
-                      { img: cyanotypeNews, label: 'News Record' },
-                      { img: cyanotypeExposure, label: 'Sun Exposure' },
-                      { img: cyanotypeComp, label: 'Composition' },
-                      { img: cyanotypeChems, label: 'Chemicals' }
-                    ].map((item, idx) => (
+                    return (
                       <button
                         key={idx}
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setActiveCyanotypeImg(item.img);
-                        }}
-                        className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
-                          activeCyanotypeImg === item.img
-                            ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
-                            : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                        onClick={isFeatured ? () => {
+                          if (isTailoring) {
+                            setSelectedWorkshop('tailoring');
+                            setActiveWorkshopImg(lldcMannequins);
+                          } else if (isCyanotype) {
+                            setSelectedWorkshop('cyanotype');
+                            setActiveWorkshopImg(cyanotypeBanner);
+                          }
+                        } : undefined}
+                        className={`px-2 py-1 text-[0.6875rem] font-mono font-medium transition-all inline-flex items-center gap-1 shadow-sm border ${
+                          isSelected
+                            ? 'bg-[#FAF6EE] text-[#540D21] border-[#FAF6EE] font-bold cursor-pointer'
+                            : isFeatured
+                            ? 'bg-[#FAF6EE]/20 hover:bg-[#FAF6EE]/40 text-[#FAF6EE] border-[#FAF6EE]/40 cursor-pointer'
+                            : 'bg-[#FAF6EE]/10 text-[#FAF6EE]/80 border-[#FAF6EE]/20 cursor-default'
                         }`}
-                        title={item.label}
+                        title={isFeatured ? `Click to view ${exp} archive & photos` : exp}
                       >
-                        <img
-                          src={item.img}
-                          alt={item.label}
-                          className="w-full h-full object-cover"
-                        />
-                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
-                          {item.label}
-                        </span>
+                        <span className="opacity-70">✦</span>
+                        <span>{exp}</span>
+                        {isFeatured && (
+                          <span className={`text-[0.5625rem] px-1 py-0.2 font-bold rounded-xs ml-0.5 ${
+                            isSelected ? 'bg-[#540D21] text-[#FAF6EE]' : 'bg-[#FAF6EE]/30 text-[#FAF6EE]'
+                          }`}>
+                            {isTailoring ? 'LLDC KUTCH' : 'RECORD'}
+                          </span>
+                        )}
                       </button>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
+
+                {/* Dynamic Workshop Showcase Card (Tailoring LLDC vs Cyanotype) */}
+                {selectedWorkshop === 'tailoring' ? (
+                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#E5B887] animate-pulse" />
+                        <span>THE GEOMETRY &amp; STRUCTURE OF TAILORING · LLDC [KUTCH]</span>
+                      </div>
+                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
+                        HISTORICAL TAILORING ARCHIVE c.1675–1795
+                      </span>
+                    </div>
+
+                    {/* Main Active Photo with Zoom Preview Trigger */}
+                    <div 
+                      onClick={() => setWorkshopLightbox({
+                        src: activeWorkshopImg,
+                        caption: 'LLDC [Kutch] · The Geometry and Structure of Tailoring Archival Masterclass'
+                      })}
+                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
+                      title="Click to view full photo"
+                    >
+                      <img
+                        src={activeWorkshopImg}
+                        alt="The Geometry & Structure of Tailoring Workshop at LLDC Kutch"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
+                        <div className="text-left font-mono">
+                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
+                            LLDC [Kutch] · The Geometry &amp; Structure of Tailoring
+                          </div>
+                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
+                            Janet Arnold Patterns of Fashion, 1712 Master Tailor Manuscripts &amp; 3D Paper Toile Studies
+                          </div>
+                        </div>
+                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
+                          View Full ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 5-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {[
+                        { img: lldcMannequins, label: 'Coats Display' },
+                        { img: lldcPatternsBook, label: 'Patterns Book' },
+                        { img: lldcDraftingBook, label: '1712 Plates' },
+                        { img: lldcPatternDesk, label: 'Cutting Desk' },
+                        { img: lldcPaperToile, label: '3D Paper Toile' }
+                      ].map((item, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveWorkshopImg(item.img);
+                          }}
+                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
+                            activeWorkshopImg === item.img
+                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
+                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                          }`}
+                          title={item.label}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.label}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mt-3 border-t border-[#FAF6EE]/20 pt-3 space-y-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-1 text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
+                        <span>CYANOTYPE PRINTING · INDUS WORLD RECORD</span>
+                      </div>
+                      <span className="text-[#FAF6EE]/80 bg-[#FAF6EE]/10 px-1.5 py-0.5 border border-[#FAF6EE]/20 text-[0.5625rem]">
+                        560 FT TEXTILE INSTALLATION
+                      </span>
+                    </div>
+
+                    {/* Main Active Photo with Zoom Preview Trigger */}
+                    <div 
+                      onClick={() => setWorkshopLightbox({
+                        src: activeWorkshopImg,
+                        caption: 'Indus Design School · Monumental Sun Printing Record Workshop'
+                      })}
+                      className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded overflow-hidden border-2 border-[#FAF6EE]/30 group cursor-pointer shadow-lg bg-black/40"
+                      title="Click to view full photo"
+                    >
+                      <img
+                        src={activeWorkshopImg}
+                        alt="Cyanotype Printing Workshop at Indus Design School"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-end justify-between pointer-events-none">
+                        <div className="text-left font-mono">
+                          <div className="text-[0.6875rem] font-bold text-[#FAF6EE]">
+                            Indus Design School · Monumental Sun Printing Record
+                          </div>
+                          <div className="text-[0.5625rem] text-[#FAF6EE]/80">
+                            Natural sunlight exposure using Potassium Ferricyanide &amp; Ammonium Ferric Citrate
+                          </div>
+                        </div>
+                        <span className="text-[0.625rem] font-mono text-[#FAF6EE] bg-black/60 px-2 py-0.5 rounded border border-white/20">
+                          View Full ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 5-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {[
+                        { img: cyanotypeBanner, label: 'Banner' },
+                        { img: cyanotypeNews, label: 'News Record' },
+                        { img: cyanotypeExposure, label: 'Sun Exposure' },
+                        { img: cyanotypeComp, label: 'Composition' },
+                        { img: cyanotypeChems, label: 'Chemicals' }
+                      ].map((item, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveWorkshopImg(item.img);
+                          }}
+                          className={`relative aspect-[4/3] rounded overflow-hidden border transition-all cursor-pointer ${
+                            activeWorkshopImg === item.img
+                              ? 'border-[#FAF6EE] ring-2 ring-[#FAF6EE] scale-[1.02]'
+                              : 'border-[#FAF6EE]/25 opacity-70 hover:opacity-100'
+                          }`}
+                          title={item.label}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.label}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[0.5rem] font-mono text-[#FAF6EE] truncate px-0.5 py-0.2 text-center">
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
                   <div className="flex items-center gap-1.5">
@@ -381,10 +490,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
 
       </div>
 
-      {/* Cyanotype Lightbox Modal */}
-      {cyanotypeLightbox && (
+      {/* Workshop Lightbox Modal */}
+      {workshopLightbox && (
         <div 
-          onClick={() => setCyanotypeLightbox(null)}
+          onClick={() => setWorkshopLightbox(null)}
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-pointer"
         >
           <div 
@@ -392,19 +501,19 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
             className="relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center bg-[#1A121A] border-2 border-[#FAF6EE]/40 p-2 sm:p-4 shadow-2xl"
           >
             <button
-              onClick={() => setCyanotypeLightbox(null)}
+              onClick={() => setWorkshopLightbox(null)}
               className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-[#540D21] border border-[#FAF6EE] text-[#FAF6EE] flex items-center justify-center hover:bg-[#851737] transition-colors cursor-pointer shadow-lg z-10"
               title="Close"
             >
               <X className="w-4 h-4" />
             </button>
             <img
-              src={cyanotypeLightbox}
-              alt="Cyanotype Printing Full View"
+              src={workshopLightbox.src}
+              alt="Workshop Full View"
               className="max-h-[80vh] w-auto max-w-full object-contain border border-[#FAF6EE]/20"
             />
             <div className="pt-2 text-center font-mono text-xs text-[#FAF6EE]/90">
-              Indus Design School · Monumental Cyanotype Printing Record Workshop
+              {workshopLightbox.caption}
             </div>
           </div>
         </div>
