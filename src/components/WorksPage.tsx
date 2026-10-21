@@ -642,29 +642,60 @@ const WORKSHOPS = [
   { name: 'Cyanotype Printing', note: 'Indus Record', projectId: 'cyanotype-printing' }
 ];
 
-/** Editorial headline with an uncut Amoresa script initial and Perandory Condensed capitals */
+/** Editorial headline for workshop project modals */
 const WorkshopHeadline: React.FC<{ title: string; isLight?: boolean }> = ({ title, isLight }) => {
   if (!title) return null;
   const trimmed = title.trim();
-  const firstLetter = trimmed.charAt(0).toUpperCase();
-  const rest = trimmed.slice(1).toUpperCase();
+
+  // If the title starts with "The " or is a longer multi-word title:
+  // Render in the prestigious Avonia couture display typography so full words stay beautifully balanced!
+  const isMultiWordOrThe = trimmed.toLowerCase().startsWith('the ') || trimmed.split(/\s+/).length > 3;
+
+  if (isMultiWordOrThe) {
+    return (
+      <div className="flex items-center justify-center w-full pt-4 sm:pt-6 pb-6 sm:pb-8 px-4 select-none">
+        <h2
+          className={`font-avonia font-normal text-3xl sm:text-5xl md:text-6xl text-center uppercase tracking-widest drop-shadow-md max-w-4xl leading-tight ${
+            isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
+          }`}
+        >
+          {trimmed}
+        </h2>
+      </div>
+    );
+  }
+
+  // For short craft workshop titles (e.g. "Dabu Printing", "Eco Printing", "Cyanotype Printing"):
+  // Keep the first letter and the rest of the first word locked in whitespace-nowrap so it NEVER orphans the initial letter!
+  const words = trimmed.split(/\s+/);
+  const firstWord = words[0];
+  const firstLetter = firstWord.charAt(0).toUpperCase();
+  const firstWordRest = firstWord.slice(1).toUpperCase();
+  const restOfWords = words.slice(1).join(' ').toUpperCase();
 
   return (
-    <div className="flex items-center justify-center w-full pt-4 sm:pt-6 pb-6 sm:pb-8 px-4 overflow-visible select-none">
+    <div className="flex items-center justify-center w-full pt-4 sm:pt-6 pb-6 sm:pb-8 px-4 select-none text-center">
       <h2
-        className={`inline-flex flex-wrap items-baseline justify-center text-center tracking-normal drop-shadow-md overflow-visible ${
+        className={`inline-block text-center tracking-normal drop-shadow-md ${
           isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
         }`}
       >
-        <span
-          className="font-['Amoresa','Great_Vibes',cursive] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal inline-block pr-1 sm:pr-2 select-none overflow-visible transform -translate-y-1"
-          style={{ lineHeight: 1.15 }}
-        >
-          {firstLetter}
+        <span className="inline-flex items-baseline whitespace-nowrap">
+          <span
+            className="font-['Amoresa','Great_Vibes',cursive] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal inline-block pr-1 select-none transform -translate-y-1"
+            style={{ lineHeight: 1.15 }}
+          >
+            {firstLetter}
+          </span>
+          <span className="font-['Perandory_Condensed','Bodoni_Moda',Georgia,serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.16em] sm:tracking-[0.2em] uppercase">
+            {firstWordRest}
+          </span>
         </span>
-        <span className="font-['Perandory_Condensed','Bodoni_Moda',Georgia,serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.16em] sm:tracking-[0.2em] uppercase inline-block overflow-visible">
-          {rest}
-        </span>
+        {restOfWords && (
+          <span className="font-['Perandory_Condensed','Bodoni_Moda',Georgia,serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.16em] sm:tracking-[0.2em] uppercase pl-2">
+            {restOfWords}
+          </span>
+        )}
       </h2>
     </div>
   );
