@@ -1152,7 +1152,10 @@ export const WorksPage: React.FC = () => {
                   <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/80 mb-1">
                     {project.tagline}
                   </span>
-                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md">
+                  <span
+                    className="font-['Perandory_Condensed','Bodoni_Moda',Georgia,serif] [font-family:var(--font-readable-display)] text-[28px] sm:text-[32px] leading-[1.15] font-normal uppercase tracking-[0.04em] text-[#FAF6EE] drop-shadow-md"
+                    style={{ lineHeight: 1.15 }}
+                  >
                     {project.title}
                   </span>
                   <span className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4 mt-3 group-hover:text-white group-hover:decoration-white group-hover:translate-x-1 transition-all">
