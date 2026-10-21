@@ -12,6 +12,7 @@ import lldcPatternsBook from '../assets/images/tailoring-geometry/lldc_patterns_
 import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historical_drafting_book.jpg';
 import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
 import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
+import lldcPaperMockup from '../assets/images/tailoring-geometry/lldc_geometric_paper_mockup.png';
 import { X, ExternalLink, Sparkles } from 'lucide-react';
 
 interface ManifestoDualArchPageProps {
@@ -248,14 +249,15 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       </div>
                     </div>
 
-                    {/* 5-Photo Thumbnail Strip */}
-                    <div className="grid grid-cols-5 gap-1.5">
+                    {/* 6-Photo Thumbnail Strip */}
+                    <div className="grid grid-cols-6 gap-1.5">
                       {[
                         { img: lldcMannequins, label: 'Coats Display' },
                         { img: lldcPatternsBook, label: 'Patterns Book' },
                         { img: lldcDraftingBook, label: '1712 Plates' },
                         { img: lldcPatternDesk, label: 'Cutting Desk' },
-                        { img: lldcPaperToile, label: '3D Paper Toile' }
+                        { img: lldcPaperToile, label: '3D Paper Toile' },
+                        { img: lldcPaperMockup, label: 'Origami Fold' }
                       ].map((item, idx) => (
                         <button
                           key={idx}

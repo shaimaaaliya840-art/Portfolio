@@ -58,6 +58,7 @@ import lldcPatternsBook from '../assets/images/tailoring-geometry/lldc_patterns_
 import lldcDraftingBook from '../assets/images/tailoring-geometry/lldc_historical_drafting_book.jpg';
 import lldcPatternDesk from '../assets/images/tailoring-geometry/lldc_pattern_cutting_desk.png';
 import lldcPaperToile from '../assets/images/tailoring-geometry/lldc_3d_paper_toile.jpg';
+import lldcPaperMockup from '../assets/images/tailoring-geometry/lldc_geometric_paper_mockup.png';
 import aooGarment3_3 from '../assets/images/anatomy-of-ornament/aoo_garment3_3.jpg';
 import aooGarment3_4 from '../assets/images/anatomy-of-ornament/aoo_garment3_4.png';
 import aooGarment1 from '../assets/images/anatomy-of-ornament/garment_1.jpg';
@@ -536,7 +537,8 @@ const PROJECTS: Project[] = [
           { src: lldcPatternsBook, alt: 'Janet Arnold Patterns of Fashion research desk with tools and anatomical geometry notes' },
           { src: lldcDraftingBook, alt: 'Archival master tailor drafting plates showing geometric pleats, gores, and coat patterns c.1675-1712' },
           { src: lldcPatternDesk, alt: 'Pattern cutting workspace with miniature drafting toiles, rulers, leather sketchbook, and geometry shears' },
-          { src: lldcPaperToile, alt: 'Three-dimensional folded paper structural toile study of historical waistcoat silhouette' }
+          { src: lldcPaperToile, alt: 'Three-dimensional folded paper structural toile study of historical waistcoat silhouette' },
+          { src: lldcPaperMockup, alt: 'Geometric origami paper toile study deconstructing flat pattern to 3D garment silhouette' }
         ],
         paragraphs: [
           "THE GEOMETRY AND STRUCTURE OF TAILORING — LLDC [KUTCH]",
