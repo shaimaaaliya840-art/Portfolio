@@ -87,6 +87,12 @@ import aooMb3RunwaySuit from '../assets/images/anatomy-of-ornament/aoo_mb3_runwa
 import aooMb3Postcard from '../assets/images/anatomy-of-ornament/aoo_mb3_vintage_postcard_crossstitch.png';
 import aooMb3JacketBack from '../assets/images/anatomy-of-ornament/aoo_mb3_embroidered_jacket_back.png';
 import aooMb3Ribbon from '../assets/images/anatomy-of-ornament/aoo_mb3_border_ribbon_transparent.png';
+import aooGarment2Moodboard from '../assets/images/anatomy-of-ornament/aoo_garment2_moodboard.png';
+import aooMb2CatNecklace from '../assets/images/anatomy-of-ornament/aoo_mb2_black_cat_necklace.png';
+import aooMb2CarvedLeather from '../assets/images/anatomy-of-ornament/aoo_mb2_carved_leather.png';
+import aooMb2CatEyes from '../assets/images/anatomy-of-ornament/aoo_mb2_cat_eyes.png';
+import aooMb2AceOfSpades from '../assets/images/anatomy-of-ornament/aoo_mb2_ace_of_spades.png';
+import aooMb2FloralJacquard from '../assets/images/anatomy-of-ornament/aoo_mb2_floral_jacquard.png';
 import dabu1 from '../assets/images/dabu/dabu1.png';
 import dabu2 from '../assets/images/dabu/dabu2.jpg';
 import dabu3 from '../assets/images/dabu/dabu3.png';
@@ -114,7 +120,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment3';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -295,6 +301,16 @@ const PROJECTS: Project[] = [
         paragraphs: [
           "LOOK 01 · PADMA RADIANCE & ARCHITECTURAL SILHOUETTE",
           "Sculpted one-shoulder midnight silk column silhouette engineered with radial gold bullion lotus ornamentation emerging from the waistline, paired with an asymmetrical cascading sash anchored by a bespoke floral metallurgy tassel."
+        ]
+      },
+      {
+        type: 'moodboard-garment2',
+        title: 'Mood Board',
+        src: aooGarment2Moodboard,
+        alt: 'Garment 02 Mood Board — Noir, Feline Architecture & Gothic Metallurgy',
+        paragraphs: [
+          "MATERIAL & NOIR RESEARCH · LOOK 02:",
+          "Exploration of midnight obsidian textures, feline predatory architecture, gothic embossed leather, carved gothic card motifs, and dark botanical jacquard."
         ]
       },
       {
@@ -931,6 +947,108 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         <p key={pIdx}>{p}</p>
                       ))}
                     </div>
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-garment2') {
+                return (
+                  <div key={`mb-g2-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#FAF6EE]">
+                        {page.title}
+                      </h2>
+                    )}
+
+                    {/* Exact Reference Proportional Collage */}
+                    <div
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
+                      style={{ aspectRatio: '752 / 438' }}
+                    >
+                      {/* 1. Cat with Diamond/Pearl Necklace (Far Left: X=4.8%, Top=29.7%, W=23.1%, H=43.4%) */}
+                      <div
+                        className="absolute left-[4.8%] top-[29.7%] w-[23.1%] h-[43.4%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
+                        onClick={() => setSelectedImage(aooMb2CatNecklace)}
+                      >
+                        <img 
+                          src={aooMb2CatNecklace} 
+                          alt="Black Panther / Feline Noir with Diamond Choker" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Feline Noir</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Carved Black Leather Architectural Panel (Center-Left: X=26.6%, Top=2.3%, W=23.9%, H=73.1%) */}
+                      <div
+                        className="absolute left-[26.6%] top-[2.3%] w-[23.9%] h-[73.1%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/10 shadow-2xl"
+                        onClick={() => setSelectedImage(aooMb2CarvedLeather)}
+                      >
+                        <img 
+                          src={aooMb2CarvedLeather} 
+                          alt="Gothic Carved Floral Leather Architecture" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Embossed Leather</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Black Cat Glowing Eyes (Top Right: X=49.2%, Top=2.3%, W=39.6%, H=32.0%) */}
+                      <div
+                        className="absolute left-[49.2%] top-[2.3%] w-[39.6%] h-[32.0%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        onClick={() => setSelectedImage(aooMb2CatEyes)}
+                      >
+                        <img 
+                          src={aooMb2CatEyes} 
+                          alt="Predatory Feline Green Gaze in Obsidian Shadow" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Predatory Gaze</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Ace of Spades Gothic Metallurgy Card (Center-Bottom: X=47.9%, Top=30.8%, W=25.3%, H=69.2%) */}
+                      <div
+                        className="absolute left-[47.9%] top-[30.8%] w-[25.3%] h-[69.2%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                        onClick={() => setSelectedImage(aooMb2AceOfSpades)}
+                      >
+                        <img 
+                          src={aooMb2AceOfSpades} 
+                          alt="Ornate Carved Stone Ace of Spades with Faceted Black Diamond" 
+                          className="w-full h-full object-contain filter drop-shadow-md" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Gothic Metallurgy</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Midnight Floral Botanical Jacquard (Center-Right: X=71.1%, Top=30.8%, W=17.8%, H=44.5%) */}
+                      <div
+                        className="absolute left-[71.1%] top-[30.8%] w-[17.8%] h-[44.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        onClick={() => setSelectedImage(aooMb2FloralJacquard)}
+                      >
+                        <img 
+                          src={aooMb2FloralJacquard} 
+                          alt="Midnight Blue Botanical Floral Jacquard & Threadwork" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Midnight Jacquard</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-4 text-base sm:text-lg font-serif leading-relaxed drop-shadow-sm text-white/90">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
