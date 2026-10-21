@@ -946,11 +946,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                     {/* Exact Reference Proportional Collage */}
                     <div
                       className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
-                      style={{ aspectRatio: '725 / 447' }}
+                      style={{ aspectRatio: '801 / 447' }}
                     >
-                      {/* Background Red Embroidery Band across middle */}
+                      {/* 1. Upper Red Embroidery Band (Left): behind model, aligning seamlessly with postcard top cross-stitch band */}
                       <div 
-                        className="absolute left-0 top-[37%] w-full h-[10%] opacity-90 z-0 pointer-events-none"
+                        className="absolute left-[25.5%] top-[23.5%] w-[29%] h-[10.5%] opacity-95 z-[10] pointer-events-none"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
@@ -959,9 +959,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         }}
                       />
 
-                      {/* Background Red Embroidery Band at lower right */}
+                      {/* 2. Lower Red Embroidery Band (Right): under jacket hem, aligning seamlessly with postcard bottom cross-stitch band */}
                       <div 
-                        className="absolute right-0 bottom-[4%] w-[35%] h-[10%] opacity-90 z-0 pointer-events-none"
+                        className="absolute right-0 top-[64%] w-[42%] h-[10.5%] opacity-95 z-[5] pointer-events-none"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
@@ -970,9 +970,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         }}
                       />
 
-                      {/* 1. Quilted Sleeve (Top Left: X=0%, Y=0%, W=27.5%, H=65%) */}
+                      {/* 3. Quilted Sleeve (Top Left: X=0%, Y=0%, W=26%, H=63%) */}
                       <div
-                        className="absolute left-0 top-0 w-[27.5%] h-[65%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
+                        className="absolute left-0 top-0 w-[26%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
                         onClick={() => setSelectedImage(aooMb3QuiltedSleeve)}
                       >
                         <img 
@@ -985,9 +985,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 2. Runway Model in Navy Structured Suit (Center-Left: X=26.5%, Bottom=0%, W=26.5%, H=75%) */}
+                      {/* 4. Runway Model in Navy Structured Suit (Center-Left: X=25.5%, Bottom=0%, W=27%, H=75.5%) */}
                       <div
-                        className="absolute left-[26.5%] bottom-0 w-[26.5%] h-[75%] z-20 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-2xl"
+                        className="absolute left-[25.5%] bottom-0 w-[27%] h-[75.5%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-2xl"
                         onClick={() => setSelectedImage(aooMb3RunwaySuit)}
                       >
                         <img 
@@ -1000,9 +1000,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 3. Vintage Postcard with Red Cross-Stitch Embroidery (Center-Right: X=50%, Top=14%, W=28%, H=78%) */}
+                      {/* 5. Vintage Postcard with Red Cross-Stitch Embroidery (Center: X=51.5%, Top=8.5%, W=24.5%, H=78.5%) */}
                       <div
-                        className="absolute left-[50%] top-[14%] w-[28%] h-[78%] z-30 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
+                        className="absolute left-[51.5%] top-[8.5%] w-[24.5%] h-[78.5%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
                         onClick={() => setSelectedImage(aooMb3Postcard)}
                       >
                         <img 
@@ -1015,9 +1015,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 4. Jacket Back with Topographic Threadwork (Top Right: Right=0%, Top=0%, W=24.5%, H=75%) */}
+                      {/* 6. Jacket Back with Topographic Threadwork (Top Right: Right=0%, Top=0%, W=25%, H=63%) */}
                       <div
-                        className="absolute right-0 top-0 w-[24.5%] h-[75%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute right-0 top-0 w-[25%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
                         onClick={() => setSelectedImage(aooMb3JacketBack)}
                       >
                         <img 
