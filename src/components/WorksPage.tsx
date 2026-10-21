@@ -964,9 +964,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
                       style={{ aspectRatio: '752 / 438' }}
                     >
-                      {/* 1. Cat with Diamond/Pearl Necklace (Far Left: X=4.8%, Top=29.7%, W=23.1%, H=43.4%) */}
+                      {/* 1. Cat with Diamond/Pearl Necklace (Far Left: X=4.8%, Top=31.5%, W=22.4%, H=41.5%) */}
                       <div
-                        className="absolute left-[4.8%] top-[29.7%] w-[23.1%] h-[43.4%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
+                        className="absolute left-[4.8%] top-[31.5%] w-[22.4%] h-[41.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
                         onClick={() => setSelectedImage(aooMb2CatNecklace)}
                       >
                         <img 
@@ -979,9 +979,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 2. Carved Black Leather Architectural Panel (Center-Left: X=26.6%, Top=2.3%, W=23.9%, H=73.1%) */}
+                      {/* 2. Carved Black Leather Architectural Panel (Center-Left: X=26.8%, Top=0%, W=23.2%, H=73%) */}
                       <div
-                        className="absolute left-[26.6%] top-[2.3%] w-[23.9%] h-[73.1%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/10 shadow-2xl"
+                        className="absolute left-[26.8%] top-0 w-[23.2%] h-[73%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/10 shadow-2xl"
                         onClick={() => setSelectedImage(aooMb2CarvedLeather)}
                       >
                         <img 
@@ -994,9 +994,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 3. Black Cat Glowing Eyes (Top Right: X=49.2%, Top=2.3%, W=39.6%, H=32.0%) */}
+                      {/* 3. Black Cat Glowing Eyes (Top Right: X=49.8%, Top=0%, W=39.2%, H=31.5%) */}
                       <div
-                        className="absolute left-[49.2%] top-[2.3%] w-[39.6%] h-[32.0%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute left-[49.8%] top-0 w-[39.2%] h-[31.5%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
                         onClick={() => setSelectedImage(aooMb2CatEyes)}
                       >
                         <img 
@@ -1009,9 +1009,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 4. Ace of Spades Gothic Metallurgy Card (Center-Bottom: X=47.9%, Top=30.8%, W=25.3%, H=69.2%) */}
+                      {/* 4. Ace of Spades Gothic Metallurgy Card (Center-Bottom: X=47.8%, Top=31.5%, W=25.2%, H=68.5%) */}
                       <div
-                        className="absolute left-[47.9%] top-[30.8%] w-[25.3%] h-[69.2%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                        className="absolute left-[47.8%] top-[31.5%] w-[25.2%] h-[68.5%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.04] group drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
                         onClick={() => setSelectedImage(aooMb2AceOfSpades)}
                       >
                         <img 
@@ -1024,9 +1024,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 5. Midnight Floral Botanical Jacquard (Center-Right: X=71.1%, Top=30.8%, W=17.8%, H=44.5%) */}
+                      {/* 5. Midnight Floral Botanical Jacquard (Center-Right: X=71.8%, Top=31.5%, W=17.2%, H=41.5%) */}
                       <div
-                        className="absolute left-[71.1%] top-[30.8%] w-[17.8%] h-[44.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute left-[71.8%] top-[31.5%] w-[17.2%] h-[41.5%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
                         onClick={() => setSelectedImage(aooMb2FloralJacquard)}
                       >
                         <img 
