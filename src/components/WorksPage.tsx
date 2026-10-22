@@ -973,7 +973,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-center" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Embossed Leather</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Embossed Leather</span>
                         </div>
                       </div>
 
@@ -988,7 +988,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-center" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Predatory Gaze</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Predatory Gaze</span>
                         </div>
                       </div>
 
@@ -1003,7 +1003,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-center" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Feline Noir</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Feline Noir</span>
                         </div>
                       </div>
 
@@ -1018,7 +1018,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-center" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Midnight Jacquard</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Midnight Jacquard</span>
                         </div>
                       </div>
 
@@ -1033,7 +1033,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-contain filter drop-shadow-md" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Gothic Metallurgy</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gothic Metallurgy</span>
                         </div>
                       </div>
                     </div>
