@@ -869,7 +869,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                             <div
                               key={img.src}
                               className={`group relative w-full h-[65vh] sm:h-full overflow-hidden rounded-sm ${placementClass} ${
-                                isLight ? '' : 'shadow-2xl border border-white/10'
+                                isLight ? '' : 'shadow-2xl'
                               }`}
                             >
                               <img
@@ -1306,56 +1306,56 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                     >
                       {/* 1. Spool in carved wood tray (Left bottom: X=0%, W=18.27%, H=66.44%) */}
                       <div
-                        className="absolute left-0 bottom-0 w-[18.27%] h-[66.44%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-0 bottom-0 w-[18.27%] h-[66.44%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbSpool)}
                       >
                         <img src={aooMbSpool} alt="Gold Zari Spool in Carved Tray" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Gold Spool</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gold Spool</span>
                         </div>
                       </div>
 
                       {/* 2. Terracotta Kantha (Bottom Center: X=26.93%, W=28.66%, H=43.62%) */}
                       <div
-                        className="absolute left-[26.93%] bottom-0 w-[28.66%] h-[43.62%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[26.93%] bottom-0 w-[28.66%] h-[43.62%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbKantha)}
                       >
                         <img src={aooMbKantha} alt="Terracotta Kantha Embroidery" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Kantha Ground</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Kantha Ground</span>
                         </div>
                       </div>
 
                       {/* 3. Embroidered Kurta with Teal Wall (Top Right: X=52.91%, W=26.93%, H=35.79%) */}
                       <div
-                        className="absolute left-[52.91%] top-0 w-[26.93%] h-[35.79%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[52.91%] top-0 w-[26.93%] h-[35.79%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbKurta)}
                       >
                         <img src={aooMbKurta} alt="Embroidered Kurta on Teal Wall" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Zardozi Kurta</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Zardozi Kurta</span>
                         </div>
                       </div>
 
                       {/* 4. Sunburst Corset on Mannequin (Bottom Right: X=52.91%, W=31.65%, H=64.21%) */}
                       <div
-                        className="absolute left-[52.91%] bottom-0 w-[31.65%] h-[64.21%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-l border-white/10 shadow-lg rounded-sm"
+                        className="absolute left-[52.91%] bottom-0 w-[31.65%] h-[64.21%] z-10 cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg rounded-sm"
                         onClick={() => setSelectedImage(aooMbCorset)}
                       >
                         <img src={aooMbCorset} alt="Sunburst Beaded Corset" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Sunburst Corset</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sunburst Corset</span>
                         </div>
                       </div>
 
                       {/* 5. Runway Model Christy Turlington (Center Hero: X=18.43%, Y=5.37%, W=34.49%, H=70.25%) */}
                       <div
-                        className="absolute left-[18.43%] top-[5.37%] w-[34.49%] h-[70.25%] z-20 cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 hover:z-40 hover:scale-[1.03] group border border-white/20 rounded-sm"
+                        className="absolute left-[18.43%] top-[5.37%] w-[34.49%] h-[70.25%] z-20 cursor-pointer overflow-hidden shadow-2xl transition-all duration-500 hover:z-40 hover:scale-[1.03] group rounded-sm"
                         onClick={() => setSelectedImage(aooMbRunway)}
                       >
                         <img src={aooMbRunway} alt="Archival Runway Model" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Runway Silhouette</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Runway Silhouette</span>
                         </div>
                       </div>
 
