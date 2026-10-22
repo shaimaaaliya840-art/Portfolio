@@ -1061,12 +1061,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Exact Reference Proportional Collage */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm border border-white/10 shadow-2xl"
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm shadow-2xl"
                       style={{ aspectRatio: '801 / 447' }}
                     >
-                      {/* 1. Upper Red Embroidery Band (Left): layered ON TOP across model & postcard border as marked */}
+                      {/* 1. Upper Red Embroidery Band: pushed upward above model, zero overlap */}
                       <div 
-                        className="absolute left-[24%] top-[23.5%] w-[30.5%] h-[10.5%] opacity-100 z-[35] pointer-events-none drop-shadow-md"
+                        className="absolute left-[26%] top-[2%] w-[25.5%] h-[10.5%] opacity-100 z-[25] pointer-events-none drop-shadow-md"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
@@ -1075,7 +1075,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         }}
                       />
 
-                      {/* 2. Lower Red Embroidery Band (Right): layered ON TOP under jacket hem across postcard border as marked */}
+                      {/* 2. Lower Red Embroidery Band (Right): layered under jacket hem across postcard border as marked */}
                       <div 
                         className="absolute right-0 top-[64%] w-[42%] h-[10.5%] opacity-100 z-[35] pointer-events-none drop-shadow-md"
                         style={{
@@ -1088,7 +1088,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 3. Quilted Sleeve (Top Left: X=0%, Y=0%, W=26%, H=63%) */}
                       <div
-                        className="absolute left-0 top-0 w-[26%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-r border-white/10 shadow-lg"
+                        className="absolute left-0 top-0 w-[26%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg"
                         onClick={() => setSelectedImage(aooMb3QuiltedSleeve)}
                       >
                         <img 
@@ -1097,13 +1097,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-left-top" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Quilted Sleeve</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Quilted Sleeve</span>
                         </div>
                       </div>
 
-                      {/* 4. Runway Model in Navy Structured Suit (Center-Left: X=25.5%, Bottom=0%, W=27%, H=75.5%) */}
+                      {/* 4. Runway Model in Navy Structured Suit (Center-Left: X=25.5%, Bottom=0%, W=26%, H=70%) */}
                       <div
-                        className="absolute left-[25.5%] bottom-0 w-[27%] h-[75.5%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-t border-r border-white/10 shadow-2xl"
+                        className="absolute left-[25.5%] bottom-0 w-[26%] h-[70%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-2xl"
                         onClick={() => setSelectedImage(aooMb3RunwaySuit)}
                       >
                         <img 
@@ -1112,7 +1112,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-top" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Tailored Blazer</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Tailored Blazer</span>
                         </div>
                       </div>
 
@@ -1127,13 +1127,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-contain filter drop-shadow-md" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Archival Postcard</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Archival Postcard</span>
                         </div>
                       </div>
 
                       {/* 6. Jacket Back with Topographic Threadwork (Top Right: Right=0%, Top=0%, W=25%, H=63%) */}
                       <div
-                        className="absolute right-0 top-0 w-[25%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group border-b border-l border-white/10 shadow-lg"
+                        className="absolute right-0 top-0 w-[25%] h-[63%] z-[15] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-lg"
                         onClick={() => setSelectedImage(aooMb3JacketBack)}
                       >
                         <img 
@@ -1142,7 +1142,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           className="w-full h-full object-cover object-top" 
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 border border-white/10">Contour Threadwork</span>
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Contour Threadwork</span>
                         </div>
                       </div>
                     </div>
