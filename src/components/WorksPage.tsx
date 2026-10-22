@@ -971,14 +971,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Exact Proportional Mood Board Collage with Zero Overlap and Transparent Background */}
+                    {/* Seamless Proportional Mood Board Collage with Zero Gaps and Zero Overlap */}
                     <div
                       className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '554 / 439' }}
                     >
-                      {/* 1. Mirror with Candle (Top Center-Left) */}
+                      {/* 1. Mirror with Candle (Top Left) */}
                       <div
-                        className="absolute left-[13.00%] top-[0.00%] w-[22.20%] h-[37.59%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[0.00%] top-[0.00%] w-[35.20%] h-[37.50%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Mirror)}
                       >
                         <img 
@@ -993,7 +993,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 2. Cascading Crystal Chandelier (Top Center) */}
                       <div
-                        className="absolute left-[35.20%] top-[7.74%] w-[27.26%] h-[65.60%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[35.20%] top-[0.00%] w-[27.26%] h-[72.00%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Chandelier)}
                       >
                         <img 
@@ -1008,7 +1008,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 3. Cocktail Coupe with Menu (Top Right) */}
                       <div
-                        className="absolute left-[62.45%] top-[0.00%] w-[37.55%] h-[38.72%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[62.46%] top-[0.00%] w-[37.54%] h-[39.00%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Cocktail)}
                       >
                         <img 
@@ -1023,7 +1023,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 4. Vintage Telephone in Hand (Bottom Left) */}
                       <div
-                        className="absolute left-[0.00%] top-[37.81%] w-[31.41%] h-[62.19%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[0.00%] top-[37.50%] w-[35.20%] h-[62.50%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Telephone)}
                       >
                         <img 
@@ -1038,7 +1038,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 5. Gold Metallic Vinyl on Turntable (Bottom Right) */}
                       <div
-                        className="absolute left-[62.45%] top-[40.32%] w-[37.55%] h-[59.68%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[62.46%] top-[39.00%] w-[37.54%] h-[61.00%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Vinyl)}
                       >
                         <img 
@@ -1053,7 +1053,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 6. Jeweled Panther Art Deco Mosaic (Bottom Center Arch) */}
                       <div
-                        className="absolute left-[37.18%] top-[79.04%] w-[21.12%] h-[20.96%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[35.20%] top-[72.00%] w-[27.26%] h-[28.00%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb2Leopard)}
                       >
                         <img 
