@@ -971,106 +971,98 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Clean Proportional 3-Column Mood Board Collage with Zero Overlap and Balanced Gaps */}
-                    <div className="w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none">
-                      <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-5 w-full">
-                        {/* Column 1 (Left): Mirror (Top) + Telephone (Bottom) */}
-                        <div className="flex flex-col gap-2 sm:gap-4 lg:gap-5">
-                          {/* 1. Mirror with Candle */}
-                          <div
-                            className="relative w-full h-[130px] sm:h-[220px] lg:h-[280px] cursor-pointer overflow-hidden rounded-sm group shadow-xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Mirror)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Mirror} 
-                              alt="Gilded Baroque Mirror & Candlestick" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Mirror</span>
-                            </div>
-                          </div>
-
-                          {/* 4. Vintage Telephone in Hand */}
-                          <div
-                            className="relative w-full h-[170px] sm:h-[280px] lg:h-[360px] cursor-pointer overflow-hidden rounded-sm group shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Telephone)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Telephone} 
-                              alt="Gilded Rotary Telephone in Hand" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Telephone</span>
-                            </div>
-                          </div>
+                    {/* Exact Proportional Mood Board Collage from Reference Image with Zero Overlap */}
+                    <div
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-[#070808] rounded-sm overflow-hidden shadow-2xl"
+                      style={{ aspectRatio: '609 / 448' }}
+                    >
+                      {/* 1. Mirror with Candle (Top Center-Left) */}
+                      <div
+                        className="absolute left-[19.05%] top-[1.79%] w-[20.20%] h-[36.83%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-md"
+                        onClick={() => setSelectedImage(abhisarikaMb2Mirror)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Mirror} 
+                          alt="Gilded Baroque Mirror & Candlestick" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Mirror</span>
                         </div>
+                      </div>
 
-                        {/* Column 2 (Center): Chandelier (Top) + Leopard (Bottom) */}
-                        <div className="flex flex-col gap-2 sm:gap-4 lg:gap-5">
-                          {/* 2. Crystal Chandelier */}
-                          <div
-                            className="relative w-full h-[190px] sm:h-[320px] lg:h-[410px] cursor-pointer overflow-hidden rounded-sm group shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Chandelier)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Chandelier} 
-                              alt="Cascading Crystal Chandelier" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Crystal Chandelier</span>
-                            </div>
-                          </div>
-
-                          {/* 6. Jeweled Leopard Arch */}
-                          <div
-                            className="relative w-full h-[110px] sm:h-[180px] lg:h-[230px] cursor-pointer overflow-hidden rounded-sm group shadow-xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Leopard)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Leopard} 
-                              alt="Jeweled Panther Art Deco Mosaic" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Art Deco Panther</span>
-                            </div>
-                          </div>
+                      {/* 2. Cascading Crystal Chandelier (Top Center) */}
+                      <div
+                        className="absolute left-[39.25%] top-[9.38%] w-[24.95%] h-[64.29%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-lg"
+                        onClick={() => setSelectedImage(abhisarikaMb2Chandelier)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Chandelier} 
+                          alt="Cascading Crystal Chandelier" 
+                          className="w-full h-full object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Crystal Chandelier</span>
                         </div>
+                      </div>
 
-                        {/* Column 3 (Right): Cocktail (Top) + Vinyl (Bottom) */}
-                        <div className="flex flex-col gap-2 sm:gap-4 lg:gap-5">
-                          {/* 3. Cocktail with Menu */}
-                          <div
-                            className="relative w-full h-[130px] sm:h-[220px] lg:h-[280px] cursor-pointer overflow-hidden rounded-sm group shadow-xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Cocktail)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Cocktail} 
-                              alt="Amber Cocktail Coupe with Dried Citrus" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Coupe & Menu</span>
-                            </div>
-                          </div>
+                      {/* 3. Cocktail Coupe with Menu (Top Right) */}
+                      <div
+                        className="absolute left-[64.20%] top-[2.68%] w-[33.99%] h-[37.05%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-md"
+                        onClick={() => setSelectedImage(abhisarikaMb2Cocktail)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Cocktail} 
+                          alt="Amber Cocktail Coupe with Dried Citrus" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Coupe & Menu</span>
+                        </div>
+                      </div>
 
-                          {/* 5. Vinyl Record on Turntable */}
-                          <div
-                            className="relative w-full h-[170px] sm:h-[280px] lg:h-[360px] cursor-pointer overflow-hidden rounded-sm group shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-                            onClick={() => setSelectedImage(abhisarikaMb2Vinyl)}
-                          >
-                            <img 
-                              src={abhisarikaMb2Vinyl} 
-                              alt="Gold Metallic Vinyl Record on Turntable" 
-                              className="w-full h-full object-cover object-center" 
-                            />
-                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
-                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Metallic Vinyl</span>
-                            </div>
-                          </div>
+                      {/* 4. Vintage Telephone in Hand (Bottom Left) */}
+                      <div
+                        className="absolute left-[7.22%] top-[38.84%] w-[28.74%] h-[60.94%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-md"
+                        onClick={() => setSelectedImage(abhisarikaMb2Telephone)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Telephone} 
+                          alt="Gilded Rotary Telephone in Hand" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Telephone</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Gold Metallic Vinyl on Turntable (Bottom Right) */}
+                      <div
+                        className="absolute left-[64.20%] top-[41.29%] w-[33.99%] h-[58.48%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-md"
+                        onClick={() => setSelectedImage(abhisarikaMb2Vinyl)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Vinyl} 
+                          alt="Gold Metallic Vinyl Record on Turntable" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Metallic Vinyl</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Jeweled Panther Art Deco Mosaic (Bottom Center Arch) */}
+                      <div
+                        className="absolute left-[41.05%] top-[79.91%] w-[19.38%] h-[19.87%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-md"
+                        onClick={() => setSelectedImage(abhisarikaMb2Leopard)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Leopard} 
+                          alt="Jeweled Panther Art Deco Mosaic" 
+                          className="w-full h-full object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Art Deco Panther</span>
                         </div>
                       </div>
                     </div>
