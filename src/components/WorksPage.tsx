@@ -1077,7 +1077,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 2. Lower Red Embroidery Band (Right): layered under jacket hem across postcard border as marked */}
                       <div 
-                        className="absolute right-0 top-[64%] w-[42%] h-[10.5%] opacity-100 z-[35] pointer-events-none drop-shadow-md"
+                        className="absolute right-0 top-[64%] w-[24.5%] h-[10.5%] opacity-100 z-[25] pointer-events-none drop-shadow-md"
                         style={{
                           backgroundImage: `url(${aooMb3Ribbon})`,
                           backgroundRepeat: 'repeat-x',
