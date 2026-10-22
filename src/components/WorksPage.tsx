@@ -12,6 +12,12 @@ import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
 import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
+import abhisarikaMb2Mirror from '../assets/images/abhisarika/abhisarika_mb2_mirror.png';
+import abhisarikaMb2Chandelier from '../assets/images/abhisarika/abhisarika_mb2_chandelier.png';
+import abhisarikaMb2Cocktail from '../assets/images/abhisarika/abhisarika_mb2_cocktail.png';
+import abhisarikaMb2Telephone from '../assets/images/abhisarika/abhisarika_mb2_telephone.png';
+import abhisarikaMb2Vinyl from '../assets/images/abhisarika/abhisarika_mb2_vinyl.png';
+import abhisarikaMb2Leopard from '../assets/images/abhisarika/abhisarika_mb2_leopard.png';
 import imgCenter from '../assets/images/abhisarika/img_center.jpg';
 import imgTop from '../assets/images/abhisarika/img_top.jpg';
 import imgTopRight from '../assets/images/abhisarika/img_top_right.jpg';
@@ -119,7 +125,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -205,6 +211,14 @@ const PROJECTS: Project[] = [
           { src: garment1_2, alt: 'Garment 1 view 2' },
           { src: garment1_3, alt: 'Garment 1 view 3' },
           { src: garment1_4, alt: 'Garment 1 view 4' }
+        ]
+      },
+      {
+        type: 'moodboard-abhisarika-garment2',
+        title: 'Mood Board',
+        paragraphs: [
+          "MATERIAL & NOIR RESEARCH · LOOK 02:",
+          "Gilded art deco glamour, crystal chandeliers, antique baroque mirrors, cocktail coupe culture, and metallic gold vinyl textures."
         ]
       },
       {
@@ -945,6 +959,123 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         <p key={pIdx}>{p}</p>
                       ))}
                     </div>
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-abhisarika-garment2') {
+                return (
+                  <div key={`mb-ab-g2-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#FAF6EE]">
+                        {page.title}
+                      </h2>
+                    )}
+
+                    {/* Exact Proportional Mood Board Collage */}
+                    <div
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      style={{ aspectRatio: '800 / 440' }}
+                    >
+                      {/* 1. Mirror with Candle (Top Center-Left: X=22.5%, Top=1.6%, W=21.25%, H=43.86%, Z=10) */}
+                      <div
+                        className="absolute left-[22.5%] top-[1.6%] w-[21.25%] h-[43.86%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Mirror)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Mirror} 
+                          alt="Gilded Baroque Mirror & Candlestick" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Mirror</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Crystal Chandelier (Top Center: X=39.375%, Top=6.82%, W=23.125%, H=72.73%, Z=20) */}
+                      <div
+                        className="absolute left-[39.375%] top-[6.82%] w-[23.125%] h-[72.73%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Chandelier)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Chandelier} 
+                          alt="Cascading Crystal Chandelier" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Crystal Chandelier</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Cocktail with Menu (Top Right: X=60.0%, Top=1.82%, W=26.125%, H=43.64%, Z=10) */}
+                      <div
+                        className="absolute left-[60.0%] top-[1.82%] w-[26.125%] h-[43.64%] z-[10] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Cocktail)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Cocktail} 
+                          alt="Amber Cocktail Coupe with Dried Citrus" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Coupe & Menu</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Vintage Telephone in Hand (Bottom Left: X=17.0%, Top=36.36%, W=26.75%, H=63.64%, Z=30) */}
+                      <div
+                        className="absolute left-[17.0%] top-[36.36%] w-[26.75%] h-[63.64%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Telephone)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Telephone} 
+                          alt="Gilded Rotary Telephone & Motion Blur Jewelry" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Gilded Telephone</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Vinyl Record on Turntable (Bottom Right: X=60.0%, Top=38.64%, W=26.25%, H=61.36%, Z=30) */}
+                      <div
+                        className="absolute left-[60.0%] top-[38.64%] w-[26.25%] h-[61.36%] z-[30] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Vinyl)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Vinyl} 
+                          alt="Gold Metallic Vinyl Record on Turntable" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Metallic Vinyl</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Jeweled Leopard Arch (Bottom Center: X=40.0%, Top=70.45%, W=20.0%, H=29.55%, Z=35) */}
+                      <div
+                        className="absolute left-[40.0%] top-[70.45%] w-[20.0%] h-[29.55%] z-[35] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb2Leopard)}
+                      >
+                        <img 
+                          src={abhisarikaMb2Leopard} 
+                          alt="Jeweled Panther Art Deco Mosaic" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Art Deco Panther</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-4 text-base sm:text-lg font-serif leading-relaxed drop-shadow-sm text-white/90">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
