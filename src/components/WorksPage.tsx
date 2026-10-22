@@ -1103,7 +1103,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 4. Runway Model in Navy Structured Suit (Center-Left: X=25.5%, Bottom=0%, W=26%, H=70%) */}
                       <div
-                        className="absolute left-[25.5%] bottom-0 w-[26%] h-[70%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-2xl"
+                        className="absolute left-[25.5%] bottom-0 w-[26%] h-[87.5%] z-[20] cursor-pointer overflow-hidden transition-all duration-500 hover:z-40 hover:scale-[1.03] group shadow-2xl"
                         onClick={() => setSelectedImage(aooMb3RunwaySuit)}
                       >
                         <img 
