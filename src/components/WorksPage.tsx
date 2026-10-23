@@ -143,6 +143,8 @@ interface Project {
   title: string;
   tagline: string;
   icon: LucideIcon;
+  /** Card image on the Works grid — a representative photo from the project's own pages */
+  cover: string;
   /** Backdrop of the project viewer */
   background?: string;
   backgroundColor: string;
@@ -157,6 +159,7 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Collection',
     icon: Flame,
+    cover: fadingSparkPg3_1,
     backgroundColor: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)',
     pages: [
       { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
@@ -180,6 +183,7 @@ const PROJECTS: Project[] = [
     title: 'Abhisarika',
     tagline: 'Neelgar Atelier',
     icon: Moon,
+    cover: garment1_1,
     background: abhisarikaBackground,
     backgroundColor: '#3E5A26',
     pages: [
@@ -265,6 +269,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Project',
     icon: Gem,
+    cover: aooGarment1,
     backgroundColor: '#000000',
     pages: [
       {
@@ -405,6 +410,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop',
     category: 'workshop',
     icon: Flame, // fallback
+    cover: dabu1,
     backgroundColor: '#16233B',
     pages: [
       {
@@ -435,6 +441,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop',
     category: 'workshop',
     icon: Flame, // fallback
+    cover: eco1,
     backgroundColor: '#FAF6EE',
     pages: [
       {
@@ -472,6 +479,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop & Field Study',
     category: 'workshop',
     icon: Droplet,
+    cover: indigoEarthenVats,
     backgroundColor: '#0c1626',
     pages: [
       {
@@ -506,6 +514,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop · Egai',
     category: 'workshop',
     icon: Gem,
+    cover: coconutPendant,
     backgroundColor: '#1E140E',
     pages: [
       {
@@ -543,6 +552,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop · Wellpaper',
     category: 'workshop',
     icon: Layers,
+    cover: paperWeavingRadial,
     backgroundColor: '#1E1914',
     pages: [
       {
@@ -576,6 +586,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop · School of Historical Dress & LLDC',
     category: 'workshop',
     icon: Scissors,
+    cover: seamstressRuff,
     backgroundColor: '#181216',
     pages: [
       {
@@ -603,6 +614,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop · Chaman Siju [Bhuj]',
     category: 'workshop',
     icon: Layers,
+    cover: kutchArtisanWeaving,
     backgroundColor: '#121A1A',
     pages: [
       {
@@ -631,6 +643,7 @@ const PROJECTS: Project[] = [
     tagline: 'Workshop · LLDC [Kutch]',
     category: 'workshop',
     icon: Layers,
+    cover: lldcPaperToile,
     backgroundColor: '#181014',
     pages: [
       {
@@ -659,6 +672,7 @@ const PROJECTS: Project[] = [
     tagline: 'Monumental Workshop · Indus World Record',
     category: 'workshop',
     icon: Droplet,
+    cover: cyanotypeBanner,
     backgroundColor: '#091A30',
     pages: [
       {
@@ -1481,8 +1495,91 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
   );
 };
 
+/** A project the viewer opens on is addressed by its own URL, e.g. #/project/abhisarika */
+const PROJECT_HASH_PREFIX = '#/project/';
+
+const readProjectIdFromHash = (): string | null => {
+  const hash = window.location.hash;
+  if (!hash.startsWith(PROJECT_HASH_PREFIX)) return null;
+  const id = hash.slice(PROJECT_HASH_PREFIX.length);
+  return PROJECTS.some((p) => p.id === id) ? id : null;
+};
+
+/** One project card: the project's own photo, then the title block. */
+const ProjectCard: React.FC<{ project: Project; onOpen: (project: Project) => void }> = ({ project, onOpen }) => {
+  const Icon = project.icon;
+
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(project)}
+      data-cursor="pointer"
+      className="wine-card group flex cursor-pointer flex-col overflow-hidden text-center transition-transform duration-300 hover:-translate-y-1"
+    >
+      <span className="relative block aspect-[4/5] overflow-hidden">
+        <img
+          src={project.cover}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        {/* The cream icon badge the cards carried before the photos arrived */}
+        <span className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md">
+          <Icon className="h-5 w-5" strokeWidth={1.5} />
+        </span>
+      </span>
+
+      <span className="flex flex-1 flex-col items-center gap-3 px-6 py-6">
+        <span className="flex flex-col items-center gap-1">
+          <span className="font-avonia text-3xl font-normal leading-tight text-[#FAF6EE] sm:text-4xl">
+            {project.title}
+          </span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
+            {project.tagline}
+          </span>
+        </span>
+        <span className="mt-auto font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4">
+          View project &#8594;
+        </span>
+      </span>
+    </button>
+  );
+};
+
 export const WorksPage: React.FC = () => {
-  const [openProject, setOpenProject] = useState<Project | null>(null);
+  // The URL owns which project is open, so a project can be linked to directly and the
+  // browser's Back button closes the viewer instead of leaving the site.
+  const [openProjectId, setOpenProjectId] = useState<string | null>(readProjectIdFromHash);
+
+  useEffect(() => {
+    const sync = () => setOpenProjectId(readProjectIdFromHash());
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    return () => {
+      window.removeEventListener('popstate', sync);
+      window.removeEventListener('hashchange', sync);
+    };
+  }, []);
+
+  const openProject = (project: Project) => {
+    window.history.pushState({ projectViewer: project.id }, '', PROJECT_HASH_PREFIX + project.id);
+    setOpenProjectId(project.id);
+  };
+
+  const closeProject = () => {
+    // Opened from this page: step back, so the close button and Back agree. Landed here
+    // from a shared link: replace the entry instead, or Back would leave the site.
+    if (window.history.state?.projectViewer) {
+      window.history.back();
+    } else {
+      window.history.replaceState(null, '', '#works');
+      setOpenProjectId(null);
+    }
+  };
+
+  const projectById = (id: string) => PROJECTS.find((p) => p.id === id);
+  const activeProject = openProjectId ? projectById(openProjectId) : undefined;
 
   return (
     <section
@@ -1494,7 +1591,7 @@ export const WorksPage: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-            <span className="font-bold text-[#241217]">PAGE 04 · WORKS // PROJECTS &amp; WORKSHOPS</span>
+            <span className="font-bold text-[#241217]">PAGE 03 &#183; WORKS // PROJECTS &amp; WORKSHOPS</span>
           </div>
           <span className="text-[#851737]">SHATMA AALIYA</span>
         </div>
@@ -1503,83 +1600,101 @@ export const WorksPage: React.FC = () => {
           Works
         </h2>
 
-        {/* Project icons — each opens that project's pages */}
+        {/* Collections — each opens that project's pages */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
-          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => {
-            const Icon = project.icon;
-            return (
-              <button
-                key={project.id}
-                type="button"
-                onClick={() => setOpenProject(project)}
-                data-cursor="pointer"
-                className="wine-card group flex flex-col items-center gap-5 px-6 py-10 text-center transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                {/* Cream icon circle, like the contact page's action icons */}
-                <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="h-10 w-10" strokeWidth={1.5} />
-                </span>
-                <span className="flex flex-col items-center gap-1">
-                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE]">
-                    {project.title}
-                  </span>
-                  <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
-                    {project.tagline}
-                  </span>
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4">
-                  View project →
-                </span>
-              </button>
-            );
-          })}
+          {PROJECTS.filter((p) => p.category !== 'workshop').map((project) => (
+            <ProjectCard key={project.id} project={project} onOpen={openProject} />
+          ))}
         </div>
 
-        {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
+        {/* Workshops — the same card, smaller, on the wine panel */}
         <div className="wine-card p-8 sm:p-10">
-          <div className="flex flex-col items-center text-center gap-2 mb-6">
+          <div className="flex flex-col items-center text-center gap-2 mb-8">
             <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
               Workshop
             </h3>
             <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
-              Hands-on crafts · {WORKSHOPS.length}
+              Hands-on crafts &#183; {WORKSHOPS.length}
             </span>
             <span className="mt-2 w-16 h-0.5 bg-[#FAF6EE]" />
           </div>
 
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+          <ol className="grid grid-cols-2 gap-3 lg:grid-cols-3">
             {WORKSHOPS.map((workshop, i) => {
-              const Tag = workshop.projectId ? 'button' : 'li';
-              return (
-                <Tag
-                  key={workshop.name}
-                  onClick={workshop.projectId ? () => {
-                    const p = PROJECTS.find(proj => proj.id === workshop.projectId);
-                    if (p) setOpenProject(p);
-                  } : undefined}
-                  className={`flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3 text-left ${workshop.projectId ? 'cursor-pointer hover:bg-[#FAF6EE]/20 transition-colors' : ''}`}
-                >
-                  <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="flex flex-col">
-                    <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
-                      {workshop.name}
+              const project = workshop.projectId ? projectById(workshop.projectId) : undefined;
+              const number = String(i + 1).padStart(2, '0');
+
+              const body = (
+                <>
+                  {project ? (
+                    <span className="relative block aspect-[16/10] overflow-hidden">
+                      <img
+                        src={project.cover}
+                        alt={workshop.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <span className="absolute left-3 top-3 rounded bg-[#540D21]/80 px-2 py-0.5 font-mono text-xs font-bold text-[#FAF6EE] backdrop-blur-sm">
+                        {number}
+                      </span>
+                    </span>
+                  ) : null}
+
+                  <span className="flex flex-1 flex-col gap-1 px-4 py-3">
+                    <span className="flex items-baseline gap-3">
+                      {project ? null : (
+                        <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">{number}</span>
+                      )}
+                      <span className="text-lg uppercase tracking-[0.04em] text-[#FAF6EE] sm:text-3xl [font-family:var(--font-readable-display)]">
+                        {workshop.name}
+                      </span>
                     </span>
                     {workshop.note && (
-                      <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
+                      <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
                         {workshop.note}
                       </span>
                     )}
+                    {project ? (
+                      <span className="mt-1 whitespace-nowrap font-mono text-xs font-bold uppercase tracking-[0.1em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4 sm:tracking-[0.2em]">
+                        View project &#8594;
+                      </span>
+                    ) : (
+                      <span className="mt-1 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/45">
+                        Documentation to come
+                      </span>
+                    )}
                   </span>
-                </Tag>
+                </>
+              );
+
+              // Only a workshop with pages to show is a button; the rest stay plain list
+              // items, so a visitor can tell which ones open without clicking to find out.
+              return project ? (
+                <li key={workshop.name} className="contents">
+                  <button
+                    type="button"
+                    onClick={() => openProject(project)}
+                    data-cursor="pointer"
+                    className="group flex cursor-pointer flex-col overflow-hidden rounded bg-[#FAF6EE]/10 text-left transition-colors hover:bg-[#FAF6EE]/20"
+                  >
+                    {body}
+                  </button>
+                </li>
+              ) : (
+                <li
+                  key={workshop.name}
+                  className="flex flex-col overflow-hidden rounded bg-[#FAF6EE]/5 text-left"
+                >
+                  {body}
+                </li>
               );
             })}
           </ol>
         </div>
       </div>
 
-      {openProject && <ProjectViewer project={openProject} onClose={() => setOpenProject(null)} />}
+      {activeProject && <ProjectViewer project={activeProject} onClose={closeProject} />}
     </section>
   );
 };

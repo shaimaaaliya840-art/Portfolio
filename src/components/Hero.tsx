@@ -115,6 +115,17 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
               </span>
             </div>
           </div>
+
+          {/* Without this the first screen offers no way into the work but scrolling
+              past the manifesto. */}
+          <a
+            href="#works"
+            data-cursor="pointer"
+            className="inline-flex items-center gap-2 bg-[#540D21] hover:bg-[#75122F] px-6 py-3 text-[#FAF6EE] font-mono text-xs font-bold uppercase tracking-[0.2em] shadow-lg transition-colors"
+          >
+            <span>View Work</span>
+            <span aria-hidden="true">&#8594;</span>
+          </a>
         </motion.div>
       </div>
 
