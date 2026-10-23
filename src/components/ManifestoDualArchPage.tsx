@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
+
+import { revealProps } from './Reveal';
 import { Palette, Star, Briefcase, Cpu } from 'lucide-react';
 import { PortfolioData } from '../types';
 import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
@@ -89,14 +92,14 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
       </div>
 
       {/* 2. Headline: "Who Am I?" in Avonia Modern Luxury Script */}
-      <div className="max-w-7xl mx-auto mb-10">
+      <motion.div {...revealProps} className="max-w-7xl mx-auto mb-10">
         <div className="font-mono text-xs uppercase tracking-[0.25em] text-[#540D21] mb-1 font-bold">
           MANIFESTO &amp; CREDENTIALS //
         </div>
         <h2 className="text-5xl sm:text-7xl md:text-8xl font-avonia font-normal tracking-normal text-[#241217] leading-tight pt-5 sm:pt-8">
           Who Am I?
         </h2>
-      </div>
+      </motion.div>
 
       {/* Interactive Experience & Skills Dossier */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">

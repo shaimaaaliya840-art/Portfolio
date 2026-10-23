@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { motion } from 'motion/react';
+
+import { revealGroupProps, revealProps, revealVariants } from './Reveal';
 import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, X, type LucideIcon } from 'lucide-react';
 
 import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
@@ -801,10 +804,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
     : null;
 
   return createPortal(
-    <div
+    <motion.div
       role="dialog"
       aria-modal="true"
       aria-label={project.title}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ background: project.backgroundColor }}
     >
@@ -1476,7 +1482,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           </div>
         )}
 
-        <div
+        <motion.div
+          {...revealProps}
           className={`mx-auto mt-16 flex w-full max-w-4xl flex-col items-center gap-5 border-t pt-10 text-center ${
             isLight ? 'border-[#540D21]/25' : 'border-[#FAF6EE]/25'
           }`}
@@ -1514,7 +1521,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               <span aria-hidden="true">&#8594;</span>
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {selectedImage && createPortal(
           <div 
@@ -1537,7 +1544,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           document.body
         )}
       </main>
-    </div>,
+    </motion.div>,
     document.body
   );
 };
@@ -1557,8 +1564,9 @@ const ProjectCard: React.FC<{ project: Project; onOpen: (project: Project) => vo
   const Icon = project.icon;
 
   return (
-    <button
+    <motion.button
       type="button"
+      variants={revealVariants}
       onClick={() => onOpen(project)}
       data-cursor="pointer"
       className="wine-card group flex cursor-pointer flex-col overflow-hidden text-center transition-transform duration-300 hover:-translate-y-1"
@@ -1590,7 +1598,7 @@ const ProjectCard: React.FC<{ project: Project; onOpen: (project: Project) => vo
           View project &#8594;
         </span>
       </span>
-    </button>
+    </motion.button>
   );
 };
 
@@ -1635,27 +1643,33 @@ export const WorksPage: React.FC = () => {
     >
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Page meta strip (same treatment as the contact page) */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
+        <motion.div
+          {...revealProps}
+          className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]"
+        >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#540D21]" />
             <span className="font-bold text-[#241217]">PAGE 04 &#183; WORKS // PROJECTS &amp; WORKSHOPS</span>
           </div>
           <span className="text-[#851737]">SHATMA AALIYA</span>
-        </div>
+        </motion.div>
 
-        <h2 className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl leading-tight pt-6 sm:pt-8 mb-12 text-[#241217]">
+        <motion.h2
+          {...revealProps}
+          className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl leading-tight pt-6 sm:pt-8 mb-12 text-[#241217]"
+        >
           Works
-        </h2>
+        </motion.h2>
 
         {/* Collections — each opens that project's pages */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
+        <motion.div {...revealGroupProps} className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
           {PROJECTS.filter((p) => p.category !== 'workshop').map((project) => (
             <ProjectCard key={project.id} project={project} onOpen={openProject} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Workshops — the same card, smaller, on the wine panel */}
-        <div className="wine-card p-8 sm:p-10">
+        <motion.div {...revealProps} className="wine-card p-8 sm:p-10">
           <div className="flex flex-col items-center text-center gap-2 mb-8">
             <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
               Workshop
@@ -1666,7 +1680,7 @@ export const WorksPage: React.FC = () => {
             <span className="mt-2 w-16 h-0.5 bg-[#FAF6EE]" />
           </div>
 
-          <ol className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+          <motion.ol {...revealGroupProps} className="grid grid-cols-2 gap-3 lg:grid-cols-3">
             {WORKSHOPS.map((workshop, i) => {
               const project = workshop.projectId ? projectById(workshop.projectId) : undefined;
               const number = String(i + 1).padStart(2, '0');
@@ -1718,27 +1732,28 @@ export const WorksPage: React.FC = () => {
               // Only a workshop with pages to show is a button; the rest stay plain list
               // items, so a visitor can tell which ones open without clicking to find out.
               return project ? (
-                <li key={workshop.name} className="contents">
+                <motion.li key={workshop.name} variants={revealVariants} className="flex">
                   <button
                     type="button"
                     onClick={() => openProject(project)}
                     data-cursor="pointer"
-                    className="group flex cursor-pointer flex-col overflow-hidden rounded bg-[#FAF6EE]/10 text-left transition-colors hover:bg-[#FAF6EE]/20"
+                    className="group flex w-full cursor-pointer flex-col overflow-hidden rounded bg-[#FAF6EE]/10 text-left transition-colors hover:bg-[#FAF6EE]/20"
                   >
                     {body}
                   </button>
-                </li>
+                </motion.li>
               ) : (
-                <li
+                <motion.li
                   key={workshop.name}
+                  variants={revealVariants}
                   className="flex flex-col overflow-hidden rounded bg-[#FAF6EE]/5 text-left"
                 >
                   {body}
-                </li>
+                </motion.li>
               );
             })}
-          </ol>
-        </div>
+          </motion.ol>
+        </motion.div>
       </div>
 
       {/* Keyed by id: moving to the next project remounts the viewer, so it opens at
