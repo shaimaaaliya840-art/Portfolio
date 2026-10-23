@@ -36,7 +36,7 @@ export const ContactIvoryPage: React.FC<ContactIvoryPageProps> = ({
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-gradient-radial from-[#540D21]/10 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
 
       {/* Top Slide Page Meta */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-[#DECFC0] pb-4 mb-14 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
           <span className="text-[#241217] font-bold">PAGE 05 · LET’S WORK TOGETHER // ATELIER COMMISSIONS</span>

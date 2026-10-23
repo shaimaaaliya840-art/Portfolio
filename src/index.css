@@ -210,3 +210,26 @@
     cursor: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Phone layout (< 768px). Desktop keeps every value set above — nothing here
+   applies at tablet width or wider.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  html {
+    /* The 112.5% base above is sized for a desktop canvas; on a phone it makes
+       every rem-based size ~12.5% too large for a 375px viewport. */
+    font-size: 100%;
+  }
+
+  /* The navbar is fixed, so an anchored section would otherwise land underneath it. */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  /* The contact dock is fixed to the bottom (44px tall) and would cover the end
+     of the last section. */
+  main {
+    padding-bottom: 44px;
+  }
+}

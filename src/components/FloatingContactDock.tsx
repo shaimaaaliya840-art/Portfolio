@@ -96,7 +96,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-full flex items-center justify-between text-xs">
           {/* Quick Identity & Indicator */}
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+          <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#FAF6EE] animate-pulse shadow-[0_0_8px_#FAF6EE]" />
               <span className="font-serif tracking-widest text-[#FAF6EE] uppercase text-xs font-bold hidden xs:inline">
@@ -107,7 +107,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             <span className="text-[#FAF6EE]/35 hidden sm:inline">|</span>
 
             {/* Keep only Email & Instagram handle */}
-            <div className="flex items-center gap-2.5 sm:gap-4 text-[0.6875rem] font-mono">
+            <div className="flex min-w-0 items-center gap-2.5 sm:gap-4 text-[0.6875rem] font-mono">
               <a
                 href={`mailto:${email}`}
                 className="flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
@@ -120,13 +120,13 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
                 </span>
               </a>
 
-              <span className="text-[#FAF6EE]/35">/</span>
+              <span className="hidden text-[#FAF6EE]/35 sm:inline">/</span>
 
               <a
                 href={instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
+                className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
                 title="Instagram Profile"
                 data-cursor="pointer"
               >
