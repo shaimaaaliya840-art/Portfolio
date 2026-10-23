@@ -35,8 +35,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: 'Cover', href: '#hero-section' },
     { label: 'Introduction', href: '#kinetic-manifesto' },
-    { label: 'Works', href: '#works' },
     { label: 'About Me', href: '#manifesto-arch' },
+    { label: 'Works', href: '#works' },
     { label: 'Contact', href: '#contact-ivory' }
   ];
 

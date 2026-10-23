@@ -77,7 +77,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-          <span className="text-[#241217] font-bold">PAGE 04 · ABOUT ME // ATELIER PROFILE</span>
+          <span className="text-[#241217] font-bold">PAGE 03 · ABOUT ME // ATELIER PROFILE</span>
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[#851737]">
           <span>SHATMA AALIYA</span>

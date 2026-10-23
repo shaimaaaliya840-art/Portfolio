@@ -148,15 +148,14 @@ export default function App() {
           onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 03: Works — collections & workshops, ahead of the profile so the
-            work itself is the first thing after the manifesto */}
-        <WorksPage />
-
-        {/* SLIDE 04: Who Am I? — Dual Arch & Atelier Profile Dossier */}
+        {/* SLIDE 03: Who Am I? — Dual Arch & Atelier Profile Dossier */}
         <ManifestoDualArchPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
+
+        {/* SLIDE 04: Works — collections & workshops */}
+        <WorksPage />
 
         {/* SLIDE 05: Let's Work Together & Contact */}
         <ContactIvoryPage

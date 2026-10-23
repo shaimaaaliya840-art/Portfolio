@@ -793,6 +793,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
   const isLight = project.id === 'fading-spark' || project.id === 'eco-printing';
 
+  // Reaching the end of a project used to be a dead end. Offer the next one in the
+  // same bucket, so a collection leads to a collection and a workshop to a workshop.
+  const bucket = PROJECTS.filter((p) => (p.category ?? 'work') === (project.category ?? 'work'));
+  const nextProject = bucket.length > 1
+    ? bucket[(bucket.findIndex((p) => p.id === project.id) + 1) % bucket.length]
+    : null;
+
   return createPortal(
     <div
       role="dialog"
@@ -1469,6 +1476,46 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           </div>
         )}
 
+        <div
+          className={`mx-auto mt-16 flex w-full max-w-4xl flex-col items-center gap-5 border-t pt-10 text-center ${
+            isLight ? 'border-[#540D21]/25' : 'border-[#FAF6EE]/25'
+          }`}
+        >
+          <span
+            className={`font-mono text-xs font-bold uppercase tracking-[0.25em] ${
+              isLight ? 'text-[#540D21]/70' : 'text-[#FAF6EE]/70'
+            }`}
+          >
+            End of {project.title}
+          </span>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {nextProject && (
+              <a
+                href={PROJECT_HASH_PREFIX + nextProject.id}
+                data-cursor="pointer"
+                className="inline-flex items-center gap-2 bg-[#540D21] px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FAF6EE] shadow-lg transition-colors hover:bg-[#75122F]"
+              >
+                <span>Next: {nextProject.title}</span>
+                <span aria-hidden="true">&#8594;</span>
+              </a>
+            )}
+
+            <a
+              href="#contact-ivory"
+              data-cursor="pointer"
+              className={`inline-flex items-center gap-2 border px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.2em] transition-colors ${
+                isLight
+                  ? 'border-[#540D21]/50 text-[#540D21] hover:border-[#540D21]'
+                  : 'border-[#FAF6EE]/50 text-[#FAF6EE] hover:border-[#FAF6EE]'
+              }`}
+            >
+              <span>Work with me</span>
+              <span aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+        </div>
+
         {selectedImage && createPortal(
           <div 
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm cursor-pointer"
@@ -1591,7 +1638,7 @@ export const WorksPage: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-            <span className="font-bold text-[#241217]">PAGE 03 &#183; WORKS // PROJECTS &amp; WORKSHOPS</span>
+            <span className="font-bold text-[#241217]">PAGE 04 &#183; WORKS // PROJECTS &amp; WORKSHOPS</span>
           </div>
           <span className="text-[#851737]">SHATMA AALIYA</span>
         </div>
@@ -1694,7 +1741,11 @@ export const WorksPage: React.FC = () => {
         </div>
       </div>
 
-      {activeProject && <ProjectViewer project={activeProject} onClose={closeProject} />}
+      {/* Keyed by id: moving to the next project remounts the viewer, so it opens at
+          the top instead of keeping the previous project's scroll position. */}
+      {activeProject && (
+        <ProjectViewer key={activeProject.id} project={activeProject} onClose={closeProject} />
+      )}
     </section>
   );
 };
