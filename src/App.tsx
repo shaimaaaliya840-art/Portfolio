@@ -4,7 +4,6 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { MotionConfig } from 'motion/react';
 import { PortfolioData, Project } from './types';
 import { initialPortfolioData, initialProjects, initialTestimonials } from './data/portfolioData';
 import { AtelierPalette } from './data/colorPalettes';
@@ -112,9 +111,6 @@ export default function App() {
   };
 
   return (
-    // reducedMotion="user" drops every animation to a cross-fade for visitors whose
-    // system asks for less motion.
-    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-[#FAF6EE] text-[#241217] font-sans selection:bg-[#540D21] selection:text-[#FAF6EE] relative overflow-x-hidden">
       {/* Volumetric golden light & amber smoke atmosphere */}
       <OrbitalBackground />
@@ -158,7 +154,7 @@ export default function App() {
           onOpenInquiry={() => setIsInquiryOpen(true)}
         />
 
-        {/* SLIDE 04: Works — collections & workshops */}
+        {/* SLIDE 04: Works — Fading Spark collection & workshops */}
         <WorksPage />
 
         {/* SLIDE 05: Let's Work Together & Contact */}
@@ -230,6 +226,5 @@ export default function App() {
         onSelectPalette={handleSelectPalette}
       />
     </div>
-    </MotionConfig>
   );
 }

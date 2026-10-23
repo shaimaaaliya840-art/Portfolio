@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Palette, X } from 'lucide-react';
+import { Palette } from 'lucide-react';
 import { PortfolioData } from '../types';
 import { AtelierPalette } from '../data/colorPalettes';
 
@@ -19,7 +19,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
 
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2.5 group"
             data-cursor="pointer"
           >
-            <span className="text-sm font-serif font-black tracking-[0.2em] uppercase whitespace-nowrap text-[#FAF6EE] group-hover:text-[#E9D5E6] transition-colors">
+            <span className="text-sm font-serif font-black tracking-[0.2em] uppercase text-[#FAF6EE] group-hover:text-[#E9D5E6] transition-colors">
               {portfolioData.name || 'SHATMA AALIYA'}
             </span>
           </a>
@@ -79,20 +78,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </nav>
 
-          {/* Below lg the link row above is hidden, so without this there is no way to
-              reach a section but scrolling the whole page. */}
-          <button
-            onClick={() => setMenuOpen((open) => !open)}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-[0.625rem] font-mono uppercase tracking-widest font-bold border border-[#FAF6EE]/40 text-[#FAF6EE] hover:border-[#FAF6EE] transition-all cursor-pointer rounded-xs lg:hidden"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-nav-menu"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            data-cursor="pointer"
-          >
-            {menuOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
-            <span className="hidden sm:inline">Menu</span>
-          </button>
-
           {onOpenColorModal && (
             <button
               onClick={onOpenColorModal}
@@ -108,27 +93,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {menuOpen && (
-        <nav
-          id="mobile-nav-menu"
-          className="lg:hidden border-t border-[#FAF6EE]/15 bg-[#540D21]"
-        >
-          <ul className="max-w-7xl mx-auto px-4 sm:px-6 py-2">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-3 text-xs font-mono uppercase tracking-[0.2em] text-[#FAF6EE]/80 hover:text-[#FAF6EE] border-b border-[#FAF6EE]/10 last:border-b-0 transition-colors"
-                  data-cursor="pointer"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
     </header>
   );
 };
