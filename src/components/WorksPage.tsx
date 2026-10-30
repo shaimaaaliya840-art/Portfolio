@@ -810,11 +810,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
       {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark') ? (
         <div
-          className="pointer-events-none absolute inset-0 h-full w-full"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
           style={{
             backgroundImage: `url(${project.background})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: 'contain',
+            backgroundSize: '650px auto',
             backgroundPosition: 'center'
           }}
         />
@@ -1131,11 +1131,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                     {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, Seamless Transparent Canvas) */}
                     <div
                       className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
-                      style={{ aspectRatio: '745 / 429' }}
+                      style={{ aspectRatio: '1024 / 490' }}
                     >
                       {/* 1. Pleated Turquoise Fan Netting (Left Column) */}
                       <div
-                        className="absolute left-[0.00%] top-[26.57%] w-[29.13%] h-[73.43%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[0.00%] top-[10.50%] w-[29.03%] h-[89.50%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb3FanNet)}
                       >
                         <img 
@@ -1150,7 +1150,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 2. Emerald Mineral Crystals with Gold Veining (Top Mid-Left) */}
                       <div
-                        className="absolute left-[29.13%] top-[0.00%] w-[23.36%] h-[39.63%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[29.03%] top-[0.00%] w-[25.35%] h-[39.47%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb3EmeraldStones)}
                       >
                         <img 
@@ -1165,7 +1165,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 3. Bioluminescent Nocturnal Shoreline & Starry Sky (Top Mid-Right) */}
                       <div
-                        className="absolute left-[52.48%] top-[0.00%] w-[22.01%] h-[66.67%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[54.38%] top-[0.00%] w-[19.32%] h-[60.53%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb3BioluminescentShore)}
                       >
                         <img 
@@ -1180,7 +1180,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 4. Duality of Black and White Swans (Middle Center) */}
                       <div
-                        className="absolute left-[29.13%] top-[39.63%] w-[25.50%] h-[28.44%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[29.03%] top-[39.47%] w-[25.35%] h-[21.06%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb3Swans)}
                       >
                         <img 
@@ -1193,9 +1193,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </div>
                       </div>
 
-                      {/* 5. Dark Nocturnal Moth Wings Texture (Bottom Center) */}
+                      {/* 5. Dark Nocturnal Moth Wings Texture (Bottom Center - Spanning full width between Fan Net & Underwater) */}
                       <div
-                        className="absolute left-[42.01%] top-[68.07%] w-[31.54%] h-[31.93%] z-[30] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        className="absolute left-[29.03%] top-[60.53%] w-[44.67%] h-[39.47%] z-[30] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
                         onClick={() => setSelectedImage(abhisarikaMb3MothWings)}
                       >
                         <img 
@@ -1210,7 +1210,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                       {/* 6. Deep Ocean Bubbles and Marine Abyss (Right Column) */}
                       <div
-                        className="absolute left-[74.49%] top-[30.54%] w-[25.51%] h-[69.46%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        className="absolute left-[73.70%] top-[14.50%] w-[26.30%] h-[85.50%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
                         onClick={() => setSelectedImage(abhisarikaMb3Underwater)}
                       >
                         <img 
