@@ -124,9 +124,9 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.8 }}
         onClick={() => {
-          const introEl = document.getElementById('intro');
-          if (introEl) {
-            introEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const worksEl = document.getElementById('works');
+          if (worksEl) {
+            worksEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }}
         className="w-full flex items-center justify-between border-t border-[var(--color-accent,#E9D5E6)]/25 pt-3.5 text-[0.6875rem] sm:text-xs font-mono tracking-[0.25em] uppercase select-none cursor-pointer group"

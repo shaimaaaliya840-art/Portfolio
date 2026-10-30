@@ -139,7 +139,10 @@ export default function App() {
           onOpenConceptLookbook={() => handleOpenConceptLookbook(1)}
         />
 
-        {/* SLIDE 02: Who Am I? — Merged Manifesto, Bio & Atelier Dossier */}
+        {/* SLIDE 02 & 03: Works (Page 02) & Workshops (Page 03) */}
+        <WorksPage />
+
+        {/* SLIDE 04: Who Am I? — Merged Manifesto, Bio & Atelier Dossier (Page 04) */}
         <ManifestoDualArchPage
           portfolioData={portfolioData}
           activePalette={activePalette}
@@ -148,10 +151,7 @@ export default function App() {
           onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 03: Works — Fading Spark collection & workshops */}
-        <WorksPage />
-
-        {/* SLIDE 04: Contact */}
+        {/* SLIDE 05: Contact (Page 05) */}
         <ContactIvoryPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}

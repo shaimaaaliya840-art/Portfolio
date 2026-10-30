@@ -1732,80 +1732,100 @@ export const WorksPage: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="works"
-      className="relative text-[#241217] py-20 px-4 sm:px-8 md:px-12 overflow-hidden"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Page meta strip (same treatment as the contact page) */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-            <span className="font-bold text-[#241217]">PAGE 03 · WORKS // PROJECTS &amp; WORKSHOPS</span>
-          </div>
-          <span className="text-[#851737]">SHATMA AALIYA</span>
-        </div>
-
-        <h2 className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl leading-tight pt-6 sm:pt-8 mb-12 text-[#241217]">
-          Works
-        </h2>
-
-        {/* Project icons — each opens that project's pages */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
-          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => (
-            <WorkCard
-              key={project.id}
-              project={project}
-              onOpen={() => setOpenProject(project)}
-            />
-          ))}
-        </div>
-
-        {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
-        <div id="workshops" className="wine-card p-8 sm:p-10 scroll-mt-24">
-          <div className="flex flex-col items-center text-center gap-2 mb-6">
-            <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
-              Workshop
-            </h3>
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
-              Hands-on crafts · {WORKSHOPS.length}
-            </span>
-            <span className="mt-2 w-16 h-0.5 bg-[#FAF6EE]" />
+    <>
+      {/* PAGE 02: WORKS // COLLECTIONS & PROJECTS */}
+      <section
+        id="works"
+        className="relative text-[#241217] pt-3 sm:pt-4 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 overflow-hidden scroll-mt-16"
+      >
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Page meta strip */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-6 sm:mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#540D21]" />
+              <span className="font-bold text-[#241217]">PAGE 02 · WORKS // COLLECTIONS &amp; PROJECTS</span>
+            </div>
+            <span className="text-[#851737]">SHATMA AALIYA</span>
           </div>
 
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-            {WORKSHOPS.map((workshop, i) => {
-              const Tag = workshop.projectId ? 'button' : 'li';
-              return (
-                <Tag
-                  key={workshop.name}
-                  onClick={workshop.projectId ? () => {
-                    const p = PROJECTS.find(proj => proj.id === workshop.projectId);
-                    if (p) setOpenProject(p);
-                  } : undefined}
-                  className={`flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3 text-left ${workshop.projectId ? 'cursor-pointer hover:bg-[#FAF6EE]/20 transition-colors' : ''}`}
-                >
-                  <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="flex flex-col">
-                    <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
-                      {workshop.name}
+          <h2 className="font-avonia font-normal text-6xl sm:text-7xl md:text-8xl leading-tight pt-4 sm:pt-6 mb-10 text-[#241217]">
+            Works
+          </h2>
+
+          {/* Project icons — each opens that project's pages */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            {PROJECTS.filter(p => p.category !== 'workshop').map((project) => (
+              <WorkCard
+                key={project.id}
+                project={project}
+                onOpen={() => setOpenProject(project)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PAGE 03: WORKSHOPS // HANDS-ON CRAFTS & RESEARCH */}
+      <section
+        id="workshops"
+        className="relative text-[#241217] py-16 sm:py-20 px-4 sm:px-8 md:px-12 overflow-hidden scroll-mt-16"
+      >
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Page meta strip */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#540D21]" />
+              <span className="font-bold text-[#241217]">PAGE 03 · WORKSHOPS // HANDS-ON CRAFTS &amp; RESEARCH</span>
+            </div>
+            <span className="text-[#851737]">SHATMA AALIYA</span>
+          </div>
+
+          {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
+          <div className="wine-card p-8 sm:p-10">
+            <div className="flex flex-col items-center text-center gap-2 mb-6">
+              <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
+                Workshop
+              </h3>
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
+                Hands-on crafts · {WORKSHOPS.length}
+              </span>
+              <span className="mt-2 w-16 h-0.5 bg-[#FAF6EE]" />
+            </div>
+
+            <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+              {WORKSHOPS.map((workshop, i) => {
+                const Tag = workshop.projectId ? 'button' : 'li';
+                return (
+                  <Tag
+                    key={workshop.name}
+                    onClick={workshop.projectId ? () => {
+                      const p = PROJECTS.find(proj => proj.id === workshop.projectId);
+                      if (p) setOpenProject(p);
+                    } : undefined}
+                    className={`flex items-baseline gap-4 rounded bg-[#FAF6EE]/10 px-4 py-3 text-left ${workshop.projectId ? 'cursor-pointer hover:bg-[#FAF6EE]/20 transition-colors' : ''}`}
+                  >
+                    <span className="font-mono text-sm font-bold text-[#FAF6EE]/75">
+                      {String(i + 1).padStart(2, '0')}
                     </span>
-                    {workshop.note && (
-                      <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
-                        {workshop.note}
+                    <span className="flex flex-col">
+                      <span className="text-2xl sm:text-3xl uppercase tracking-[0.04em] text-[#FAF6EE] [font-family:var(--font-readable-display)]">
+                        {workshop.name}
                       </span>
-                    )}
-                  </span>
-                </Tag>
-              );
-            })}
-          </ol>
+                      {workshop.note && (
+                        <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE]/75">
+                          {workshop.note}
+                        </span>
+                      )}
+                    </span>
+                  </Tag>
+                );
+              })}
+            </ol>
+          </div>
         </div>
-      </div>
+      </section>
 
       {openProject && <ProjectViewer project={openProject} onClose={() => setOpenProject(null)} />}
-    </section>
+    </>
   );
 };
