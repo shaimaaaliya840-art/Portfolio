@@ -161,7 +161,7 @@ const PROJECTS: Project[] = [
   {
     id: 'abhisarika',
     title: 'Abhisarika',
-    tagline: 'Neelgar Atelier',
+    tagline: 'Indian Wear',
     icon: Moon,
     background: abhisarikaBackground,
     backgroundColor: '#3E5A26',
@@ -254,7 +254,7 @@ const PROJECTS: Project[] = [
   {
     id: 'anatomy-of-ornament',
     title: 'Anatomy of Ornamentation',
-    tagline: 'Project',
+    tagline: 'Indowestern',
     icon: Gem,
     backgroundColor: '#000000',
     pages: [
@@ -393,7 +393,7 @@ const PROJECTS: Project[] = [
   {
     id: 'fading-spark',
     title: 'Fading Spark',
-    tagline: 'Collection',
+    tagline: 'Digital Illustration',
     icon: Flame,
     background: fadingSparkBackground,
     backgroundColor: '#F5E5DF',
