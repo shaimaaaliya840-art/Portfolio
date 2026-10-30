@@ -1648,7 +1648,6 @@ const WorkCard: React.FC<{
 }> = ({ project, onOpen }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const Icon = project.icon;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -1699,19 +1698,13 @@ const WorkCard: React.FC<{
       </div>
 
       {/* Card Content */}
-      <div className="relative z-10 flex flex-col items-center gap-4 transition-transform duration-300 group-hover:scale-[1.02]">
-        {/* Cream icon circle */}
-        <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(250,246,238,0.2)]">
-          <Icon className="h-10 w-10" strokeWidth={1.5} />
+      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-3 transition-transform duration-300 group-hover:scale-[1.03]">
+        <span className="font-avonia font-normal text-3xl sm:text-4xl md:text-5xl leading-tight text-[#FAF6EE] drop-shadow-md">
+          {project.title}
         </span>
-        <div className="flex flex-col items-center gap-1.5">
-          <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md">
-            {project.title}
-          </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
-            {project.tagline}
-          </span>
-        </div>
+        <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
+          {project.tagline}
+        </span>
       </div>
     </button>
   );
