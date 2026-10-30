@@ -234,8 +234,8 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               { id: 'software', label: 'Software' },
               { id: 'hard-skills', label: 'Hard Skills' },
               { id: 'dyeing', label: 'Dyeing' },
-              { id: 'experience', label: `Workshops (${experienceWorkshops.length})` },
-              { id: 'internships', label: `Internships (${internships.length})` }
+              { id: 'experience', label: 'Workshops' },
+              { id: 'internships', label: 'Internships' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -261,7 +261,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>PERSONAL PROFICIENCIES</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">{personalSkills.length} SKILLS</span>
+                  
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {personalSkills.map((item, idx) => (
@@ -282,7 +282,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>CREATIVE &amp; CAD SOFTWARE</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">{softwareSkills.length} TOOLS</span>
+                  
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {softwareSkills.map((sw, idx) => (
@@ -311,7 +311,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>ATELIER HARD SKILLS</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">{hardSkills.length} SKILLS</span>
+                  
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {hardSkills.map((skill, idx) => (
@@ -332,7 +332,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2.5">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>NATURAL DYEING ALCHEMY</span>
-                  <span className="text-[0.625rem] font-normal text-[#FAF6EE]/75">{dyeingSkills.length} Techniques</span>
+                  
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
                   {dyeingSkills.map((dye, idx) => (
@@ -394,7 +394,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
               <div className="space-y-2">
                 <div className="text-[0.625rem] font-mono uppercase tracking-widest text-[#FAF6EE] font-bold flex items-center justify-between">
                   <span>ATELIER INTERNSHIPS</span>
-                  <span className="text-[0.625rem] font-bold text-[#FAF6EE]/75">{internships.length} ROLE</span>
+                  
                 </div>
                 <div className="space-y-1.5">
                   {internships.map((intern, idx) => (
