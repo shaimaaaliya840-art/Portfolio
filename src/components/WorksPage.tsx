@@ -12,6 +12,7 @@ import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
 import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_background.png';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
+import aooBackground from '../assets/images/anatomy_of_ornament_background.png';
 import abhisarikaMb2Mirror from '../assets/images/abhisarika/abhisarika_mb2_mirror.png';
 import abhisarikaMb2Chandelier from '../assets/images/abhisarika/abhisarika_mb2_chandelier.png';
 import abhisarikaMb2Cocktail from '../assets/images/abhisarika/abhisarika_mb2_cocktail.png';
@@ -259,7 +260,8 @@ const PROJECTS: Project[] = [
     tagline: 'Indowestern',
     icon: Gem,
     previewImage: aooGarment1_1,
-    backgroundColor: '#000000',
+    background: aooBackground,
+    backgroundColor: '#0a0a0a',
     pages: [
       {
         type: 'text',
@@ -812,13 +814,13 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
 
-      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark') ? (
+      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark' || project.id === 'anatomy-of-ornament') ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
           style={{
             backgroundImage: `url(${project.background})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: '650px auto',
+            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : '650px auto',
             backgroundPosition: 'center'
           }}
         />
