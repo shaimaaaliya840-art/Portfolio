@@ -35,6 +35,10 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
     { skill: "Market analyst" },
     { skill: "Material Sourcing" },
     { skill: "Pattern making" },
+    { skill: "Technical Flats & Tech Packs" },
+    { skill: "Fabric & Textile Knowledge" },
+    { skill: "Surface Ornamentation" },
+    { skill: "Creative Textile Design" }
   ];
 
   const EXCLUDED_WORKSHOPS = ['carving', 'sculpting', 'clay', 'pottery', 'porttery', 'silhouette', 'kolam'];

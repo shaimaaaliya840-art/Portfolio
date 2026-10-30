@@ -81,7 +81,11 @@ export const initialPortfolioData: PortfolioData = {
     { skill: "Styling & makeup" },
     { skill: "Market analyst" },
     { skill: "Material Sourcing" },
-    { skill: "Pattern making" }
+    { skill: "Pattern making" },
+    { skill: "Technical Flats & Tech Packs" },
+    { skill: "Fabric & Textile Knowledge" },
+    { skill: "Surface Ornamentation" },
+    { skill: "Creative Textile Design" }
   ],
   educationEntries: [
     { title: "5-Sem Indus University", institution: "Indus University", level: "Higher Education / B.Des" },
