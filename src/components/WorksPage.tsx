@@ -1638,6 +1638,81 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
   );
 };
 
+const WorkCard: React.FC<{
+  project: Project;
+  onOpen: () => void;
+}> = ({ project, onOpen }) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = project.icon;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      className="wine-card group relative flex flex-col items-center justify-center gap-5 px-6 py-12 text-center transition-all duration-500 hover:-translate-y-1.5 cursor-pointer md:cursor-none overflow-hidden select-none min-h-[320px]"
+    >
+      {/* Garment inside — card becomes transparent on hover to reveal the couture garment */}
+      {project.previewImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out overflow-hidden">
+          <img
+            src={project.previewImage}
+            alt={`${project.title} Garment`}
+            className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out filter brightness-50 contrast-115"
+          />
+          {/* Subtle burgundy tint gradient overlay ensuring text and icons remain crisp */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#241217] via-[#540D21]/60 to-[#380612]/45 backdrop-blur-[0.5px]" />
+        </div>
+      )}
+
+      {/* Floating cursor badge that grows and reads "View" over the work card */}
+      <div
+        className="pointer-events-none absolute z-30 hidden md:block"
+        style={{
+          left: mousePos.x,
+          top: mousePos.y,
+          opacity: isHovered ? 1 : 0,
+          transform: `translate(-50%, -50%) scale(${isHovered ? 1 : 0.3})`,
+          transition: 'opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}
+      >
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FAF6EE] text-[#540D21] border border-[#540D21]/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <span className="text-[0.625rem] font-mono font-bold tracking-[0.2em] uppercase">
+            VIEW
+          </span>
+        </div>
+      </div>
+
+      {/* Card Content */}
+      <div className="relative z-10 flex flex-col items-center gap-4 transition-transform duration-300 group-hover:scale-[1.02]">
+        {/* Cream icon circle */}
+        <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(250,246,238,0.2)]">
+          <Icon className="h-10 w-10" strokeWidth={1.5} />
+        </span>
+        <div className="flex flex-col items-center gap-1.5">
+          <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md">
+            {project.title}
+          </span>
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
+            {project.tagline}
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+};
+
 export const WorksPage: React.FC = () => {
   const [openProject, setOpenProject] = useState<Project | null>(null);
 
@@ -1677,31 +1752,13 @@ export const WorksPage: React.FC = () => {
 
         {/* Project icons — each opens that project's pages */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-20">
-          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => {
-            const Icon = project.icon;
-            return (
-              <button
-                key={project.id}
-                type="button"
-                onClick={() => setOpenProject(project)}
-                data-cursor="pointer"
-                className="wine-card group flex flex-col items-center gap-5 px-6 py-10 text-center transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                {/* Cream icon circle, like the contact page's action icons */}
-                <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="h-10 w-10" strokeWidth={1.5} />
-                </span>
-                <span className="flex flex-col items-center gap-1">
-                  <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE]">
-                    {project.title}
-                  </span>
-                  <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85">
-                    {project.tagline}
-                  </span>
-                </span>
-              </button>
-            );
-          })}
+          {PROJECTS.filter(p => p.category !== 'workshop').map((project) => (
+            <WorkCard
+              key={project.id}
+              project={project}
+              onOpen={() => setOpenProject(project)}
+            />
+          ))}
         </div>
 
         {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
