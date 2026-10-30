@@ -1,3 +1,4 @@
+import { WhatsAppIcon } from './WhatsAppIcon';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, X, Maximize2, Sparkles, MessageCircle, Phone, Mail, Instagram, Check } from 'lucide-react';
@@ -47,7 +48,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
 
   const whatsappNo = portfolioData.whatsappNumber || '8404916721';
   const cleanWa = whatsappNo.replace(/\D/g, '');
-  const waLink = `https://wa.me/91${cleanWa}?text=${encodeURIComponent(
+  const waLink = `https://api.whatsapp.com/send?phone=91${cleanWa}?text=${encodeURIComponent(
     `Hello ${portfolioData.name || 'Shatma Aaliya'}, I am inquiring regarding bespoke couture commissions.`
   )}`;
 
@@ -648,7 +649,7 @@ export const EditorialLookbookDeckModal: React.FC<EditorialLookbookDeckModalProp
 
                       <div className="flex flex-col gap-2 max-w-xs mx-auto text-xs font-mono text-[#14100A]">
                         <a href={waLink} target="_blank" rel="noreferrer" className="p-2 bg-[#EDE4D0] border border-[#D5C7B0] font-bold hover:underline flex items-center justify-center gap-2">
-                          <MessageCircle className="w-3.5 h-3.5 text-[#10B981]" />
+                          <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366]" />
                           <span>WhatsApp: {whatsappNo}</span>
                         </a>
                         <a href={`tel:+91${portfolioData.callingNumber || '6351283152'}`} className="p-2 bg-[#EDE4D0] border border-[#D5C7B0] font-bold hover:underline flex items-center justify-center gap-2">

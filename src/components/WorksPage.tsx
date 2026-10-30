@@ -10,7 +10,7 @@ import fadingSparkPg3_3 from '../assets/images/fading-spark/pg 3.3.png';
 import fadingSparkPg3_4 from '../assets/images/fading-spark/pg 3.4.png';
 import fadingSparkPg3_5 from '../assets/images/fading-spark/pg 3.5.png';
 import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
-import fadingSparkBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
+import fadingSparkBackground from '../assets/images/fading_spark_background.png';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 import abhisarikaMb2Mirror from '../assets/images/abhisarika/abhisarika_mb2_mirror.png';
 import abhisarikaMb2Chandelier from '../assets/images/abhisarika/abhisarika_mb2_chandelier.png';
@@ -34,6 +34,12 @@ import garment2_4 from '../assets/images/abhisarika/garment2_4.jpg';
 import garment3_1 from '../assets/images/abhisarika/garment3_1.jpg';
 import garment3_2 from '../assets/images/abhisarika/garment3_2.png';
 import garment3_3 from '../assets/images/abhisarika/garment3_3.jpg';
+import abhisarikaMb3FanNet from '../assets/images/abhisarika/abhisarika_mb3_fan_net.png';
+import abhisarikaMb3EmeraldStones from '../assets/images/abhisarika/abhisarika_mb3_emerald_stones.png';
+import abhisarikaMb3BioluminescentShore from '../assets/images/abhisarika/abhisarika_mb3_bioluminescent_shore.png';
+import abhisarikaMb3Swans from '../assets/images/abhisarika/abhisarika_mb3_swans.png';
+import abhisarikaMb3MothWings from '../assets/images/abhisarika/abhisarika_mb3_moth_wings.png';
+import abhisarikaMb3Underwater from '../assets/images/abhisarika/abhisarika_mb3_underwater.png';
 import garment4_1 from '../assets/images/abhisarika/garment4_1.jpg';
 import garment4_2 from '../assets/images/abhisarika/garment4_2.png';
 import garment4_3 from '../assets/images/abhisarika/garment4_3.png';
@@ -125,7 +131,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -135,7 +141,7 @@ interface ProjectPage {
   imageAspect?: string;
   imageFit?: 'cover' | 'contain';
   gridCols?: number;
-  layout?: 'default' | 'bento-center-stack';
+  layout?: 'default' | 'bento-center-stack' | 'lineup';
 }
 
 interface Project {
@@ -157,12 +163,14 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Collection',
     icon: Flame,
-    backgroundColor: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)',
+    background: fadingSparkBackground,
+    backgroundColor: '#F5E5DF',
     pages: [
       { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
       { type: 'single', src: fadingSparkPg2, alt: 'Fading Spark Page 2' },
       {
         type: 'grid',
+        layout: 'lineup',
         images: [
           { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
           { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
@@ -231,6 +239,14 @@ const PROJECTS: Project[] = [
           { src: garment2_2, alt: 'Garment 2 view 2' },
           { src: garment2_3, alt: 'Garment 2 view 3' },
           { src: garment2_4, alt: 'Garment 2 view 4' }
+        ]
+      },
+      {
+        type: 'moodboard-abhisarika-garment3',
+        title: 'Mood Board',
+        paragraphs: [
+          "MATERIAL & NOIR RESEARCH · LOOK 03:",
+          "Emerald crystalline geology, bioluminescent nocturnal tide pools, deep-sea currents, and black-and-white swan duality in pleated textures."
         ]
       },
       {
@@ -792,7 +808,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
 
-      {project.background && project.id === 'abhisarika' ? (
+      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark') ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full"
           style={{
@@ -834,7 +850,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
         {project.pages.length > 0 ? (
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
+          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' ? 'max-w-7xl xl:max-w-[1650px]' : 'max-w-6xl'}`}>
+
             {project.pages.map((page, i) => {
               if (page.type === 'grid') {
                 return (
@@ -856,7 +873,30 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         </h2>
                       )
                     )}
-                    {page.layout === 'bento-center-stack' ? (
+                    {page.layout === 'lineup' || (project.id === 'fading-spark' && page.type === 'grid') ? (
+                      <div className="w-full flex justify-center items-end py-6 sm:py-12 overflow-x-auto">
+                        <div className="flex flex-row items-end justify-center gap-3 sm:gap-5 md:gap-8 lg:gap-10 min-w-[620px] w-full max-w-[1600px] px-2 sm:px-6">
+                          {page.images?.map((img, idx) => (
+                            <div
+                              key={img.src}
+                              className="flex-1 flex flex-col items-center justify-end group cursor-pointer"
+                              onClick={() => setSelectedImage(img.src)}
+                            >
+                              <img
+                                src={img.src}
+                                alt={img.alt}
+                                loading={i === 0 ? 'eager' : 'lazy'}
+                                decoding="async"
+                                className="w-auto h-[62vh] sm:h-[78vh] md:h-[84vh] max-h-[880px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-3"
+                                style={{
+                                  filter: 'drop-shadow(0 16px 32px rgba(84,13,33,0.24))'
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : page.layout === 'bento-center-stack' ? (
                       <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 gap-3 sm:gap-4 w-full h-auto sm:h-[85vh]">
                         {page.images?.map((img, idx) => {
                           let placementClass = '';
@@ -1063,6 +1103,123 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
                           <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Art Deco Panther</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-4 text-base sm:text-lg font-serif leading-relaxed drop-shadow-sm text-white/90">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-abhisarika-garment3') {
+                return (
+                  <div key={`mb-ab-g3-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-8 sm:pt-16 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-8 sm:mb-12 text-[#FAF6EE]">
+                        {page.title}
+                      </h2>
+                    )}
+
+                    {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, Seamless Transparent Canvas) */}
+                    <div
+                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      style={{ aspectRatio: '745 / 429' }}
+                    >
+                      {/* 1. Pleated Turquoise Fan Netting (Left Column) */}
+                      <div
+                        className="absolute left-[0.00%] top-[26.57%] w-[29.13%] h-[73.43%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3FanNet)}
+                      >
+                        <img 
+                          src={abhisarikaMb3FanNet} 
+                          alt="Pleated Turquoise Fan Netting" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Pleated Fan Net</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Emerald Mineral Crystals with Gold Veining (Top Mid-Left) */}
+                      <div
+                        className="absolute left-[29.13%] top-[0.00%] w-[23.36%] h-[39.63%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3EmeraldStones)}
+                      >
+                        <img 
+                          src={abhisarikaMb3EmeraldStones} 
+                          alt="Emerald Mineral Crystals with Gold Veining" 
+                          className="w-full h-full object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Emerald Kintsugi</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Bioluminescent Nocturnal Shoreline & Starry Sky (Top Mid-Right) */}
+                      <div
+                        className="absolute left-[52.48%] top-[0.00%] w-[22.01%] h-[66.67%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3BioluminescentShore)}
+                      >
+                        <img 
+                          src={abhisarikaMb3BioluminescentShore} 
+                          alt="Bioluminescent Nocturnal Shoreline & Starry Sky" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Bioluminescent Tide</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Duality of Black and White Swans (Middle Center) */}
+                      <div
+                        className="absolute left-[29.13%] top-[39.63%] w-[25.50%] h-[28.44%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3Swans)}
+                      >
+                        <img 
+                          src={abhisarikaMb3Swans} 
+                          alt="Duality of Black and White Swans" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Swan Duality</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Dark Nocturnal Moth Wings Texture (Bottom Center) */}
+                      <div
+                        className="absolute left-[42.01%] top-[68.07%] w-[31.54%] h-[31.93%] z-[30] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-2xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3MothWings)}
+                      >
+                        <img 
+                          src={abhisarikaMb3MothWings} 
+                          alt="Dark Nocturnal Moth Wings Texture" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Nocturnal Wings</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Deep Ocean Bubbles and Marine Abyss (Right Column) */}
+                      <div
+                        className="absolute left-[74.49%] top-[30.54%] w-[25.51%] h-[69.46%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.01] group shadow-xl"
+                        onClick={() => setSelectedImage(abhisarikaMb3Underwater)}
+                      >
+                        <img 
+                          src={abhisarikaMb3Underwater} 
+                          alt="Deep Ocean Bubbles and Marine Abyss" 
+                          className="w-full h-full object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Deep Abyss</span>
                         </div>
                       </div>
                     </div>
@@ -1484,6 +1641,21 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 export const WorksPage: React.FC = () => {
   const [openProject, setOpenProject] = useState<Project | null>(null);
 
+  useEffect(() => {
+    const handleOpenWorkshop = (e: Event) => {
+      const customEvent = e as CustomEvent<{ projectId?: string }>;
+      const projectId = customEvent.detail?.projectId;
+      if (projectId) {
+        const p = PROJECTS.find(proj => proj.id === projectId);
+        if (p) {
+          setOpenProject(p);
+        }
+      }
+    };
+    window.addEventListener('open-workshop-project', handleOpenWorkshop);
+    return () => window.removeEventListener('open-workshop-project', handleOpenWorkshop);
+  }, []);
+
   return (
     <section
       id="works"
@@ -1494,7 +1666,7 @@ export const WorksPage: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-            <span className="font-bold text-[#241217]">PAGE 04 · WORKS // PROJECTS &amp; WORKSHOPS</span>
+            <span className="font-bold text-[#241217]">PAGE 03 · WORKS // PROJECTS &amp; WORKSHOPS</span>
           </div>
           <span className="text-[#851737]">SHATMA AALIYA</span>
         </div>
@@ -1527,16 +1699,13 @@ export const WorksPage: React.FC = () => {
                     {project.tagline}
                   </span>
                 </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#FAF6EE] underline decoration-[#FAF6EE]/50 underline-offset-4">
-                  View project →
-                </span>
               </button>
             );
           })}
         </div>
 
         {/* Workshops — one wine card with detail rows, like the contact page's CALL / WHATSAPP rows */}
-        <div className="wine-card p-8 sm:p-10">
+        <div id="workshops" className="wine-card p-8 sm:p-10 scroll-mt-24">
           <div className="flex flex-col items-center text-center gap-2 mb-6">
             <h3 className="font-avonia font-normal text-4xl sm:text-5xl text-[#FAF6EE]">
               Workshop

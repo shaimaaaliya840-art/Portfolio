@@ -104,6 +104,7 @@ export interface PortfolioData {
   }[];
   experienceWorkshops?: string[];
   dyeingSkills?: string[];
+  softwareSkills?: string[];
   hardSkills?: string[];
   softSkills?: string[];
   languagesList?: string[];

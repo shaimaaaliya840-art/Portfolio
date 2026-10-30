@@ -1,7 +1,9 @@
+import { WhatsAppIcon } from './WhatsAppIcon';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Mail, 
+  Mail,
+  Phone, 
   Instagram, 
   MessageCircle, 
   Copy, 
@@ -34,6 +36,9 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
   const name = portfolioData.name || 'Shatma Aaliya';
   const whatsappNo = portfolioData.whatsappNumber || '8404916721';
   const email = portfolioData.contactEmail || 'shaimaaaliya840@gmail.com';
+  const callingNo = portfolioData.callingNumber || '6351283152';
+  const cleanCall = callingNo.replace(/\D/g, '');
+  const telTarget = cleanCall.length === 10 ? '+91' + cleanCall : '+' + cleanCall;
   const instagramUrl = portfolioData.socials?.instagram || 'https://www.instagram.com/shaimaaaliya/';
 
   // Track scroll depth and hero visibility
@@ -84,7 +89,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
 
   const cleanDigits = whatsappNo.replace(/\D/g, '');
   const waTarget = cleanDigits.length === 10 ? `91${cleanDigits}` : cleanDigits;
-  const waChatUrl = `https://wa.me/${waTarget}?text=${encodeURIComponent("Hello Shatma, I came across your portfolio and would love to connect!")}`;
+  const waChatUrl = `https://api.whatsapp.com/send?phone=${waTarget}&text=${encodeURIComponent("Hello Shatma, I came across your portfolio and would love to connect!")}`;
 
   return (
     <>
@@ -192,7 +197,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
                   {name}
                 </h4>
                 <div className="text-[0.6875rem] font-mono text-[#851737]">
-                  Haute Couture Apprentice &amp; Designer
+                  Fashion Designer
                 </div>
               </div>
               <button
@@ -213,7 +218,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
                 className="p-3 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 flex items-center justify-between transition-colors group cursor-pointer"
               >
                 <div className="flex items-center gap-2.5 font-mono text-xs text-[#0D381E] font-bold">
-                  <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                  <WhatsAppIcon className="w-4 h-4 fill-[#25D366]" />
                   <span>Chat on WhatsApp</span>
                 </div>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#25D366] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -261,7 +266,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
                 }}
                 className="flex-1 py-3 bg-gradient-to-r from-[#540D21] to-[#851737] hover:from-[#75122F] hover:to-[#540D21] text-[#FAF6EE] font-mono text-xs uppercase tracking-widest font-black transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Request a Proposal</span>
+                <span>Send an Inquiry</span>
                 <Sparkles className="w-3.5 h-3.5 text-[#FAF6EE]" />
               </button>
             </div>

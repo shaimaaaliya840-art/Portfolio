@@ -8,11 +8,10 @@ import { PortfolioData, Project } from './types';
 import { initialPortfolioData, initialProjects, initialTestimonials } from './data/portfolioData';
 import { AtelierPalette } from './data/colorPalettes';
 import { getInitialTheme, applyThemeToDocument } from './utils/themeManager';
-import { CustomCursor } from './components/CustomCursor';
+
 import { OrbitalBackground } from './components/OrbitalBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { KineticManifestoPage } from './components/KineticManifestoPage';
 import { ManifestoDualArchPage } from './components/ManifestoDualArchPage';
 import { WorksPage } from './components/WorksPage';
 import { ContactIvoryPage } from './components/ContactIvoryPage';
@@ -54,6 +53,7 @@ export default function App() {
           educationEntries: initialPortfolioData.educationEntries,
           experienceWorkshops: initialPortfolioData.experienceWorkshops,
           dyeingSkills: initialPortfolioData.dyeingSkills,
+          softwareSkills: initialPortfolioData.softwareSkills,
           hardSkills: initialPortfolioData.hardSkills,
           softSkills: initialPortfolioData.softSkills,
           languagesList: initialPortfolioData.languagesList,
@@ -115,8 +115,8 @@ export default function App() {
       {/* Volumetric golden light & amber smoke atmosphere */}
       <OrbitalBackground />
 
-      {/* Haute couture precision cursor */}
-      <CustomCursor />
+
+
 
       {/* Top Navigation Bar: Slide presentation navigation */}
       <Navbar
@@ -139,25 +139,19 @@ export default function App() {
           onOpenConceptLookbook={() => handleOpenConceptLookbook(1)}
         />
 
-        {/* SLIDE 02: Kinetic Storytelling Manifesto */}
-        <KineticManifestoPage
-          activePalette={activePalette}
+        {/* SLIDE 02: Who Am I? — Merged Manifesto, Bio & Atelier Dossier */}
+        <ManifestoDualArchPage
           portfolioData={portfolioData}
+          activePalette={activePalette}
           onOpenInquiry={() => setIsInquiryOpen(true)}
           onOpenDeck={() => setIsDeckOpen(true)}
           onOpenDetail={(slideIndex = 0) => handleOpenConceptLookbook(slideIndex)}
         />
 
-        {/* SLIDE 03: Who Am I? — Dual Arch & Atelier Profile Dossier */}
-        <ManifestoDualArchPage
-          portfolioData={portfolioData}
-          onOpenInquiry={() => setIsInquiryOpen(true)}
-        />
-
-        {/* SLIDE 04: Works — Fading Spark collection & workshops */}
+        {/* SLIDE 03: Works — Fading Spark collection & workshops */}
         <WorksPage />
 
-        {/* SLIDE 05: Let's Work Together & Contact */}
+        {/* SLIDE 04: Contact */}
         <ContactIvoryPage
           portfolioData={portfolioData}
           onOpenInquiry={() => setIsInquiryOpen(true)}

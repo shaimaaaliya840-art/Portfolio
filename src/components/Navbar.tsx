@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Palette } from 'lucide-react';
 import { PortfolioData } from '../types';
 import { AtelierPalette } from '../data/colorPalettes';
 
@@ -33,10 +32,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { label: 'Cover', href: '#hero-section' },
-    { label: 'Introduction', href: '#kinetic-manifesto' },
-    { label: 'About Me', href: '#manifesto-arch' },
+    { label: 'Intro', href: '#intro' },
+
     { label: 'Works', href: '#works' },
-    { label: 'Contact', href: '#contact-ivory' }
+    { label: 'Contact', href: '#contact' }
   ];
 
   return (
@@ -65,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Links & Palette Action */}
         <div className="flex items-center gap-6">
-          <nav className="hidden lg:flex items-center gap-5 text-[0.6875rem] font-mono uppercase tracking-[0.2em] text-[#FAF6EE]/80">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-[0.6875rem] font-mono uppercase tracking-[0.2em] text-[#FAF6EE]/80">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -78,18 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </nav>
 
-          {onOpenColorModal && (
-            <button
-              onClick={onOpenColorModal}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-[0.625rem] font-mono uppercase tracking-widest font-bold bg-[#FAF6EE] text-[#540D21] hover:bg-white transition-all cursor-pointer shadow-md rounded-xs border border-[#FAF6EE]"
-              title="Open Color Palette & Materiality Options"
-              data-cursor="pointer"
-            >
-              <Palette className="w-3 h-3 text-[#540D21]" />
-              <span className="hidden sm:inline">Color Palette &amp; Materiality</span>
-              <span className="sm:hidden">Colors</span>
-            </button>
-          )}
+          
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowLeft, X } from 'lucide-react';
-import pinkFabricBackground from '../assets/images/fading_spark_pink_fabric_background.jpg';
+import pinkFabricBackground from '../assets/images/fading_spark_background.png';
 import fadingSparkConceptImage from '../assets/images/fading_spark_concept.png';
 // Pages of public/fading-spark.pdf, pre-rendered so the slide shows the artwork
 // itself instead of the browser's PDF viewer chrome
@@ -41,10 +41,10 @@ export const FadingSparkProjectPage: React.FC = () => {
   >
     <div 
       className="pointer-events-none absolute inset-0 z-0" 
-      style={{ background: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)' }} 
+      style={{ backgroundImage: `url(${pinkFabricBackground})`, backgroundRepeat: 'repeat', backgroundSize: 'contain', backgroundPosition: 'center', backgroundColor: '#F5E5DF' }} 
       aria-hidden="true" 
     />
-    <div className="relative z-10 flex w-full max-w-6xl flex-col gap-4 sm:gap-6">
+    <div className="relative z-10 flex w-full max-w-7xl xl:max-w-[1650px] flex-col gap-4 sm:gap-6">
       {FADING_SPARK_PAGES.map((page, i) => {
         if (page.type === 'grid') {
           return (
@@ -54,19 +54,27 @@ export const FadingSparkProjectPage: React.FC = () => {
                   {page.title}
                 </h2>
               )}
-              <div className={`w-full ${page.gridCols === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'flex flex-row flex-wrap sm:flex-nowrap justify-center items-end gap-2 sm:gap-4'}`}>
-                {page.images?.map((img: any, idx: number) => (
-                  <img
-                    key={img.src}
-                    src={img.src}
-                    alt={img.alt}
-                    onClick={() => setSelectedImage(img.src)}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    className={`block w-full cursor-pointer transition-transform hover:scale-[1.02] ${page.gridCols === 2 ? '' : 'sm:flex-1'} rounded-sm ${page.imageAspect || 'h-auto'} ${page.imageFit ? `object-${page.imageFit}` : 'object-contain'}`}
-                    style={{ filter: 'drop-shadow(0 10px 15px rgba(84,13,33,0.1))' }}
-                  />
-                ))}
+              <div className="w-full flex justify-center items-end py-6 sm:py-12 overflow-x-auto">
+                <div className="flex flex-row items-end justify-center gap-3 sm:gap-5 md:gap-8 lg:gap-10 min-w-[620px] w-full max-w-[1600px] px-2 sm:px-6">
+                  {page.images?.map((img: any, idx: number) => (
+                    <div
+                      key={img.src}
+                      className="flex-1 flex flex-col items-center justify-end group cursor-pointer"
+                      onClick={() => setSelectedImage(img.src)}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                        decoding="async"
+                        className="w-auto h-[62vh] sm:h-[78vh] md:h-[84vh] max-h-[880px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-3"
+                        style={{
+                          filter: 'drop-shadow(0 16px 32px rgba(84,13,33,0.24))'
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           );
@@ -125,7 +133,7 @@ export const FadingSparkProjectDetailPage: React.FC<FadingSparkProjectDetailPage
     <div className="fixed inset-0 z-[100] flex flex-col overflow-hidden text-[#241217]">
     <div 
       className="pointer-events-none absolute inset-0 z-0" 
-      style={{ background: 'radial-gradient(circle at 50% 50%, #f0d5df 0%, #c4a1b0 60%, #563947 100%)' }} 
+      style={{ backgroundImage: `url(${pinkFabricBackground})`, backgroundRepeat: 'repeat', backgroundSize: 'contain', backgroundPosition: 'center', backgroundColor: '#F5E5DF' }} 
       aria-hidden="true" 
     />
       <header className="relative z-20 shrink-0 bg-[#F5E5DF]/70 px-4 py-3 backdrop-blur-md sm:px-8">

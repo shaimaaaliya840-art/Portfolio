@@ -93,12 +93,8 @@ export const initialPortfolioData: PortfolioData = {
     "The Geometry & Structure of Tailoring (LLDC Kutch)",
     "Fiber to Fabric (Chaman Siju · Bhuj)",
     "Cyanotype Printing",
-    "Carving, Sculpting",
-    "Clay pottery",
-    "Silhouette Art",
     "Pidilite Workshop",
     "Hand woven basket",
-    "Kolam",
     "Eco-printing",
     "Indigo Site Visit",
     "Coconut Shell Craft (Egai)"
@@ -110,6 +106,12 @@ export const initialPortfolioData: PortfolioData = {
     "Bleaching & dyeing",
     "Block-printing",
     "Natural Indigo Fermentation"
+  ],
+  softwareSkills: [
+    "Adobe Illustrator",
+    "Photoshop",
+    "CorelDRAW",
+    "CLO3D"
   ],
   hardSkills: [
     "CLO3D (3D Garment Simulation & Digital Prototyping)",

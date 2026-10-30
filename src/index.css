@@ -203,13 +203,7 @@
   line-height: 1.15;
 }
 
-/* Hide default cursor on desktop when custom cursor is active */
-@media (pointer: fine) {
-  .custom-cursor-active,
-  .custom-cursor-active * {
-    cursor: none !important;
-  }
-}
+/* Native system cursor enabled */
 
 /* ---------------------------------------------------------------------------
    Phone layout (< 768px). Desktop keeps every value set above — nothing here
