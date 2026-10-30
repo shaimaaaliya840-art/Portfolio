@@ -21,9 +21,9 @@ const FADING_SPARK_PAGES: any[] = [
     type: 'grid',
     images: [
       { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
-      { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
-      { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
       { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
+      { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
+      { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
       { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' }
     ]
   },
@@ -44,7 +44,7 @@ export const FadingSparkProjectPage: React.FC = () => {
       style={{ backgroundImage: `url(${pinkFabricBackground})`, backgroundRepeat: 'repeat', backgroundSize: 'contain', backgroundPosition: 'center', backgroundColor: '#F5E5DF' }} 
       aria-hidden="true" 
     />
-    <div className="relative z-10 flex w-full max-w-7xl xl:max-w-[1650px] flex-col gap-4 sm:gap-6">
+    <div className="relative z-10 flex w-full max-w-7xl xl:max-w-[1450px] flex-col gap-4 sm:gap-6">
       {FADING_SPARK_PAGES.map((page, i) => {
         if (page.type === 'grid') {
           return (
@@ -55,7 +55,7 @@ export const FadingSparkProjectPage: React.FC = () => {
                 </h2>
               )}
               <div className="w-full flex justify-center items-end py-6 sm:py-12 overflow-x-auto">
-                <div className="flex flex-row items-end justify-center gap-3 sm:gap-5 md:gap-8 lg:gap-10 min-w-[620px] w-full max-w-[1600px] px-2 sm:px-6">
+                <div className="flex flex-row items-end justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 min-w-[640px] w-full max-w-[1400px] px-2 sm:px-4">
                   {page.images?.map((img: any, idx: number) => (
                     <div
                       key={img.src}
@@ -67,7 +67,7 @@ export const FadingSparkProjectPage: React.FC = () => {
                         alt={img.alt}
                         loading={i === 0 ? 'eager' : 'lazy'}
                         decoding="async"
-                        className="w-auto h-[62vh] sm:h-[78vh] md:h-[84vh] max-h-[880px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-3"
+                        className="w-auto h-[56vh] sm:h-[64vh] md:h-[70vh] lg:h-[74vh] max-h-[760px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-3"
                         style={{
                           filter: 'drop-shadow(0 16px 32px rgba(84,13,33,0.24))'
                         }}

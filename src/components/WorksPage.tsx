@@ -409,9 +409,9 @@ const PROJECTS: Project[] = [
         layout: 'lineup',
         images: [
           { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
-          { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
-          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
           { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
+          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
+          { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
           { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' }
         ]
       },
@@ -854,12 +854,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
         {project.pages.length > 0 ? (
-          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' ? 'max-w-none w-full px-1 sm:px-4 md:px-8' : 'max-w-6xl'}`}>
+          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' ? 'max-w-7xl xl:max-w-[1450px] px-2 sm:px-6' : 'max-w-6xl'}`}>
 
             {project.pages.map((page, i) => {
               if (page.type === 'grid') {
                 return (
-                  <div key={`grid-${i}`} className={`relative flex flex-col w-full px-2 sm:px-0 ${project.id === 'fading-spark' ? 'pt-2 sm:pt-4 pb-2 sm:pb-4' : 'pt-8 sm:pt-16 pb-4 sm:pb-8'}`}>
+                  <div key={`grid-${i}`} className={`relative flex flex-col w-full px-2 sm:px-0 ${project.id === 'fading-spark' ? 'pt-4 sm:pt-8 pb-4 sm:pb-8' : 'pt-8 sm:pt-16 pb-4 sm:pb-8'}`}>
                     {page.titleImage && (
                       <div className="flex justify-center w-full max-w-[500px] mx-auto py-2 mb-8">
                         <img src={page.titleImage} alt="Title" className={`w-full h-auto object-contain ${isLight ? 'mix-blend-darken' : ''}`} />
@@ -879,7 +879,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                     )}
                     {page.layout === 'lineup' || (project.id === 'fading-spark' && page.type === 'grid') ? (
                       <div className="w-full flex justify-center items-end py-1 sm:py-4 overflow-x-auto">
-                        <div className="flex flex-row items-end justify-center gap-1.5 sm:gap-3 md:gap-5 lg:gap-7 min-w-[700px] w-full max-w-[1750px] px-1 sm:px-4">
+                        <div className="flex flex-row items-end justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 min-w-[640px] w-full max-w-[1400px] px-2 sm:px-4">
                           {page.images?.map((img, idx) => (
                             <div
                               key={img.src}
@@ -891,9 +891,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                                 alt={img.alt}
                                 loading={i === 0 ? 'eager' : 'lazy'}
                                 decoding="async"
-                                className="w-auto h-[78vh] sm:h-[86vh] md:h-[90vh] lg:h-[94vh] max-h-[1050px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-4"
+                                className="w-auto h-[56vh] sm:h-[64vh] md:h-[70vh] lg:h-[74vh] max-h-[760px] max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-4"
                                 style={{
-                                  filter: 'drop-shadow(0 20px 40px rgba(84,13,33,0.3))'
+                                  filter: 'drop-shadow(0 14px 28px rgba(84,13,33,0.22))'
                                 }}
                               />
                             </div>
