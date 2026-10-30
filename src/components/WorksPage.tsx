@@ -149,6 +149,7 @@ interface Project {
   title: string;
   tagline: string;
   icon: LucideIcon;
+  previewImage?: string;
   /** Backdrop of the project viewer */
   background?: string;
   backgroundColor: string;
@@ -163,6 +164,7 @@ const PROJECTS: Project[] = [
     title: 'Abhisarika',
     tagline: 'Indian Wear',
     icon: Moon,
+    previewImage: garment1_1,
     background: abhisarikaBackground,
     backgroundColor: '#3E5A26',
     pages: [
@@ -256,6 +258,7 @@ const PROJECTS: Project[] = [
     title: 'Anatomy of Ornamentation',
     tagline: 'Indowestern',
     icon: Gem,
+    previewImage: aooGarment1_1,
     backgroundColor: '#000000',
     pages: [
       {
@@ -395,6 +398,7 @@ const PROJECTS: Project[] = [
     title: 'Fading Spark',
     tagline: 'Digital Illustration',
     icon: Flame,
+    previewImage: fadingSparkPg3_1,
     background: fadingSparkBackground,
     backgroundColor: '#F5E5DF',
     pages: [
@@ -1665,14 +1669,14 @@ const WorkCard: React.FC<{
     >
       {/* Garment inside — card becomes transparent on hover to reveal the couture garment */}
       {project.previewImage && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out overflow-hidden">
           <img
             src={project.previewImage}
             alt={`${project.title} Garment`}
-            className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out filter brightness-50 contrast-115"
+            className="w-full h-full object-cover object-top scale-110 group-hover:scale-100 transition-transform duration-700 ease-out filter brightness-90 contrast-105"
           />
-          {/* Subtle burgundy tint gradient overlay ensuring text and icons remain crisp */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#241217] via-[#540D21]/60 to-[#380612]/45 backdrop-blur-[0.5px]" />
+          {/* Elegant luxury vignette overlay ensuring text and icons remain crisp while garment shines */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1F080F]/90 via-[#3D0A18]/45 to-black/25" />
         </div>
       )}
 
