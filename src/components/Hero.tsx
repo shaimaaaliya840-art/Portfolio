@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 max-w-7xl mx-auto text-[#241217] selection:bg-[#540D21] selection:text-[#FAF6EE] pt-32 pb-16 overflow-hidden"
+      className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-between px-4 sm:px-8 md:px-12 max-w-7xl mx-auto text-[#241217] selection:bg-[#540D21] selection:text-[#FAF6EE] pt-28 sm:pt-32 pb-3 overflow-hidden"
     >
       {/* Main Centerpiece: Moving kinetic title */}
       <div className="my-auto w-full flex flex-col items-center justify-center text-center py-6 sm:py-10">
@@ -123,7 +123,13 @@ export const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.8 }}
-        className="w-full flex items-center justify-between border-t border-[var(--color-accent,#E9D5E6)]/25 pt-3.5 text-[0.6875rem] sm:text-xs font-mono tracking-[0.25em] uppercase select-none"
+        onClick={() => {
+          const introEl = document.getElementById('intro');
+          if (introEl) {
+            introEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }}
+        className="w-full flex items-center justify-between border-t border-[var(--color-accent,#E9D5E6)]/25 pt-3.5 text-[0.6875rem] sm:text-xs font-mono tracking-[0.25em] uppercase select-none cursor-pointer group"
       >
         <div className="flex items-center gap-2 text-[var(--color-text,#FAF0F8)] font-semibold">
           <span className="animate-bounce text-[var(--color-accent,#E9D5E6)] font-bold text-sm">↓</span>

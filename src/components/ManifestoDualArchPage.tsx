@@ -152,7 +152,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
   return (
     <section
       id="intro"
-      className="relative min-h-screen py-16 sm:py-20 px-4 sm:px-8 md:px-12 text-[#241217] overflow-hidden selection:bg-[#540D21] selection:text-[#FAF6EE]"
+      className="relative min-h-screen pt-3 sm:pt-4 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 text-[#241217] overflow-hidden selection:bg-[#540D21] selection:text-[#FAF6EE] scroll-mt-16"
     >
       {/* Anchor aliases for backward compatibility */}
       <div id="who-am-i" className="absolute -top-24 pointer-events-none" />
