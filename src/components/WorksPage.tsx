@@ -1743,7 +1743,7 @@ export const WorksPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-6 sm:mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-              <span className="font-bold text-[#241217]">PAGE 02 · WORKS // COLLECTIONS &amp; PROJECTS</span>
+              <span className="font-bold text-[#241217]">PAGE 02</span>
             </div>
             <span className="text-[#851737]">SHATMA AALIYA</span>
           </div>
@@ -1775,7 +1775,7 @@ export const WorksPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DECFC0] pb-4 mb-8 text-xs font-mono tracking-[0.25em] text-[#540D21]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#540D21]" />
-              <span className="font-bold text-[#241217]">PAGE 03 · WORKSHOPS // HANDS-ON CRAFTS &amp; RESEARCH</span>
+              <span className="font-bold text-[#241217]">PAGE 03</span>
             </div>
             <span className="text-[#851737]">SHATMA AALIYA</span>
           </div>
