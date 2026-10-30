@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Palette, Star, Briefcase, Cpu, ArrowUpRight } from 'lucide-react';
+import { Palette, Star, Cpu, ArrowUpRight } from 'lucide-react';
 import { PortfolioData } from '../types';
 import { AtelierPalette } from '../data/colorPalettes';
 import neelgarCertificate from '../assets/images/neelgar_certificate.jpg';
@@ -381,13 +381,6 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
                       <ArrowUpRight className="w-2.5 h-2.5 opacity-40 group-hover:opacity-100 transition-opacity ml-0.5" />
                     </button>
                   ))}
-                </div>
-
-                <div className="pt-2 text-[0.6875rem] font-mono text-[#FAF6EE]/90 border-t border-[#FAF6EE]/20 space-y-1">
-                  <div className="flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5 text-[#FAF6EE] shrink-0" />
-                    <span>Neelgar Atelier · Design &amp; Content Intern (22 May – Aug 2026)</span>
-                  </div>
                 </div>
               </div>
             )}
