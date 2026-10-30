@@ -114,7 +114,7 @@ export const ManifestoDualArchPage: React.FC<ManifestoDualArchPageProps> = ({
     }
   ];
 
-  const designerLocation = portfolioData.location || "Ahmedabad, Gujarat";
+  const designerLocation = (portfolioData.location || "Ahmedabad, Gujarat").replace(/gujrat/i, 'Gujarat');
 
   const handleWorkshopClick = (workshopName: string) => {
     // 1. Smoothly scroll to the Workshop section in Works

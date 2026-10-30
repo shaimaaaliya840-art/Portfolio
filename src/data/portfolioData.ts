@@ -72,7 +72,7 @@ export const initialPortfolioData: PortfolioData = {
     author: "Shatma Aaliya",
     context: "Indus Design School Degree Manifesto, Class of 2023–2027"
   },
-  location: "Ahmedabad, gujrat",
+  location: "Ahmedabad, Gujarat",
   aboutMe: "I'm a creatively driven individual with a strong foundation in cultural aesthetics and design thinking. My work is deeply rooted in exploring heritage while translating it into contemporary, functional garments. I have a keen interest in material experimentation, focusing on textures, structure, and innovative fabric use. I aim to create clothing that balances modesty, elegance, and bold expression. With an eye for detail and storytelling, I strive to design pieces that are both meaningful and wearable. My approach blends tradition with modern sensibilities to craft unique, statement-driven fashion.",
   personalSkills: [
     { skill: "Draping" },
@@ -136,7 +136,7 @@ export const initialPortfolioData: PortfolioData = {
     "English",
     "Hindi",
     "Urdu",
-    "Gujrati (multilingual)"
+    "Gujarati (multilingual)"
   ],
   internships: [
     {

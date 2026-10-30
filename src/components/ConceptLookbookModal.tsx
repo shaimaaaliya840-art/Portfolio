@@ -48,7 +48,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
       badge: 'FASHION DESIGNER RESUME',
       category: 'BIOGRAPHY & MULTIDISCIPLINARY ATELIER',
       title: `${portfolioData.name || 'Shatma Aaliya'} — Fashion Designer`,
-      subtitle: `${portfolioData.location || 'Ahmedabad, gujrat'} • Tel: ${portfolioData.callingNumber || '6351283152'} • ${portfolioData.contactEmail || 'shaimaaaliya840@gmail.com'}`,
+      subtitle: `${portfolioData.location || 'Ahmedabad, Gujarat'} • Tel: ${portfolioData.callingNumber || '6351283152'} • ${portfolioData.contactEmail || 'shaimaaaliya840@gmail.com'}`,
       heroImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=900&auto=format&fit=crop',
       supportingImages: [
         {
@@ -78,7 +78,7 @@ export const ConceptLookbookModal: React.FC<ConceptLookbookModalProps> = ({
         },
         {
           title: 'Personal Proficiencies & Values',
-          detail: 'High ratings in Hand Illustration, Storytelling, Styling & Makeup, Market Analysis, and Material Sourcing. Guided by curiosity, social sensitivity, and multilingual fluency in English, Hindi, Urdu, and Gujrati.'
+          detail: 'High ratings in Hand Illustration, Storytelling, Styling & Makeup, Market Analysis, and Material Sourcing. Guided by curiosity, social sensitivity, and multilingual fluency in English, Hindi, Urdu, and Gujarati.'
         }
       ],
       palette: [
