@@ -159,31 +159,6 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: 'fading-spark',
-    title: 'Fading Spark',
-    tagline: 'Collection',
-    icon: Flame,
-    background: fadingSparkBackground,
-    backgroundColor: '#F5E5DF',
-    pages: [
-      { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
-      { type: 'single', src: fadingSparkPg2, alt: 'Fading Spark Page 2' },
-      {
-        type: 'grid',
-        layout: 'lineup',
-        images: [
-          { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
-          { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
-          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
-          { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
-          { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' }
-        ]
-      },
-      // Page 4 is missing, will be added later
-      { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
-    ]
-  },
-  {
     id: 'abhisarika',
     title: 'Abhisarika',
     tagline: 'Neelgar Atelier',
@@ -413,6 +388,31 @@ const PROJECTS: Project[] = [
           "Raw dark indigo utility jacket tailored with wide notched lapels and flap pockets, elevated with intricate golden ochre hand-embroidered botanical motifs cascading along both sleeves, paired over a midnight mini silhouette."
         ]
       }
+    ]
+  },
+  {
+    id: 'fading-spark',
+    title: 'Fading Spark',
+    tagline: 'Collection',
+    icon: Flame,
+    background: fadingSparkBackground,
+    backgroundColor: '#F5E5DF',
+    pages: [
+      { type: 'single', src: fadingSparkPg1, alt: 'Fading Spark Page 1' },
+      { type: 'single', src: fadingSparkPg2, alt: 'Fading Spark Page 2' },
+      {
+        type: 'grid',
+        layout: 'lineup',
+        images: [
+          { src: fadingSparkPg3_1, alt: 'Fading Spark Page 3 Image 1' },
+          { src: fadingSparkPg3_2, alt: 'Fading Spark Page 3 Image 2' },
+          { src: fadingSparkPg3_5, alt: 'Fading Spark Page 3 Image 5' },
+          { src: fadingSparkPg3_4, alt: 'Fading Spark Page 3 Image 4' },
+          { src: fadingSparkPg3_3, alt: 'Fading Spark Page 3 Image 3' }
+        ]
+      },
+      // Page 4 is missing, will be added later
+      { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
     ]
   },
   {
