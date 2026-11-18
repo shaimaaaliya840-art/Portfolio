@@ -38,6 +38,16 @@ import photoPinstripeStreet from '../assets/images/1941/photo_pinstripe_street.p
 import photoSpiralStaircase from '../assets/images/1941/photo_spiral_staircase.png';
 import photoTieAdjustment from '../assets/images/1941/photo_tie_adjustment.png';
 import photoShadowSilhouette from '../assets/images/1941/photo_shadow_silhouette.png';
+import lookbookLiningSepia from '../assets/images/1941/lookbook/lookbook_1_lining_sepia.jpg';
+import lookbookRailingSepia from '../assets/images/1941/lookbook/lookbook_2_railing_sepia.jpg';
+import lookbookEmbroideryScript from '../assets/images/1941/lookbook/lookbook_3_embroidery_script.jpg';
+import lookbookCinchSepia from '../assets/images/1941/lookbook/lookbook_4_cinch_sepia.jpg';
+import lookbookWhiteBibShirt from '../assets/images/1941/lookbook/lookbook_5_white_bib_shirt.jpg';
+import lookbookBougainvilleaWall from '../assets/images/1941/lookbook/lookbook_6_bougainvillea_wall.jpg';
+import lookbookStepsSeatedSepia from '../assets/images/1941/lookbook/lookbook_7_steps_seated_sepia.jpg';
+import lookbookCinchColor from '../assets/images/1941/lookbook/lookbook_8_cinch_color.jpg';
+import lookbookLiningColor from '../assets/images/1941/lookbook/lookbook_9_lining_color.jpg';
+import lookbookBougainvilleaCar from '../assets/images/1941/lookbook/lookbook_10_bougainvillea_car.jpg';
 import abhisarikaMb2Mirror from '../assets/images/abhisarika/abhisarika_mb2_mirror.png';
 import abhisarikaMb2Chandelier from '../assets/images/abhisarika/abhisarika_mb2_chandelier.png';
 import abhisarikaMb2Cocktail from '../assets/images/abhisarika/abhisarika_mb2_cocktail.png';
@@ -157,7 +167,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3' | 'moodboard-1941' | 'inspiration-1941' | 'development-1941' | 'photography-1941';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3' | 'moodboard-1941' | 'inspiration-1941' | 'development-1941' | 'photography-1941' | 'lookbook-1941';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -505,6 +515,15 @@ const PROJECTS: Project[] = [
         paragraphs: [
           "CINEMATIC LIGHT & EDITORIAL POSTURE:",
           "Afternoon terrace espresso rituals, Savile Row street nonchalance, architectural stairwell perspectives, tactile collar adjustment, and high-contrast staircase silhouettes."
+        ]
+      },
+      {
+        type: 'lookbook-1941',
+        title: 'Editorial Lookbook',
+        subtitle: "1941 · The Bespoke Collection & Garment Shoot",
+        paragraphs: [
+          "THE BESPOKE SILHOUETTE & SPREZZATURA:",
+          "Bespoke charcoal pinstripe tailoring, hand-embroidered back collar calligraphy, high-waisted side-cinch trousers with solid brass hardware, curved bib-front shirt architecture, and the rich contrast of copper paisley jacquard under Mediterranean light."
         ]
       }
     ]
@@ -875,6 +894,7 @@ const WorkshopHeadline: React.FC<{ title: string; isLight?: boolean }> = ({ titl
 /** Full-screen viewer for one project's pages. */
 const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [lookbookView, setLookbookView] = useState<'spreads' | 'grid'>('spreads');
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     window.addEventListener('keydown', onKey);
@@ -1652,6 +1672,284 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   </div>
                 );
               }
+              if (page.type === 'lookbook-1941') {
+                return (
+                  <div key={`lookbook-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    <div className="flex flex-col items-center gap-2 mb-6 sm:mb-10 text-center">
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80">
+                          {page.subtitle}
+                        </span>
+                      )}
+                      {page.title && (
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE]">
+                          {page.title}
+                        </h2>
+                      )}
+
+                      {/* Layout Mode Switcher */}
+                      <div className="flex items-center justify-center gap-3 mt-4 sm:mt-6">
+                        <button
+                          type="button"
+                          onClick={() => setLookbookView('spreads')}
+                          className={`px-3.5 sm:px-5 py-1.5 text-[10px] sm:text-xs font-mono tracking-widest uppercase transition-all duration-300 rounded-full border cursor-pointer ${
+                            lookbookView === 'spreads'
+                              ? 'border-[#FAF6EE] bg-[#FAF6EE] text-[#070808] font-bold shadow-lg scale-105'
+                              : 'border-[#FAF6EE]/30 text-[#FAF6EE]/70 hover:border-[#FAF6EE]/70 hover:text-[#FAF6EE]'
+                          }`}
+                        >
+                          Curated Spreads
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setLookbookView('grid')}
+                          className={`px-3.5 sm:px-5 py-1.5 text-[10px] sm:text-xs font-mono tracking-widest uppercase transition-all duration-300 rounded-full border cursor-pointer ${
+                            lookbookView === 'grid'
+                              ? 'border-[#FAF6EE] bg-[#FAF6EE] text-[#070808] font-bold shadow-lg scale-105'
+                              : 'border-[#FAF6EE]/30 text-[#FAF6EE]/70 hover:border-[#FAF6EE]/70 hover:text-[#FAF6EE]'
+                          }`}
+                        >
+                          Editorial Gallery
+                        </button>
+                      </div>
+                    </div>
+
+                    {lookbookView === 'spreads' ? (
+                      <div className="flex flex-col gap-10 sm:gap-16 w-full">
+                        {/* Act I: Sartorial Silhouette */}
+                        <div className="flex flex-col w-full">
+                          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#FAF6EE]/70 font-semibold text-center">
+                              Act I · Sartorial Posture & Street Tailoring
+                            </span>
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                          </div>
+
+                          {/* Spread 1 Proportional Container (Zero Artificial Background, Seamless Floating HD) */}
+                          <div
+                            className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto select-none bg-transparent"
+                            style={{ aspectRatio: '1200 / 680' }}
+                          >
+                            {/* 1. Railing Sepia (Left Hero Portrait) */}
+                            <div
+                              className="absolute left-[0.00%] top-[4.41%] w-[34.50%] h-[91.18%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookRailingSepia)}
+                            >
+                              <img
+                                src={lookbookRailingSepia}
+                                alt="Sartorial Posture · Road Railing"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sartorial Posture · Road Railing</span>
+                              </div>
+                            </div>
+
+                            {/* 2. Collar Script (Center Top Landscape) */}
+                            <div
+                              className="absolute left-[31.00%] top-[2.00%] w-[38.33%] h-[45.15%] z-[8] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                              onClick={() => setSelectedImage(lookbookEmbroideryScript)}
+                            >
+                              <img
+                                src={lookbookEmbroideryScript}
+                                alt="Collar Calligraphy · L'Arte Della Stravaganza Sottile"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Collar Calligraphy · L'Arte Della Stravaganza Sottile</span>
+                              </div>
+                            </div>
+
+                            {/* 3. Seated Steps (Center Bottom Portrait) */}
+                            <div
+                              className="absolute left-[32.50%] top-[44.00%] w-[19.42%] h-[51.47%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookStepsSeatedSepia)}
+                            >
+                              <img
+                                src={lookbookStepsSeatedSepia}
+                                alt="Nonchalant Ease · Concrete Steps"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Nonchalant Ease · Concrete Steps</span>
+                              </div>
+                            </div>
+
+                            {/* 4. Cinch Sepia (Right Top Portrait) */}
+                            <div
+                              className="absolute left-[77.00%] top-[2.00%] w-[17.75%] h-[47.06%] z-[9] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                              onClick={() => setSelectedImage(lookbookCinchSepia)}
+                            >
+                              <img
+                                src={lookbookCinchSepia}
+                                alt="Waistband Hardware · Brass Cinch Tab"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Waistband Hardware · Brass Cinch Tab</span>
+                              </div>
+                            </div>
+
+                            {/* 5. Lining Sepia (Right Bottom Portrait) */}
+                            <div
+                              className="absolute left-[55.50%] top-[40.00%] w-[21.08%] h-[55.88%] z-[12] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookLiningSepia)}
+                            >
+                              <img
+                                src={lookbookLiningSepia}
+                                alt="Interior Reveal · Copper Paisley Jacquard"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Interior Reveal · Copper Paisley Jacquard</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Act II: Sprezzatura & Mediterranean Light */}
+                        <div className="flex flex-col w-full">
+                          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#FAF6EE]/70 font-semibold text-center">
+                              Act II · Sprezzatura & Mediterranean Light
+                            </span>
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                          </div>
+
+                          {/* Spread 2 Proportional Container (Zero Artificial Background, Seamless Floating HD) */}
+                          <div
+                            className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto select-none bg-transparent"
+                            style={{ aspectRatio: '1200 / 680' }}
+                          >
+                            {/* 6. Walking White Bib Shirt (Left Top Landscape) */}
+                            <div
+                              className="absolute left-[0.00%] top-[2.00%] w-[40.00%] h-[46.91%] z-[8] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                              onClick={() => setSelectedImage(lookbookWhiteBibShirt)}
+                            >
+                              <img
+                                src={lookbookWhiteBibShirt}
+                                alt="Curved Bib Architecture · Walking Posture"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Curved Bib Architecture · Walking Posture</span>
+                              </div>
+                            </div>
+
+                            {/* 7. Cinch Color (Left Bottom Portrait) */}
+                            <div
+                              className="absolute left-[6.00%] top-[44.00%] w-[19.42%] h-[51.47%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookCinchColor)}
+                            >
+                              <img
+                                src={lookbookCinchColor}
+                                alt="Solid Brass Hardware · Golden Sunlight"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Solid Brass Hardware · Golden Sunlight</span>
+                              </div>
+                            </div>
+
+                            {/* 8. Bougainvillea Wall (Center Portrait) */}
+                            <div
+                              className="absolute left-[35.00%] top-[7.00%] w-[32.25%] h-[85.29%] z-[12] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookBougainvilleaWall)}
+                            >
+                              <img
+                                src={lookbookBougainvilleaWall}
+                                alt="Bougainvillea Contrast · Architectural Wall"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Bougainvillea Contrast · Architectural Wall</span>
+                              </div>
+                            </div>
+
+                            {/* 9. Lining Color (Right Top Portrait) */}
+                            <div
+                              className="absolute left-[78.00%] top-[2.00%] w-[17.75%] h-[47.06%] z-[9] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                              onClick={() => setSelectedImage(lookbookLiningColor)}
+                            >
+                              <img
+                                src={lookbookLiningColor}
+                                alt="Sartorial Secret · Warm Copper Lining"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sartorial Secret · Warm Copper Lining</span>
+                              </div>
+                            </div>
+
+                            {/* 10. Bougainvillea Car (Right Hero Portrait) */}
+                            <div
+                              className="absolute left-[65.00%] top-[20.00%] w-[28.83%] h-[76.47%] z-[14] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                              onClick={() => setSelectedImage(lookbookBougainvilleaCar)}
+                            >
+                              <img
+                                src={lookbookBougainvilleaCar}
+                                alt="The Living Garment · Bougainvillea Canopy"
+                                className="w-full h-full object-cover object-center"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                                <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">The Living Garment · Bougainvillea Canopy</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Editorial Gallery Grid View */
+                      <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 my-4 sm:my-8">
+                        {[
+                          { src: lookbookRailingSepia, title: "Sartorial Posture · Road Railing", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookEmbroideryScript, title: "Collar Calligraphy · L'Arte Della Stravaganza", aspect: "aspect-[3/2]", colSpan: "sm:col-span-2" },
+                          { src: lookbookStepsSeatedSepia, title: "Nonchalant Ease · Concrete Steps", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookCinchSepia, title: "Waistband Hardware · Brass Cinch Tab", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookLiningSepia, title: "Interior Reveal · Copper Paisley Jacquard", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookWhiteBibShirt, title: "Curved Bib Architecture · Walking Posture", aspect: "aspect-[3/2]", colSpan: "sm:col-span-2" },
+                          { src: lookbookCinchColor, title: "Solid Brass Hardware · Golden Sunlight", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookBougainvilleaWall, title: "Bougainvillea Contrast · Architectural Wall", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookLiningColor, title: "Sartorial Secret · Warm Copper Lining", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" },
+                          { src: lookbookBougainvilleaCar, title: "The Living Garment · Bougainvillea Canopy", aspect: "aspect-[2/3]", colSpan: "sm:col-span-1" }
+                        ].map((item, idx) => (
+                          <div
+                            key={idx}
+                            className={`relative overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] ${item.colSpan}`}
+                            onClick={() => setSelectedImage(item.src)}
+                          >
+                            <div className={`w-full ${item.aspect} overflow-hidden`}>
+                              <img
+                                src={item.src}
+                                alt={item.title}
+                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 pointer-events-none">
+                              <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-2 py-1 shadow-md backdrop-blur-sm">
+                                {item.title}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-[#FAF6EE]/85">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               if (page.type === 'moodboard-abhisarika-garment2') {
                 return (
                   <div key={`mb-ab-g2-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
