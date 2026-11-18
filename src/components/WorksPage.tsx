@@ -13,6 +13,7 @@ import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_background.png';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 import aooBackground from '../assets/images/anatomy_of_ornament_background.png';
+import background1941 from '../assets/images/1941/background_1941.png';
 import bougainvilleaArch from '../assets/images/1941/bougainvillea_arch.png';
 import archedWindow from '../assets/images/1941/arched_window.png';
 import italianFountain from '../assets/images/1941/italian_fountain.png';
@@ -465,7 +466,8 @@ const PROJECTS: Project[] = [
     tagline: "Men's Wear",
     icon: Shirt,
     previewImage: linenSuitMan,
-    backgroundColor: '#070808',
+    background: background1941,
+    backgroundColor: '#000000',
     pages: [
       {
         type: 'text',
