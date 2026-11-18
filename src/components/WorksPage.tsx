@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, X, type LucideIcon } from 'lucide-react';
+import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, Shirt, X, type LucideIcon } from 'lucide-react';
 
 import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
 import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
@@ -13,6 +13,31 @@ import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_background.png';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 import aooBackground from '../assets/images/anatomy_of_ornament_background.png';
+import bougainvilleaArch from '../assets/images/1941/bougainvillea_arch.png';
+import archedWindow from '../assets/images/1941/arched_window.png';
+import italianFountain from '../assets/images/1941/italian_fountain.png';
+import linenSuitMan from '../assets/images/1941/linen_suit_man.png';
+import cafeDeFlore from '../assets/images/1941/cafe_de_flore.png';
+import thinkPoetic from '../assets/images/1941/think_poetic.png';
+import berlinVest from '../assets/images/1941/inspiration_berlin_vest.png';
+import door221b from '../assets/images/1941/inspiration_221b_door.png';
+import sherlockWall from '../assets/images/1941/inspiration_sherlock_wall.png';
+import henrySherlock from '../assets/images/1941/inspiration_henry_sherlock.png';
+import jacketScript from '../assets/images/1941/inspiration_jacket_script.png';
+import trouserCuff from '../assets/images/1941/inspiration_trouser_cuff.png';
+import pinstripeSuit from '../assets/images/1941/inspiration_pinstripe_suit.png';
+import devSewingMachine from '../assets/images/1941/dev_sewing_machine.png';
+import devPatternTable from '../assets/images/1941/dev_pattern_table.png';
+import devFabricCutting from '../assets/images/1941/dev_fabric_cutting.png';
+import devPinstripeJacket from '../assets/images/1941/dev_pinstripe_jacket.png';
+import devTextileSwatches from '../assets/images/1941/dev_textile_swatches.png';
+import devPaisleyLining from '../assets/images/1941/dev_paisley_lining.png';
+import devBrassBuckle from '../assets/images/1941/dev_brass_buckle.png';
+import photoEspressoCafe from '../assets/images/1941/photo_espresso_cafe.png';
+import photoPinstripeStreet from '../assets/images/1941/photo_pinstripe_street.png';
+import photoSpiralStaircase from '../assets/images/1941/photo_spiral_staircase.png';
+import photoTieAdjustment from '../assets/images/1941/photo_tie_adjustment.png';
+import photoShadowSilhouette from '../assets/images/1941/photo_shadow_silhouette.png';
 import abhisarikaMb2Mirror from '../assets/images/abhisarika/abhisarika_mb2_mirror.png';
 import abhisarikaMb2Chandelier from '../assets/images/abhisarika/abhisarika_mb2_chandelier.png';
 import abhisarikaMb2Cocktail from '../assets/images/abhisarika/abhisarika_mb2_cocktail.png';
@@ -132,13 +157,16 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3' | 'moodboard-1941' | 'inspiration-1941' | 'development-1941' | 'photography-1941';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
   title?: string;
+  subtitle?: string;
   titleImage?: string;
   paragraphs?: string[];
+  textColor?: string;
+  titleColor?: string;
   imageAspect?: string;
   imageFit?: 'cover' | 'contain';
   gridCols?: number;
@@ -419,6 +447,66 @@ const PROJECTS: Project[] = [
       },
       // Page 4 is missing, will be added later
       { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
+    ]
+  },
+  {
+    id: '1941',
+    title: '1941',
+    tagline: "Men's Wear",
+    icon: Shirt,
+    previewImage: linenSuitMan,
+    backgroundColor: '#070808',
+    pages: [
+      {
+        type: 'text',
+        title: 'Concept Note',
+        subtitle: "1941 · Men's Wear",
+        textColor: '#0B2240',
+        titleColor: '#0B2240',
+        paragraphs: [
+          "It believes elegance is not something you put on. It is something you stop interfering with.",
+          "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
+          "It believes the most confident man in the room is the one who isn’t trying to be seen.",
+          "To dress less is not to care less.",
+          "It is to care so precisely that nothing extra remains."
+        ]
+      },
+      {
+        type: 'moodboard-1941',
+        title: 'Mood Board',
+        subtitle: "1941 · Sprezzatura & Architectural Heritage",
+        paragraphs: [
+          "ATMOSPHERE & MATERIALITY:",
+          "Lake Como mornings, washed Italian linen tailoring, hand-sculpted stone fountains, Café de Flore moments, and the unhurried nonchalance of sprezzatura."
+        ]
+      },
+      {
+        type: 'inspiration-1941',
+        title: 'Inspiration Board',
+        subtitle: "1941 · Sartorial Mystery & British Tailoring",
+        paragraphs: [
+          "NARRATIVE & SARTORIAL CODES:",
+          "Savile Row structure, Victorian library intellect, 221B Baker Street intrigue, internal canvas architecture, and tailored subversion."
+        ]
+      },
+      {
+        type: 'development-1941',
+        title: 'Development Board',
+        subtitle: "1941 · Craftsmanship & Tailoring Process",
+        paragraphs: [
+          "MATERIALITY & INTERNAL ARCHITECTURE:",
+          "Industrial machine precision, master pattern lay cutting, tailor's chalk balance marks, copper paisley jacquard lining, and solid brass vest cinch hardware."
+        ]
+      },
+      {
+        type: 'photography-1941',
+        title: 'Photography Inspiration',
+        subtitle: "1941 · Light, Shadow & Editorial Posture",
+        paragraphs: [
+          "CINEMATIC LIGHT & EDITORIAL POSTURE:",
+          "Afternoon terrace espresso rituals, Savile Row street nonchalance, architectural stairwell perspectives, tactile collar adjustment, and high-contrast staircase silhouettes."
+        ]
+      }
     ]
   },
   {
@@ -809,7 +897,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
       style={{ background: project.backgroundColor }}
     >
-      {project.id !== 'anatomy-of-ornament' ? (
+      {project.id !== 'anatomy-of-ornament' && project.id !== '1941' ? (
         /* Volumetric pinkish gradient bloom */
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
@@ -843,7 +931,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Works</span>
         </button>
-        {project.category !== 'workshop' && project.id !== 'fading-spark' && project.id !== 'abhisarika' && project.id !== 'anatomy-of-ornament' && (
+        {project.category !== 'workshop' && project.id !== 'fading-spark' && project.id !== 'abhisarika' && project.id !== 'anatomy-of-ornament' && project.id !== '1941' && (
           <h2
             className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
               isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
@@ -856,7 +944,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
         {project.pages.length > 0 ? (
-          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' ? 'max-w-7xl xl:max-w-[1450px] px-2 sm:px-6' : 'max-w-6xl'}`}>
+          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' || project.id === '1941' || project.id === 'anatomy-of-ornament' || project.id === 'abhisarika' ? 'max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] px-2 sm:px-6' : 'max-w-6xl'}`}>
 
             {project.pages.map((page, i) => {
               if (page.type === 'grid') {
@@ -981,30 +1069,586 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               }
               if (page.type === 'text') {
                 return (
-                  <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-6 py-12 gap-10">
-                    {page.titleImage && (
-                      <div className="flex justify-center w-full max-w-[600px] py-4">
-                        <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain mix-blend-darken" />
+                  <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-10">
+                    {project.id === '1941' ? (
+                      <div className="w-full max-w-3xl bg-[#FAF6EE] text-[#0B2240] rounded-xs p-8 sm:p-14 md:p-16 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border border-white/20 flex flex-col items-center gap-8">
+                        <div className="flex flex-col items-center gap-2">
+                          {page.subtitle && (
+                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80">
+                              {page.subtitle}
+                            </span>
+                          )}
+                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase drop-shadow-xs py-2 text-[#0B2240]">
+                            {page.title}
+                          </h1>
+                          <div className="w-12 h-px bg-[#0B2240]/30 mt-2" />
+                        </div>
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#0B2240] text-center md:text-left">
+                          {page.paragraphs?.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {page.titleImage && (
+                          <div className="flex justify-center w-full max-w-[600px] py-4">
+                            <img src={page.titleImage} alt="Title" className="w-full h-auto object-contain mix-blend-darken" />
+                          </div>
+                        )}
+                        {page.title && !page.titleImage && (
+                          project.category === 'workshop' ? (
+                            <WorkshopHeadline title={page.title} isLight={isLight} />
+                          ) : (
+                            <div className="flex flex-col items-center gap-2">
+                              {page.subtitle && (
+                                <span
+                                  className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold"
+                                  style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
+                                >
+                                  {page.subtitle}
+                                </span>
+                              )}
+                              <h1
+                                className={`${
+                                  /^\d/.test(page.title)
+                                    ? '[font-family:var(--font-readable-display)] tracking-[0.08em] [font-variant-numeric:lining-nums]'
+                                    : 'font-avonia'
+                                } ${
+                                  page.title.length > 15
+                                    ? 'text-4xl sm:text-5xl md:text-6xl tracking-wider leading-tight'
+                                    : 'text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-relaxed'
+                                } uppercase drop-shadow-md py-2`}
+                                style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
+                              >
+                                {page.title}
+                              </h1>
+                            </div>
+                          )
+                        )}
+                        <div
+                          className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl md:text-left font-serif leading-relaxed drop-shadow-sm ${
+                            !page.textColor && (isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]')
+                          }`}
+                          style={page.textColor ? { color: page.textColor } : undefined}
+                        >
+                          {page.paragraphs?.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-1941') {
+                return (
+                  <div key={`mb-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    <div className="flex flex-col items-center gap-2 mb-6 sm:mb-10 text-center">
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80">
+                          {page.subtitle}
+                        </span>
+                      )}
+                      {page.title && (
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE]">
+                          {page.title}
+                        </h2>
+                      )}
+                    </div>
+
+                    {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
+                    <div
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      style={{ aspectRatio: '698 / 448' }}
+                    >
+                      {/* 1. Bougainvillea & Stone Building (Top Left) */}
+                      <div
+                        className="absolute left-[0.00%] top-[8.03%] w-[31.95%] h-[70.99%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl rounded-xs"
+                        onClick={() => setSelectedImage(bougainvilleaArch)}
+                      >
+                        <img
+                          src={bougainvilleaArch}
+                          alt="Bougainvillea & Stone Building"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Bougainvillea</span>
+                        </div>
+                      </div>
+
+                      {/* 2. White Stucco Wall with Arched Wrought-Iron Window (Bottom Left) */}
+                      <div
+                        className="absolute left-[10.02%] top-[37.50%] w-[27.94%] h-[57.82%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl rounded-xs"
+                        onClick={() => setSelectedImage(archedWindow)}
+                      >
+                        <img
+                          src={archedWindow}
+                          alt="Arched Window & Ivy"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Arched Window</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Fountain Courtyard with Classical Statue & Crests (Top Center) */}
+                      <div
+                        className="absolute left-[31.95%] top-[0.00%] w-[26.65%] h-[52.46%] z-[15] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl rounded-xs"
+                        onClick={() => setSelectedImage(italianFountain)}
+                      >
+                        <img
+                          src={italianFountain}
+                          alt="Classical Italian Fountain"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Italian Fountain</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Man in Linen Suit by Balustrade (Bottom Center) */}
+                      <div
+                        className="absolute left-[37.96%] top-[51.78%] w-[30.23%] h-[48.22%] z-[25] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl rounded-xs"
+                        onClick={() => setSelectedImage(linenSuitMan)}
+                      >
+                        <img
+                          src={linenSuitMan}
+                          alt="Linen Suit Sprezzatura"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Linen Suit</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Café de Flore Bistro Table (Top Right) */}
+                      <div
+                        className="absolute left-[58.60%] top-[9.38%] w-[25.07%] h-[68.75%] z-[12] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl rounded-xs"
+                        onClick={() => setSelectedImage(cafeDeFlore)}
+                      >
+                        <img
+                          src={cafeDeFlore}
+                          alt="Café de Flore Table"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Café de Flore</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Weathered Wall with 'Think Poetic' (Far Right) */}
+                      <div
+                        className="absolute left-[83.67%] top-[25.67%] w-[16.33%] h-[67.86%] z-[18] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl rounded-xs"
+                        onClick={() => setSelectedImage(thinkPoetic)}
+                      >
+                        <img
+                          src={thinkPoetic}
+                          alt="Think Poetic"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Think Poetic</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-[#FAF6EE]/85">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
                       </div>
                     )}
-                    {page.title && !page.titleImage && (
-                      project.category === 'workshop' ? (
-                        <WorkshopHeadline title={page.title} isLight={isLight} />
-                      ) : (
-                        <h1 className={`font-avonia ${
-                          page.title.length > 15
-                            ? 'text-4xl sm:text-5xl md:text-6xl tracking-wider leading-tight'
-                            : 'text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-relaxed'
-                        } uppercase drop-shadow-lg py-4 ${isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'}`}>
+                  </div>
+                );
+              }
+              if (page.type === 'inspiration-1941') {
+                return (
+                  <div key={`insp-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    <div className="flex flex-col items-center gap-2 mb-6 sm:mb-10 text-center">
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80">
+                          {page.subtitle}
+                        </span>
+                      )}
+                      {page.title && (
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE]">
                           {page.title}
-                        </h1>
-                      )
-                    )}
-                    <div className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl md:text-left font-serif leading-relaxed drop-shadow-sm ${isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'}`}>
-                      {page.paragraphs?.map((p, pIdx) => (
-                        <p key={pIdx}>{p}</p>
-                      ))}
+                        </h2>
+                      )}
                     </div>
+
+                    {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
+                    <div
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      style={{ aspectRatio: '722 / 404' }}
+                    >
+                      {/* 1. Pedro Alonso · Berlin holding wine glass (Left, 348x773 -> 0.4502 ratio) */}
+                      <div
+                        className="absolute left-[0.00%] top-[5.93%] w-[20.14%] h-[79.87%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(berlinVest)}
+                      >
+                        <img
+                          src={berlinVest}
+                          alt="Pedro Alonso · Berlin"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sartorial Nonchalance</span>
+                        </div>
+                      </div>
+
+                      {/* 2. 221B Baker Street Black Wooden Door (Center Left Overlap, 365x713 -> 0.5119 ratio) */}
+                      <div
+                        className="absolute left-[18.55%] top-[15.58%] w-[24.18%] h-[84.33%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(door221b)}
+                      >
+                        <img
+                          src={door221b}
+                          alt="221B Baker Street Door"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">221B Baker St</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Sherlock Investigative Newsprint Collage (Top Center) */}
+                      <div
+                        className="absolute left-[28.66%] top-[0.00%] w-[29.09%] h-[48.22%] z-[5] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(sherlockWall)}
+                      >
+                        <img
+                          src={sherlockWall}
+                          alt="Sherlock Newsprint Wall"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Investigative Newsprint</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Henry Cavill as Sherlock in Library (Top Right Center, 384x476 -> 0.8067 ratio) */}
+                      <div
+                        className="absolute left-[53.59%] top-[5.93%] w-[22.16%] h-[49.04%] z-[12] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(henrySherlock)}
+                      >
+                        <img
+                          src={henrySherlock}
+                          alt="Henry Cavill · Sherlock"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Victorian Intellect</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Tailored Jacket Script Calligraphy (Bottom Center, 312x470 -> 0.6638 ratio) */}
+                      <div
+                        className="absolute left-[38.78%] top-[48.22%] w-[19.21%] h-[51.69%] z-[16] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(jacketScript)}
+                      >
+                        <img
+                          src={jacketScript}
+                          alt="Tailored Jacket Script"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Calligraphy Script</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Tailored White Trouser Hem with Tab Cuff (Bottom Right Center, 281x351 -> 0.8006 ratio) */}
+                      <div
+                        className="absolute left-[57.75%] top-[59.84%] w-[18.00%] h-[40.16%] z-[18] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(trouserCuff)}
+                      >
+                        <img
+                          src={trouserCuff}
+                          alt="Tailored Tab Cuff"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Bespoke Tab Cuff</span>
+                        </div>
+                      </div>
+
+                      {/* 7. Álvaro Morte in Pinstripe Suit (Far Right, 419x744 -> 0.5632 ratio) */}
+                      <div
+                        className="absolute left-[75.75%] top-[16.56%] w-[24.25%] h-[76.91%] z-[14] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(pinstripeSuit)}
+                      >
+                        <img
+                          src={pinstripeSuit}
+                          alt="Álvaro Morte · Pinstripe Suit"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Pinstripe Tailoring</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-[#FAF6EE]/85">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'development-1941') {
+                return (
+                  <div key={`dev-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    <div className="flex flex-col items-center gap-2 mb-6 sm:mb-10 text-center">
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80">
+                          {page.subtitle}
+                        </span>
+                      )}
+                      {page.title && (
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE]">
+                          {page.title}
+                        </h2>
+                      )}
+                    </div>
+
+                    {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
+                    <div
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      style={{ aspectRatio: '697 / 442' }}
+                    >
+                      {/* 1. Industrial Sewing Machine Workstation (Left) */}
+                      <div
+                        className="absolute left-[0.00%] top-[16.74%] w-[30.27%] h-[73.98%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devSewingMachine)}
+                      >
+                        <img
+                          src={devSewingMachine}
+                          alt="Industrial Sewing Machine Workstation"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Machine Construction</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Tailoring Pattern Layout on Wood Cutting Table (Center Top) */}
+                      <div
+                        className="absolute left-[22.81%] top-[0.00%] w-[39.74%] h-[46.83%] z-[5] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devPatternTable)}
+                      >
+                        <img
+                          src={devPatternTable}
+                          alt="Pattern Drafting & Paisley Interlining"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Pattern Engineering</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Navy Wool Fabric & Master Pattern Cutting Table (Center Bottom) */}
+                      <div
+                        className="absolute left-[30.41%] top-[46.83%] w-[32.14%] h-[53.17%] z-[8] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devFabricCutting)}
+                      >
+                        <img
+                          src={devFabricCutting}
+                          alt="Master Fabric Cutting & Lay"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Bespoke Cutting Lay</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Grey Pinstripe Jacket Tailoring & Chalk Markings (Center Right Top) */}
+                      <div
+                        className="absolute left-[60.26%] top-[13.12%] w-[23.68%] h-[49.77%] z-[12] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devPinstripeJacket)}
+                      >
+                        <img
+                          src={devPinstripeJacket}
+                          alt="Pinstripe Tailoring & Chalk Balance Marks"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Tailor's Chalk Balance</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Curated Textile Swatches Roll (Far Right) */}
+                      <div
+                        className="absolute left-[84.07%] top-[21.04%] w-[15.93%] h-[57.01%] z-[14] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devTextileSwatches)}
+                      >
+                        <img
+                          src={devTextileSwatches}
+                          alt="Curated Textile Swatches"
+                          className="w-full h-full object-cover object-[75%_center]"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sartorial Palette</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Rich Copper Paisley Jacquard Lining in Hand (Bottom Center Right) */}
+                      <div
+                        className="absolute left-[62.55%] top-[60.40%] w-[14.49%] h-[39.59%] z-[16] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(devPaisleyLining)}
+                      >
+                        <img
+                          src={devPaisleyLining}
+                          alt="Copper Paisley Jacquard Lining"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Internal Paisley Lining</span>
+                        </div>
+                      </div>
+
+                      {/* 7. Solid Brass Cinch Back Vest Buckle (Bottom Right) */}
+                      <div
+                        className="absolute left-[77.04%] top-[78.05%] w-[16.08%] h-[21.95%] z-[18] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(devBrassBuckle)}
+                      >
+                        <img
+                          src={devBrassBuckle}
+                          alt="Solid Brass Cinch Back Buckle"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Vintage Brass Hardware</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-[#FAF6EE]/85">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'photography-1941') {
+                return (
+                  <div key={`photo-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    <div className="flex flex-col items-center gap-2 mb-6 sm:mb-10 text-center">
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80">
+                          {page.subtitle}
+                        </span>
+                      )}
+                      {page.title && (
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE]">
+                          {page.title}
+                        </h2>
+                      )}
+                    </div>
+
+                    {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
+                    <div
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      style={{ aspectRatio: '738 / 444' }}
+                    >
+                      {/* 1. Afternoon Terrace Espresso Ritual (Far Left) */}
+                      <div
+                        className="absolute left-[0.00%] top-[13.51%] w-[27.37%] h-[81.08%] z-[10] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(photoEspressoCafe)}
+                      >
+                        <img
+                          src={photoEspressoCafe}
+                          alt="Afternoon Terrace Espresso Ritual"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Terrace Ritual</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Pinstripe Double-Breasted Suit by Street Lamppost (Center Top) */}
+                      <div
+                        className="absolute left-[32.39%] top-[0.00%] w-[35.78%] h-[57.43%] z-[5] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(photoPinstripeStreet)}
+                      >
+                        <img
+                          src={photoPinstripeStreet}
+                          alt="Pinstripe Street Nonchalance"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Savile Row Nonchalance</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Architectural Spiral Staircase Perspective (Center Bottom) */}
+                      <div
+                        className="absolute left-[27.78%] top-[40.09%] w-[24.12%] h-[58.78%] z-[8] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(photoSpiralStaircase)}
+                      >
+                        <img
+                          src={photoSpiralStaircase}
+                          alt="Architectural Staircase Perspective"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Architectural Perspective</span>
+                        </div>
+                      </div>
+
+                      {/* 4. High-Contrast Monochrome Overcoat Silhouette on Stairs (Rightmost) */}
+                      <div
+                        className="absolute left-[75.74%] top-[13.51%] w-[24.26%] h-[64.41%] z-[6] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-xl"
+                        onClick={() => setSelectedImage(photoShadowSilhouette)}
+                      >
+                        <img
+                          src={photoShadowSilhouette}
+                          alt="High-Contrast Overcoat Silhouette"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Monochrome Silhouette</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Tactile Tie & Watch Adjustment in Textured Suit (Center Right Foreground) */}
+                      <div
+                        className="absolute left-[52.04%] top-[34.24%] w-[23.71%] h-[65.76%] z-[20] cursor-pointer overflow-hidden transition-all duration-300 hover:z-40 hover:scale-[1.02] group shadow-2xl"
+                        onClick={() => setSelectedImage(photoTieAdjustment)}
+                      >
+                        <img
+                          src={photoTieAdjustment}
+                          alt="Tactile Tie & Watch Adjustment"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
+                          <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Sartorial Detail</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-[#FAF6EE]/85">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
@@ -1019,7 +1663,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Full-Width Mood Board Collage (Zero Artificial Black Background, Seamless Composition) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '554 / 439' }}
                     >
                       {/* 1. Mirror with Candle (Top Left) */}
@@ -1136,7 +1780,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, Seamless Transparent Canvas) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '1024 / 490' }}
                     >
                       {/* 1. Pleated Turquoise Fan Netting (Left Column) */}
@@ -1253,7 +1897,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, No Artificial Background) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '632 / 428' }}
                     >
                       {/* 1. Carved Black Leather Architectural Panel (Center-Left: Left=25.95%, Top=0%, Width=27.53%, Height=74.94%) */}
@@ -1353,9 +1997,9 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       </h2>
                     )}
 
-                    {/* Exact Reference Proportional Collage */}
+                    {/* Exact Reference Proportional Collage (Seamless floating composition) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none bg-black overflow-hidden rounded-sm shadow-2xl"
+                      className="relative w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '801 / 447' }}
                     >
                       {/* 1. Upper Red Embroidery Band: pushed upward above model, zero overlap */}
@@ -1464,7 +2108,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Exact Reference Proportional Collage (Truly Center Aligned) */}
                     <div
-                      className="relative w-full max-w-4xl lg:max-w-5xl mx-auto my-6 sm:my-10 select-none"
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '635 / 447' }}
                     >
                       {/* 1. Spool in carved wood tray (Left bottom: X=0%, W=18.27%, H=66.44%) */}
@@ -1562,37 +2206,92 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               }
               if (page.type === 'collage' && page.images) {
                 return (
-                  <div key={`collage-${i}`} className="relative w-full max-w-5xl mx-auto min-h-[140vh] sm:min-h-[160vh] flex items-center justify-center py-20 mt-12 mb-24 overflow-visible">
-                    
-                    {/* Top Image (index 1) */}
-                    <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[55%] sm:w-[35%] z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
-                      <img src={page.images[1].src} alt={page.images[1].alt} className="w-full h-auto object-cover rounded-sm" />
+                  <div key={`collage-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
+                    {page.title && (
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md mb-6 sm:mb-10 text-[#FAF6EE]">
+                        {page.title}
+                      </h2>
+                    )}
+
+                    {/* Proportional Diamond Mood Board Collage (Maintains Exact Proportions & Clustering on Phones and Desktops Alike) */}
+                    <div
+                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      style={{ aspectRatio: '1000 / 940' }}
+                    >
+                      {/* Top Image (index 1) */}
+                      <div 
+                        className="absolute top-[2%] left-1/2 -translate-x-1/2 w-[48%] sm:w-[46%] z-10 cursor-pointer drop-shadow-[0_12px_24px_rgba(0,0,0,0.55)] transition-all duration-500 hover:z-50 hover:scale-[1.03] group"
+                        onClick={() => setSelectedImage(page.images![1].src)}
+                      >
+                        <img 
+                          src={page.images[1].src} 
+                          alt={page.images[1].alt} 
+                          className="w-full h-auto object-cover rounded-sm shadow-md" 
+                        />
+                      </div>
+
+                      {/* Left Image (index 2) */}
+                      <div 
+                        className="absolute top-1/2 left-[3%] sm:left-[4%] -translate-y-1/2 w-[35%] sm:w-[33%] z-20 cursor-pointer drop-shadow-[0_15px_30px_rgba(0,0,0,0.55)] transition-all duration-500 hover:z-50 hover:scale-[1.03] group"
+                        onClick={() => setSelectedImage(page.images![2].src)}
+                      >
+                        <img 
+                          src={page.images[2].src} 
+                          alt={page.images[2].alt} 
+                          className="w-full h-auto object-cover rounded-sm shadow-md" 
+                        />
+                      </div>
+
+                      {/* Bottom Image (index 3) */}
+                      <div 
+                        className="absolute bottom-[2%] left-1/2 -translate-x-1/2 w-[42%] sm:w-[40%] z-15 cursor-pointer drop-shadow-[0_12px_24px_rgba(0,0,0,0.55)] transition-all duration-500 hover:z-50 hover:scale-[1.03] group"
+                        onClick={() => setSelectedImage(page.images![3].src)}
+                      >
+                        <img 
+                          src={page.images[3].src} 
+                          alt={page.images[3].alt} 
+                          className="w-full h-auto object-cover rounded-sm shadow-md" 
+                        />
+                      </div>
+
+                      {/* Right Image (index 4) */}
+                      <div 
+                        className="absolute top-1/2 right-[3%] sm:right-[4%] -translate-y-1/2 w-[35%] sm:w-[33%] z-20 cursor-pointer drop-shadow-[0_15px_30px_rgba(0,0,0,0.55)] transition-all duration-500 hover:z-50 hover:scale-[1.03] group"
+                        onClick={() => setSelectedImage(page.images![4].src)}
+                      >
+                        <img 
+                          src={page.images[4].src} 
+                          alt={page.images[4].alt} 
+                          className="w-full h-auto object-cover rounded-sm shadow-md" 
+                        />
+                      </div>
+
+                      {/* Center Oval */}
+                      <div 
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] sm:w-[36%] z-40 cursor-pointer drop-shadow-[0_22px_45px_rgba(0,0,0,0.75)] transition-all duration-500 hover:z-50 hover:scale-[1.03] group"
+                        onClick={() => setSelectedImage(page.images![0].src)}
+                      >
+                        <img 
+                          src={page.images[0].src} 
+                          alt={page.images[0].alt} 
+                          className="w-full h-auto object-cover" 
+                          style={{ 
+                            borderRadius: '50%', 
+                            border: '7px solid rgba(133,143,186,0.38)' 
+                          }}
+                        />
+                      </div>
                     </div>
 
-                    {/* Left Image (index 2) - Moved from Top Right */}
-                    <div className="absolute top-1/2 left-[2%] sm:left-[5%] -translate-y-1/2 w-[50%] sm:w-[32%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
-                      <img src={page.images[2].src} alt={page.images[2].alt} className="w-full h-auto object-cover rounded-sm" />
-                    </div>
-
-                    {/* Bottom Image (index 3) - Moved from Bottom Left */}
-                    <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[55%] sm:w-[35%] z-30 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
-                      <img src={page.images[3].src} alt={page.images[3].alt} className="w-full h-auto object-cover rounded-sm" />
-                    </div>
-
-                    {/* Right Image (index 4) - Stays on Right */}
-                    <div className="absolute top-1/2 right-[2%] sm:right-[5%] -translate-y-1/2 w-[50%] sm:w-[32%] z-20 drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
-                      <img src={page.images[4].src} alt={page.images[4].alt} className="w-full h-auto object-cover rounded-sm" />
-                    </div>
-
-                    {/* Center Oval */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] sm:w-[38%] z-50 drop-shadow-[0_25px_45px_rgba(0,0,0,0.6)] hover:z-[60] transition-transform duration-700 hover:scale-[1.03]">
-                      <img 
-                        src={page.images[0].src} 
-                        alt={page.images[0].alt} 
-                        className="w-full h-auto object-cover" 
-                        style={{ borderRadius: '50%', border: '10px solid rgba(133,143,186,0.3)' }}
-                      />
-                    </div>
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 mx-auto w-full max-w-4xl text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed drop-shadow-sm text-white/90">
+                          {page.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx}>{p}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
@@ -1707,7 +2406,11 @@ const WorkCard: React.FC<{
           <Icon className="h-10 w-10" strokeWidth={1.5} />
         </span>
         <div className="flex flex-col items-center gap-1.5">
-          <span className="font-avonia font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md">
+          <span className={`font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md ${
+            /^\d/.test(project.title)
+              ? '[font-family:var(--font-readable-display)] tracking-[0.08em] [font-variant-numeric:lining-nums]'
+              : 'font-avonia'
+          }`}>
             {project.title}
           </span>
           <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
@@ -1759,7 +2462,7 @@ export const WorksPage: React.FC = () => {
           </h2>
 
           {/* Project icons — each opens that project's pages */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {PROJECTS.filter(p => p.category !== 'workshop').map((project) => (
               <WorkCard
                 key={project.id}
