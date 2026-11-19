@@ -910,7 +910,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           style={{
             backgroundImage: `url(${project.background})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? '576px auto' : '650px auto',
+            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? 'cover' : '650px auto',
             backgroundPosition: 'center top',
             backgroundColor: project.backgroundColor
           }}
@@ -1078,19 +1078,19 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-10">
                     {project.id === '1941' ? (
-                      <div className="w-full max-w-3xl flex flex-col items-center gap-8 text-center">
+                      <div className="w-full max-w-4xl lg:max-w-5xl flex flex-col items-center gap-10 sm:gap-14 text-center my-6 sm:my-10">
                         <div className="flex flex-col items-center text-center">
                           {page.subtitle && (
-                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                            <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                               {page.subtitle}
                             </span>
                           )}
-                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase pt-1 pb-2 text-[#0B2240] leading-tight drop-shadow-xs">
+                          <h1 className="font-avonia text-5xl sm:text-7xl md:text-8xl tracking-widest uppercase pt-2 pb-2 text-[#0B2240] leading-tight drop-shadow-sm">
                             {page.title}
                           </h1>
-                          <div className="w-12 h-px bg-[#0B2240]/30 mt-4 sm:mt-5" />
+                          <div className="w-20 sm:w-28 h-[2px] bg-[#0B2240]/40 mt-5 sm:mt-6" />
                         </div>
-                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#0B2240] text-center md:text-left">
+                        <div className="flex flex-col gap-8 sm:gap-10 text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-serif font-normal leading-relaxed sm:leading-[1.75] text-[#0B2240] text-center md:text-left drop-shadow-xs">
                           {page.paragraphs?.map((p, pIdx) => (
                             <p key={pIdx}>{p}</p>
                           ))}
@@ -1151,14 +1151,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'moodboard-1941') {
                 return (
                   <div key={`mb-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
-                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                    <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
+                        <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
                         </h2>
                       )}
@@ -1275,14 +1275,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'inspiration-1941') {
                 return (
                   <div key={`insp-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
-                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                    <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
+                        <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
                         </h2>
                       )}
@@ -1414,14 +1414,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'development-1941') {
                 return (
                   <div key={`dev-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
-                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                    <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
+                        <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
                         </h2>
                       )}
@@ -1553,14 +1553,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'photography-1941') {
                 return (
                   <div key={`photo-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
-                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                    <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
+                        <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
                         </h2>
                       )}
@@ -1662,14 +1662,14 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'lookbook-1941') {
                 return (
                   <div key={`lookbook-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
-                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                    <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
+                        <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
                         </h2>
                       )}
