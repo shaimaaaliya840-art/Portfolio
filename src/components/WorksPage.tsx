@@ -1327,7 +1327,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         <img
                           src={sherlockWall}
                           alt="Sherlock Newsprint Wall"
-                          className="w-full h-full object-cover object-center"
+                          className="w-full h-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 pointer-events-none">
                           <span className="text-[10px] uppercase font-mono text-[#FAF6EE] tracking-widest bg-black/70 px-1.5 py-0.5 shadow-md backdrop-blur-sm">Investigative Newsprint</span>
