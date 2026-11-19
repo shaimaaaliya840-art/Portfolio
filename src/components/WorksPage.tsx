@@ -294,6 +294,56 @@ const PROJECTS: Project[] = [
     ]
   },
   {
+    id: '1941',
+    title: '1941',
+    tagline: "Men's Wear",
+    icon: Shirt,
+    previewImage: linenSuitMan,
+    background: background1941,
+    backgroundColor: '#F7F4EE',
+    pages: [
+      {
+        type: 'text',
+        title: 'Concept Note',
+        subtitle: "1941 · Men's Wear",
+        textColor: '#0B2240',
+        titleColor: '#0B2240',
+        paragraphs: [
+          "It believes elegance is not something you put on. It is something you stop interfering with.",
+          "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
+          "It believes the most confident man in the room is the one who isn’t trying to be seen.",
+          "To dress less is not to care less.",
+          "It is to care so precisely that nothing extra remains."
+        ]
+      },
+      {
+        type: 'moodboard-1941',
+        title: 'Mood Board',
+        subtitle: "1941 · Sprezzatura & Architectural Heritage"
+      },
+      {
+        type: 'inspiration-1941',
+        title: 'Inspiration Board',
+        subtitle: "1941 · Sartorial Mystery & British Tailoring"
+      },
+      {
+        type: 'development-1941',
+        title: 'Development Board',
+        subtitle: "1941 · Craftsmanship & Tailoring Process"
+      },
+      {
+        type: 'photography-1941',
+        title: 'Photography Inspiration',
+        subtitle: "1941 · Light, Shadow & Editorial Posture"
+      },
+      {
+        type: 'lookbook-1941',
+        title: 'Editorial Lookbook',
+        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
+      }
+    ]
+  },
+  {
     id: 'anatomy-of-ornament',
     title: 'Anatomy of Ornamentation',
     tagline: 'Indowestern',
@@ -458,56 +508,6 @@ const PROJECTS: Project[] = [
       },
       // Page 4 is missing, will be added later
       { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
-    ]
-  },
-  {
-    id: '1941',
-    title: '1941',
-    tagline: "Men's Wear",
-    icon: Shirt,
-    previewImage: linenSuitMan,
-    background: background1941,
-    backgroundColor: '#F7F4EE',
-    pages: [
-      {
-        type: 'text',
-        title: 'Concept Note',
-        subtitle: "1941 · Men's Wear",
-        textColor: '#0B2240',
-        titleColor: '#0B2240',
-        paragraphs: [
-          "It believes elegance is not something you put on. It is something you stop interfering with.",
-          "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
-          "It believes the most confident man in the room is the one who isn’t trying to be seen.",
-          "To dress less is not to care less.",
-          "It is to care so precisely that nothing extra remains."
-        ]
-      },
-      {
-        type: 'moodboard-1941',
-        title: 'Mood Board',
-        subtitle: "1941 · Sprezzatura & Architectural Heritage"
-      },
-      {
-        type: 'inspiration-1941',
-        title: 'Inspiration Board',
-        subtitle: "1941 · Sartorial Mystery & British Tailoring"
-      },
-      {
-        type: 'development-1941',
-        title: 'Development Board',
-        subtitle: "1941 · Craftsmanship & Tailoring Process"
-      },
-      {
-        type: 'photography-1941',
-        title: 'Photography Inspiration',
-        subtitle: "1941 · Light, Shadow & Editorial Posture"
-      },
-      {
-        type: 'lookbook-1941',
-        title: 'Editorial Lookbook',
-        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
-      }
     ]
   },
   {
