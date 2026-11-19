@@ -924,14 +924,15 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
 
-      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark' || project.id === 'anatomy-of-ornament') ? (
+      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark' || project.id === 'anatomy-of-ornament' || project.id === '1941') ? (
         <div
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-100"
           style={{
             backgroundImage: `url(${project.background})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : '650px auto',
-            backgroundPosition: 'center'
+            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? '300px auto' : '650px auto',
+            backgroundPosition: 'center',
+            backgroundColor: project.backgroundColor
           }}
         />
       ) : project.background ? (
