@@ -473,8 +473,8 @@ const PROJECTS: Project[] = [
         type: 'text',
         title: 'Concept Note',
         subtitle: "1941 · Men's Wear",
-        textColor: '#0B2240',
-        titleColor: '#0B2240',
+        textColor: '#FAF6EE',
+        titleColor: '#FAF6EE',
         paragraphs: [
           "It believes elegance is not something you put on. It is something you stop interfering with.",
           "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
@@ -1074,19 +1074,19 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-10">
                     {project.id === '1941' ? (
-                      <div className="w-full max-w-3xl bg-[#FAF6EE] text-[#0B2240] rounded-xs p-8 sm:p-14 md:p-16 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border border-white/20 flex flex-col items-center gap-8">
+                      <div className="w-full max-w-3xl flex flex-col items-center gap-8 text-center">
                         <div className="flex flex-col items-center text-center">
                           {page.subtitle && (
-                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
+                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
                               {page.subtitle}
                             </span>
                           )}
-                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase drop-shadow-xs pt-1 pb-2 text-[#0B2240] leading-tight">
+                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase drop-shadow-md pt-1 pb-2 text-[#FAF6EE] leading-tight">
                             {page.title}
                           </h1>
-                          <div className="w-12 h-px bg-[#0B2240]/30 mt-4 sm:mt-5" />
+                          <div className="w-12 h-px bg-[#FAF6EE]/30 mt-4 sm:mt-5" />
                         </div>
-                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#0B2240] text-center md:text-left">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#FAF6EE]/90 text-center md:text-left drop-shadow-sm">
                           {page.paragraphs?.map((p, pIdx) => (
                             <p key={pIdx}>{p}</p>
                           ))}
