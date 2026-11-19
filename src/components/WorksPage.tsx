@@ -486,47 +486,27 @@ const PROJECTS: Project[] = [
       {
         type: 'moodboard-1941',
         title: 'Mood Board',
-        subtitle: "1941 · Sprezzatura & Architectural Heritage",
-        paragraphs: [
-          "ATMOSPHERE & MATERIALITY:",
-          "Lake Como mornings, washed Italian linen tailoring, hand-sculpted stone fountains, Café de Flore moments, and the unhurried nonchalance of sprezzatura."
-        ]
+        subtitle: "1941 · Sprezzatura & Architectural Heritage"
       },
       {
         type: 'inspiration-1941',
         title: 'Inspiration Board',
-        subtitle: "1941 · Sartorial Mystery & British Tailoring",
-        paragraphs: [
-          "NARRATIVE & SARTORIAL CODES:",
-          "Savile Row structure, Victorian library intellect, 221B Baker Street intrigue, internal canvas architecture, and tailored subversion."
-        ]
+        subtitle: "1941 · Sartorial Mystery & British Tailoring"
       },
       {
         type: 'development-1941',
         title: 'Development Board',
-        subtitle: "1941 · Craftsmanship & Tailoring Process",
-        paragraphs: [
-          "MATERIALITY & INTERNAL ARCHITECTURE:",
-          "Industrial machine precision, master pattern lay cutting, tailor's chalk balance marks, copper paisley jacquard lining, and solid brass vest cinch hardware."
-        ]
+        subtitle: "1941 · Craftsmanship & Tailoring Process"
       },
       {
         type: 'photography-1941',
         title: 'Photography Inspiration',
-        subtitle: "1941 · Light, Shadow & Editorial Posture",
-        paragraphs: [
-          "CINEMATIC LIGHT & EDITORIAL POSTURE:",
-          "Afternoon terrace espresso rituals, Savile Row street nonchalance, architectural stairwell perspectives, tactile collar adjustment, and high-contrast staircase silhouettes."
-        ]
+        subtitle: "1941 · Light, Shadow & Editorial Posture"
       },
       {
         type: 'lookbook-1941',
         title: 'Editorial Lookbook',
-        subtitle: "1941 · The Bespoke Collection & Garment Shoot",
-        paragraphs: [
-          "THE BESPOKE SILHOUETTE & SPREZZATURA:",
-          "Bespoke charcoal pinstripe tailoring, hand-embroidered back collar calligraphy, high-waisted side-cinch trousers with solid brass hardware, curved bib-front shirt architecture, and the rich contrast of copper paisley jacquard under Mediterranean light."
-        ]
+        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
       }
     ]
   },
