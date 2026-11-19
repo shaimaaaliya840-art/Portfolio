@@ -89,6 +89,12 @@
 .font-calligraphy::first-letter,
 .font-spencerian::first-letter,
 .font-flourish::first-letter,
+.no-initial::first-letter {
+  font-family: inherit !important;
+  font-size: 1em !important;
+  margin-right: 0 !important;
+}
+
 .headline-initial {
   font-family: var(--font-headline-initial);
   /* Amoresa capitals rise ~1.05em and drop ~0.35em per em, so at 1.3em the initial
