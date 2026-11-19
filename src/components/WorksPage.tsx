@@ -13,7 +13,7 @@ import fadingSparkPg5 from '../assets/images/fading-spark/pg 5.png';
 import fadingSparkBackground from '../assets/images/fading_spark_background.png';
 import abhisarikaBackground from '../assets/images/abhisarika_background.png';
 import aooBackground from '../assets/images/anatomy_of_ornament_background.png';
-import background1941 from '../assets/images/1941/background_1941.png';
+import background1941 from '../assets/images/1941/background_1941.jpg';
 import bougainvilleaArch from '../assets/images/1941/bougainvillea_arch.png';
 import archedWindow from '../assets/images/1941/arched_window.png';
 import italianFountain from '../assets/images/1941/italian_fountain.png';
@@ -467,14 +467,14 @@ const PROJECTS: Project[] = [
     icon: Shirt,
     previewImage: linenSuitMan,
     background: background1941,
-    backgroundColor: '#000000',
+    backgroundColor: '#F7F4EE',
     pages: [
       {
         type: 'text',
         title: 'Concept Note',
         subtitle: "1941 · Men's Wear",
-        textColor: '#FAF6EE',
-        titleColor: '#FAF6EE',
+        textColor: '#0B2240',
+        titleColor: '#0B2240',
         paragraphs: [
           "It believes elegance is not something you put on. It is something you stop interfering with.",
           "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
@@ -889,7 +889,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
     };
   }, [onClose]);
 
-  const isLight = project.id === 'fading-spark' || project.id === 'eco-printing';
+  const isLight = project.id === 'fading-spark' || project.id === 'eco-printing' || project.id === '1941';
 
   return createPortal(
     <div
@@ -910,8 +910,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           style={{
             backgroundImage: `url(${project.background})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? '300px auto' : '650px auto',
-            backgroundPosition: 'center',
+            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? '576px auto' : '650px auto',
+            backgroundPosition: 'center top',
             backgroundColor: project.backgroundColor
           }}
         />
@@ -929,7 +929,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           type="button"
           onClick={onClose}
           data-cursor="pointer"
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/50 bg-black/35 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-black/55 cursor-pointer group"
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full border ${
+            project.id === '1941'
+              ? 'border-[#0B2240]/25 bg-white/90 text-[#0B2240] hover:bg-[#0B2240] hover:text-white shadow-sm'
+              : 'border-white/50 bg-black/35 text-white hover:bg-black/55'
+          } px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-sm transition-colors cursor-pointer group`}
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Works</span>
@@ -1077,16 +1081,16 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                       <div className="w-full max-w-3xl flex flex-col items-center gap-8 text-center">
                         <div className="flex flex-col items-center text-center">
                           {page.subtitle && (
-                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                            <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                               {page.subtitle}
                             </span>
                           )}
-                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase drop-shadow-md pt-1 pb-2 text-[#FAF6EE] leading-tight">
+                          <h1 className="font-avonia text-4xl sm:text-6xl tracking-widest uppercase pt-1 pb-2 text-[#0B2240] leading-tight drop-shadow-xs">
                             {page.title}
                           </h1>
-                          <div className="w-12 h-px bg-[#FAF6EE]/30 mt-4 sm:mt-5" />
+                          <div className="w-12 h-px bg-[#0B2240]/30 mt-4 sm:mt-5" />
                         </div>
-                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#FAF6EE]/90 text-center md:text-left drop-shadow-sm">
+                        <div className="flex flex-col gap-6 text-base sm:text-lg md:text-xl font-serif leading-relaxed text-[#0B2240] text-center md:text-left">
                           {page.paragraphs?.map((p, pIdx) => (
                             <p key={pIdx}>{p}</p>
                           ))}
@@ -1149,12 +1153,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`mb-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE] pt-1 pb-2 leading-tight">
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
                           {page.title}
                         </h2>
                       )}
@@ -1273,12 +1277,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`insp-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE] pt-1 pb-2 leading-tight">
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
                           {page.title}
                         </h2>
                       )}
@@ -1412,12 +1416,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`dev-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE] pt-1 pb-2 leading-tight">
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
                           {page.title}
                         </h2>
                       )}
@@ -1551,12 +1555,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`photo-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE] pt-1 pb-2 leading-tight">
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
                           {page.title}
                         </h2>
                       )}
@@ -1660,12 +1664,12 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                   <div key={`lookbook-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       {page.subtitle && (
-                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#FAF6EE]/80 mb-6 sm:mb-8">
+                        <span className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold text-[#0B2240]/80 mb-6 sm:mb-8">
                           {page.subtitle}
                         </span>
                       )}
                       {page.title && (
-                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest drop-shadow-md text-[#FAF6EE] pt-1 pb-2 leading-tight">
+                        <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#0B2240] pt-1 pb-2 leading-tight drop-shadow-xs">
                           {page.title}
                         </h2>
                       )}
@@ -1677,8 +1681,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           onClick={() => setLookbookView('spreads')}
                           className={`px-3.5 sm:px-5 py-1.5 text-[10px] sm:text-xs font-mono tracking-widest uppercase transition-all duration-300 rounded-full border cursor-pointer ${
                             lookbookView === 'spreads'
-                              ? 'border-[#FAF6EE] bg-[#FAF6EE] text-[#070808] font-bold shadow-lg scale-105'
-                              : 'border-[#FAF6EE]/30 text-[#FAF6EE]/70 hover:border-[#FAF6EE]/70 hover:text-[#FAF6EE]'
+                              ? 'border-[#0B2240] bg-[#0B2240] text-white font-bold shadow-sm scale-105'
+                              : 'border-[#0B2240]/25 text-[#0B2240]/70 hover:border-[#0B2240] hover:text-[#0B2240]'
                           }`}
                         >
                           Curated Spreads
@@ -1688,8 +1692,8 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                           onClick={() => setLookbookView('grid')}
                           className={`px-3.5 sm:px-5 py-1.5 text-[10px] sm:text-xs font-mono tracking-widest uppercase transition-all duration-300 rounded-full border cursor-pointer ${
                             lookbookView === 'grid'
-                              ? 'border-[#FAF6EE] bg-[#FAF6EE] text-[#070808] font-bold shadow-lg scale-105'
-                              : 'border-[#FAF6EE]/30 text-[#FAF6EE]/70 hover:border-[#FAF6EE]/70 hover:text-[#FAF6EE]'
+                              ? 'border-[#0B2240] bg-[#0B2240] text-white font-bold shadow-sm scale-105'
+                              : 'border-[#0B2240]/25 text-[#0B2240]/70 hover:border-[#0B2240] hover:text-[#0B2240]'
                           }`}
                         >
                           Editorial Gallery
@@ -1702,11 +1706,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         {/* Act I: Sartorial Silhouette */}
                         <div className="flex flex-col w-full">
                           <div className="flex items-center justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
-                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
-                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#FAF6EE]/70 font-semibold text-center">
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#0B2240]/20" />
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#0B2240]/80 font-semibold text-center">
                               Act I · Sartorial Posture & Street Tailoring
                             </span>
-                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#0B2240]/20" />
                           </div>
 
                           {/* Spread 1 Proportional Container (Zero Artificial Background, Seamless Floating HD) */}
@@ -1794,11 +1798,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                         {/* Act II: Sprezzatura & Mediterranean Light */}
                         <div className="flex flex-col w-full">
                           <div className="flex items-center justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
-                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
-                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#FAF6EE]/70 font-semibold text-center">
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#0B2240]/20" />
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.3em] text-[#0B2240]/80 font-semibold text-center">
                               Act II · Sprezzatura & Mediterranean Light
                             </span>
-                            <div className="h-[1px] w-8 sm:w-20 bg-[#FAF6EE]/20" />
+                            <div className="h-[1px] w-8 sm:w-20 bg-[#0B2240]/20" />
                           </div>
 
                           {/* Spread 2 Proportional Container (Zero Artificial Background, Seamless Floating HD) */}
