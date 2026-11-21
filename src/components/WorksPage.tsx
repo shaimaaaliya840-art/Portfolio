@@ -219,7 +219,7 @@ const PROJECTS: Project[] = [
   {
     id: 'silk-and-stone',
     title: 'Silk & Stone',
-    tagline: 'Couture & Form',
+    tagline: 'Western Wear',
     icon: Sparkles,
     previewImage: silkAndStoneCover,
     background: silkAndStoneCover,
