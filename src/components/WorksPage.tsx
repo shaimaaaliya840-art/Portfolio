@@ -1,6 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, Shirt, X, type LucideIcon } from 'lucide-react';
+import { ArrowLeft, Droplet, Flame, Gem, Layers, Moon, Scissors, Shirt, Sparkles, X, type LucideIcon } from 'lucide-react';
+
+import silkAndStoneCover from '../assets/images/silk-and-stone/silk_and_stone_cover.png';
+import masculineFeminineEnergyImg from '../assets/images/silk-and-stone/masculine_feminine_energy.png';
+import silkAndStoneMoodboard from '../assets/images/silk-and-stone/silk_and_stone_moodboard.png';
+import silkAndStoneSwatchboard from '../assets/images/silk-and-stone/silk_and_stone_swatchboard.png';
+import silkAndStoneSilhouetteboard from '../assets/images/silk-and-stone/silk_and_stone_silhouetteboard.png';
+import garment1Insp1Sculpture from '../assets/images/silk-and-stone/garment1_insp1_sculpture_seamless.png';
+import garment1Insp2Wave from '../assets/images/silk-and-stone/garment1_insp2_wave.png';
+import garment1Insp3Silk from '../assets/images/silk-and-stone/garment1_insp3_silk.png';
+import garment1Insp4Basalt from '../assets/images/silk-and-stone/garment1_insp4_basalt.png';
+import garment1Insp5Slate from '../assets/images/silk-and-stone/garment1_insp5_slate.png';
+import silkAndStoneGarment1Inspiration from '../assets/images/silk-and-stone/silk_and_stone_garment1_inspiration.png';
+import garment1InspirationLayoutHd from '../assets/images/silk-and-stone/garment1_inspiration_layout_hd.png';
+import garment2InspirationLayoutHd from '../assets/images/silk-and-stone/garment2_inspiration_layout_hd.png';
+import garment3InspirationLayoutHd from '../assets/images/silk-and-stone/garment3_inspiration_layout_hd.png';
+import conceptModelCutout from '../assets/images/silk-and-stone/concept_model_cutout.png';
+import conceptNoteExactTransparentHd from '../assets/images/silk-and-stone/concept_note_exact_transparent_hd.png';
 
 import fadingSparkPg1 from '../assets/images/fading-spark/pg 1.png';
 import fadingSparkPg2 from '../assets/images/fading-spark/pg 2.png';
@@ -168,7 +185,7 @@ import paperArtisanMaterials from '../assets/images/paper-weaving/paper_artisan_
 
 
 interface ProjectPage {
-  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3' | 'moodboard-1941' | 'inspiration-1941' | 'development-1941' | 'photography-1941' | 'lookbook-1941';
+  type?: 'single' | 'grid' | 'text' | 'collage' | 'moodboard-collage' | 'moodboard-garment2' | 'moodboard-garment3' | 'moodboard-abhisarika-garment2' | 'moodboard-abhisarika-garment3' | 'moodboard-silk-and-stone' | 'swatchboard-silk-and-stone' | 'concept-note-silk-and-stone' | 'silhouetteboard-silk-and-stone' | 'inspiration-garment1-silk-and-stone' | 'inspiration-garment2-silk-and-stone' | 'inspiration-garment3-silk-and-stone' | 'moodboard-1941' | 'inspiration-1941' | 'development-1941' | 'photography-1941' | 'lookbook-1941';
   src?: string;
   alt?: string;
   images?: { src: string; alt: string; objectPosition?: string }[];
@@ -507,7 +524,79 @@ const PROJECTS: Project[] = [
         ]
       },
       // Page 4 is missing, will be added later
-      { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
+            { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
+    ]
+  },
+  {
+    id: 'silk-and-stone',
+    title: 'Silk & Stone',
+    tagline: 'Couture & Form',
+    icon: Sparkles,
+    previewImage: silkAndStoneCover,
+    background: silkAndStoneCover,
+    backgroundColor: '#1E1917',
+    pages: [
+      {
+        type: 'concept-note-silk-and-stone',
+        title: 'Silk & Stone',
+        subtitle: 'Concept Note',
+        src: conceptModelCutout,
+        alt: 'Silk & Stone Concept Note — ‘The Veiled Virgin’ by Giovanni Strazza'
+      },
+      {
+        type: 'moodboard-silk-and-stone',
+        title: 'Mood Board',
+        src: silkAndStoneMoodboard,
+        alt: 'Silk & Stone Mood Board — Classical Marble Drapery, Parisian Tailoring & Fluid Silk'
+      },
+      {
+        type: 'swatchboard-silk-and-stone',
+        title: 'Silk & Stone',
+        subtitle: 'Swatch Board',
+        src: silkAndStoneSwatchboard,
+        alt: 'Silk & Stone Swatch Board — Textile & Material Studies'
+      },
+      {
+        type: 'silhouetteboard-silk-and-stone',
+        title: 'Silhouette Board',
+        src: silkAndStoneSilhouetteboard,
+        alt: 'Silk & Stone — Silhouette Board'
+      },
+      {
+        type: 'inspiration-garment1-silk-and-stone',
+        title: 'Inspiration - 01',
+        subtitle: 'Silk & Stone · Garment 01',
+        src: garment1InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 01 (Collage Layout)',
+        paragraphs: [
+          "Basalt is born from fire, cooled into strong, geometric columns, and water flows over it, softening its edges without force.",
+          "A woman is made the same way: stone within her (structure, protection, certainty) and water within her (empathy, adaptability, flow).",
+          "In this look, the dark grey colour is the basalt and the flowing drape of water, is shown by Organza black shirt Underneath."
+        ]
+      },
+      {
+        type: 'inspiration-garment2-silk-and-stone',
+        title: 'Inspiration - 02',
+        subtitle: 'Silk & Stone · Garment 02',
+        src: garment2InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 02 (Collage Layout)',
+        paragraphs: [
+          "Hard shell, soft heart: she is protected by structure and shaped by the sea.",
+          "The check is her shell, and the ruffle is where her softness shows."
+        ]
+      },
+      {
+        type: 'inspiration-garment3-silk-and-stone',
+        title: 'Inspiration - 03',
+        subtitle: 'Silk & Stone · Garment 03',
+        src: garment3InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 03 (Collage Layout)',
+        paragraphs: [
+          "The lotus rises from dark water and opens clean, white and untouched.",
+          "The navy pinstripe is the pond that shapes her, with its depth and discipline, and the petal sleeves are the bloom she chooses to show.",
+          "She is not made of mud or flower: she is the strength below and the softness above."
+        ]
+      }
     ]
   },
   {
@@ -874,6 +963,107 @@ const WorkshopHeadline: React.FC<{ title: string; isLight?: boolean }> = ({ titl
 };
 
 /** Full-screen viewer for one project's pages. */
+const DualEnergyDiagram: React.FC<{ onZoom?: () => void }> = ({ onZoom }) => {
+  // 12 alternating / staggered traits matching the exact zipper layout:
+  const alternatingBars: { side: 'left' | 'right'; label: string; width: string }[] = [
+    { side: 'right', label: 'Empathy', width: '60%' },
+    { side: 'left', label: 'Protection', width: '92%' },
+    { side: 'right', label: 'Responsibile', width: '68%' },
+    { side: 'left', label: 'Direction', width: '86%' },
+    { side: 'right', label: 'Nurture', width: '88%' },
+    { side: 'left', label: 'Control', width: '70%' },
+    { side: 'right', label: 'Communicator', width: '98%' },
+    { side: 'left', label: 'Nurture', width: '90%' },
+    { side: 'right', label: 'Expressive', width: '78%' },
+    { side: 'left', label: 'Responsibility', width: '68%' },
+    { side: 'right', label: 'Adaptive', width: '96%' },
+    { side: 'left', label: 'Certainty', width: '60%' },
+  ];
+
+  return (
+    <div
+      onClick={onZoom}
+      className="w-full max-w-2xl sm:max-w-3xl mx-auto my-12 pt-8 flex flex-col items-center select-none cursor-pointer group"
+      title="Silk & Stone Energy Continuum — Click to view full image"
+    >
+      {/* Top Labels: Left and Right */}
+      <div className="w-full flex items-center justify-between px-1 sm:px-3 mb-2 sm:mb-3">
+        <span className="font-serif font-bold text-sm sm:text-base md:text-xl text-[#FFA7E4] tracking-wide">
+          Masculine energy
+        </span>
+        <span className="font-serif font-bold text-sm sm:text-base md:text-xl text-[#FFA7E4] tracking-wide">
+          Feminine energy
+        </span>
+      </div>
+
+      {/* Axis: o ---------------- Women ---------------- o */}
+      <div className="w-full flex items-center justify-between relative px-3 sm:px-8 my-1 mb-6 sm:mb-8">
+        {/* Left endpoint circle */}
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border-2 border-[#FFA7E4] bg-[#1E1917] shrink-0 shadow-[0_0_8px_rgba(255,167,228,0.5)]" />
+
+        {/* Left connecting line */}
+        <div className="flex-1 h-[1.5px] bg-[#FFA7E4] mx-2 sm:mx-4 shadow-[0_0_6px_rgba(255,167,228,0.4)]" />
+
+        {/* Center Women text */}
+        <span className="font-serif font-bold text-base sm:text-xl md:text-2xl text-[#FFA7E4] tracking-wider px-3 sm:px-6 shrink-0 drop-shadow-[0_0_10px_rgba(255,167,228,0.4)]">
+          Women
+        </span>
+
+        {/* Right connecting line */}
+        <div className="flex-1 h-[1.5px] bg-[#FFA7E4] mx-2 sm:mx-4 shadow-[0_0_6px_rgba(255,167,228,0.4)]" />
+
+        {/* Right endpoint circle */}
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border-2 border-[#FFA7E4] bg-[#1E1917] shrink-0 shadow-[0_0_8px_rgba(255,167,228,0.5)]" />
+      </div>
+
+      {/* Alternating Zipper Bars Container */}
+      <div className="w-full flex flex-col gap-1.5 sm:gap-2 my-2">
+        {alternatingBars.map((bar, idx) => (
+          <div key={idx} className="w-full flex items-center">
+            {/* Left Slot (Masculine bars right-aligned towards center) */}
+            <div className="w-1/2 flex justify-end pr-1 sm:pr-2">
+              {bar.side === 'left' && (
+                <div
+                  style={{ width: bar.width }}
+                  className="h-6 sm:h-7 md:h-8 rounded-[2px] bg-gradient-to-r from-[#B4D3E8] via-[#E8F1F7] to-white flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-[1.01]"
+                >
+                  <span className="font-serif font-semibold text-[11px] sm:text-xs md:text-sm text-[#111111] tracking-wide px-2 whitespace-nowrap">
+                    {bar.label}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Center Spine Divider Gutter */}
+            <div className="w-[1.5px] h-6 sm:h-7 md:h-8 bg-transparent shrink-0" />
+
+            {/* Right Slot (Feminine bars left-aligned from center) */}
+            <div className="w-1/2 flex justify-start pl-1 sm:pl-2">
+              {bar.side === 'right' && (
+                <div
+                  style={{ width: bar.width }}
+                  className="h-6 sm:h-7 md:h-8 rounded-[2px] bg-gradient-to-r from-white via-[#FCE4F0] to-[#F8B4D9] flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-[1.01]"
+                >
+                  <span className="font-serif font-semibold text-[11px] sm:text-xs md:text-sm text-[#111111] tracking-wide px-2 whitespace-nowrap">
+                    {bar.label}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom Quote */}
+      <div className="mt-8 sm:mt-12 text-center px-4">
+        <p className="font-serif font-bold text-base sm:text-xl md:text-2xl text-[#FFA7E4] tracking-wide drop-shadow-md">
+          &ldquo;Both energies live in her, The moment decides which one leads.&rdquo;
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [lookbookView, setLookbookView] = useState<'spreads' | 'grid'>('spreads');
@@ -904,17 +1094,21 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-gradient-radial from-[#540D21]/15 via-[#851737]/5 to-transparent blur-[90px] pointer-events-none -z-10" />
       ) : null}
 
-      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark' || project.id === 'anatomy-of-ornament' || project.id === '1941') ? (
+      {project.background && (project.id === 'abhisarika' || project.id === 'fading-spark' || project.id === 'anatomy-of-ornament' || project.id === '1941' || project.id === 'silk-and-stone') ? (
         <div
           className="pointer-events-none absolute inset-0 h-full w-full opacity-100"
           style={{
             backgroundImage: `url(${project.background})`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? 'cover' : '650px auto',
+            backgroundRepeat: project.id === '1941' ? 'no-repeat' : 'repeat',
+            backgroundSize: project.id === 'anatomy-of-ornament' ? '460px auto' : project.id === '1941' ? 'cover' : project.id === 'silk-and-stone' ? '300px auto' : '650px auto',
             backgroundPosition: 'center top',
             backgroundColor: project.backgroundColor
           }}
-        />
+        >
+          {project.id === 'silk-and-stone' && (
+            <div className="absolute inset-0 bg-gradient-to-b from-[#1E1917]/75 via-[#1E1917]/55 to-[#1E1917]/85" />
+          )}
+        </div>
       ) : project.background ? (
         <img
           src={project.background}
@@ -938,7 +1132,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Works</span>
         </button>
-        {project.category !== 'workshop' && project.id !== 'fading-spark' && project.id !== 'abhisarika' && project.id !== 'anatomy-of-ornament' && project.id !== '1941' && (
+        {project.category !== 'workshop' && project.id !== 'fading-spark' && project.id !== 'abhisarika' && project.id !== 'anatomy-of-ornament' && project.id !== '1941' && project.id !== 'silk-and-stone' && (
           <h2
             className={`font-avonia font-normal text-3xl sm:text-5xl leading-tight ${
               isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]'
@@ -951,7 +1145,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
       <main className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 pb-10 sm:px-8">
         {project.pages.length > 0 ? (
-          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'fading-spark' || project.id === '1941' || project.id === 'anatomy-of-ornament' || project.id === 'abhisarika' ? 'max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] px-2 sm:px-6' : 'max-w-6xl'}`}>
+          <div className={`mx-auto flex w-full flex-col gap-4 sm:gap-6 ${project.id === 'silk-and-stone' ? 'max-w-[98vw] xl:max-w-[1750px] 2xl:max-w-[1900px] px-1 sm:px-4' : project.id === 'fading-spark' || project.id === '1941' || project.id === 'anatomy-of-ornament' || project.id === 'abhisarika' ? 'max-w-7xl xl:max-w-[1450px] 2xl:max-w-[1600px] px-2 sm:px-6' : 'max-w-6xl'}`}>
 
             {project.pages.map((page, i) => {
               if (page.type === 'grid') {
@@ -1076,7 +1270,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               }
               if (page.type === 'text') {
                 return (
-                  <div key={`text-${i}`} className="relative flex flex-col items-center justify-center min-h-[70vh] text-center max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-10">
+                  <div key={`text-${i}`} className={`relative flex flex-col items-center justify-center min-h-[70vh] text-center ${project.id === 'silk-and-stone' ? 'max-w-6xl xl:max-w-7xl' : 'max-w-4xl'} mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-8`}>
                     {project.id === '1941' ? (
                       <div className="w-full max-w-4xl lg:max-w-5xl flex flex-col items-center gap-10 sm:gap-14 text-center my-6 sm:my-10">
                         <div className="flex flex-col items-center text-center">
@@ -1108,42 +1302,498 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                             <WorkshopHeadline title={page.title} isLight={isLight} />
                           ) : (
                             <div className="flex flex-col items-center mb-4 text-center">
-                              {page.subtitle && (
-                                <span
-                                  className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold mb-6 sm:mb-8"
-                                  style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
-                                >
-                                  {page.subtitle}
-                                </span>
+                              {project.id === 'silk-and-stone' ? (
+                                <>
+                                  <h1
+                                    className="font-avonia text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-tight uppercase drop-shadow-md pt-2 pb-1"
+                                    style={{ color: page.titleColor || page.textColor || '#FFA7E4' }}
+                                  >
+                                    {page.title}
+                                  </h1>
+                                  {page.subtitle && (
+                                    <span
+                                      className="text-xs sm:text-sm font-mono tracking-[0.35em] uppercase font-bold mt-2 mb-4"
+                                      style={{ color: page.titleColor || page.textColor || '#FFA7E4' }}
+                                    >
+                                      {page.subtitle}
+                                    </span>
+                                  )}
+                                  <div className="w-16 sm:w-24 h-[1.5px] bg-[#FFA7E4]/50 mb-6 sm:mb-8" />
+                                </>
+                              ) : (
+                                <>
+                                  {page.subtitle && (
+                                    <span
+                                      className="text-xs sm:text-sm font-mono tracking-[0.3em] uppercase font-bold mb-6 sm:mb-8"
+                                      style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
+                                    >
+                                      {page.subtitle}
+                                    </span>
+                                  )}
+                                  <h1
+                                    className={`${
+                                      /^\d/.test(page.title)
+                                        ? '[font-family:var(--font-readable-display)] tracking-[0.08em] [font-variant-numeric:lining-nums]'
+                                        : 'font-avonia'
+                                    } ${
+                                      page.title.length > 15
+                                        ? 'text-4xl sm:text-5xl md:text-6xl tracking-wider leading-tight'
+                                        : 'text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-relaxed'
+                                    } uppercase drop-shadow-md py-2`}
+                                    style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
+                                  >
+                                    {page.title}
+                                  </h1>
+                                </>
                               )}
-                              <h1
-                                className={`${
-                                  /^\d/.test(page.title)
-                                    ? '[font-family:var(--font-readable-display)] tracking-[0.08em] [font-variant-numeric:lining-nums]'
-                                    : 'font-avonia'
-                                } ${
-                                  page.title.length > 15
-                                    ? 'text-4xl sm:text-5xl md:text-6xl tracking-wider leading-tight'
-                                    : 'text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-relaxed'
-                                } uppercase drop-shadow-md py-2`}
-                                style={{ color: page.titleColor || page.textColor || (isLight ? '#540D21' : '#FAF6EE') }}
-                              >
-                                {page.title}
-                              </h1>
                             </div>
                           )
                         )}
-                        <div
-                          className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl md:text-left font-serif leading-relaxed drop-shadow-sm ${
-                            !page.textColor && (isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]')
-                          }`}
-                          style={page.textColor ? { color: page.textColor } : undefined}
-                        >
-                          {page.paragraphs?.map((p, pIdx) => (
-                            <p key={pIdx}>{p}</p>
-                          ))}
-                        </div>
+                        {project.id === 'silk-and-stone' ? (
+                          <>
+                            {/* Editorial Magazine Layout: Left Column, Center Cutout Model, Right Column */}
+                            <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 my-4 sm:my-8 text-left">
+                              {/* Left Column Text with Giant Pink Drop Cap 'A' */}
+                              <div className="flex-1 flex flex-col justify-center space-y-6 lg:pr-4">
+                                <p className="font-serif text-base sm:text-lg md:text-xl text-[#F8B4D9] leading-relaxed drop-shadow-sm text-justify sm:text-left">
+                                  <span className="float-left text-6xl sm:text-7xl md:text-8xl font-serif font-light text-[#FFA7E4] leading-[0.75] pr-3 pt-1 uppercase drop-shadow-md">
+                                    A
+                                  </span>
+                                  woman is not made of one kind of strength. She can be soft without being weak; she can be powerful without becoming hard. She can nurture and lead, surrender and command, be delicate and fierce — all at once.
+                                </p>
+                                <p className="font-serif text-base sm:text-lg md:text-xl text-[#F8B4D9] leading-relaxed drop-shadow-sm text-justify sm:text-left">
+                                  Femininity and masculinity are not opposites fighting within her. They are two energies that shape who she is.
+                                </p>
+                              </div>
+
+                                                            {/* Center Veiled Virgin Marble Sculpture */}
+                              <div
+                                className="w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] shrink-0 flex flex-col justify-center items-center my-4 lg:my-0 select-none cursor-pointer group relative"
+                                onClick={() => setSelectedImage(conceptModelCutout)}
+                                title="Click to view full image"
+                              >
+                                {/* Soft atmospheric pink aura behind the sculpture */}
+                                <div className="absolute inset-0 bg-[#FFA7E4]/12 rounded-full blur-3xl pointer-events-none scale-75 group-hover:scale-95 transition-transform duration-700" />
+                                <img
+                                  src={conceptModelCutout}
+                                  alt="Silk & Stone — 'The Veiled Virgin' by Giovanni Strazza"
+                                  className="relative z-10 w-full h-auto max-h-[48vh] sm:max-h-[52vh] object-contain block mx-auto filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] drop-shadow-[0_0_30px_rgba(255,167,228,0.22)] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                                />
+                                {/* Sculpture Title & Sculptor Credit */}
+                                <div className="relative z-10 mt-3 sm:mt-4 text-center px-2">
+                                  <span className="block font-serif italic text-xs sm:text-sm md:text-base text-[#FFA7E4] tracking-wide drop-shadow-sm">
+                                    &lsquo;The Veiled Virgin&rsquo;
+                                  </span>
+                                  <span className="block font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#F8B4D9]/80 mt-0.5">
+                                    by Giovanni Strazza
+                                  </span>
+                                </div>
+                              </div>
+
+                              {/* Right Column Text */}
+                              <div className="flex-1 flex flex-col justify-center space-y-6 lg:pl-4">
+                                <p className="font-serif text-base sm:text-lg md:text-xl text-[#F8B4D9] leading-relaxed drop-shadow-sm text-justify sm:text-left">
+                                  This collection explores that space between softness and strength — where sharp structures meet gentle curves, where masculine tailoring meets feminine movement, and where vulnerability becomes a form of power.
+                                </p>
+                                <div className="space-y-3">
+                                  <p className="font-serif text-base sm:text-lg md:text-xl text-[#F8B4D9] leading-relaxed drop-shadow-sm text-justify sm:text-left">
+                                    Because being a woman is not about choosing between strength and softness.
+                                  </p>
+                                  <p className="font-serif font-bold text-lg sm:text-xl md:text-2xl text-[#FFA7E4] tracking-wide drop-shadow-md">
+                                    It’s about having the freedom to be all.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Energy Continuum Axis + Staggered Zipper Graph */}
+                            <DualEnergyDiagram onZoom={() => setSelectedImage(masculineFeminineEnergyImg)} />
+                          </>
+                        ) : (
+                          <div
+                            className={`flex flex-col gap-6 text-base sm:text-lg md:text-xl md:text-left font-serif leading-relaxed drop-shadow-sm ${
+                              !page.textColor && (isLight ? 'text-[#540D21]' : 'text-[#FAF6EE]')
+                            }`}
+                            style={page.textColor ? { color: page.textColor } : undefined}
+                          >
+                            {page.paragraphs?.map((p, pIdx) => (
+                              <p key={pIdx}>{p}</p>
+                            ))}
+                          </div>
+                        )}
                       </>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'concept-note-silk-and-stone') {
+                return (
+                  <div key={`cn-silk-stone-${i}`} className="relative flex flex-col w-full px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-8 items-center">
+                    {/* Header: Silk & Stone / Concept Note — Restored Exactly As Written Before */}
+                    <div className="flex flex-col items-center mb-2 sm:mb-4 text-center select-none">
+                      <h1 className="font-avonia text-6xl sm:text-7xl lg:text-8xl tracking-widest leading-tight uppercase text-[#FFA7E4] drop-shadow-md pt-1 pb-0">
+                        Silk & Stone
+                      </h1>
+                      <span className="text-xs sm:text-sm font-mono tracking-[0.35em] uppercase font-bold text-[#FFA7E4] mt-1 mb-2">
+                        Concept Note
+                      </span>
+                      <div className="w-16 sm:w-24 h-[1.5px] bg-[#FFA7E4]/50 mb-3 sm:mb-4" />
+                    </div>
+
+                    {/* Circular Contoured Editorial Layout with Center-Aligned Typography & Transparent Marble Bust */}
+                    <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6 lg:gap-8 xl:gap-14 relative mt-1 sm:mt-2 mb-2 sm:mb-4">
+                      {/* Left Column: Contoured Poetic Stanzas */}
+                      <div className="flex-1 flex flex-col items-center justify-start space-y-5 sm:space-y-6 text-center max-w-sm lg:max-w-md select-none pt-0 lg:pt-3">
+                        {/* Stanza 1: Arcs gently around the upper veil & head */}
+                        <div className="flex flex-col items-center text-center space-y-1">
+                          <div className="flex items-baseline justify-center gap-2 mb-1">
+                            <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#FFA7E4] font-light leading-none drop-shadow-md">
+                              A
+                            </span>
+                            <span className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                              woman is not made of one kind of strength.
+                            </span>
+                          </div>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            She can be soft without being weak;
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            she can be powerful without becoming hard.
+                          </p>
+                        </div>
+
+                        {/* Stanza 2: Contours along mid-veil and shoulder */}
+                        <div className="flex flex-col items-center text-center space-y-1">
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            She can nurture and lead,
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            surrender and command,
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            be delicate and fierce — all at once.
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            Femininity and masculinity
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            are not opposites fighting within her.
+                          </p>
+                        </div>
+
+                        {/* Stanza 3: Tucks gently in near pedestal */}
+                        <div className="flex flex-col items-center text-center space-y-1">
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            They are two energies
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            that shape who she is.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Center: Centered Veiled Virgin Marble Sculpture */}
+                      <div
+                        className="w-[280px] sm:w-[320px] md:w-[360px] lg:w-[390px] xl:w-[430px] shrink-0 flex flex-col justify-center items-center my-6 lg:my-0 select-none cursor-pointer group relative"
+                        onClick={() => setSelectedImage(conceptModelCutout)}
+                        title="Click to view full image"
+                      >
+                        {/* Soft atmospheric pink aura behind the marble sculpture */}
+                        <div className="absolute inset-0 bg-[#FFA7E4]/14 rounded-full blur-3xl pointer-events-none scale-90 group-hover:scale-105 transition-transform duration-700" />
+                        <img
+                          src={conceptModelCutout}
+                          alt="Silk & Stone — ‘The Veiled Virgin’ by Giovanni Strazza"
+                          className="relative z-10 w-full h-auto max-h-[52vh] sm:max-h-[58vh] object-contain block mx-auto filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] drop-shadow-[0_0_30px_rgba(255,167,228,0.2)] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        />
+
+                        {/* Sculpture Attribution — Centered Directly Under the Sculpture */}
+                        <div className="relative z-10 mt-3 sm:mt-4 text-center px-2 select-none">
+                          <span className="block font-serif italic text-base sm:text-lg md:text-xl text-[#FFA7E4] tracking-wide drop-shadow-sm">
+                            &ldquo;The Veiled Virgin&rdquo;
+                          </span>
+                          <span className="block font-mono text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.25em] text-[#F8B4D9] mt-1 drop-shadow-sm">
+                            BY GIOVANNI STRAZZA
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Right Column: Contoured Poetic Stanzas */}
+                      <div className="flex-1 flex flex-col items-center justify-start space-y-5 sm:space-y-6 text-center max-w-sm lg:max-w-md select-none pt-0 lg:pt-3">
+                        {/* Stanza 4: Arcs over crown and down right veil */}
+                        <div className="flex flex-col items-center text-center space-y-1">
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            This collection explores
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            that space between softness and strength —
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            where sharp structures meet gentle curves,
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            where masculine tailoring meets
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            feminine movement, and where
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            vulnerability becomes a form of power.
+                          </p>
+                        </div>
+
+                        {/* Stanza 5: Flows along right shoulder */}
+                        <div className="flex flex-col items-center text-center space-y-1">
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            Because being a woman
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            is not about choosing between
+                          </p>
+                          <p className="font-serif text-sm sm:text-base md:text-lg text-[#F8B4D9] leading-relaxed drop-shadow-sm">
+                            strength and softness.
+                          </p>
+                          <p className="font-serif font-bold text-base sm:text-lg md:text-xl text-[#FFA7E4] tracking-wide drop-shadow-md pt-1">
+                            It’s about having the freedom to be all.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Energy Continuum Axis + Staggered Zipper Graph */}
+                    <div className="w-full mt-8 sm:mt-12">
+                      <DualEnergyDiagram onZoom={() => setSelectedImage(masculineFeminineEnergyImg)} />
+                    </div>
+                  </div>
+                );
+              }
+              if (page.type === 'moodboard-silk-and-stone') {
+                return (
+                  <div key={`mb-silk-stone-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-4 sm:py-8 items-center">
+                    {/* Header: MOOD BOARD written directly over it in signature pink theme */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center select-none">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        Mood Board
+                      </h2>
+                    </div>
+
+                    {/* Grand Scale Transparent Mood Board */}
+                    <div
+                      className="relative w-full max-w-[92vw] lg:max-w-5xl xl:max-w-6xl 2xl:max-w-[1450px] mx-auto select-none cursor-pointer flex justify-center items-center"
+                      onClick={() => setSelectedImage(silkAndStoneMoodboard)}
+                      title="Click to view full-screen image"
+                    >
+                      <img
+                        src={silkAndStoneMoodboard}
+                        alt={page.alt || 'Silk & Stone Mood Board'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-auto h-auto max-h-[72vh] sm:max-h-[75vh] max-w-[88vw] object-contain block mx-auto transition-transform duration-700 ease-out hover:scale-[1.01] filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
+                      />
+                    </div>
+                  </div>
+                );
+              }
+              if (page.type === 'swatchboard-silk-and-stone') {
+                return (
+                  <div key={`swatch-silk-stone-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-6 sm:py-12 items-center">
+                    {/* Header: SILK & STONE / SWATCH BOARD */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        {page.title || 'Silk & Stone'}
+                      </h2>
+                      {page.subtitle && (
+                        <span className="text-xs sm:text-sm md:text-base font-serif font-normal tracking-[0.35em] uppercase text-[#FFA7E4] mt-2 sm:mt-3 drop-shadow-sm">
+                          {page.subtitle}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Swatch Board Presentation - Floating without black background, Ultra-HD */}
+                    <div
+                      className="relative w-full max-w-[92vw] lg:max-w-5xl xl:max-w-6xl 2xl:max-w-[1450px] mx-auto select-none cursor-pointer"
+                      onClick={() => setSelectedImage(silkAndStoneSwatchboard)}
+                      title="Click to view full-resolution swatch board"
+                    >
+                      <img
+                        src={silkAndStoneSwatchboard}
+                        alt={page.alt || 'Silk & Stone Swatch Board'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-auto max-h-[72vh] sm:max-h-[75vh] max-w-[88vw] object-contain block mx-auto rounded-sm transition-transform duration-700 ease-out hover:scale-[1.01] filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
+                      />
+                    </div>
+                  </div>
+                );
+              }
+              if (page.type === 'silhouetteboard-silk-and-stone') {
+                return (
+                  <div key={`sil-silk-stone-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-4 sm:py-8 items-center">
+                    {/* Header: SILHOUETTE BOARD */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-8 text-center select-none">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        Silhouette Board
+                      </h2>
+                    </div>
+
+                    {/* Exact Silhouette Board Strip — Preserving exact compact scale */}
+                    <div
+                      className="relative w-full max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto select-none cursor-pointer flex justify-center items-center group px-2 sm:px-4"
+                      onClick={() => setSelectedImage(silkAndStoneSilhouetteboard)}
+                      title="Click to view full-resolution silhouette board"
+                    >
+                      <img
+                        src={silkAndStoneSilhouetteboard}
+                        alt={page.alt || 'Silk & Stone — Silhouette Board'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[340px] lg:max-h-[360px] object-contain block mx-auto transition-transform duration-700 ease-out group-hover:scale-[1.01] filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] drop-shadow-[0_0_30px_rgba(255,167,228,0.12)]"
+                      />
+                    </div>
+                  </div>
+                );
+              }
+              if (page.type === 'inspiration-garment1-silk-and-stone') {
+                return (
+                  <div key={`insp-g1-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-4 sm:py-8 items-center">
+                    {/* Header: INSPIRATION / - 01 */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center select-none">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        <span className="block">Inspiration</span>
+                        <span className="block mt-1 sm:mt-2 text-2xl sm:text-4xl md:text-5xl tracking-[0.25em]">- 01</span>
+                      </h2>
+                    </div>
+
+                    {/* Grand Scale Transparent Inspiration Collage — IN THIS EXACT LAYOUT */}
+                    <div
+                      className="relative w-full max-w-[92vw] lg:max-w-5xl xl:max-w-6xl 2xl:max-w-[1450px] mx-auto select-none cursor-pointer flex justify-center items-center group"
+                      onClick={() => setSelectedImage(garment1InspirationLayoutHd)}
+                      title="Click to view full-resolution collage"
+                    >
+                      <img
+                        src={garment1InspirationLayoutHd}
+                        alt={page.alt || 'Silk & Stone — Inspiration - 01'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-auto h-auto max-h-[72vh] sm:max-h-[75vh] max-w-[88vw] object-contain block mx-auto transition-transform duration-700 ease-out group-hover:scale-[1.01] filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] drop-shadow-[0_0_35px_rgba(255,167,228,0.12)]"
+                      />
+                    </div>
+
+                    {/* Concept note just after inspiration board — formatted in max 3 lines */}
+                    <div className="mt-8 sm:mt-12 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 select-none">
+                      <div className="flex flex-col items-center text-center">
+                        <span className="text-[11px] sm:text-xs font-mono tracking-[0.35em] uppercase text-[#FFA7E4] font-bold mb-3 sm:mb-4">
+                          Concept Note
+                        </span>
+                        <div className="w-12 sm:w-16 h-[1.5px] bg-[#FFA7E4]/50 mb-5 sm:mb-6" />
+
+                        <div className="flex flex-col gap-2.5 sm:gap-3 font-serif italic text-sm sm:text-[15px] md:text-base lg:text-[1.05rem] xl:text-[1.1rem] leading-relaxed text-[#FEDEE1] drop-shadow-sm max-w-[1350px] text-center">
+                          <p className="whitespace-normal xl:whitespace-nowrap">
+                            Basalt is born from fire, cooled into strong, geometric columns, and water flows over it, softening its edges without force.
+                          </p>
+                          <p className="whitespace-normal xl:whitespace-nowrap">
+                            A woman is made the same way: stone within her (structure, protection, certainty) and water within her (empathy, adaptability, flow).
+                          </p>
+                          <p className="whitespace-normal xl:whitespace-nowrap">
+                            In this look, the dark grey colour is the basalt and the flowing drape of water, is shown by Organza black shirt Underneath.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              if (page.type === 'inspiration-garment2-silk-and-stone') {
+                return (
+                  <div key={`insp-g2-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-4 sm:py-8 items-center">
+                    {/* Header: INSPIRATION / - 02 */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center select-none">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        <span className="block">Inspiration</span>
+                        <span className="block mt-1 sm:mt-2 text-2xl sm:text-4xl md:text-5xl tracking-[0.25em]">- 02</span>
+                      </h2>
+                    </div>
+
+                    {/* Grand Scale Transparent Inspiration Collage */}
+                    <div
+                      className="relative w-full max-w-[92vw] lg:max-w-5xl xl:max-w-6xl 2xl:max-w-[1450px] mx-auto select-none cursor-pointer flex justify-center items-center group"
+                      onClick={() => setSelectedImage(garment2InspirationLayoutHd)}
+                      title="Click to view full-resolution collage"
+                    >
+                      <img
+                        src={garment2InspirationLayoutHd}
+                        alt={page.alt || 'Silk & Stone — Inspiration - 02'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-auto h-auto max-h-[72vh] sm:max-h-[75vh] max-w-[88vw] object-contain block mx-auto transition-transform duration-700 ease-out group-hover:scale-[1.01] filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] drop-shadow-[0_0_35px_rgba(255,167,228,0.12)]"
+                      />
+                    </div>
+
+                    {/* Concept note if present */}
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 select-none">
+                        <div className="flex flex-col items-center text-center">
+                          <span className="text-[11px] sm:text-xs font-mono tracking-[0.35em] uppercase text-[#FFA7E4] font-bold mb-3 sm:mb-4">
+                            Concept Note
+                          </span>
+                          <div className="w-12 sm:w-16 h-[1.5px] bg-[#FFA7E4]/50 mb-5 sm:mb-6" />
+
+                          <div className="flex flex-col gap-2.5 sm:gap-3 font-serif italic text-sm sm:text-[15px] md:text-base lg:text-[1.05rem] xl:text-[1.1rem] leading-relaxed text-[#FEDEE1] drop-shadow-sm max-w-[1350px] text-center">
+                            {page.paragraphs.map((para, pIdx) => (
+                              <p key={pIdx} className="whitespace-normal xl:whitespace-nowrap">
+                                {para}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (page.type === 'inspiration-garment3-silk-and-stone') {
+                return (
+                  <div key={`insp-g3-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-4 sm:py-8 items-center">
+                    {/* Header: INSPIRATION / - 03 */}
+                    <div className="flex flex-col items-center mb-6 sm:mb-10 text-center select-none">
+                      <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
+                        <span className="block">Inspiration</span>
+                        <span className="block mt-1 sm:mt-2 text-2xl sm:text-4xl md:text-5xl tracking-[0.25em]">- 03</span>
+                      </h2>
+                    </div>
+
+                    {/* Grand Scale Transparent Inspiration Collage */}
+                    <div
+                      className="relative w-full max-w-[92vw] lg:max-w-5xl xl:max-w-6xl 2xl:max-w-[1450px] mx-auto select-none cursor-pointer flex justify-center items-center group"
+                      onClick={() => setSelectedImage(garment3InspirationLayoutHd)}
+                      title="Click to view full-resolution collage"
+                    >
+                      <img
+                        src={garment3InspirationLayoutHd}
+                        alt={page.alt || 'Silk & Stone — Inspiration - 03'}
+                        loading="eager"
+                        decoding="async"
+                        className="w-auto h-auto max-h-[72vh] sm:max-h-[75vh] max-w-[88vw] object-contain block mx-auto transition-transform duration-700 ease-out group-hover:scale-[1.01] filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] drop-shadow-[0_0_35px_rgba(255,167,228,0.12)]"
+                      />
+                    </div>
+
+                    {/* Concept note if present */}
+                    {page.paragraphs && page.paragraphs.length > 0 && (
+                      <div className="mt-8 sm:mt-12 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 select-none">
+                        <div className="flex flex-col items-center text-center">
+                          <span className="text-[11px] sm:text-xs font-mono tracking-[0.35em] uppercase text-[#FFA7E4] font-bold mb-3 sm:mb-4">
+                            Concept Note
+                          </span>
+                          <div className="w-12 sm:w-16 h-[1.5px] bg-[#FFA7E4]/50 mb-5 sm:mb-6" />
+
+                          <div className="flex flex-col gap-2.5 sm:gap-3 font-serif italic text-sm sm:text-[15px] md:text-base lg:text-[1.05rem] xl:text-[1.1rem] leading-relaxed text-[#FEDEE1] drop-shadow-sm max-w-[1350px] text-center">
+                            {page.paragraphs.map((para, pIdx) => (
+                              <p key={pIdx} className="whitespace-normal xl:whitespace-nowrap">
+                                {para}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 );
@@ -1166,7 +1816,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '698 / 448' }}
                     >
                       {/* 1. Bougainvillea & Stone Building (Top Left) */}
@@ -1290,7 +1940,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '722 / 404' }}
                     >
                       {/* 1. Pedro Alonso · Berlin holding wine glass (Left, 348x773 -> 0.4502 ratio) */}
@@ -1429,7 +2079,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '697 / 442' }}
                     >
                       {/* 1. Industrial Sewing Machine Workstation (Left) */}
@@ -1568,7 +2218,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Proportional Collage (Seamless floating composition, zero black container box) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '738 / 444' }}
                     >
                       {/* 1. Afternoon Terrace Espresso Ritual (Far Left) */}
@@ -1948,7 +2598,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Grand Full-Width Mood Board Collage (Zero Artificial Black Background, Seamless Composition) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-4 sm:my-8 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-4 sm:my-8 select-none bg-transparent"
                       style={{ aspectRatio: '554 / 439' }}
                     >
                       {/* 1. Mirror with Candle (Top Left) */}
@@ -2065,7 +2715,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, Seamless Transparent Canvas) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '1024 / 490' }}
                     >
                       {/* 1. Pleated Turquoise Fan Netting (Left Column) */}
@@ -2182,7 +2832,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* High-Resolution Interactive Mood Board Collage (Layout Reference Composition, No Artificial Background) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '632 / 428' }}
                     >
                       {/* 1. Carved Black Leather Architectural Panel (Center-Left: Left=25.95%, Top=0%, Width=27.53%, Height=74.94%) */}
@@ -2284,7 +2934,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Exact Reference Proportional Collage (Seamless floating composition) */}
                     <div
-                      className="relative w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '801 / 447' }}
                     >
                       {/* 1. Upper Red Embroidery Band: pushed upward above model, zero overlap */}
@@ -2393,7 +3043,7 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
                     {/* Exact Reference Proportional Collage (Truly Center Aligned) */}
                     <div
-                      className="relative w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1500px] mx-auto my-6 sm:my-10 select-none bg-transparent"
+                      className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[1380px] mx-auto my-6 sm:my-10 select-none bg-transparent"
                       style={{ aspectRatio: '635 / 447' }}
                     >
                       {/* 1. Spool in carved wood tray (Left bottom: X=0%, W=18.27%, H=66.44%) */}
@@ -2687,18 +3337,18 @@ const WorkCard: React.FC<{
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center gap-4 transition-transform duration-300 group-hover:scale-[1.02]">
         {/* Cream icon circle */}
-        <span className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(250,246,238,0.2)]">
-          <Icon className="h-10 w-10" strokeWidth={1.5} />
+        <span className="flex h-20 w-20 sm:h-22 sm:w-22 xl:h-24 xl:w-24 items-center justify-center rounded-full border-2 border-[#FAF6EE] bg-[#FAF6EE] text-[#540D21] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(250,246,238,0.2)]">
+          <Icon className="h-8 w-8 xl:h-10 xl:w-10" strokeWidth={1.5} />
         </span>
         <div className="flex flex-col items-center gap-2">
-          <span className={`font-normal text-3xl sm:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md ${
+          <span className={`font-normal text-2xl sm:text-3xl xl:text-4xl leading-tight text-[#FAF6EE] drop-shadow-md ${
             /^\d/.test(project.title)
               ? '[font-family:var(--font-readable-display)] tracking-[0.08em] [font-variant-numeric:lining-nums]'
               : 'font-avonia'
           }`}>
             {project.title}
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
+          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#FAF6EE]/85 drop-shadow-sm">
             {project.tagline}
           </span>
         </div>
@@ -2722,6 +3372,10 @@ export const WorksPage: React.FC = () => {
       }
     };
     window.addEventListener('open-workshop-project', handleOpenWorkshop);
+    if (window.location.hash) {
+      const matched = PROJECTS.find(proj => proj.id === window.location.hash.replace('#', ''));
+      if (matched) setOpenProject(matched);
+    }
     return () => window.removeEventListener('open-workshop-project', handleOpenWorkshop);
   }, []);
 
@@ -2747,7 +3401,7 @@ export const WorksPage: React.FC = () => {
           </h2>
 
           {/* Project icons — each opens that project's pages */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {PROJECTS.filter(p => p.category !== 'workshop').map((project) => (
               <WorkCard
                 key={project.id}
