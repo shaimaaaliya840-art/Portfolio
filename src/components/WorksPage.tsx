@@ -217,6 +217,128 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    id: 'silk-and-stone',
+    title: 'Silk & Stone',
+    tagline: 'Couture & Form',
+    icon: Sparkles,
+    previewImage: silkAndStoneCover,
+    background: silkAndStoneCover,
+    backgroundColor: '#1E1917',
+    pages: [
+      {
+        type: 'concept-note-silk-and-stone',
+        title: 'Silk & Stone',
+        subtitle: 'Concept Note',
+        src: conceptModelCutout,
+        alt: 'Silk & Stone Concept Note — ‘The Veiled Virgin’ by Giovanni Strazza'
+      },
+      {
+        type: 'moodboard-silk-and-stone',
+        title: 'Mood Board',
+        src: silkAndStoneMoodboard,
+        alt: 'Silk & Stone Mood Board — Classical Marble Drapery, Parisian Tailoring & Fluid Silk'
+      },
+      {
+        type: 'swatchboard-silk-and-stone',
+        title: 'Silk & Stone',
+        subtitle: 'Swatch Board',
+        src: silkAndStoneSwatchboard,
+        alt: 'Silk & Stone Swatch Board — Textile & Material Studies'
+      },
+      {
+        type: 'silhouetteboard-silk-and-stone',
+        title: 'Silhouette Board',
+        src: silkAndStoneSilhouetteboard,
+        alt: 'Silk & Stone — Silhouette Board'
+      },
+      {
+        type: 'inspiration-garment1-silk-and-stone',
+        title: 'Inspiration - 01',
+        subtitle: 'Silk & Stone · Garment 01',
+        src: garment1InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 01 (Collage Layout)',
+        paragraphs: [
+          "Basalt is born from fire, cooled into strong, geometric columns, and water flows over it, softening its edges without force.",
+          "A woman is made the same way: stone within her (structure, protection, certainty) and water within her (empathy, adaptability, flow).",
+          "In this look, the dark grey colour is the basalt and the flowing drape of water, is shown by Organza black shirt Underneath."
+        ]
+      },
+      {
+        type: 'inspiration-garment2-silk-and-stone',
+        title: 'Inspiration - 02',
+        subtitle: 'Silk & Stone · Garment 02',
+        src: garment2InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 02 (Collage Layout)',
+        paragraphs: [
+          "Hard shell, soft heart: she is protected by structure and shaped by the sea.",
+          "The check is her shell, and the ruffle is where her softness shows."
+        ]
+      },
+      {
+        type: 'inspiration-garment3-silk-and-stone',
+        title: 'Inspiration - 03',
+        subtitle: 'Silk & Stone · Garment 03',
+        src: garment3InspirationLayoutHd,
+        alt: 'Silk & Stone — Inspiration - 03 (Collage Layout)',
+        paragraphs: [
+          "The lotus rises from dark water and opens clean, white and untouched.",
+          "The navy pinstripe is the pond that shapes her, with its depth and discipline, and the petal sleeves are the bloom she chooses to show.",
+          "She is not made of mud or flower: she is the strength below and the softness above."
+        ]
+      }
+    ]
+  },
+  {
+    id: '1941',
+    title: '1941',
+    tagline: "Men's Wear",
+    icon: Shirt,
+    previewImage: linenSuitMan,
+    background: background1941,
+    backgroundColor: '#F7F4EE',
+    pages: [
+      {
+        type: 'text',
+        title: 'Concept Note',
+        subtitle: "1941 · Men's Wear",
+        textColor: '#0B2240',
+        titleColor: '#0B2240',
+        paragraphs: [
+          "It believes elegance is not something you put on. It is something you stop interfering with.",
+          "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
+          "It believes the most confident man in the room is the one who isn’t trying to be seen.",
+          "To dress less is not to care less.",
+          "It is to care so precisely that nothing extra remains."
+        ]
+      },
+      {
+        type: 'moodboard-1941',
+        title: 'Mood Board',
+        subtitle: "1941 · Sprezzatura & Architectural Heritage"
+      },
+      {
+        type: 'inspiration-1941',
+        title: 'Inspiration Board',
+        subtitle: "1941 · Sartorial Mystery & British Tailoring"
+      },
+      {
+        type: 'development-1941',
+        title: 'Development Board',
+        subtitle: "1941 · Craftsmanship & Tailoring Process"
+      },
+      {
+        type: 'photography-1941',
+        title: 'Photography Inspiration',
+        subtitle: "1941 · Light, Shadow & Editorial Posture"
+      },
+      {
+        type: 'lookbook-1941',
+        title: 'Editorial Lookbook',
+        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
+      }
+    ]
+  },
+  {
     id: 'abhisarika',
     title: 'Abhisarika',
     tagline: 'Indian Wear',
@@ -307,56 +429,6 @@ const PROJECTS: Project[] = [
         paragraphs: [
           "(The embellished bag carried by the model is also handcrafted by me)"
         ]
-      }
-    ]
-  },
-  {
-    id: '1941',
-    title: '1941',
-    tagline: "Men's Wear",
-    icon: Shirt,
-    previewImage: linenSuitMan,
-    background: background1941,
-    backgroundColor: '#F7F4EE',
-    pages: [
-      {
-        type: 'text',
-        title: 'Concept Note',
-        subtitle: "1941 · Men's Wear",
-        textColor: '#0B2240',
-        titleColor: '#0B2240',
-        paragraphs: [
-          "It believes elegance is not something you put on. It is something you stop interfering with.",
-          "It follows sprezzatura, the art of looking effortless, as though you simply woke up this way, linen softened by sleep, collar open, nothing forced.",
-          "It believes the most confident man in the room is the one who isn’t trying to be seen.",
-          "To dress less is not to care less.",
-          "It is to care so precisely that nothing extra remains."
-        ]
-      },
-      {
-        type: 'moodboard-1941',
-        title: 'Mood Board',
-        subtitle: "1941 · Sprezzatura & Architectural Heritage"
-      },
-      {
-        type: 'inspiration-1941',
-        title: 'Inspiration Board',
-        subtitle: "1941 · Sartorial Mystery & British Tailoring"
-      },
-      {
-        type: 'development-1941',
-        title: 'Development Board',
-        subtitle: "1941 · Craftsmanship & Tailoring Process"
-      },
-      {
-        type: 'photography-1941',
-        title: 'Photography Inspiration',
-        subtitle: "1941 · Light, Shadow & Editorial Posture"
-      },
-      {
-        type: 'lookbook-1941',
-        title: 'Editorial Lookbook',
-        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
       }
     ]
   },
@@ -525,78 +597,6 @@ const PROJECTS: Project[] = [
       },
       // Page 4 is missing, will be added later
             { type: 'single', src: fadingSparkPg5, alt: 'Fading Spark Page 5' }
-    ]
-  },
-  {
-    id: 'silk-and-stone',
-    title: 'Silk & Stone',
-    tagline: 'Couture & Form',
-    icon: Sparkles,
-    previewImage: silkAndStoneCover,
-    background: silkAndStoneCover,
-    backgroundColor: '#1E1917',
-    pages: [
-      {
-        type: 'concept-note-silk-and-stone',
-        title: 'Silk & Stone',
-        subtitle: 'Concept Note',
-        src: conceptModelCutout,
-        alt: 'Silk & Stone Concept Note — ‘The Veiled Virgin’ by Giovanni Strazza'
-      },
-      {
-        type: 'moodboard-silk-and-stone',
-        title: 'Mood Board',
-        src: silkAndStoneMoodboard,
-        alt: 'Silk & Stone Mood Board — Classical Marble Drapery, Parisian Tailoring & Fluid Silk'
-      },
-      {
-        type: 'swatchboard-silk-and-stone',
-        title: 'Silk & Stone',
-        subtitle: 'Swatch Board',
-        src: silkAndStoneSwatchboard,
-        alt: 'Silk & Stone Swatch Board — Textile & Material Studies'
-      },
-      {
-        type: 'silhouetteboard-silk-and-stone',
-        title: 'Silhouette Board',
-        src: silkAndStoneSilhouetteboard,
-        alt: 'Silk & Stone — Silhouette Board'
-      },
-      {
-        type: 'inspiration-garment1-silk-and-stone',
-        title: 'Inspiration - 01',
-        subtitle: 'Silk & Stone · Garment 01',
-        src: garment1InspirationLayoutHd,
-        alt: 'Silk & Stone — Inspiration - 01 (Collage Layout)',
-        paragraphs: [
-          "Basalt is born from fire, cooled into strong, geometric columns, and water flows over it, softening its edges without force.",
-          "A woman is made the same way: stone within her (structure, protection, certainty) and water within her (empathy, adaptability, flow).",
-          "In this look, the dark grey colour is the basalt and the flowing drape of water, is shown by Organza black shirt Underneath."
-        ]
-      },
-      {
-        type: 'inspiration-garment2-silk-and-stone',
-        title: 'Inspiration - 02',
-        subtitle: 'Silk & Stone · Garment 02',
-        src: garment2InspirationLayoutHd,
-        alt: 'Silk & Stone — Inspiration - 02 (Collage Layout)',
-        paragraphs: [
-          "Hard shell, soft heart: she is protected by structure and shaped by the sea.",
-          "The check is her shell, and the ruffle is where her softness shows."
-        ]
-      },
-      {
-        type: 'inspiration-garment3-silk-and-stone',
-        title: 'Inspiration - 03',
-        subtitle: 'Silk & Stone · Garment 03',
-        src: garment3InspirationLayoutHd,
-        alt: 'Silk & Stone — Inspiration - 03 (Collage Layout)',
-        paragraphs: [
-          "The lotus rises from dark water and opens clean, white and untouched.",
-          "The navy pinstripe is the pond that shapes her, with its depth and discipline, and the petal sleeves are the bloom she chooses to show.",
-          "She is not made of mud or flower: she is the strength below and the softness above."
-        ]
-      }
     ]
   },
   {
