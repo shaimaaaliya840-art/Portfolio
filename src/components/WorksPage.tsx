@@ -240,8 +240,7 @@ const PROJECTS: Project[] = [
       },
       {
         type: 'swatchboard-silk-and-stone',
-        title: 'Silk & Stone',
-        subtitle: 'Swatch Board',
+        title: 'Swatch Board',
         src: silkAndStoneSwatchboard,
         alt: 'Silk & Stone Swatch Board — Textile & Material Studies'
       },
@@ -254,7 +253,6 @@ const PROJECTS: Project[] = [
       {
         type: 'inspiration-garment1-silk-and-stone',
         title: 'Inspiration - 01',
-        subtitle: 'Silk & Stone · Garment 01',
         src: garment1InspirationLayoutHd,
         alt: 'Silk & Stone — Inspiration - 01 (Collage Layout)',
         paragraphs: [
@@ -266,7 +264,6 @@ const PROJECTS: Project[] = [
       {
         type: 'inspiration-garment2-silk-and-stone',
         title: 'Inspiration - 02',
-        subtitle: 'Silk & Stone · Garment 02',
         src: garment2InspirationLayoutHd,
         alt: 'Silk & Stone — Inspiration - 02 (Collage Layout)',
         paragraphs: [
@@ -277,7 +274,6 @@ const PROJECTS: Project[] = [
       {
         type: 'inspiration-garment3-silk-and-stone',
         title: 'Inspiration - 03',
-        subtitle: 'Silk & Stone · Garment 03',
         src: garment3InspirationLayoutHd,
         alt: 'Silk & Stone — Inspiration - 03 (Collage Layout)',
         paragraphs: [
@@ -313,28 +309,23 @@ const PROJECTS: Project[] = [
       },
       {
         type: 'moodboard-1941',
-        title: 'Mood Board',
-        subtitle: "1941 · Sprezzatura & Architectural Heritage"
+        title: 'Mood Board'
       },
       {
         type: 'inspiration-1941',
-        title: 'Inspiration Board',
-        subtitle: "1941 · Sartorial Mystery & British Tailoring"
+        title: 'Inspiration Board'
       },
       {
         type: 'development-1941',
-        title: 'Development Board',
-        subtitle: "1941 · Craftsmanship & Tailoring Process"
+        title: 'Development Board'
       },
       {
         type: 'photography-1941',
-        title: 'Photography Inspiration',
-        subtitle: "1941 · Light, Shadow & Editorial Posture"
+        title: 'Photography Inspiration'
       },
       {
         type: 'lookbook-1941',
-        title: 'Editorial Lookbook',
-        subtitle: "1941 · The Bespoke Collection & Garment Shoot"
+        title: 'Editorial Lookbook'
       }
     ]
   },
@@ -1596,16 +1587,11 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
               if (page.type === 'swatchboard-silk-and-stone') {
                 return (
                   <div key={`swatch-silk-stone-${i}`} className="relative flex flex-col w-full px-0 sm:px-2 py-6 sm:py-12 items-center">
-                    {/* Header: SILK & STONE / SWATCH BOARD */}
+                    {/* Header: SWATCH BOARD */}
                     <div className="flex flex-col items-center mb-6 sm:mb-10 text-center">
                       <h2 className="font-avonia font-normal text-4xl sm:text-6xl text-center uppercase tracking-widest text-[#FFA7E4] leading-tight drop-shadow-md">
-                        {page.title || 'Silk & Stone'}
+                        {page.title || 'Swatch Board'}
                       </h2>
-                      {page.subtitle && (
-                        <span className="text-xs sm:text-sm md:text-base font-serif font-normal tracking-[0.35em] uppercase text-[#FFA7E4] mt-2 sm:mt-3 drop-shadow-sm">
-                          {page.subtitle}
-                        </span>
-                      )}
                     </div>
 
                     {/* Swatch Board Presentation - Floating without black background, Ultra-HD */}
@@ -1802,11 +1788,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`mb-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
-                      {page.subtitle && (
-                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
-                          {page.subtitle}
-                        </span>
-                      )}
                       {page.title && (
                         <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
@@ -1926,11 +1907,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`insp-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
-                      {page.subtitle && (
-                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
-                          {page.subtitle}
-                        </span>
-                      )}
                       {page.title && (
                         <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
@@ -2065,11 +2041,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`dev-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
-                      {page.subtitle && (
-                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
-                          {page.subtitle}
-                        </span>
-                      )}
                       {page.title && (
                         <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
@@ -2204,11 +2175,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`photo-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
-                      {page.subtitle && (
-                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
-                          {page.subtitle}
-                        </span>
-                      )}
                       {page.title && (
                         <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
@@ -2313,11 +2279,6 @@ const ProjectViewer: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 return (
                   <div key={`lookbook-1941-${i}`} className="relative flex flex-col w-full px-2 sm:px-0 pt-4 sm:pt-8 pb-4 sm:pb-8">
                     <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
-                      {page.subtitle && (
-                        <span className="text-sm sm:text-base md:text-lg font-mono tracking-[0.35em] uppercase font-bold text-[#0B2240] mb-6 sm:mb-8">
-                          {page.subtitle}
-                        </span>
-                      )}
                       {page.title && (
                         <h2 className="font-avonia font-normal text-5xl sm:text-7xl md:text-8xl text-center uppercase tracking-widest text-[#0B2240] pt-2 pb-2 leading-tight drop-shadow-sm">
                           {page.title}
